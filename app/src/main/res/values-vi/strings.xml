@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmbientDeck</string>
+    <string name="refresh_data">Làm mới dữ liệu</string>
+    <string name="deck_settings">Cài đặt màn hình</string>
+    <string name="location_icon">Vị trí</string>
+    <string name="ambient_art_by">%1$s • Ảnh bởi %2$s</string>
+
+    <string name="splash_title">AmbientDeck</string>
+    <string name="splash_subtitle">Màn hình thông minh Smart TV &amp; Kiosk</string>
+    <string name="splash_loading">Đang khởi tạo nguồn dữ liệu và viễn trắc...</string>
+
+    <string name="weather_aqi_title">Khí quyển &amp; Thời tiết Open-Meteo</string>
+    <string name="aqi_format">AQI %1$d • %2$s</string>
+    <string name="loading_weather">Đang tải dữ liệu thời tiết và chất lượng không khí...</string>
+    <string name="humidity_format">Độ ẩm %1$d%%</string>
+    <string name="wind_format">Gió %1$.0f %2$s</string>
+    <string name="temp_high_low">Cao: %1$.0f° • Thấp: %2$.0f°</string>
+    <string name="click_for_7day">Xem dự báo 7 ngày →</string>
+
+    <string name="radar_title">Radar chuyến bay trực tiếp OpenSky</string>
+    <string name="aircraft_active_format">%1$d máy bay hoạt động</string>
+    <string name="radar_scanning">Đang quét vùng trời khu vực...</string>
+    <string name="click_inspect_flights">Kiểm tra chuyến bay trên không →</string>
+    <string name="altitude_label">ĐỘ CAO</string>
+    <string name="groundspeed_label">TỐC ĐỘ ĐẤT</string>
+    <string name="heading_label">HƯỚNG BAY</string>
+    <string name="radar_icon_desc">Radar</string>
+    <string name="flight_icon_desc">Chuyến bay</string>
+
+    <string name="crypto_title">Bảng giá 24h Binance</string>
+    <string name="streaming_realtime">Truyền phát thời gian thực</string>
+    <string name="crypto_icon_desc">Tiền điện tử</string>
+
+    <string name="history_title">MuffinLabs • Ngày này năm xưa</string>
+    <string name="history_count_format">%1$d / %2$d</string>
+    <string name="history_retrieving">Đang tải các sự kiện lịch sử hôm nay...</string>
+    <string name="click_read_full_timeline">Đọc toàn bộ dòng thời gian →</string>
+    <string name="previous_event">Sự kiện trước</string>
+    <string name="next_event">Sự kiện tiếp</string>
+
+    <string name="settings_title">Cài đặt AmbientDeck</string>
+    <string name="settings_subtitle">Tùy chỉnh cho TV, màn hình tường &amp; Kiosk</string>
+    <string name="close">Đóng</string>
+    <string name="sec_location_title">TRUNG TÂM ĐỊA LÝ (THỜI TIẾT &amp; RADAR BAY)</string>
+    <string name="show_custom_gps">▼ Nhập tọa độ GPS tùy chỉnh (vĩ độ / kinh độ)</string>
+    <string name="hide_custom_gps">▲ Ẩn nhập tọa độ GPS tùy chỉnh</string>
+    <string name="city_location_name">Tên thành phố / địa điểm</string>
+    <string name="latitude">Vĩ độ</string>
+    <string name="longitude">Kinh độ</string>
+    <string name="apply_custom_coords">Áp dụng tọa độ</string>
+    <string name="sec_layout_title">BỐ CỤC BẢNG ĐIỀU KHIỂN</string>
+    <string name="sec_art_title">BỘ SƯU TẬP TRANH 4K &amp; HÌNH NỀN</string>
+    <string name="sec_units_title">ĐƠN VỊ ĐO &amp; VIỄN TRẮC</string>
+    <string name="temperature">Nhiệt độ</string>
+    <string name="wind_speed">Gió &amp; Tốc độ</string>
+    <string name="flight_altitude">Độ cao bay</string>
+    <string name="celsius_label">Độ C (°C)</string>
+    <string name="fahrenheit_label">Độ F (°F)</string>
+    <string name="mph_label">Dặm/h (mph)</string>
+    <string name="kmh_label">Km/h</string>
+    <string name="feet_label">Feet (ft)</string>
+    <string name="meters_label">Mét (m)</string>
+    <string name="sec_widgets_title">MÔ-ĐUN HOẠT ĐỘNG &amp; BẢO VỆ OLED</string>
+    <string name="widget_weather_label">Thời tiết &amp; AQI Open-Meteo</string>
+    <string name="widget_crypto_label">Dải giá tiền số Binance</string>
+    <string name="widget_radar_label">Radar bay trực tiếp OpenSky</string>
+    <string name="widget_history_label">MuffinLabs Lịch sử hôm nay</string>
+    <string name="widget_burnin_label">Chống lưu ảnh màn hình OLED (Dịch ±2px mỗi 2 phút)</string>
+    <string name="sec_engagement_title">TRẢI NGHIỆM &amp; HỖ TRỢ</string>
+    <string name="action_rate_app">Đánh giá AmbientDeck</string>
+    <string name="action_share_app">Chia sẻ với bạn bè</string>
+    <string name="action_check_update">Kiểm tra bản cập nhật</string>
+    <string name="action_privacy_policy">Chính sách bảo mật</string>
+    <string name="apply_return_dashboard">Áp dụng &amp; quay lại bảng</string>
+
+    <string name="weather_detail_title">Dự báo khí quyển &amp; chất lượng không khí 7 ngày</string>
+    <string name="radar_detail_title">Danh sách chuyến bay trên không (%1$d đang theo dõi)</string>
+    <string name="crypto_detail_title">Độ sâu thị trường tiền số (Binance)</string>
+    <string name="history_detail_title">Lưu trữ ngày này trong lịch sử</string>
+    <string name="air_quality_telemetry">VIỄN TRẮC CHẤT LƯỢNG KHÔNG KHÍ &amp; BỤI MỊN</string>
+    <string name="us_aqi">AQI Hoa Kỳ</string>
+    <string name="eu_aqi">AQI Châu Âu</string>
+    <string name="pm25_particles">Bụi mịn PM2.5</string>
+    <string name="pm10_particles">Bụi mịn PM10</string>
+    <string name="outlook_7day">TRIỂN VỌNG 7 NGÀY</string>
+    <string name="speed_label">TỐC ĐỘ</string>
+
+    <string name="next_wallpaper">Hình nền tiếp theo</string>
+    <string name="switch_layout">Đổi bố cục</string>
+    <string name="aqi_good">Tốt</string>
+    <string name="aqi_moderate">Trung bình</string>
+    <string name="aqi_sensitive">Nhạy cảm</string>
+    <string name="aqi_unhealthy">Không tốt</string>
+
+    <string name="layout_cinematic_name">Tường điện ảnh</string>
+    <string name="layout_cinematic_desc">Nền nghệ thuật 4K với các tiện ích kính mờ lơ lửng</string>
+    <string name="layout_grid_name">Kiosk đa bảng</string>
+    <string name="layout_grid_desc">Lưới hiển thị đồng thời toàn bộ dữ liệu sắc nét</string>
+    <string name="layout_zen_name">Đồng hồ Zen tối giản</string>
+    <string name="layout_zen_desc">Đồng hồ chữ số lớn tối giản kèm thông tin thời tiết nhẹ</string>
+
+    <string name="art_scenic">Phong cảnh thiên nhiên</string>
+    <string name="art_cyber">Cyberpunk &amp; Ánh sáng đêm</string>
+    <string name="art_space">Vũ trụ &amp; Thiên văn</string>
+    <string name="art_architecture">Kiến trúc hiện đại</string>
+    <string name="art_fine_art">Mỹ thuật &amp; Bảo tàng</string>
+
+    <string name="updated_at">Cập nhật lúc %1$s</string>
+    <string name="just_now">Vừa xong</string>
+
+    <string name="rate_dialog_title">Bạn có thích AmbientDeck?</string>
+    <string name="rate_dialog_desc">Nếu AmbientDeck làm đẹp cho phòng khách hoặc màn hình của bạn, một đánh giá trên Google Play sẽ là động lực rất lớn cho chúng tôi!</string>
+    <string name="rate_now">Đánh giá trên Google Play</string>
+    <string name="rate_never">Không hỏi lại</string>
+    <string name="remind_later">Nhắc tôi sau</string>
+    <string name="update_dialog_title">Đã có bản cập nhật mới</string>
+    <string name="update_dialog_desc">Phiên bản mới với hiệu năng tối ưu và bổ sung thêm các bộ sưu tập tranh 4K sắc nét đã sẵn sàng.</string>
+    <string name="update_now">Cập nhật ngay</string>
+    <string name="share_dialog_title">Chia sẻ AmbientDeck</string>
+    <string name="share_dialog_desc">Bạn có người thân hoặc bạn bè muốn biến màn hình TV hay tablet thành bảng thông tin sang trọng không? Hãy chia sẻ ngay!</string>
+    <string name="share_now">Chia sẻ AmbientDeck</string>
+    <string name="maybe_later">Để sau</string>
+    <string name="share_subject">AmbientDeck: Màn hình thông minh Smart TV &amp; Kiosk</string>
+    <string name="share_body">Trải nghiệm ngay AmbientDeck! Biến TV và tablet của bạn thành trung tâm điều khiển sang trọng với tranh 4K, thời tiết, giá tiền số và radar chuyến bay: %1$s</string>
+
+    <string name="privacy_policy">Chính sách bảo mật</string>
+    <string name="privacy_policy_title">Chính sách dữ liệu và bảo mật</string>
+    <string name="privacy_policy_content">AmbientDeck được thiết kế với sự tôn trọng tuyệt đối quyền riêng tư. Chúng tôi không thu thập, không lưu trữ, không theo dõi và không chia sẻ bất kỳ thông tin cá nhân hay định danh thiết bị nào. Dữ liệu thời tiết được truy vấn ẩn danh qua Open-Meteo. Dữ liệu chuyến bay từ OpenSky công khai. Tỷ giá tiền số lấy trực tiếp từ Binance. Mọi cài đặt của bạn lưu trữ duy nhất trên thiết bị.</string>
+    <string name="privacy_policy_ok">Đã hiểu</string>
+</resources>

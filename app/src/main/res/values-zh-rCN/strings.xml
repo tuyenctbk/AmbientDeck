@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmbientDeck</string>
+    <string name="refresh_data">刷新数据</string>
+    <string name="deck_settings">仪表盘设置</string>
+    <string name="location_icon">地理位置</string>
+    <string name="ambient_art_by">%1$s • 摄影：%2$s</string>
+
+    <string name="splash_title">AmbientDeck</string>
+    <string name="splash_subtitle">智能电视与信息屏智能壁面</string>
+    <string name="splash_loading">正在初始化实时数据源与遥测...</string>
+
+    <string name="weather_aqi_title">Open-Meteo 气象与空气环境</string>
+    <string name="aqi_format">AQI %1$d • %2$s</string>
+    <string name="loading_weather">正在加载天气与空气质量数据...</string>
+    <string name="humidity_format">湿度 %1$d%%</string>
+    <string name="wind_format">风速 %1$.0f %2$s</string>
+    <string name="temp_high_low">高: %1$.0f° • 低: %2$.0f°</string>
+    <string name="click_for_7day">查看 7 日天气预报 →</string>
+
+    <string name="radar_title">OpenSky 实时头顶空域雷达</string>
+    <string name="aircraft_active_format">%1$d 架航班活跃</string>
+    <string name="radar_scanning">正在扫描区域上空空域...</string>
+    <string name="click_inspect_flights">查看空域航班详情 →</string>
+    <string name="altitude_label">飞行高度</string>
+    <string name="groundspeed_label">地速</string>
+    <string name="heading_label">航向</string>
+    <string name="radar_icon_desc">雷达</string>
+    <string name="flight_icon_desc">航班</string>
+
+    <string name="crypto_title">币安 24小时行情</string>
+    <string name="streaming_realtime">实时流式传输</string>
+    <string name="crypto_icon_desc">加密货币</string>
+
+    <string name="history_title">MuffinLabs • 历史上的今天</string>
+    <string name="history_count_format">第 %1$d / %2$d 项</string>
+    <string name="history_retrieving">正在检索今日历史里程碑...</string>
+    <string name="click_read_full_timeline">查看完整历史时间线 →</string>
+    <string name="previous_event">上一条</string>
+    <string name="next_event">下一条</string>
+
+    <string name="settings_title">AmbientDeck 设置</string>
+    <string name="settings_subtitle">专为智能电视、壁挂大屏与展屏定制</string>
+    <string name="close">关闭</string>
+    <string name="sec_location_title">地理枢纽（天气与航班雷达）</string>
+    <string name="show_custom_gps">▼ 自定义输入 GPS 经纬度坐标</string>
+    <string name="hide_custom_gps">▲ 收起自定义 GPS 坐标输入</string>
+    <string name="city_location_name">城市 / 坐标名称</string>
+    <string name="latitude">纬度</string>
+    <string name="longitude">经度</string>
+    <string name="apply_custom_coords">应用自定义坐标</string>
+    <string name="sec_layout_title">仪表盘布局模式</string>
+    <string name="sec_art_title">4K 艺术与壁纸策展</string>
+    <string name="sec_units_title">计量单位与遥测</string>
+    <string name="temperature">气温单位</string>
+    <string name="wind_speed">风速单位</string>
+    <string name="flight_altitude">飞行高度单位</string>
+    <string name="celsius_label">摄氏度 (°C)</string>
+    <string name="fahrenheit_label">华氏度 (°F)</string>
+    <string name="mph_label">英里/小时 (mph)</string>
+    <string name="kmh_label">公里/小时 (km/h)</string>
+    <string name="feet_label">英尺 (ft)</string>
+    <string name="meters_label">米 (m)</string>
+    <string name="sec_widgets_title">组件开关与 OLED 防烧屏</string>
+    <string name="widget_weather_label">Open-Meteo 天气与空气质量</string>
+    <string name="widget_crypto_label">币安加密货币实时行情带</string>
+    <string name="widget_radar_label">OpenSky 实时头顶航班雷达</string>
+    <string name="widget_history_label">MuffinLabs 历史上的今天</string>
+    <string name="widget_burnin_label">OLED 防烧屏像素漂移 (每2分钟±2像素)</string>
+    <string name="sec_engagement_title">应用体验与支持</string>
+    <string name="action_rate_app">为 AmbientDeck 评分</string>
+    <string name="action_share_app">分享给朋友</string>
+    <string name="action_check_update">检查新版本更新</string>
+    <string name="action_privacy_policy">隐私保护政策</string>
+    <string name="apply_return_dashboard">应用并返回仪表盘</string>
+
+    <string name="weather_detail_title">7 日大气与空气质量预报</string>
+    <string name="radar_detail_title">头顶实时航班清单（已追踪 %1$d 架）</string>
+    <string name="crypto_detail_title">加密资产市场深度（币安）</string>
+    <string name="history_detail_title">历史上的今天 档案库</string>
+    <string name="air_quality_telemetry">空气质量与微尘指标遥测</string>
+    <string name="us_aqi">美国 AQI</string>
+    <string name="eu_aqi">欧洲 AQI</string>
+    <string name="pm25_particles">PM2.5 颗粒物</string>
+    <string name="pm10_particles">PM10 颗粒物</string>
+    <string name="outlook_7day">7 日天气展望</string>
+    <string name="speed_label">速度</string>
+
+    <string name="next_wallpaper">下一张壁纸</string>
+    <string name="switch_layout">切换布局</string>
+    <string name="aqi_good">优</string>
+    <string name="aqi_moderate">良</string>
+    <string name="aqi_sensitive">敏感人群慎行</string>
+    <string name="aqi_unhealthy">不健康</string>
+
+    <string name="layout_cinematic_name">影院级巨幕</string>
+    <string name="layout_cinematic_desc">4K 艺术大底图配合悬浮拟态玻璃组件</string>
+    <string name="layout_grid_name">信息屏多面板</string>
+    <string name="layout_grid_desc">紧凑规整网格，一次性呈现全量数据流</string>
+    <string name="layout_zen_name">极简 Zen 时钟</string>
+    <string name="layout_zen_desc">大字排版数字时钟与柔和微缩天气</string>
+
+    <string name="art_scenic">大自然风光</string>
+    <string name="art_cyber">赛博朋克与都市霓虹</string>
+    <string name="art_space">深空宇宙与天文摄影</string>
+    <string name="art_architecture">现代建筑美学</string>
+    <string name="art_fine_art">博物馆艺术名作</string>
+
+    <string name="updated_at">更新于 %1$s</string>
+    <string name="just_now">刚刚</string>
+
+    <string name="rate_dialog_title">喜欢 AmbientDeck 吗？</string>
+    <string name="rate_dialog_desc">如果 AmbientDeck 让您的电视或房间大屏更加精致美观，在 Google Play 留下好评将是对我们最大的鼓励！</string>
+    <string name="rate_now">前往 Google Play 评分</string>
+    <string name="rate_never">不再提示</string>
+    <string name="remind_later">稍后提醒我</string>
+    <string name="update_dialog_title">发现新版本</string>
+    <string name="update_dialog_desc">新版本包含性能优化和全新挑选的 4K 艺术壁纸系列。</string>
+    <string name="update_now">立即更新</string>
+    <string name="share_dialog_title">分享 AmbientDeck</string>
+    <string name="share_dialog_desc">身边有想把闲置电视或平板变成高格调氛围大屏的朋友吗？快将 AmbientDeck 分享给他们！</string>
+    <string name="share_now">立即分享 AmbientDeck</string>
+    <string name="maybe_later">暂不分享</string>
+    <string name="share_subject">AmbientDeck: 智能电视与信息屏智能壁面</string>
+    <string name="share_body">快来看看 AmbientDeck！让客厅电视和平板秒变奢华氛围大屏，实时呈现4K艺术、气象、币价与飞机雷达: %1$s</string>
+
+    <string name="privacy_policy">隐私政策</string>
+    <string name="privacy_policy_title">隐私与数据安全政策</string>
+    <string name="privacy_policy_content">AmbientDeck 秉持纯净安全理念。我们不收集、不存储、不追踪亦不向第三方出售任何个人身份或设备特征。天气数据根据您选择的坐标从 Open-Meteo 匿名获取；航班信息基于 OpenSky 公共空域；加密货币行情直接连接币安公开接口。所有偏好完全保存在您的本地设备上。</string>
+    <string name="privacy_policy_ok">我知道了</string>
+</resources>

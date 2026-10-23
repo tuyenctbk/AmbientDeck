@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmbientDeck</string>
+    <string name="refresh_data">데이터 새로고침</string>
+    <string name="deck_settings">화면 설정</string>
+    <string name="location_icon">위치</string>
+    <string name="ambient_art_by">%1$s • 사진: %2$s</string>
+
+    <string name="splash_title">AmbientDeck</string>
+    <string name="splash_subtitle">스마트 TV &amp; 키오스크 앰비언트 월</string>
+    <string name="splash_loading">실시간 피드 및 원격 데이터 초기화 중...</string>
+
+    <string name="weather_aqi_title">Open-Meteo 기상 및 대기 정보</string>
+    <string name="aqi_format">AQI %1$d • %2$s</string>
+    <string name="loading_weather">날씨 및 대기 데이터를 불러오는 중...</string>
+    <string name="humidity_format">습도 %1$d%%</string>
+    <string name="wind_format">풍속 %1$.0f %2$s</string>
+    <string name="temp_high_low">최고: %1$.0f° • 최저: %2$.0f°</string>
+    <string name="click_for_7day">7일 예보 확인하기 →</string>
+
+    <string name="radar_title">OpenSky 상공 실시간 레이더</string>
+    <string name="aircraft_active_format">비행 중 항공기 %1$d대</string>
+    <string name="radar_scanning">주변 공역을 스캔하는 중...</string>
+    <string name="click_inspect_flights">공역 비행편 자세히 보기 →</string>
+    <string name="altitude_label">고도</string>
+    <string name="groundspeed_label">대지속도</string>
+    <string name="heading_label">방위</string>
+    <string name="radar_icon_desc">레이더</string>
+    <string name="flight_icon_desc">항공편</string>
+
+    <string name="crypto_title">Binance 24시간 시세 티커</string>
+    <string name="streaming_realtime">실시간 스트리밍</string>
+    <string name="crypto_icon_desc">가상자산</string>
+
+    <string name="history_title">MuffinLabs • 오늘의 역사</string>
+    <string name="history_count_format">%2$d개 중 %1$d번째</string>
+    <string name="history_retrieving">오늘의 역사적 사건을 불러오는 중...</string>
+    <string name="click_read_full_timeline">전체 타임라인 보기 →</string>
+    <string name="previous_event">이전 사건</string>
+    <string name="next_event">다음 사건</string>
+
+    <string name="settings_title">AmbientDeck 설정</string>
+    <string name="settings_subtitle">TV, 벽면 디스플레이 및 키오스크 맞춤 설정</string>
+    <string name="close">닫기</string>
+    <string name="sec_location_title">지리 위치 허브 (날씨 및 항공 레이더)</string>
+    <string name="show_custom_gps">▼ 직접 GPS 좌표 입력 (위도 / 경도)</string>
+    <string name="hide_custom_gps">▲ GPS 좌표 직접 입력 닫기</string>
+    <string name="city_location_name">도시 / 위치 명칭</string>
+    <string name="latitude">위도</string>
+    <string name="longitude">경도</string>
+    <string name="apply_custom_coords">좌표 적용</string>
+    <string name="sec_layout_title">대시보드 레이아웃 모드</string>
+    <string name="sec_art_title">4K 예술 &amp; 배경화면 컬렉션</string>
+    <string name="sec_units_title">단위 및 텔레메트리</string>
+    <string name="temperature">기온 단위</string>
+    <string name="wind_speed">풍속 단위</string>
+    <string name="flight_altitude">비행 고도 단위</string>
+    <string name="celsius_label">섭씨 (°C)</string>
+    <string name="fahrenheit_label">화씨 (°F)</string>
+    <string name="mph_label">마일/시 (mph)</string>
+    <string name="kmh_label">킬로미터/시 (km/h)</string>
+    <string name="feet_label">피트 (ft)</string>
+    <string name="meters_label">미터 (m)</string>
+    <string name="sec_widgets_title">활성 위젯 및 OLED 번인 방지</string>
+    <string name="widget_weather_label">Open-Meteo 날씨 &amp; AQI</string>
+    <string name="widget_crypto_label">Binance 가상자산 티커</string>
+    <string name="widget_radar_label">OpenSky 실시간 항공 레이더</string>
+    <string name="widget_history_label">MuffinLabs 오늘의 역사</string>
+    <string name="widget_burnin_label">OLED 번인 방지 픽셀 이동 (2분마다 ±2px)</string>
+    <string name="sec_engagement_title">앱 정보 및 지원</string>
+    <string name="action_rate_app">AmbientDeck 평가하기</string>
+    <string name="action_share_app">친구와 공유하기</string>
+    <string name="action_check_update">업데이트 확인</string>
+    <string name="action_privacy_policy">개인정보 처리방침</string>
+    <string name="apply_return_dashboard">설정 적용 후 복귀</string>
+
+    <string name="weather_detail_title">7일간 기상 및 대기질 상세 예보</string>
+    <string name="radar_detail_title">상공 비행 항공기 목록 (%1$d대 추적 중)</string>
+    <string name="crypto_detail_title">가상자산 시장 심도 (Binance)</string>
+    <string name="history_detail_title">오늘의 역사적 순간 아카이브</string>
+    <string name="air_quality_telemetry">대기질 및 미세먼지 측정 데이터</string>
+    <string name="us_aqi">미국 AQI</string>
+    <string name="eu_aqi">유럽 AQI</string>
+    <string name="pm25_particles">초미세먼지 PM2.5</string>
+    <string name="pm10_particles">미세먼지 PM10</string>
+    <string name="outlook_7day">7일간 날씨 전망</string>
+    <string name="speed_label">속도</string>
+
+    <string name="next_wallpaper">다음 배경</string>
+    <string name="switch_layout">레이아웃 변경</string>
+    <string name="aqi_good">좋음</string>
+    <string name="aqi_moderate">보통</string>
+    <string name="aqi_sensitive">민감군 주의</string>
+    <string name="aqi_unhealthy">나쁨</string>
+
+    <string name="layout_cinematic_name">시네마틱 월</string>
+    <string name="layout_cinematic_desc">4K 예술 배경과 우아한 반투명 글래스 위젯</string>
+    <string name="layout_grid_name">키오스크 멀티패널</string>
+    <string name="layout_grid_desc">모든 데이터를 한눈에 확인하는 고밀도 그리드</string>
+    <string name="layout_zen_name">젠 미니멀 시계</string>
+    <string name="layout_zen_desc">거대한 타이포그래피 시계와 절제된 날씨</string>
+
+    <string name="art_scenic">자연 풍경</string>
+    <string name="art_cyber">사이버펑크 &amp; 야경</string>
+    <string name="art_space">우주 &amp; 천체사진</string>
+    <string name="art_architecture">현대 건축</string>
+    <string name="art_fine_art">미술관 &amp; 순수 예술</string>
+
+    <string name="updated_at">%1$s 업데이트됨</string>
+    <string name="just_now">방금 전</string>
+
+    <string name="rate_dialog_title">AmbientDeck이 마음에 드시나요?</string>
+    <string name="rate_dialog_desc">AmbientDeck이 거실이나 업무 공간을 멋지게 채워주고 있다면, Google Play에 소중한 별점을 남겨주세요!</string>
+    <string name="rate_now">Google Play에서 평가하기</string>
+    <string name="rate_never">다시 묻지 않음</string>
+    <string name="remind_later">나중에 알림</string>
+    <string name="update_dialog_title">새 업데이트 출시</string>
+    <string name="update_dialog_desc">성능 향상 및 새로운 4K 컬렉션이 포함된 최신 버전이 준비되었습니다.</string>
+    <string name="update_now">지금 업데이트</string>
+    <string name="share_dialog_title">AmbientDeck 공유하기</string>
+    <string name="share_dialog_desc">놀고 있는 스마트 TV나 태블릿을 멋진 앰비언트 화면으로 바꿀 수 있는 AmbientDeck을 친구에게 알려주세요!</string>
+    <string name="share_now">AmbientDeck 공유</string>
+    <string name="maybe_later">나중에</string>
+    <string name="share_subject">AmbientDeck: 스마트 TV &amp; 키오스크 앰비언트 월</string>
+    <string name="share_body">AmbientDeck을 만나보세요! 스마트 TV와 태블릿이 4K 예술, 실시간 날씨, 가상자산 시세, 상공 비행 레이더가 담긴 앰비언트 화면으로 변신합니다: %1$s</string>
+
+    <string name="privacy_policy">개인정보 처리방침</string>
+    <string name="privacy_policy_title">개인정보 및 데이터 정책</string>
+    <string name="privacy_policy_content">AmbientDeck은 철저한 프라이버시 보호를 원칙으로 합니다. 어떠한 개인정보나 기기 식별자도 수집, 저장, 추적 또는 외부로 전송하지 않습니다. 날씨 정보는 Open-Meteo를 통해 익명으로 가져오며, 항공 정보는 OpenSky 공개 데이터를 사용합니다. 코인 시세는 Binance 공개 API를 직접 호출합니다. 모든 사용자 설정은 기기에만 안전하게 보관됩니다.</string>
+    <string name="privacy_policy_ok">확인</string>
+</resources>

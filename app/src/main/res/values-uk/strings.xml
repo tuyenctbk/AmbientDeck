@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmbientDeck</string>
+    <string name="refresh_data">Оновити дані</string>
+    <string name="deck_settings">Налаштування панелі</string>
+    <string name="location_icon">Розташування</string>
+    <string name="ambient_art_by">%1$s • Фото: %2$s</string>
+
+    <string name="splash_title">AmbientDeck</string>
+    <string name="splash_subtitle">Панель для Smart TV та кіосків</string>
+    <string name="splash_loading">Ініціалізація прямих трансляцій та телеметрії...</string>
+
+    <string name="weather_aqi_title">Атмосфера Open-Meteo</string>
+    <string name="aqi_format">AQI %1$d • %2$s</string>
+    <string name="loading_weather">Завантаження погоди та атмосфери...</string>
+    <string name="humidity_format">%1$d%% вологість</string>
+    <string name="wind_format">%1$.0f %2$s вітер</string>
+    <string name="temp_high_low">Макс: %1$.0f° • Мін: %2$.0f°</string>
+    <string name="click_for_7day">Прогноз на 7 днів →</string>
+
+    <string name="radar_title">Повітряний радар OpenSky</string>
+    <string name="aircraft_active_format">%1$d літаків у повітрі</string>
+    <string name="radar_scanning">Сканування повітряного простору...</string>
+    <string name="click_inspect_flights">Переглянути рейси в небі →</string>
+    <string name="altitude_label">ВИСОТА</string>
+    <string name="groundspeed_label">ШВИДКІСТЬ</string>
+    <string name="heading_label">КУРС</string>
+    <string name="radar_icon_desc">Радар</string>
+    <string name="flight_icon_desc">Рейс</string>
+
+    <string name="crypto_title">Котирування Binance 24г</string>
+    <string name="streaming_realtime">Трансляція в реальному часі</string>
+    <string name="crypto_icon_desc">Крипта</string>
+
+    <string name="history_title">MuffinLabs • Цього дня в історії</string>
+    <string name="history_count_format">%1$d з %2$d</string>
+    <string name="history_retrieving">Отримання історичних подій цього дня...</string>
+    <string name="click_read_full_timeline">Читати всю хронологію →</string>
+    <string name="previous_event">Попередня подія</string>
+    <string name="next_event">Наступна подія</string>
+
+    <string name="settings_title">Налаштування AmbientDeck</string>
+    <string name="settings_subtitle">Персоналізація для TV, настінних дисплеїв і кіосків</string>
+    <string name="close">Закрити</string>
+    <string name="sec_location_title">ГЕОГРАФІЧНИЙ ХАБ (ПОГОДА ТА РАДАР)</string>
+    <string name="show_custom_gps">▼ Ввести власні координати GPS (широта / довгота)</string>
+    <string name="hide_custom_gps">▲ Приховати введення координат GPS</string>
+    <string name="city_location_name">Місто / Назва локації</string>
+    <string name="latitude">Широта</string>
+    <string name="longitude">Довгота</string>
+    <string name="apply_custom_coords">Застосувати координати</string>
+    <string name="sec_layout_title">РЕЖИМ МАКЕТА ПАНЕЛІ</string>
+    <string name="sec_art_title">4K-АРТ ТА КОЛЕКЦІЯ ШПАЛЕР</string>
+    <string name="sec_units_title">ОДИНИЦІ ТА ТЕЛЕМЕТРІЯ</string>
+    <string name="temperature">Температура</string>
+    <string name="wind_speed">Вітер і швидкість</string>
+    <string name="flight_altitude">Висота польоту</string>
+    <string name="celsius_label">Цельсій (°C)</string>
+    <string name="fahrenheit_label">Фаренгейт (°F)</string>
+    <string name="mph_label">Милі/год (mph)</string>
+    <string name="kmh_label">Км/год</string>
+    <string name="feet_label">Фути (ft)</string>
+    <string name="meters_label">Метри (m)</string>
+    <string name="sec_widgets_title">АКТИВНІ МОДУЛІ ТА ЗАХИСТ OLED</string>
+    <string name="widget_weather_label">Погода та AQI Open-Meteo</string>
+    <string name="widget_crypto_label">Криптострічка Binance</string>
+    <string name="widget_radar_label">Радар рейсів наживо OpenSky</string>
+    <string name="widget_history_label">MuffinLabs Історія сьогодні</string>
+    <string name="widget_burnin_label">Захист OLED від вигорання (зсув ±2px кожні 2 хв)</string>
+    <string name="sec_engagement_title">ДОСВІД ТА ПІДТРИМКА</string>
+    <string name="action_rate_app">Оцінити AmbientDeck</string>
+    <string name="action_share_app">Поділитися з друзями</string>
+    <string name="action_check_update">Перевірити оновлення</string>
+    <string name="action_privacy_policy">Політика конфіденційності</string>
+    <string name="apply_return_dashboard">Застосувати та повернутися</string>
+
+    <string name="weather_detail_title">Прогноз погоди та якості повітря на 7 днів</string>
+    <string name="radar_detail_title">Маніфест рейсів у повітрі (%1$d відстежується)</string>
+    <string name="crypto_detail_title">Глибина ринку криптовалют (Binance)</string>
+    <string name="history_detail_title">Архів подій цього дня в історії</string>
+    <string name="air_quality_telemetry">ТЕЛЕМЕТРІЯ ЯКОСТІ ПОВІТРЯ ТА ЧАСТИНОК</string>
+    <string name="us_aqi">US AQI</string>
+    <string name="eu_aqi">Європейський AQI</string>
+    <string name="pm25_particles">Частинки PM2.5</string>
+    <string name="pm10_particles">Частинки PM10</string>
+    <string name="outlook_7day">ПРОГНОЗ НА 7 ДНІВ</string>
+    <string name="speed_label">ШВИДКІСТЬ</string>
+
+    <string name="next_wallpaper">Наступні шпалери</string>
+    <string name="switch_layout">Змінити макет</string>
+    <string name="aqi_good">Добре</string>
+    <string name="aqi_moderate">Помірне</string>
+    <string name="aqi_sensitive">Чутливе</string>
+    <string name="aqi_unhealthy">Шкідливе</string>
+
+    <string name="layout_cinematic_name">Кінематографічна стіна</string>
+    <string name="layout_cinematic_desc">4K-арт фон із плаваючими скляними віджетами</string>
+    <string name="layout_grid_name">Багатопанельний кіоск</string>
+    <string name="layout_grid_desc">Впорядкована сітка з усіма даними одночасно</string>
+    <string name="layout_zen_name">Дзен-годинник Мінімал</string>
+    <string name="layout_zen_desc">Великий мінімалістичний годинник і спокійна погода</string>
+
+    <string name="art_scenic">Мальовничі пейзажі</string>
+    <string name="art_cyber">Кіберпанк та нічні вогні</string>
+    <string name="art_space">Космос та астрофотографія</string>
+    <string name="art_architecture">Сучасна архітектура</string>
+    <string name="art_fine_art">Образотворче мистецтво та музеї</string>
+
+    <string name="updated_at">Оновлено о %1$s</string>
+    <string name="just_now">Щойно</string>
+
+    <string name="rate_dialog_title">Подобається AmbientDeck?</string>
+    <string name="rate_dialog_desc">Якщо AmbientDeck прикрашає вашу кімнату чи екран, оцінка в Google Play стане для нас найкращою нагородою!</string>
+    <string name="rate_now">Оцінити в Google Play</string>
+    <string name="rate_never">Більше не запитувати</string>
+    <string name="remind_later">Нагадати пізніше</string>
+    <string name="update_dialog_title">Доступне оновлення</string>
+    <string name="update_dialog_desc">Нова версія з покращеною швидкодією та новими 4K-колекціями готова до використання.</string>
+    <string name="update_now">Оновити зараз</string>
+    <string name="share_dialog_title">Поділитися AmbientDeck</string>
+    <string name="share_dialog_desc">Знаєте тих, хто хотів би перетворити телевізор на елегантну інформаційну панель? Поділіться!</string>
+    <string name="share_now">Поділитися AmbientDeck</string>
+    <string name="maybe_later">Можливо пізніше</string>
+    <string name="share_subject">AmbientDeck: Панель для Smart TV та кіосків</string>
+    <string name="share_body">Спробуйте AmbientDeck! Перетворіть свій телевізор чи планшет на стильний командний центр із 4K-мистецтвом, погодою, криптою та радаром польотів: %1$s</string>
+
+    <string name="privacy_policy">Політика конфіденційності</string>
+    <string name="privacy_policy_title">Політика конфіденційності та даних</string>
+    <string name="privacy_policy_content">AmbientDeck створено з повною повагою до приватності. Ми не збираємо, не зберігаємо і не передаємо персональні дані або ідентифікатори пристрою. Погодні дані отримуються анонімно через Open-Meteo, польоти — з відкритих джерел OpenSky, а крипта — з Binance. Усі налаштування зберігаються виключно на вашому пристрої.</string>
+    <string name="privacy_policy_ok">Зрозуміло</string>
+</resources>

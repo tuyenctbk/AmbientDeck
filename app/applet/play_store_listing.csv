@@ -1,0 +1,287 @@
+Language,Language_Code,Title,Short_Description,Full_Description
+"English (US)","en-US","AmbientDeck: Smart TV Wall","Turn idle TV screens and kiosks into a modular 4K art and live info dashboard.","AmbientDeck turns idle Android TV screens, smart monitors, tablets, and kiosks into a sleek modular ambient dashboard. Designed specifically for living rooms, reception areas, and office walls, AmbientDeck brings continuous real-time information to life over curated 4K photography and artworks.
+
+KEY MODULES & REAL-TIME FEEDS:
+
+• Ambient Clock & Calendar: High-contrast digital time with live seconds, date, and sunrise/sunset horizon.
+• Open-Meteo Weather & Air Quality: Real-time temperature, condition badges, humidity, wind speed, and color-coded Air Quality Index (US and European AQI, PM2.5, PM10). Inspect the 7-day extended outlook with daily high and low forecasts.
+• OpenSky Overhead Flight Radar: Live circular radar HUD displaying aircraft currently flying in the airspace above your region. Track flight callsigns, country of origin, altitude, groundspeed, and heading angles.
+• Binance Cryptocurrency Ticker Tape: Streaming 24-hour prices, percentage gains and losses, and custom sparkline trend visualizers for Bitcoin, Ethereum, Solana, and top assets.
+• Today in History Trivia: Fascinating daily historical milestones and famous births from MuffinLabs and encyclopedia archives.
+• Curated 4K Ambient Canvas: Periodic wallpaper cross-fades featuring Scenic Nature, Cyberpunk Night Lights, Deep Space, Architecture, and Fine Art collections.
+
+DISPLAY & INPUT ADAPTABILITY:
+
+• 3 Modular Layout Modes:
+  1. Cinematic Wall: Floating frosted glass cards over rotating 4K wallpapers.
+  2. Kiosk Multi-Panel: Structured dense grid dashboard displaying all feeds simultaneously.
+  3. Zen Clock Minimal: Minimalist large typography clock and subtle ambient weather badge.
+• Dual Remote & Touch Navigation: Optimized for Android TV D-Pad remotes with luminous focus rings, as well as full touchscreen and mouse interaction for tablets and kiosks.
+• OLED Burn-in Protection: Periodic 2-pixel subtle drift mitigation to protect OLED and commercial displays during continuous ambient playback.
+• Geographic Hubs: Instant one-click presets for world metros (New York, London, Tokyo, Paris, San Francisco, Singapore, Sydney, Berlin, Dubai) plus custom latitude and longitude coordinates entry.
+• Privacy-First Architecture: Zero tracking, zero user accounts, zero personal data harvesting."
+"Spanish (Latin America)","es-419","AmbientDeck: Pantalla Smart TV","Convierte pantallas y quioscos en un panel modular con arte 4K e información.","AmbientDeck transforma pantallas de Android TV, monitores inteligentes, tabletas y quioscos en un elegante panel modular interactivo. Diseñado para salas de estar y oficinas, AmbientDeck presenta información en tiempo real sobre fondos fotográficos en 4K.
+
+MÓDULOS PRINCIPALES Y DATOS EN VIVO:
+• Reloj Ambiental y Calendario: Hora digital de alto contraste con segundero en vivo y fecha completa.
+• Clima y Calidad del Aire (Open-Meteo): Temperatura actual, humedad, viento y alertas de calidad del aire (AQI, PM2.5, PM10) con pronóstico extendido a 7 días.
+• Radar Aéreo en Vivo (OpenSky Network): Radar circular que rastrea aviones sobrevolando tu región con altitud, velocidad y rumbo.
+• Ticker Cripto (Binance): Cotizaciones en tiempo real, porcentajes de cambio de 24 horas y gráficos sparkline para Bitcoin, Ethereum y principales activos.
+• Hoy en la Historia: Hitos y efemérides históricas del día.
+• Galería 4K Curada: Transiciones suaves de fondos de naturaleza, espacio, arquitectura y arte clásico.
+
+ADAPTABILIDAD Y CONTROL:
+• 3 Diseños: Mural Cinemático, Cuadrícula Quiosco y Reloj Zen Minimalista.
+• Compatible con control remoto D-Pad de Android TV y pantallas táctiles.
+• Protección de pantalla OLED contra retención de imagen."
+"French","fr-FR","AmbientDeck: Écran Smart TV","Transformez vos écrans et bornes en tableau de bord 4K modulaire et vivant.","AmbientDeck transforme vos écrans Android TV, tablettes et bornes en un élégant tableau de bord d'ambiance modulaire. Idéal pour le salon ou le bureau, profitez d'informations en temps réel sur des fonds d'écran 4K soignés.
+
+MODULES PRINCIPAUX EN TEMPS RÉEL :
+• Horloge Ambiante : Affichage haute lisibilité avec secondes en direct et date complète.
+• Météo et Qualité de l'Air (Open-Meteo) : Température, humidité, vent et indice AQI détaillé avec prévisions sur 7 jours.
+• Radar Aérien en Direct (OpenSky) : Scanner radar affichant les avions survolant votre région en direct.
+• Marché Crypto (Binance) : Cours en direct et tendances sur 24 heures pour Bitcoin, Ethereum et altcoins.
+• Ce Jour dans l'Histoire : Événements marquants et naissances historiques du jour.
+• Fonds d'Écran 4K : Collections paysages, ville de nuit, espace et architecture.
+
+FONCTIONNALITÉS CLÉS :
+• 3 Modes d'Affichage : Mur Cinématique, Grille Borne et Horloge Zen Minimaliste.
+• Navigation fluide à la télécommande TV et au toucher.
+• Protection anti-marquage d'écran OLED."
+"German","de-DE","AmbientDeck: Smart TV Wall","Verwandeln Sie Bildschirme in ein elegantes 4K-Dashboard mit Live-Daten.","AmbientDeck verwandelt ungenutzte Android TV-Bildschirme, Tablets und Kiosk-Displays in ein elegantes modulares Informations-Dashboard.
+
+HAUPTFUNKTIONEN & ECHTZEIT-DATEN:
+• Ambient-Uhr & Datum: Große kontrastreiche Digitaluhr mit Live-Sekunden.
+• Wetter & Luftqualität (Open-Meteo): Temperatur, Wind, Luftfeuchtigkeit und AQI-Index mit 7-Tage-Vorhersage.
+• Live-Flugradar (OpenSky): Kreisrundes Radar mit Flugzeugen im regionalen Luftraum.
+• Krypto-Ticker (Binance): 24h-Preise und Trendkurven für Bitcoin, Ethereum und Top-Coins.
+• Heute in der Geschichte: Spannende historische Ereignisse des Tages.
+• 4K-Hintergründe: Wechselnde Landschafts-, Weltraum- und Architekturaufnahmen.
+
+STEUERUNG & ANPASSUNG:
+• 3 Layout-Modi: Kinoleinwand, Kiosk-Gitter und Zen-Minimalismus.
+• Optimiert für Fernbedienung (D-Pad) und Touchscreens.
+• OLED-Einbrennschutz für langlebige Displays."
+"Italian","it-IT","AmbientDeck: Smart TV Wall","Trasforma schermi e kiosk in un elegante cruscotto 4K con dati in tempo reale.","AmbientDeck trasforma televisori Android TV, tablet e kiosk in un cruscotto ambientale modulare di alta qualità visiva.
+
+CARATTERISTICHE PRINCIPALI:
+• Orologio Ambientale: Ora digitale ad alto contrasto con secondi in tempo reale e data.
+• Meteo e Qualità dell'Aria (Open-Meteo): Temperatura, umidità, vento e indice AQI con previsioni a 7 giorni.
+• Radar Aereo dal Vivo (OpenSky): Monitoraggio dei voli in tempo reale sopra la tua città.
+• Ticker Criptovalute (Binance): Prezzi in streaming e grafici a linea per Bitcoin ed Ethereum.
+• Oggi nella Storia: Fatti storici e compleanni celebri del giorno.
+• Sfondi Artistici 4K: Natura, spazio profondo, architettura e luci notturne.
+
+USABILITÀ:
+• 3 Layout: Parete Cinematografica, Griglia Kiosk e Orologio Zen.
+• Controllo remoto con telecomando TV e tocco."
+"Portuguese (Brazil)","pt-BR","AmbientDeck: Painel Smart TV","Transforme sua TV e quiosques em um painel modular de arte 4K e dados ao vivo.","AmbientDeck transforma telas ociosas de Android TV, monitores e quiosques em um sofisticado painel modular de informações e arte 4K.
+
+RECURSOS EM TEMPO REAL:
+• Relógio e Calendário: Horário digital nítido com segundos em tempo real.
+• Clima e Qualidade do Ar (Open-Meteo): Temperatura, sensação térmica, vento e índice AQI com previsão de 7 dias.
+• Radar Aéreo ao Vivo (OpenSky): Radar circular com aeronaves sobrevoando sua região em tempo real.
+• Ticker Cripto (Binance): Cotações de Bitcoin, Ethereum e altcoins com variação de 24 horas.
+• Hoje na História: Fatos históricos marcantes e curiosidades do dia.
+• Galeria 4K: Rotação suave de papéis de parede de alta definição.
+
+DESIGN E CONTROLE:
+• 3 Modos de Visualização: Parede Cinemática, Grade Kiosk e Relógio Zen.
+• Navegação com controle remoto D-Pad e toque.
+• Proteção contra burn-in em telas OLED."
+"Japanese","ja-JP","AmbientDeck: スマートTV壁紙","テレビや端末を美しい4Kアートとリアルタイム情報のダッシュボードに。","AmbientDeckは、Android TVやタブレットを洗練されたモジュラー型アンビエントダッシュボードに変身させます。
+
+主な機能：
+• アンビエント時計＆日付：秒単位のリアルタイム表示と見やすい日付。
+• 天気＆空気質指数（Open-Meteo）：気温、湿度、風速、AQI大気質と7日間予報。
+• 上空ライブフライトレーダー（OpenSky）：周辺の上空を飛ぶ航空機をリアルタイム表示。
+• 仮想通貨価格ティッカー（Binance）：BTC、ETHなどの24時間価格変動グラフ。
+• 今日の歴史トリビア：その日に起きた歴史的出来事。
+• 厳選4Kアート：自然風景、サイバーパンク、宇宙、近代建築の美しい壁紙。
+
+操作と表示：
+• シネマティック、グリッド、ミニマルZenの3モード。
+• TVリモコン操作およびタッチ操作に完全対応。
+• OLED焼き付き防止機能搭載。"
+"Korean","ko-KR","AmbientDeck: 스마트 TV 대시보드","스마트 TV와 키오스크를 4K 아트와 실시간 데이터 대시보드로 꾸며보세요.","AmbientDeck은 유휴 상태의 안드로이드 TV, 태블릿, 키오스크를 매력적인 모듈형 인포메이션 대시보드로 탈바꿈시킵니다.
+
+주요 기능:
+• 앰비언트 시계 및 날짜: 초 단위 실시간 표시 및 고대비 디지털 시계.
+• 날씨 및 공기질(Open-Meteo): 실시간 기온, 습도, 풍속, 미세먼지 AQI 지수 및 7일간 예보.
+• 상공 실시간 항공 레이더(OpenSky): 사용자 지역 상공의 비행기 위치, 고도, 속도 추적.
+• 암호화폐 시세 티커(Binance): 비트코인, 이더리움 등의 24시간 실시간 가격 및 변동률.
+• 오늘 일어난 역사: 오늘의 역사적 사건 및 인물 소개.
+• 4K 큐레이션 배경화면: 자연, 우주, 도시 야경, 건축 등 고화질 갤러리.
+
+편의 기능:
+• 3가지 레이아웃(시네마틱, 키오스크 그리드, 젠 미니멀).
+• TV 리모컨(D-Pad) 및 터치 완벽 지원.
+• OLED 번인 방지 픽셀 시프트."
+"Chinese (Simplified)","zh-CN","AmbientDeck: 智能电视墙","让闲置电视与平板化身为4K艺术背景与实时信息仪表盘。","AmbientDeck将闲置的安卓电视、平板电脑与智能显示屏打造成极具现代感的模块化环境仪表盘。
+
+核心实时功能：
+• 优雅数字时钟：秒级刷新、清晰日期与高对比度排版。
+• 实时天气与空气质量（Open-Meteo）：气温、湿度、风力与AQI指数，包含7天天气预报。
+• 头顶实时航班雷达（OpenSky）：扫描所在区域空域内的航班、航向、高度与速度。
+• 加密货币行情走势（Binance）：比特币、以太坊等热门资产24小时价格走势图。
+• 历史上的今天：每天更新的历史重要事件与名人生日。
+• 精选4K画质壁纸：自然风光、霓虹夜景、深空天体与现代建筑。
+
+适配与控制：
+• 3种布局模式：影院全景、综合展板、极简Zen禅意时钟。
+• 支持电视遥控器十字键导航与触摸屏交互。
+• 配备OLED屏幕防烧屏位移技术。"
+"Chinese (Traditional)","zh-TW","AmbientDeck: 智慧電視牆","讓電視與平板化身為4K藝術畫布與實時資訊儀表盤。","AmbientDeck將閒置的Android TV、平板與智慧螢幕打造成模組化環境儀表盤。
+
+核心功能：
+• 環境時鐘與日曆：精準秒級數字時鐘與日期。
+• 天氣與空氣品質（Open-Meteo）：氣溫、濕度、風速及AQI指數，提供7天預測。
+• 上空實時航班雷達（OpenSky）：雷達掃描區域內即時飛行航班與高度。
+• 加密貨幣即時行情（Binance）：比特幣、以太幣等24小時行情走勢。
+• 歷史上的今天：每日歷史大事件與紀念。
+• 4K精選壁紙輪播：自然山水、賽博夜景、宇宙星空與建築。
+
+操作支援：
+• 3種版面模式：影院模式、資訊網格、極簡模式。
+• 完美適配電視遙控器與觸控操作。
+• OLED螢幕烙印防護設計。"
+"Russian","ru-RU","AmbientDeck: ТВ Панель","Превратите телевизор в стильный 4K дашборд с погодой, криптой и радаром.","AmbientDeck превращает Android TV, планшеты и мониторы в стильный модульный информационный дашборд с 4K обоями.
+
+ОСНОВНЫЕ МОДУЛИ:
+• Часы и календарь: Цифровое время высокой четкости с секундной стрелкой.
+• Погода и качество воздуха (Open-Meteo): Температура, ветер, влажность, индекс AQI и прогноз на 7 дней.
+• Радар самолетов (OpenSky): Круговой радар самолетов над вашим регионом в реальном времени.
+• Крипто-тикеры (Binance): Котировки Bitcoin, Ethereum и топ-монет с графиками за 24 часа.
+• Этот день в истории: Главные исторические факты и события дня.
+• 4K галерея: Пейзажи, космос, ночные города и архитектура.
+
+УПРАВЛЕНИЕ:
+• 3 режима: Кинематографичный, Информационная сетка и Дзен-минимализм.
+• Управление пультом ТВ (D-Pad) и сенсорным экраном.
+• Защита от выгорания OLED-экранов."
+"Arabic","ar","AmbientDeck: شاشة التلفاز الذكية","حول شاشة التلفاز إلى لوحة معلومات مدمجة بدقة 4K وبيانات حية.","يحول تطبيق AmbientDeck شاشات Android TV والأجهزة اللوحية إلى لوحة تحكم عصرية متعددة الوظائف مع خلفيات 4K متحركة.
+
+الميزات الحية:
+• ساعة ذكية وتقويم: عرض رقمي دقيق بالثواني والتاريخ.
+• الطقس وجودة الهواء (Open-Meteo): درجات الحرارة والرطوبة والرياح ومؤشر جودة الهواء وتوقعات 7 أيام.
+• رادار الطائرات المباشر (OpenSky): رادار دائري يتتبع الطائرات المحلقة فوق مدينتك.
+• أسعار العملات الرقمية (Binance): أسعار بيتكوين وإيثريوم المباشرة خلال 24 ساعة.
+• حدث في مثل هذا اليوم: أهم الأحداث التاريخية اليومية.
+• خلفيات 4K مميزة: مناظر طبيعية، فضاء خارجي، ومعمار حديث.
+
+التحكم والعرض:
+• 3 أنماط عرض: سينمائي، شبكي، ومصغر.
+• تحكم كامل بجهاز التحكم عن بُعد (ريموت التلفاز) واللمس.
+• حماية شاشات OLED من الاحتراق."
+"Hindi","hi-IN","AmbientDeck: स्मार्ट टीवी वॉल","अपने टीवी और टैबलेट को 4K आर्ट और लाइव डेटा डैशबोर्ड में बदलें।","AmbientDeck आपके एंड्रॉइड टीवी और टैबलेट को एक खूबसूरत और आधुनिक डैशबोर्ड में बदल देता है।
+
+प्रमुख सुविधाएं:
+• डिजिटल घड़ी और कैलेंडर: सेकंड्स और तारीख के साथ स्पष्ट समय।
+• मौसम और वायु गुणवत्ता (Open-Meteo): तापमान, नमी, हवा की गति, AQI स्तर और 7 दिनों का मौसम।
+• लाइव फ्लाइट रडार (OpenSky): आपके क्षेत्र के ऊपर उड़ने वाले विमानों की लाइव स्थिति।
+• क्रिप्टो टिकर (Binance): बिटकॉइन, एथेरियम आदि के 24 घंटे के लाइव भाव और चार्ट।
+• आज का इतिहास: आज के दिन की प्रमुख ऐतिहासिक घटनाएं।
+• 4K वॉलपेपर: प्रकृति, अंतरिक्ष, आधुनिक वास्तुकला की सुंदर तस्वीरें।
+
+नियंत्रण और लेआउट:
+• 3 लेआउट विकल्प: सिनेमाई, ग्रिड और ज़ेन क्लॉक।
+• टीवी रिमोट और टचस्क्रीन दोनों के लिए अनुकूलित।
+• OLED बर्न-इन सुरक्षा तकनीक।"
+"Vietnamese","vi-VN","AmbientDeck: Màn hình TV Thông minh","Biến màn hình TV thành bảng điều khiển 4K với thời tiết, radar và tin tức.","AmbientDeck biến màn hình Android TV, máy tính bảng và màn hình kiosk thành bảng điều khiển thông minh sang trọng với hình nền 4K trực tiếp.
+
+TÍNH NĂNG NỔI BẬT:
+• Đồng hồ Ambient: Hiển thị thời gian độ tương phản cao kèm giây và ngày tháng.
+• Thời tiết & Chất lượng không khí (Open-Meteo): Nhiệt độ, độ ẩm, gió và chỉ số AQI kèm dự báo 7 ngày.
+• Radar Máy bay Trực tiếp (OpenSky): Radar theo dõi các chuyến bay đang bay qua bầu trời khu vực của bạn.
+• Thị trường Tiền mã hóa (Binance): Cập nhật giá Bitcoin, Ethereum và biểu đồ biến động 24h.
+• Ngày này năm xưa: Những cột mốc lịch sử thú vị trong ngày.
+• Hình nền 4K nghệ thuật: Bộ sưu tập phong cảnh, vũ trụ, thành phố đêm và kiến trúc.
+
+TIỆN ÍCH & ĐIỀU KHIỂN:
+• 3 Chế độ hiển thị: Cinematic, Lưới Kiosk và Đồng hồ Zen tối giản.
+• Điều khiển mượt mà bằng remote TV và cảm ứng.
+• Tính năng chống lưu ảnh (burn-in) cho màn hình OLED."
+"Indonesian","id-ID","AmbientDeck: Dasbor Smart TV","Ubah layar TV menjadi dasbor modular elegan dengan seni 4K dan info langsung.","AmbientDeck mengubah layar Android TV, tablet, dan layar kios menjadi dasbor pintar yang menampilkan informasi cuaca, penerbangan, dan kripto secara langsung.
+
+FITUR UTAMA:
+• Jam Digital Ambient: Tampilan waktu jernih dengan detik langsung dan kalender.
+• Cuaca & Kualitas Udara (Open-Meteo): Suhu, kelembapan, angin, dan indeks AQI dengan prakiraan 7 hari.
+• Radar Penerbangan Langsung (OpenSky): Radar melacak pesawat yang terbang di atas wilayah Anda.
+• Ticker Kripto (Binance): Harga Bitcoin, Ethereum, dan aset teratas secara langsung.
+• Hari Ini dalam Sejarah: Peristiwa bersejarah penting pada hari ini.
+• Wallpaper 4K Pilihan: Pemandangan alam, luar angkasa, dan arsitektur modern.
+
+KEMUDAHAN NAVIGASI:
+• 3 Mode Tata Letak: Sinematik, Grid Kiosk, dan Jam Minimalis.
+• Mendukung remote TV D-Pad dan layar sentuh.
+• Perlindungan anti burn-in untuk layar OLED."
+"Thai","th-TH","AmbientDeck: แดชบอร์ดสมาร์ททีวี","เปลี่ยนทีวีและแท็บเล็ตเป็นแดชบอร์ด 4K สุดหรูพร้อมข้อมูลสดครบครัน","AmbientDeck เปลี่ยนหน้าจอ Android TV และแท็บเล็ตของคุณให้กลายเป็นแดชบอร์ดตกแต่งห้องที่ทันสมัยพร้อมภาพพื้นหลัง 4K
+
+ฟังก์ชันหลัก:
+• นาฬิกาดิจิทัลคมชัด: แสดงเวลาสดระดับวินาทีและวันที่
+• สภาพอากาศและมลพิษ (Open-Meteo): อุณหภูมิ ลม ความชื้น ค่าฝุ่น AQI และพยากรณ์ล่วงหน้า 7 วัน
+• เรดาร์เครื่องบินสด (OpenSky): ตรวจจับเที่ยวบินที่บินผ่านท้องฟ้าในพื้นที่ของคุณแบบเรียลไทม์
+• ราคาคริปโตสด (Binance): ติดตามราคา Bitcoin, Ethereum และกราฟแนวโน้ม 24 ชั่วโมง
+• วันนี้ในอดีต: เรื่องราวประวัติศาสตร์ที่น่าสนใจในวันนี้
+• วอลเปเปอร์ 4K: ธรรมชาติ อวกาศ สถาปัตยกรรม และไฟกลางคืน
+
+การควบคุมและการแสดงผล:
+• 3 โหมดเลย์เอาต์: ซีเนมาติก ตารางคีออสก์ และเซนมินิมอล
+• รองรับรีโมททีวีและหน้าจอสัมผัส
+• ระบบป้องกันหน้าจอเบิร์นสำหรับจอ OLED"
+"Turkish","tr-TR","AmbientDeck: Akıllı TV Panosu","TV ve tabletleri 4K sanat ve canlı verilerle şık bir panoya dönüştürün.","AmbientDeck, Android TV ekranlarınızı ve tabletlerinizi 4K arka planlarla donatılmış canlı bir kontrol paneline dönüştürür.
+
+ÖNE ÇIKAN ÖZELLİKLER:
+• Dijital Saat ve Tarih: Canlı saniyeler ve yüksek kontrastlı şık tasarım.
+• Hava Durumu ve Hava Kalitesi (Open-Meteo): Sıcaklık, rüzgar, nem ve AQI hava kalitesi verileri, 7 günlük tahmin.
+• Canlı Uçuş Radarı (OpenSky): Bölgenizdeki uçuşları canlı takip eden dairesel radar ekranı.
+• Kripto Para Fiyatları (Binance): Bitcoin, Ethereum ve popüler coinler için 24 saatlik canlı fiyatlar.
+• Tarihte Bugün: Günün öne çıkan önemli tarihi olayları.
+• 4K Duvar Kağıtları: Doğa manzaraları, uzay, gece şehirleri ve mimari.
+
+KULLANIM VE KONTROL:
+• 3 Düzen Modu: Sinematik, Bilgi Izgarası ve Sade Zen Saat.
+• TV kumandası ve dokunmatik ekran uyumlu.
+• OLED ekran koruması."
+"Polish","pl-PL","AmbientDeck: Pulpit Smart TV","Zmień ekran telewizora w modułowy pulpit 4K z aktualnymi danymi i sztuką.","AmbientDeck przekształca ekrany Android TV, tablety i infokioski w nowoczesny, modułowy pulpit informacyjny z tapetami 4K.
+
+GŁÓWNE FUNKCJE:
+• Zegar i Kalendarz: Wyrazisty zegar cyfrowy z sekundnikiem na żywo.
+• Pogoda i Jakość Powietrza (Open-Meteo): Temperatura, wilgotność, wiatr, wskaźnik AQI i prognoza na 7 dni.
+• Radar Lotniczy Live (OpenSky): Śledzenie samolotów przelatujących nad Twoją okolicą w czasie rzeczywistym.
+• Notowania Kryptowalut (Binance): Kursy Bitcoin, Ethereum oraz wykresy zmian z 24 godzin.
+• Kartka z Kalendarza: Ciekawe wydarzenia historyczne z danego dnia.
+• Tapety 4K: Krajobrazy, kosmos, architektura i nocne pejzaże miejskie.
+
+STEROWANIE:
+• 3 Układy ekranu: Kinowy, Kiosk i Minimalistyczny Zen.
+• Obsługa pilotem TV oraz ekranem dotykowym.
+• Ochrona przed wypaleniem ekranów OLED."
+"Dutch","nl-NL","AmbientDeck: Smart TV Dashboard","Verander schermen in een stijlvol 4K dashboard met live data en kunst.","AmbientDeck tovert Android TV-schermen, tablets en kiosken om tot een strak en informatief ambient dashboard met 4K kunstwerken.
+
+BELANGRIJKSTE FUNCTIES:
+• Ambient Klok: Hoge contrast digitale tijdweergave met live seconden en datum.
+• Weer & Luchtkwaliteit (Open-Meteo): Temperatuur, luchtvochtigheid, wind, AQI-index en 7-daagse verwachting.
+• Live Vluchtradar (OpenSky): Cirkelvormige radar die vliegtuigen boven uw regio volgt.
+• Crypto Tickers (Binance): Live koersen en 24-uurs grafieken van Bitcoin en Ethereum.
+• Vandaag in de Geschiedenis: Historische gebeurtenissen van deze dag.
+• 4K Wallpapers: Natuur, ruimte, nachtverlichting en architectuur.
+
+BEDIENING & MODI:
+• 3 Weergavemodi: Cinematic Wall, Kiosk Grid en Zen Minimal.
+• Eenvoudig te bedienen met afstandsbediening en touchscreen.
+• OLED-inbrandbeveiliging."
+"Swedish","sv-SE","AmbientDeck: Smart TV-panel","Förvandla din TV och surfplatta till en 4K-panel med realtidsdata.","AmbientDeck förvandlar Android TV-skärmar, surfplattor och skärmar till en modern och modulär informationspanel med 4K-bakgrunder.
+
+HUVUDFUNKTIONER:
+• Digital klocka: Tydlig tid med realtidssekunder och datum.
+• Väder & Luftkvalitet (Open-Meteo): Temperatur, vind, luftfuktighet, AQI-index och 7-dagarsprognos.
+• Flygradar i realtid (OpenSky): Cirkulär radar som spårar flygplan ovanför din plats.
+• Kryptovalutor (Binance): Livekurser och 24-timmarsdiagram för Bitcoin och Ethereum.
+• Denna dag i historien: Dagens historiska händelser och milstolpar.
+• 4K-konst: Kurerade natur-, rymd- och arkitekturbilder.
+
+FLEXIBILITET:
+• 3 Layouter: Cinematic Wall, Kiosk Grid och Zen Minimal.
+• Fullt stöd för TV-fjärrkontroll (D-Pad) och pekskärm.
+• OLED-skärmskydd mot inbränning."

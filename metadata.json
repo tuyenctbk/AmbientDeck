@@ -1,0 +1,6 @@
+{
+  "name": "AmbientDeck",
+  "description": "Smart TV Wall & Kiosk ambient dashboard featuring live 4K art, weather, crypto tickers, overhead flight radar, and today in history.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

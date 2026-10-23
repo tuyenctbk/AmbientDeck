@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmbientDeck</string>
+    <string name="refresh_data">Daten aktualisieren</string>
+    <string name="deck_settings">Deck-Einstellungen</string>
+    <string name="location_icon">Standort</string>
+    <string name="ambient_art_by">%1$s • Foto von %2$s</string>
+
+    <string name="splash_title">AmbientDeck</string>
+    <string name="splash_subtitle">Smart TV Wand &amp; Kiosk</string>
+    <string name="splash_loading">Live-Feeds &amp; Telemetrie werden initialisiert...</string>
+
+    <string name="weather_aqi_title">Open-Meteo Atmosphäre</string>
+    <string name="aqi_format">AQI %1$d • %2$s</string>
+    <string name="loading_weather">Wetter &amp; Atmosphärendaten werden geladen...</string>
+    <string name="humidity_format">%1$d%% Luftfeuchtigkeit</string>
+    <string name="wind_format">%1$.0f %2$s Wind</string>
+    <string name="temp_high_low">H: %1$.0f° • T: %2$.0f°</string>
+    <string name="click_for_7day">7-Tage-Vorhersage ansehen →</string>
+
+    <string name="radar_title">OpenSky Überflug-Radar</string>
+    <string name="aircraft_active_format">%1$d Flugzeuge aktiv</string>
+    <string name="radar_scanning">Luftraum über der Region wird gescannt...</string>
+    <string name="click_inspect_flights">Luftraum-Flüge prüfen →</string>
+    <string name="altitude_label">FLUGHÖHE</string>
+    <string name="groundspeed_label">GESCHWINDIGKEIT</string>
+    <string name="heading_label">KURS</string>
+    <string name="radar_icon_desc">Radar</string>
+    <string name="flight_icon_desc">Flug</string>
+
+    <string name="crypto_title">Binance 24h Ticker</string>
+    <string name="streaming_realtime">Echtzeit-Streaming</string>
+    <string name="crypto_icon_desc">Krypto</string>
+
+    <string name="history_title">MuffinLabs • An diesem Tag</string>
+    <string name="history_count_format">%1$d von %2$d</string>
+    <string name="history_retrieving">Historische Meilensteine von heute abrufen...</string>
+    <string name="click_read_full_timeline">Gesamte Chronik ansehen →</string>
+    <string name="previous_event">Vorheriges Ereignis</string>
+    <string name="next_event">Nächstes Ereignis</string>
+
+    <string name="settings_title">AmbientDeck Einstellungen</string>
+    <string name="settings_subtitle">Anpassungen für TV-, Wand- und Kiosk-Displays</string>
+    <string name="close">Schließen</string>
+    <string name="sec_location_title">STANDORT (WETTER &amp; FLUG-RADAR)</string>
+    <string name="show_custom_gps">▼ Eigene GPS-Koordinaten eingeben (Breite / Länge)</string>
+    <string name="hide_custom_gps">▲ Eigene GPS-Koordinateneingabe ausblenden</string>
+    <string name="city_location_name">Stadt- / Standortname</string>
+    <string name="latitude">Breitengrad</string>
+    <string name="longitude">Längengrad</string>
+    <string name="apply_custom_coords">Koordinaten anwenden</string>
+    <string name="sec_layout_title">DASHBOARD-LAYOUTMODUS</string>
+    <string name="sec_art_title">4K-KUNST &amp; HINTERGRUND-BILDER</string>
+    <string name="sec_units_title">EINHEITEN &amp; TELEMETRIE</string>
+    <string name="temperature">Temperatur</string>
+    <string name="wind_speed">Wind &amp; Geschwindigkeit</string>
+    <string name="flight_altitude">Flughöhe</string>
+    <string name="celsius_label">Celsius (°C)</string>
+    <string name="fahrenheit_label">Fahrenheit (°F)</string>
+    <string name="mph_label">Meilen/h (mph)</string>
+    <string name="kmh_label">Km/h</string>
+    <string name="feet_label">Fuß (ft)</string>
+    <string name="meters_label">Meter (m)</string>
+    <string name="sec_widgets_title">AKTIVE MODULE &amp; OLED-SCHUTZ</string>
+    <string name="widget_weather_label">Open-Meteo Wetter &amp; AQI</string>
+    <string name="widget_crypto_label">Binance Krypto-Tickerband</string>
+    <string name="widget_radar_label">OpenSky Live-Flugradar</string>
+    <string name="widget_history_label">MuffinLabs Geschichte von heute</string>
+    <string name="widget_burnin_label">OLED Einbrennschutz-Drift (±2px alle 2 Min.)</string>
+    <string name="sec_engagement_title">APP-ERFAHRUNG &amp; SUPPORT</string>
+    <string name="action_rate_app">AmbientDeck bewerten</string>
+    <string name="action_share_app">Mit Freunden teilen</string>
+    <string name="action_check_update">Nach Updates suchen</string>
+    <string name="action_privacy_policy">Datenschutzerklärung</string>
+    <string name="apply_return_dashboard">Anwenden &amp; zum Dashboard</string>
+
+    <string name="weather_detail_title">7-Tage Wetter- &amp; Luftqualitätsvorhersage</string>
+    <string name="radar_detail_title">Live-Flugmanifest (%1$d erfasst)</string>
+    <string name="crypto_detail_title">Krypto-Markttiefe (Binance)</string>
+    <string name="history_detail_title">Archiv: An diesem Tag in der Geschichte</string>
+    <string name="air_quality_telemetry">LUFTQUALITÄT &amp; SCHADSTOFF-TELEMETRIE</string>
+    <string name="us_aqi">US AQI</string>
+    <string name="eu_aqi">Europäischer AQI</string>
+    <string name="pm25_particles">PM2.5 Partikel</string>
+    <string name="pm10_particles">PM10 Partikel</string>
+    <string name="outlook_7day">7-TAGE-AUSBLICK</string>
+    <string name="speed_label">GESCHWINDIGKEIT</string>
+
+    <string name="next_wallpaper">Nächstes Bild</string>
+    <string name="switch_layout">Layout wechseln</string>
+    <string name="aqi_good">Gut</string>
+    <string name="aqi_moderate">Mäßig</string>
+    <string name="aqi_sensitive">Empfindlich</string>
+    <string name="aqi_unhealthy">Ungesund</string>
+
+    <string name="layout_cinematic_name">Kino-Wand</string>
+    <string name="layout_cinematic_desc">4K-Kunstraster mit schwebenden Glaselementen</string>
+    <string name="layout_grid_name">Kiosk-Mehrfachanzeige</string>
+    <string name="layout_grid_desc">Strukturiertes Raster aller Feeds gleichzeitig</string>
+    <string name="layout_zen_name">Zen-Uhr Minimal</string>
+    <string name="layout_zen_desc">Große minimalistische Uhr mit dezentem Wetter</string>
+
+    <string name="art_scenic">Landschaften &amp; Natur</string>
+    <string name="art_cyber">Cyberpunk &amp; Nachtlichter</string>
+    <string name="art_space">Kosmos &amp; Astrofotografie</string>
+    <string name="art_architecture">Moderne Architektur</string>
+    <string name="art_fine_art">Bildende Kunst &amp; Museen</string>
+
+    <string name="updated_at">Aktualisiert um %1$s</string>
+    <string name="just_now">Gerade eben</string>
+
+    <string name="rate_dialog_title">Gefällt Ihnen AmbientDeck?</string>
+    <string name="rate_dialog_desc">Wenn AmbientDeck Ihr Wohnzimmer oder Kiosk-Display bereichert, freut uns Ihre Bewertung bei Google Play sehr!</string>
+    <string name="rate_now">Bei Google Play bewerten</string>
+    <string name="rate_never">Nicht mehr fragen</string>
+    <string name="remind_later">Später erinnern</string>
+    <string name="update_dialog_title">Update verfügbar</string>
+    <string name="update_dialog_desc">Eine neue Version mit Performanceverbesserungen und neuen 4K-Kollektionen steht bereit.</string>
+    <string name="update_now">Jetzt aktualisieren</string>
+    <string name="share_dialog_title">AmbientDeck teilen</string>
+    <string name="share_dialog_desc">Kennen Sie jemanden, der ein Ambient-Dashboard für seinen Fernseher schätzen würde? Teilen Sie AmbientDeck!</string>
+    <string name="share_now">AmbientDeck teilen</string>
+    <string name="maybe_later">Vielleicht später</string>
+    <string name="share_subject">AmbientDeck: Smart TV Wand &amp; Kiosk</string>
+    <string name="share_body">Entdecke AmbientDeck! Verwandle Fernseher, Tablets und Kiosk-Displays in elegante Kommandozentralen mit 4K-Kunst, Wetter, Krypto und Flugradar: %1$s</string>
+
+    <string name="privacy_policy">Datenschutzerklärung</string>
+    <string name="privacy_policy_title">Datenschutz &amp; Datenrichtlinie</string>
+    <string name="privacy_policy_content">AmbientDeck respektiert Ihre Privatsphäre vollständig. Wir erfassen, speichern und übertragen keine persönlichen Daten oder Geräte-IDs. Wetterdaten werden anonym von Open-Meteo für Ihre Standortkoordinaten geladen. Flugdaten stammen aus öffentlichen OpenSky-Quellen. Krypto-Kurse werden von Binance abgerufen. Alle Einstellungen verbleiben ausschließlich lokal auf Ihrem Gerät.</string>
+    <string name="privacy_policy_ok">Verstanden</string>
+</resources>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmbientDeck</string>
+    <string name="refresh_data">Obnovit data</string>
+    <string name="deck_settings">Nastavení panelu</string>
+    <string name="location_icon">Poloha</string>
+    <string name="ambient_art_by">%1$s • Foto: %2$s</string>
+
+    <string name="splash_title">AmbientDeck</string>
+    <string name="splash_subtitle">Smart TV &amp; Kiosk ambientní stěna</string>
+    <string name="splash_loading">Inicializace živých zdrojů a telemetrie...</string>
+
+    <string name="weather_aqi_title">Atmosféra Open-Meteo</string>
+    <string name="aqi_format">AQI %1$d • %2$s</string>
+    <string name="loading_weather">Načítání počasí a údajů o atmosféře...</string>
+    <string name="humidity_format">%1$d%% vlhkost</string>
+    <string name="wind_format">%1$.0f %2$s vítr</string>
+    <string name="temp_high_low">V: %1$.0f° • N: %2$.0f°</string>
+    <string name="click_for_7day">Předpověď na 7 dní →</string>
+
+    <string name="radar_title">Živý letecký radar OpenSky</string>
+    <string name="aircraft_active_format">%1$d aktivních letadel</string>
+    <string name="radar_scanning">Skenování vzdušného prostoru...</string>
+    <string name="click_inspect_flights">Zkontrolovat lety v prostoru →</string>
+    <string name="altitude_label">VÝŠKA</string>
+    <string name="groundspeed_label">RYCHLOST</string>
+    <string name="heading_label">KURZ</string>
+    <string name="radar_icon_desc">Radar</string>
+    <string name="flight_icon_desc">Let</string>
+
+    <string name="crypto_title">Kurzy Binance 24h</string>
+    <string name="streaming_realtime">Živé streamování dat</string>
+    <string name="crypto_icon_desc">Krypto</string>
+
+    <string name="history_title">MuffinLabs • Tento den v historii</string>
+    <string name="history_count_format">%1$d z %2$d</string>
+    <string name="history_retrieving">Načítání dnešních historických událostí...</string>
+    <string name="click_read_full_timeline">Číst celou časovou osu →</string>
+    <string name="previous_event">Předchozí událost</string>
+    <string name="next_event">Další událost</string>
+
+    <string name="settings_title">Nastavení AmbientDeck</string>
+    <string name="settings_subtitle">Přizpůsobení pro TV, nástěnné displeje a kiosky</string>
+    <string name="close">Zavřít</string>
+    <string name="sec_location_title">GEOGRAFICKÉ CENTRUM (POČASÍ A RADAR LETŮ)</string>
+    <string name="show_custom_gps">▼ Zadat vlastní GPS souřadnice (šířka / délka)</string>
+    <string name="hide_custom_gps">▲ Skrýt zadávání GPS souřadnic</string>
+    <string name="city_location_name">Název města / lokace</string>
+    <string name="latitude">Zeměpisná šířka</string>
+    <string name="longitude">Zeměpisná délka</string>
+    <string name="apply_custom_coords">Použít souřadnice</string>
+    <string name="sec_layout_title">REŽIM ROZVRŽENÍ PANELU</string>
+    <string name="sec_art_title">4K UMĚNÍ A KOLEKCE TAPET</string>
+    <string name="sec_units_title">JEDNOTKY A TELEMETRIE</string>
+    <string name="temperature">Teplota</string>
+    <string name="wind_speed">Vítr a rychlost</string>
+    <string name="flight_altitude">Výška letu</string>
+    <string name="celsius_label">Celsius (°C)</string>
+    <string name="fahrenheit_label">Fahrenheit (°F)</string>
+    <string name="mph_label">Míle/h (mph)</string>
+    <string name="kmh_label">Km/h</string>
+    <string name="feet_label">Stopy (ft)</string>
+    <string name="meters_label">Metry (m)</string>
+    <string name="sec_widgets_title">AKTIVNÍ MODULY A OCHRANA OLED</string>
+    <string name="widget_weather_label">Počasí a AQI Open-Meteo</string>
+    <string name="widget_crypto_label">Kryptoměnový pruh Binance</string>
+    <string name="widget_radar_label">Živý radar letů OpenSky</string>
+    <string name="widget_history_label">MuffinLabs Dnešní historie</string>
+    <string name="widget_burnin_label">Ochrana proti vypálení OLED (posun ±2px každé 2 min)</string>
+    <string name="sec_engagement_title">ZKUŠENOST A PODPORA</string>
+    <string name="action_rate_app">Ohodnotit AmbientDeck</string>
+    <string name="action_share_app">Sdílet s přáteli</string>
+    <string name="action_check_update">Zkontrolovat aktualizace</string>
+    <string name="action_privacy_policy">Zásady ochrany soukromí</string>
+    <string name="apply_return_dashboard">Použít a zpět na panel</string>
+
+    <string name="weather_detail_title">Předpověď počasí a kvality ovzduší na 7 dní</string>
+    <string name="radar_detail_title">Seznam letů ve vzduchu (%1$d sledováno)</string>
+    <string name="crypto_detail_title">Hloubka trhu kryptoměn (Binance)</string>
+    <string name="history_detail_title">Archiv dnešního dne v historii</string>
+    <string name="air_quality_telemetry">TELEMETRIE KVALITY OVZDUŠÍ A ZNEČIŠTĚNÍ</string>
+    <string name="us_aqi">US AQI</string>
+    <string name="eu_aqi">Evropské AQI</string>
+    <string name="pm25_particles">Částice PM2.5</string>
+    <string name="pm10_particles">Částice PM10</string>
+    <string name="outlook_7day">7DENNÍ VÝHLED</string>
+    <string name="speed_label">RYCHLOST</string>
+
+    <string name="next_wallpaper">Další tapeta</string>
+    <string name="switch_layout">Změnit rozvržení</string>
+    <string name="aqi_good">Dobrá</string>
+    <string name="aqi_moderate">Střední</string>
+    <string name="aqi_sensitive">Citlivá</string>
+    <string name="aqi_unhealthy">Nezdravá</string>
+
+    <string name="layout_cinematic_name">Filmová stěna</string>
+    <string name="layout_cinematic_desc">4K umělecké pozadí s plovoucími skleněnými widgety</string>
+    <string name="layout_grid_name">Kiosková vícedílná mřížka</string>
+    <string name="layout_grid_desc">Přehledná mřížka zobrazující všechny zdroje současně</string>
+    <string name="layout_zen_name">Minimalistické hodiny Zen</string>
+    <string name="layout_zen_desc">Velké minimalistické hodiny s decentním počasím</string>
+
+    <string name="art_scenic">Přírodní scenérie</string>
+    <string name="art_cyber">Cyberpunk a noční světla</string>
+    <string name="art_space">Vesmír a astrofotografie</string>
+    <string name="art_architecture">Moderní architektura</string>
+    <string name="art_fine_art">Výtvarné umění a muzea</string>
+
+    <string name="updated_at">Aktualizováno v %1$s</string>
+    <string name="just_now">Právě teď</string>
+
+    <string name="rate_dialog_title">Líbí se vám AmbientDeck?</string>
+    <string name="rate_dialog_desc">Pokud AmbientDeck zútulňuje váš obývací pokoj nebo obrazovku, vaše hodnocení na Google Play pro nás znamená mnoho!</string>
+    <string name="rate_now">Ohodnotit na Google Play</string>
+    <string name="rate_never">Znovu se neptat</string>
+    <string name="remind_later">Připomenout později</string>
+    <string name="update_dialog_title">K dispozici je aktualizace</string>
+    <string name="update_dialog_desc">Je připravena nová verze s vylepšeným výkonem a novými 4K kolekcemi tapet.</string>
+    <string name="update_now">Aktualizovat nyní</string>
+    <string name="share_dialog_title">Sdílet AmbientDeck</string>
+    <string name="share_dialog_desc">Znáte někoho, kdo by chtěl proměnit svou televizi v elegantní informační panel? Sdílejte AmbientDeck!</string>
+    <string name="share_now">Sdílet AmbientDeck</string>
+    <string name="maybe_later">Možná později</string>
+    <string name="share_subject">AmbientDeck: Smart TV &amp; Kiosk ambientní stěna</string>
+    <string name="share_body">Vyzkoušejte AmbientDeck! Proměňte svou TV nebo tablet v elegantní velitelské centrum se 4K uměním, počasím, kryptem a leteckým radarem: %1$s</string>
+
+    <string name="privacy_policy">Zásady ochrany soukromí</string>
+    <string name="privacy_policy_title">Zásady ochrany dat a soukromí</string>
+    <string name="privacy_policy_content">AmbientDeck byl navržen s ohledem na maximální soukromí. Neshromažďujeme, neukládáme ani nesdílíme žádné osobní údaje ani identifikátory zařízení. Údaje o počasí jsou získávány anonymně přes Open-Meteo, informace o letech z veřejných dat OpenSky a kurzy kryptoměn přímo z Binance. Veškerá nastavení zůstávají výhradně ve vašem zařízení.</string>
+    <string name="privacy_policy_ok">Rozumím</string>
+</resources>

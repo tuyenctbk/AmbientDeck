@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmbientDeck</string>
+    <string name="refresh_data">Verileri Yenile</string>
+    <string name="deck_settings">Panel Ayarları</string>
+    <string name="location_icon">Konum</string>
+    <string name="ambient_art_by">%1$s • Fotoğraf: %2$s</string>
+
+    <string name="splash_title">AmbientDeck</string>
+    <string name="splash_subtitle">Akıllı TV ve Kiosk Ambiyans Ekranı</string>
+    <string name="splash_loading">Canlı akışlar ve telemetri başlatılıyor...</string>
+
+    <string name="weather_aqi_title">Open-Meteo Atmosfer ve Hava</string>
+    <string name="aqi_format">AQI %1$d • %2$s</string>
+    <string name="loading_weather">Hava durumu ve atmosferik veriler yükleniyor...</string>
+    <string name="humidity_format">%%%1$d nem</string>
+    <string name="wind_format">%1$.0f %2$s rüzgar</string>
+    <string name="temp_high_low">Y: %1$.0f° • D: %2$.0f°</string>
+    <string name="click_for_7day">7 günlük hava tahminini gör →</string>
+
+    <string name="radar_title">OpenSky Canlı Uçuş Radarı</string>
+    <string name="aircraft_active_format">%1$d Uçak Aktif</string>
+    <string name="radar_scanning">Bölgesel hava sahası taranıyor...</string>
+    <string name="click_inspect_flights">Hava sahası uçuşlarını incele →</string>
+    <string name="altitude_label">İRTİFA</string>
+    <string name="groundspeed_label">YER HIZI</string>
+    <string name="heading_label">ROTA</string>
+    <string name="radar_icon_desc">Radar</string>
+    <string name="flight_icon_desc">Uçuş</string>
+
+    <string name="crypto_title">Binance 24s Fiyat Akışı</string>
+    <string name="streaming_realtime">Gerçek Zamanlı Akış</string>
+    <string name="crypto_icon_desc">Kripto</string>
+
+    <string name="history_title">MuffinLabs • Tarihte Bugün</string>
+    <string name="history_count_format">%1$d / %2$d</string>
+    <string name="history_retrieving">Günün tarihi dönüm noktaları getiriliyor...</string>
+    <string name="click_read_full_timeline">Tüm zaman çizelgesini oku →</string>
+    <string name="previous_event">Önceki Olay</string>
+    <string name="next_event">Sonraki Olay</string>
+
+    <string name="settings_title">AmbientDeck Ayarları</string>
+    <string name="settings_subtitle">TV, duvar ekranları ve kiosklar için özelleştirme</string>
+    <string name="close">Kapat</string>
+    <string name="sec_location_title">KONUM MERKEZİ (HAVA DURUMU VE UÇUŞ RADARI)</string>
+    <string name="show_custom_gps">▼ Özel GPS koordinatları girin (enlem / boylam)</string>
+    <string name="hide_custom_gps">▲ Özel GPS koordinat girişini gizle</string>
+    <string name="city_location_name">Şehir / Konum Adı</string>
+    <string name="latitude">Enlem</string>
+    <string name="longitude">Boylam</string>
+    <string name="apply_custom_coords">Koordinatları Uygula</string>
+    <string name="sec_layout_title">PANEL DÜZEN MODU</string>
+    <string name="sec_art_title">4K SANAT VE DUVAR KAĞITLARI</string>
+    <string name="sec_units_title">BİRİMLER VE TELEMETRİ</string>
+    <string name="temperature">Sıcaklık Birimi</string>
+    <string name="wind_speed">Rüzgar ve Hız</string>
+    <string name="flight_altitude">Uçuş İrtifası</string>
+    <string name="celsius_label">Celsius (°C)</string>
+    <string name="fahrenheit_label">Fahrenheit (°F)</string>
+    <string name="mph_label">Mil/saat (mph)</string>
+    <string name="kmh_label">Km/saat</string>
+    <string name="feet_label">Fit (ft)</string>
+    <string name="meters_label">Metre (m)</string>
+    <string name="sec_widgets_title">AKTİF MODÜLLER VE OLED EKRAN KORUMASI</string>
+    <string name="widget_weather_label">Open-Meteo Hava ve AQI</string>
+    <string name="widget_crypto_label">Binance Kripto Şeridi</string>
+    <string name="widget_radar_label">OpenSky Canlı Uçuş Radarı</string>
+    <string name="widget_history_label">MuffinLabs Tarihte Bugün</string>
+    <string name="widget_burnin_label">OLED Ekran Yanığı Koruması (Her 2 dk ±2px kaydırma)</string>
+    <string name="sec_engagement_title">UYGULAMA DENEYİMİ VE DESTEK</string>
+    <string name="action_rate_app">AmbientDeck\'i Değerlendir</string>
+    <string name="action_share_app">Arkadaşlarınla Paylaş</string>
+    <string name="action_check_update">Güncellemeleri Kontrol Et</string>
+    <string name="action_privacy_policy">Gizlilik Politikası</string>
+    <string name="apply_return_dashboard">Uygula ve Panele Dön</string>
+
+    <string name="weather_detail_title">7 Günlük Atmosfer ve Hava Kalitesi Tahmini</string>
+    <string name="radar_detail_title">Canlı Uçuş Manifestosu (%1$d Takip Ediliyor)</string>
+    <string name="crypto_detail_title">Kripto Varlık Piyasa Derinliği (Binance)</string>
+    <string name="history_detail_title">Tarihte Bugün Arşivi</string>
+    <string name="air_quality_telemetry">HAVA KALİTESİ VE KİRLETİCİ TELEMETRİSİ</string>
+    <string name="us_aqi">ABD AQI</string>
+    <string name="eu_aqi">Avrupa AQI</string>
+    <string name="pm25_particles">PM2.5 Parçacıkları</string>
+    <string name="pm10_particles">PM10 Parçacıkları</string>
+    <string name="outlook_7day">7 GÜNLÜK GÖRÜNÜM</string>
+    <string name="speed_label">HIZ</string>
+
+    <string name="next_wallpaper">Sonraki Duvar Kağıdı</string>
+    <string name="switch_layout">Düzeni Değiştir</string>
+    <string name="aqi_good">İyi</string>
+    <string name="aqi_moderate">Orta</string>
+    <string name="aqi_sensitive">Hassas</string>
+    <string name="aqi_unhealthy">Sağlıksız</string>
+
+    <string name="layout_cinematic_name">Sinematik Duvar</string>
+    <string name="layout_cinematic_desc">4K sanat arka planı ve yarı saydam cam bileşenler</string>
+    <string name="layout_grid_name">Kiosk Çoklu Panel</string>
+    <string name="layout_grid_desc">Tüm akışları aynı anda gösteren düzenli ızgara</string>
+    <string name="layout_zen_name">Minimal Zen Saati</string>
+    <string name="layout_zen_desc">Büyük minimalist saat ve hafif hava durumu</string>
+
+    <string name="art_scenic">Doğal Manzaralar</string>
+    <string name="art_cyber">Cyberpunk ve Gece Işıkları</string>
+    <string name="art_space">Kozmos ve Astrofotografi</string>
+    <string name="art_architecture">Modern Mimari</string>
+    <string name="art_fine_art">Güzel Sanatlar ve Müzeler</string>
+
+    <string name="updated_at">%1$s itibarıyla güncellendi</string>
+    <string name="just_now">Az önce</string>
+
+    <string name="rate_dialog_title">AmbientDeck hoşunuza gitti mi?</string>
+    <string name="rate_dialog_desc">AmbientDeck oturma odanıza veya ekranınıza şıklık katıyorsa, Google Play\'de bizi değerlendirmeniz bize güç verir!</string>
+    <string name="rate_now">Google Play\'de Değerlendir</string>
+    <string name="rate_never">Bir Daha Sorma</string>
+    <string name="remind_later">Daha Sonra Hatırlat</string>
+    <string name="update_dialog_title">Yeni Güncelleme Mevcut</string>
+    <string name="update_dialog_desc">Performans iyileştirmeleri ve yeni 4K koleksiyonlar içeren yeni sürüm hazır.</string>
+    <string name="update_now">Şimdi Güncelle</string>
+    <string name="share_dialog_title">AmbientDeck\'i Paylaş</string>
+    <string name="share_dialog_desc">Televizyonunu veya tabletini ambiyans paneline dönüştürmek isteyecek tanıdıklarınız var mı? Paylaşın!</string>
+    <string name="share_now">AmbientDeck\'i Paylaş</string>
+    <string name="maybe_later">Belki Daha Sonra</string>
+    <string name="share_subject">AmbientDeck: Akıllı TV ve Kiosk Ambiyans Ekranı</string>
+    <string name="share_body">AmbientDeck ile tanışın! Televizyonunuzu 4K sanat, hava durumu, kripto ve uçuş radarıyla şık bir ekrana dönüştürün: %1$s</string>
+
+    <string name="privacy_policy">Gizlilik Politikası</string>
+    <string name="privacy_policy_title">Gizlilik ve Veri Güvenliği Politikası</string>
+    <string name="privacy_policy_content">AmbientDeck gizliliğinize tam saygı gösterilerek tasarlanmıştır. Kişisel veri veya cihaz kimliği toplamıyoruz, saklamıyoruz ve paylaşmıyoruz. Hava durumu Open-Meteo üzerinden anonim olarak, uçuşlar OpenSky kamu verilerinden, kripto verileri ise Binance açık API\'lerinden alınır. Tüm ayarlarınız yalnızca cihazınızda saklanır.</string>
+    <string name="privacy_policy_ok">Anladım</string>
+</resources>

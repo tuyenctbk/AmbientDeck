@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmbientDeck</string>
+    <string name="refresh_data">Gegevens vernieuwen</string>
+    <string name="deck_settings">Deck-instellingen</string>
+    <string name="location_icon">Locatie</string>
+    <string name="ambient_art_by">%1$s • Foto door %2$s</string>
+
+    <string name="splash_title">AmbientDeck</string>
+    <string name="splash_subtitle">Smart TV &amp; Kiosk Omgevingsdashboard</string>
+    <string name="splash_loading">Live feeds en telemetrie initialiseren...</string>
+
+    <string name="weather_aqi_title">Open-Meteo Atmosfeer</string>
+    <string name="aqi_format">AQI %1$d • %2$s</string>
+    <string name="loading_weather">Weer- en atmosferische gegevens laden...</string>
+    <string name="humidity_format">%1$d%% luchtvochtigheid</string>
+    <string name="wind_format">%1$.0f %2$s wind</string>
+    <string name="temp_high_low">H: %1$.0f° • L: %2$.0f°</string>
+    <string name="click_for_7day">Bekijk 7-daagse weersverwachting →</string>
+
+    <string name="radar_title">OpenSky Live Vluchtradar</string>
+    <string name="aircraft_active_format">%1$d Vliegtuigen actief</string>
+    <string name="radar_scanning">Luchtruim boven regio scannen...</string>
+    <string name="click_inspect_flights">Vluchten in luchtruim bekijken →</string>
+    <string name="altitude_label">HOOGTE</string>
+    <string name="groundspeed_label">GRONDSNELHEID</string>
+    <string name="heading_label">KOERS</string>
+    <string name="radar_icon_desc">Radar</string>
+    <string name="flight_icon_desc">Vlucht</string>
+
+    <string name="crypto_title">Binance 24u Koersen</string>
+    <string name="streaming_realtime">Realtime streaming</string>
+    <string name="crypto_icon_desc">Crypto</string>
+
+    <string name="history_title">MuffinLabs • Vandaag in de geschiedenis</string>
+    <string name="history_count_format">%1$d van %2$d</string>
+    <string name="history_retrieving">Historische mijlpalen van vandaag ophalen...</string>
+    <string name="click_read_full_timeline">Lees volledige tijdlijn →</string>
+    <string name="previous_event">Vorig evenement</string>
+    <string name="next_event">Volgend evenement</string>
+
+    <string name="settings_title">AmbientDeck Instellingen</string>
+    <string name="settings_subtitle">Aanpassingen voor TV, wand- en kioskdisplays</string>
+    <string name="close">Sluiten</string>
+    <string name="sec_location_title">LOCATIEHUB (WEER &amp; VLUCHTRADAR)</string>
+    <string name="show_custom_gps">▼ Aangepaste GPS-coördinaten invoeren (lat / lon)</string>
+    <string name="hide_custom_gps">▲ Aangepaste GPS-invoer verbergen</string>
+    <string name="city_location_name">Stad / Locatienaam</string>
+    <string name="latitude">Breedtegraad</string>
+    <string name="longitude">Lengtegraad</string>
+    <string name="apply_custom_coords">Coördinaten toepassen</string>
+    <string name="sec_layout_title">DASHBOARD-INDELINGSMODUS</string>
+    <string name="sec_art_title">4K-KUNST &amp; ACHTERGRONDCOLLECTIE</string>
+    <string name="sec_units_title">EENHEDEN &amp; TELEMETRIE</string>
+    <string name="temperature">Temperatuur</string>
+    <string name="wind_speed">Wind &amp; Snelheid</string>
+    <string name="flight_altitude">Vlieghoogte</string>
+    <string name="celsius_label">Celsius (°C)</string>
+    <string name="fahrenheit_label">Fahrenheit (°F)</string>
+    <string name="mph_label">Mijl/u (mph)</string>
+    <string name="kmh_label">Km/u</string>
+    <string name="feet_label">Voet (ft)</string>
+    <string name="meters_label">Meter (m)</string>
+    <string name="sec_widgets_title">ACTIEVE MODULES &amp; OLED-BESCHERMING</string>
+    <string name="widget_weather_label">Open-Meteo Weer &amp; AQI</string>
+    <string name="widget_crypto_label">Binance Crypto-tickerband</string>
+    <string name="widget_radar_label">OpenSky Live Vluchtradar</string>
+    <string name="widget_history_label">MuffinLabs Geschiedenis Vandaag</string>
+    <string name="widget_burnin_label">OLED Inbrandbeveiliging (verschuift ±2px elke 2m)</string>
+    <string name="sec_engagement_title">ERVARING &amp; ONDERSTEUNING</string>
+    <string name="action_rate_app">Beoordeel AmbientDeck</string>
+    <string name="action_share_app">Delen met vrienden</string>
+    <string name="action_check_update">Controleren op updates</string>
+    <string name="action_privacy_policy">Privacybeleid</string>
+    <string name="apply_return_dashboard">Toepassen &amp; terugkeren</string>
+
+    <string name="weather_detail_title">7-Daagse weer- en luchtkwaliteitsverwachting</string>
+    <string name="radar_detail_title">Live Vluchtmanifest (%1$d Gevolgd)</string>
+    <string name="crypto_detail_title">Crypto-marktdiepte (Binance)</string>
+    <string name="history_detail_title">Archief: Vandaag in de geschiedenis</string>
+    <string name="air_quality_telemetry">LUCHTKWALITEIT &amp; VERONTREINIGINGSTELEMETRIE</string>
+    <string name="us_aqi">US AQI</string>
+    <string name="eu_aqi">Europees AQI</string>
+    <string name="pm25_particles">PM2.5-deeltjes</string>
+    <string name="pm10_particles">PM10-deeltjes</string>
+    <string name="outlook_7day">7-DAAGS VOORUITZICHT</string>
+    <string name="speed_label">SNELHEID</string>
+
+    <string name="next_wallpaper">Volgende achtergrond</string>
+    <string name="switch_layout">Wissel van lay-out</string>
+    <string name="aqi_good">Goed</string>
+    <string name="aqi_moderate">Matig</string>
+    <string name="aqi_sensitive">Gevoelig</string>
+    <string name="aqi_unhealthy">Ongezond</string>
+
+    <string name="layout_cinematic_name">Cinematische Wand</string>
+    <string name="layout_cinematic_desc">4K-kunstachtergrond met zwevende glazen widgets</string>
+    <string name="layout_grid_name">Kiosk Multi-Paneel</string>
+    <string name="layout_grid_desc">Gestructureerd raster met alle feeds tegelijk</string>
+    <string name="layout_zen_name">Zen-klok Minimaal</string>
+    <string name="layout_zen_desc">Grote minimalistische klok met subtiele weerinfo</string>
+
+    <string name="art_scenic">Landschappen</string>
+    <string name="art_cyber">Cyberpunk &amp; Nachtlichten</string>
+    <string name="art_space">Kosmos &amp; Astrofotografie</string>
+    <string name="art_architecture">Moderne architectuur</string>
+    <string name="art_fine_art">Beeldende kunst &amp; Musea</string>
+
+    <string name="updated_at">Bijgewerkt om %1$s</string>
+    <string name="just_now">Zojuist</string>
+
+    <string name="rate_dialog_title">Geniet je van AmbientDeck?</string>
+    <string name="rate_dialog_desc">Als AmbientDeck jouw woonkamer of scherm verrijkt, betekent een beoordeling op Google Play enorm veel voor ons!</string>
+    <string name="rate_now">Beoordeel op Google Play</string>
+    <string name="rate_never">Niet meer vragen</string>
+    <string name="remind_later">Herinner mij later</string>
+    <string name="update_dialog_title">Update beschikbaar</string>
+    <string name="update_dialog_desc">Een nieuwe versie met prestatieverbeteringen en nieuwe 4K-collecties staat klaar.</string>
+    <string name="update_now">Nu bijwerken</string>
+    <string name="share_dialog_title">AmbientDeck delen</string>
+    <string name="share_dialog_desc">Ken je iemand die zijn TV graag wil omtoveren tot een sfeervol dashboard? Deel AmbientDeck!</string>
+    <string name="share_now">AmbientDeck delen</string>
+    <string name="maybe_later">Misschien later</string>
+    <string name="share_subject">AmbientDeck: Smart TV &amp; Kiosk Omgevingsdashboard</string>
+    <string name="share_body">Bekijk AmbientDeck! Tover je TV of tablet om tot een elegant commandocentrum met 4K-kunst, weer, crypto en vluchtradar: %1$s</string>
+
+    <string name="privacy_policy">Privacybeleid</string>
+    <string name="privacy_policy_title">Privacy- en gegevensbeleid</string>
+    <string name="privacy_policy_content">AmbientDeck is ontworpen met volledige privacy in het achterhoofd. Wij verzamelen, bewaren of delen geen persoonlijke gegevens of apparaat-id\'s. Weergegevens worden anoniem opgehaald via Open-Meteo. Vluchtgegevens zijn afkomstig van openbare bronnen van OpenSky. Cryptokoersen komen rechtstreeks van Binance. Al je instellingen blijven uitsluitend op je apparaat.</string>
+    <string name="privacy_policy_ok">Begrepen</string>
+</resources>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmbientDeck</string>
+    <string name="refresh_data">Segarkan Data</string>
+    <string name="deck_settings">Pengaturan Layar</string>
+    <string name="location_icon">Lokasi</string>
+    <string name="ambient_art_by">%1$s • Foto oleh %2$s</string>
+
+    <string name="splash_title">AmbientDeck</string>
+    <string name="splash_subtitle">Dinding Smart TV &amp; Kios</string>
+    <string name="splash_loading">Menginisialisasi umpan langsung &amp; telemetri...</string>
+
+    <string name="weather_aqi_title">Atmosfer Open-Meteo</string>
+    <string name="aqi_format">AQI %1$d • %2$s</string>
+    <string name="loading_weather">Memuat cuaca &amp; data atmosfer...</string>
+    <string name="humidity_format">%1$d%% kelembapan</string>
+    <string name="wind_format">%1$.0f %2$s angin</string>
+    <string name="temp_high_low">T: %1$.0f° • R: %2$.0f°</string>
+    <string name="click_for_7day">Lihat prakiraan 7 hari →</string>
+
+    <string name="radar_title">Radar Udara Langsung OpenSky</string>
+    <string name="aircraft_active_format">%1$d Pesawat Aktif</string>
+    <string name="radar_scanning">Memindai ruang udara kawasan...</string>
+    <string name="click_inspect_flights">Periksa penerbangan udara →</string>
+    <string name="altitude_label">KETINGGIAN</string>
+    <string name="groundspeed_label">KECEPATAN</string>
+    <string name="heading_label">ARAH</string>
+    <string name="radar_icon_desc">Radar</string>
+    <string name="flight_icon_desc">Penerbangan</string>
+
+    <string name="crypto_title">Ticker 24 Jam Binance</string>
+    <string name="streaming_realtime">Streaming Real-Time</string>
+    <string name="crypto_icon_desc">Kripto</string>
+
+    <string name="history_title">MuffinLabs • Hari Ini Dalam Sejarah</string>
+    <string name="history_count_format">%1$d dari %2$d</string>
+    <string name="history_retrieving">Mengambil peristiwa bersejarah hari ini...</string>
+    <string name="click_read_full_timeline">Baca linimasa lengkap →</string>
+    <string name="previous_event">Peristiwa Sebelumnya</string>
+    <string name="next_event">Peristiwa Berikutnya</string>
+
+    <string name="settings_title">Pengaturan AmbientDeck</string>
+    <string name="settings_subtitle">Kustomisasi untuk layar TV, dinding, dan kios</string>
+    <string name="close">Tutup</string>
+    <string name="sec_location_title">PUSAT LOKASI (CUACA &amp; RADAR PENERBANGAN)</string>
+    <string name="show_custom_gps">▼ Masukkan koordinat GPS kustom (lintang / bujur)</string>
+    <string name="hide_custom_gps">▲ Sembunyikan koordinat GPS</string>
+    <string name="city_location_name">Nama Kota / Lokasi</string>
+    <string name="latitude">Lintang</string>
+    <string name="longitude">Bujur</string>
+    <string name="apply_custom_coords">Terapkan Koordinat</string>
+    <string name="sec_layout_title">MODE TATA LETAK DASHBOARD</string>
+    <string name="sec_art_title">SENI 4K &amp; KOLEKSI WALLPAPER</string>
+    <string name="sec_units_title">SATUAN &amp; TELEMETRI</string>
+    <string name="temperature">Suhu</string>
+    <string name="wind_speed">Angin &amp; Kecepatan</string>
+    <string name="flight_altitude">Ketinggian Terbang</string>
+    <string name="celsius_label">Celsius (°C)</string>
+    <string name="fahrenheit_label">Fahrenheit (°F)</string>
+    <string name="mph_label">Mil/jam (mph)</string>
+    <string name="kmh_label">Km/jam</string>
+    <string name="feet_label">Kaki (ft)</string>
+    <string name="meters_label">Meter (m)</string>
+    <string name="sec_widgets_title">MODUL AKTIF &amp; PERLINDUNGAN OLED</string>
+    <string name="widget_weather_label">Cuaca &amp; AQI Open-Meteo</string>
+    <string name="widget_crypto_label">Pita Ticker Kripto Binance</string>
+    <string name="widget_radar_label">Radar Penerbangan Langsung OpenSky</string>
+    <string name="widget_history_label">MuffinLabs Sejarah Hari Ini</string>
+    <string name="widget_burnin_label">Perlindungan Layar OLED Burn-in (Geser ±2px tiap 2m)</string>
+    <string name="sec_engagement_title">PENGALAMAN &amp; DUKUNGAN</string>
+    <string name="action_rate_app">Beri Nilai AmbientDeck</string>
+    <string name="action_share_app">Bagikan ke Teman</string>
+    <string name="action_check_update">Periksa Pembaruan</string>
+    <string name="action_privacy_policy">Kebijakan Privasi</string>
+    <string name="apply_return_dashboard">Terapkan &amp; Kembali ke Dashboard</string>
+
+    <string name="weather_detail_title">Prakiraan Atmosfer &amp; Kualitas Udara 7 Hari</string>
+    <string name="radar_detail_title">Daftar Penerbangan Langsung (%1$d Terlacak)</string>
+    <string name="crypto_detail_title">Kedalaman Pasar Aset Kripto (Binance)</string>
+    <string name="history_detail_title">Arsip Peristiwa Bersejarah Hari Ini</string>
+    <string name="air_quality_telemetry">TELEMETRI KUALITAS UDARA &amp; POLUTAN</string>
+    <string name="us_aqi">AQI AS</string>
+    <string name="eu_aqi">AQI Eropa</string>
+    <string name="pm25_particles">Partikel PM2.5</string>
+    <string name="pm10_particles">Partikel PM10</string>
+    <string name="outlook_7day">PROSPEK 7 HARI</string>
+    <string name="speed_label">KECEPATAN</string>
+
+    <string name="next_wallpaper">Wallpaper Berikutnya</string>
+    <string name="switch_layout">Ganti Tata Letak</string>
+    <string name="aqi_good">Baik</string>
+    <string name="aqi_moderate">Sedang</string>
+    <string name="aqi_sensitive">Sensitif</string>
+    <string name="aqi_unhealthy">Tidak Sehat</string>
+
+    <string name="layout_cinematic_name">Dinding Sinematik</string>
+    <string name="layout_cinematic_desc">Latar seni 4K dengan widget kaca melayang yang elegan</string>
+    <string name="layout_grid_name">Kios Multi-Panel</string>
+    <string name="layout_grid_desc">Kisi terstruktur menampilkan semua umpan serentak</string>
+    <string name="layout_zen_name">Jam Zen Minimal</string>
+    <string name="layout_zen_desc">Jam angka besar minimalis dengan cuaca halus</string>
+
+    <string name="art_scenic">Pemandangan Alam</string>
+    <string name="art_cyber">Cyberpunk &amp; Lampu Malam</string>
+    <string name="art_space">Kosmis &amp; Astrofotografi</string>
+    <string name="art_architecture">Arsitektur Modern</string>
+    <string name="art_fine_art">Seni Rupa &amp; Museum</string>
+
+    <string name="updated_at">Diperbarui pukul %1$s</string>
+    <string name="just_now">Baru saja</string>
+
+    <string name="rate_dialog_title">Menikmati AmbientDeck?</string>
+    <string name="rate_dialog_desc">Jika AmbientDeck mempercantik ruang Anda, penilaian di Google Play sangat berarti bagi kami!</string>
+    <string name="rate_now">Beri Nilai di Google Play</string>
+    <string name="rate_never">Jangan Tanya Lagi</string>
+    <string name="remind_later">Ingatkan Nanti</string>
+    <string name="update_dialog_title">Pembaruan Tersedia</string>
+    <string name="update_dialog_desc">Versi baru dengan peningkatan performa dan koleksi seni 4K baru telah siap.</string>
+    <string name="update_now">Perbarui Sekarang</string>
+    <string name="share_dialog_title">Bagikan AmbientDeck</string>
+    <string name="share_dialog_desc">Punya teman yang ingin layar TV atau tabletnya menjadi dashboard elegan? Bagikan AmbientDeck!</string>
+    <string name="share_now">Bagikan AmbientDeck</string>
+    <string name="maybe_later">Mungkin Nanti</string>
+    <string name="share_subject">AmbientDeck: Dinding Smart TV &amp; Kios</string>
+    <string name="share_body">Coba AmbientDeck! Ubah TV atau tablet menjadi pusat kendali elegan dengan seni 4K, cuaca, kripto, dan radar penerbangan: %1$s</string>
+
+    <string name="privacy_policy">Kebijakan Privasi</string>
+    <string name="privacy_policy_title">Kebijakan Data dan Privasi</string>
+    <string name="privacy_policy_content">AmbientDeck dirancang dengan privasi menyeluruh. Kami tidak mengumpulkan, menyimpan, melacak, atau membagikan data pribadi atau identitas perangkat. Data cuaca diperoleh secara anonim via Open-Meteo, data penerbangan dari umpan publik OpenSky, dan harga kripto dari API publik Binance. Semua pengaturan Anda tersimpan secara lokal di perangkat Anda.</string>
+    <string name="privacy_policy_ok">Mengerti</string>
+</resources>

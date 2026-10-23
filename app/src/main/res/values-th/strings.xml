@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmbientDeck</string>
+    <string name="refresh_data">รีเฟรชข้อมูล</string>
+    <string name="deck_settings">การตั้งค่าแดชบอร์ด</string>
+    <string name="location_icon">ตำแหน่งที่ตั้ง</string>
+    <string name="ambient_art_by">%1$s • ภาพถ่ายโดย %2$s</string>
+
+    <string name="splash_title">AmbientDeck</string>
+    <string name="splash_subtitle">แดชบอร์ดสำหรับ Smart TV และ Kiosk</string>
+    <string name="splash_loading">กำลังเริ่มต้นฟีดสดและระบบวัดระยะไกล...</string>
+
+    <string name="weather_aqi_title">สภาพอากาศและบรรยากาศ Open-Meteo</string>
+    <string name="aqi_format">AQI %1$d • %2$s</string>
+    <string name="loading_weather">กำลังโหลดข้อมูลสภาพอากาศและคุณภาพอากาศ...</string>
+    <string name="humidity_format">ความชื้น %1$d%%</string>
+    <string name="wind_format">ลม %1$.0f %2$s</string>
+    <string name="temp_high_low">สูงสุด: %1$.0f° • ต่ำสุด: %2$.0f°</string>
+    <string name="click_for_7day">ดูพยากรณ์ล่วงหน้า 7 วัน →</string>
+
+    <string name="radar_title">เรดาร์การบินสด OpenSky</string>
+    <string name="aircraft_active_format">มีเครื่องบิน %1$d ลำ</string>
+    <string name="radar_scanning">กำลังสแกนน่านฟ้าในภูมิภาค...</string>
+    <string name="click_inspect_flights">ตรวจสอบเที่ยวบินบนน่านฟ้า →</string>
+    <string name="altitude_label">ระดับความสูง</string>
+    <string name="groundspeed_label">ความเร็วภาคพื้น</string>
+    <string name="heading_label">ทิศทาง</string>
+    <string name="radar_icon_desc">เรดาร์</string>
+    <string name="flight_icon_desc">เที่ยวบิน</string>
+
+    <string name="crypto_title">ราคาคริปโต 24 ชม. Binance</string>
+    <string name="streaming_realtime">สตรีมข้อมูลแบบเรียลไทม์</string>
+    <string name="crypto_icon_desc">คริปโต</string>
+
+    <string name="history_title">MuffinLabs • วันนี้ในประวัติศาสตร์</string>
+    <string name="history_count_format">%1$d จาก %2$d</string>
+    <string name="history_retrieving">กำลังดึงข้อมูลเหตุการณ์สำคัญในวันนี้...</string>
+    <string name="click_read_full_timeline">อ่านไทม์ไลน์ฉบับเต็ม →</string>
+    <string name="previous_event">เหตุการณ์ก่อนหน้า</string>
+    <string name="next_event">เหตุการณ์ถัดไป</string>
+
+    <string name="settings_title">การตั้งค่า AmbientDeck</string>
+    <string name="settings_subtitle">การปรับแต่งสำหรับทีวี จอติดผนัง และ Kiosk</string>
+    <string name="close">ปิด</string>
+    <string name="sec_location_title">ศูนย์กลางตำแหน่งที่ตั้ง (สภาพอากาศและเรดาร์บิน)</string>
+    <string name="show_custom_gps">▼ ป้อนพิกัด GPS กำหนดเอง (ละติจูด / ลองจิจูด)</string>
+    <string name="hide_custom_gps">▲ ซ่อนการป้อนพิกัด GPS กำหนดเอง</string>
+    <string name="city_location_name">ชื่อเมือง / สถานที่</string>
+    <string name="latitude">ละติจูด</string>
+    <string name="longitude">ลองจิจูด</string>
+    <string name="apply_custom_coords">นำพิกัดไปใช้</string>
+    <string name="sec_layout_title">รูปแบบเลย์เอาต์แดชบอร์ด</string>
+    <string name="sec_art_title">ศิลปะ 4K และคอลเลกชันวอลเปเปอร์</string>
+    <string name="sec_units_title">หน่วยวัดและเทเลเมทรี</string>
+    <string name="temperature">หน่วยอุณหภูมิ</string>
+    <string name="wind_speed">หน่วยลมและความเร็ว</string>
+    <string name="flight_altitude">หน่วยความสูงการบิน</string>
+    <string name="celsius_label">เซลเซียส (°C)</string>
+    <string name="fahrenheit_label">ฟาเรนไฮต์ (°F)</string>
+    <string name="mph_label">ไมล์/ชม. (mph)</string>
+    <string name="kmh_label">กม./ชม.</string>
+    <string name="feet_label">ฟุต (ft)</string>
+    <string name="meters_label">เมตร (m)</string>
+    <string name="sec_widgets_title">โมดูลที่เปิดใช้งานและป้องกันจอเบิร์น</string>
+    <string name="widget_weather_label">สภาพอากาศและ AQI Open-Meteo</string>
+    <string name="widget_crypto_label">แถบราคาคริปโต Binance</string>
+    <string name="widget_radar_label">เรดาร์เที่ยวบินสด OpenSky</string>
+    <string name="widget_history_label">ประวัติศาสตร์วันนี้ MuffinLabs</string>
+    <string name="widget_burnin_label">ป้องกันจอเบิร์น OLED (เลื่อน ±2px ทุก 2 นาที)</string>
+    <string name="sec_engagement_title">ประสบการณ์และการสนับสนุน</string>
+    <string name="action_rate_app">ให้คะแนน AmbientDeck</string>
+    <string name="action_share_app">แชร์ให้เพื่อน</string>
+    <string name="action_check_update">ตรวจหาการอัปเดต</string>
+    <string name="action_privacy_policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="apply_return_dashboard">นำไปใช้และกลับสู่แดชบอร์ด</string>
+
+    <string name="weather_detail_title">พยากรณ์บรรยากาศและคุณภาพอากาศ 7 วัน</string>
+    <string name="radar_detail_title">รายการเที่ยวบินบนน่านฟ้า (%1$d ลำกำลังติดตาม)</string>
+    <string name="crypto_detail_title">ข้อมูลตลาดสินทรัพย์ดิจิทัล (Binance)</string>
+    <string name="history_detail_title">คลังเหตุการณ์วันนี้ในประวัติศาสตร์</string>
+    <string name="air_quality_telemetry">เทเลเมทรีคุณภาพอากาศและฝุ่นละออง</string>
+    <string name="us_aqi">US AQI</string>
+    <string name="eu_aqi">European AQI</string>
+    <string name="pm25_particles">ฝุ่น PM2.5</string>
+    <string name="pm10_particles">ฝุ่น PM10</string>
+    <string name="outlook_7day">คาดการณ์ 7 วัน</string>
+    <string name="speed_label">ความเร็ว</string>
+
+    <string name="next_wallpaper">วอลเปเปอร์ถัดไป</string>
+    <string name="switch_layout">เปลี่ยนเลย์เอาต์</string>
+    <string name="aqi_good">ดี</string>
+    <string name="aqi_moderate">ปานกลาง</string>
+    <string name="aqi_sensitive">เริ่มมีผลกระทบ</string>
+    <string name="aqi_unhealthy">ไม่ดีต่อสุขภาพ</string>
+
+    <string name="layout_cinematic_name">วอลล์ภาพยนตร์</string>
+    <string name="layout_cinematic_desc">พื้นหลังศิลปะ 4K พร้อมวิดเจ็ตกระจกโปร่งแสง</string>
+    <string name="layout_grid_name">คีออสก์มัลติพาเนล</string>
+    <string name="layout_grid_desc">กริดที่มีโครงสร้าง แสดงข้อมูลทั้งหมดพร้อมกัน</string>
+    <string name="layout_zen_name">นาฬิกาเซนแบบมินิมอล</string>
+    <string name="layout_zen_desc">นาฬิกาตัวเลขขนาดใหญ่สไตล์มินิมอลและสภาพอากาศเรียบง่าย</string>
+
+    <string name="art_scenic">ทิวทัศน์ธรรมชาติ</string>
+    <string name="art_cyber">ไซเบอร์พังก์และแสงสียามค่ำคืน</string>
+    <string name="art_space">อวกาศและดาราศาสตร์</string>
+    <string name="art_architecture">สถาปัตยกรรมสมัยใหม่</string>
+    <string name="art_fine_art">วิจิตรศิลป์และพิพิธภัณฑ์</string>
+
+    <string name="updated_at">อัปเดตเมื่อ %1$s</string>
+    <string name="just_now">เมื่อสักครู่</string>
+
+    <string name="rate_dialog_title">ชอบ AmbientDeck ไหม?</string>
+    <string name="rate_dialog_desc">หาก AmbientDeck ช่วยแต่งเติมห้องนั่งเล่นหรือจอภาพของคุณ การรีวิวบน Google Play มีความหมายกับเราอย่างมาก!</string>
+    <string name="rate_now">ให้คะแนนบน Google Play</string>
+    <string name="rate_never">ไม่ต้องถามอีก</string>
+    <string name="remind_later">เตือนภายหลัง</string>
+    <string name="update_dialog_title">มีการอัปเดตใหม่</string>
+    <string name="update_dialog_desc">เวอร์ชันใหม่พร้อมการเพิ่มประสิทธิภาพและคอลเลกชันภาพ 4K ชุดใหม่พร้อมใช้งานแล้ว</string>
+    <string name="update_now">อัปเดตทันที</string>
+    <string name="share_dialog_title">แชร์ AmbientDeck</string>
+    <string name="share_dialog_desc">รู้จักใครที่อยากเปลี่ยนทีวีหรือแท็บเล็ตเป็นแดชบอร์ดสวยหรูไหม? แชร์เลย!</string>
+    <string name="share_now">แชร์ AmbientDeck</string>
+    <string name="maybe_later">ไว้วันหลัง</string>
+    <string name="share_subject">AmbientDeck: แดชบอร์ดสำหรับ Smart TV และ Kiosk</string>
+    <string name="share_body">ลองใช้ AmbientDeck! เปลี่ยนทีวีและแท็บเล็ตให้กลายเป็นศูนย์บัญชาการหรูหราด้วยภาพ 4K, สภาพอากาศ, คริปโต และเรดาร์การบิน: %1$s</string>
+
+    <string name="privacy_policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="privacy_policy_title">นโยบายข้อมูลและความเป็นส่วนตัว</string>
+    <string name="privacy_policy_content">AmbientDeck ให้ความสำคัญกับความเป็นส่วนตัวของคุณสูงสุด เราไม่เก็บรวบรวม ไม่จัดเก็บ และไม่ส่งต่อข้อมูลส่วนบุคคลหรือข้อมูลระบุตัวตนอุปกรณ์ ข้อมูลสภาพอากาศดึงมาจาก Open-Meteo ข้อมูลเที่ยวบินมาจาก OpenSky สาธารณะ และราคาคริปโตดึงตรงจาก Binance การตั้งค่าทั้งหมดจะถูกบันทึกไว้ในอุปกรณ์ของคุณเท่านั้น</string>
+    <string name="privacy_policy_ok">เข้าใจแล้ว</string>
+</resources>

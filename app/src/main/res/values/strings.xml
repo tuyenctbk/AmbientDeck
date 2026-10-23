@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmbientDeck</string>
+    <string name="refresh_data">Refresh Data</string>
+    <string name="deck_settings">Deck Settings</string>
+    <string name="location_icon">Location</string>
+    <string name="ambient_art_by">%1$s • Photo by %2$s</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_title">AmbientDeck</string>
+    <string name="splash_subtitle">Smart TV Wall &amp; Kiosk</string>
+    <string name="splash_loading">Initializing Live Feeds &amp; Telemetry...</string>
+
+    <!-- Weather & AQI -->
+    <string name="weather_aqi_title">Open-Meteo Atmosphere</string>
+    <string name="aqi_format">AQI %1$d • %2$s</string>
+    <string name="loading_weather">Loading weather &amp; atmospheric feeds...</string>
+    <string name="humidity_format">%1$d%% humidity</string>
+    <string name="wind_format">%1$.0f %2$s wind</string>
+    <string name="temp_high_low">H: %1$.0f° • L: %2$.0f°</string>
+    <string name="click_for_7day">Click for 7-day forecast →</string>
+
+    <!-- Radar -->
+    <string name="radar_title">OpenSky Overhead Radar</string>
+    <string name="aircraft_active_format">%1$d Aircraft Active</string>
+    <string name="radar_scanning">Scanning airspace over region...</string>
+    <string name="click_inspect_flights">Click to inspect airspace flights →</string>
+    <string name="altitude_label">ALTITUDE</string>
+    <string name="groundspeed_label">GROUNDSPEED</string>
+    <string name="heading_label">HEADING</string>
+    <string name="radar_icon_desc">Radar</string>
+    <string name="flight_icon_desc">Flight</string>
+
+    <!-- Crypto -->
+    <string name="crypto_title">Binance 24h Tickers</string>
+    <string name="streaming_realtime">Streaming Real-Time</string>
+    <string name="crypto_icon_desc">Crypto</string>
+
+    <!-- History -->
+    <string name="history_title">MuffinLabs • On This Day</string>
+    <string name="history_count_format">%1$d of %2$d</string>
+    <string name="history_retrieving">Retrieving historical milestones for today...</string>
+    <string name="click_read_full_timeline">Click to read full timeline →</string>
+    <string name="previous_event">Previous Event</string>
+    <string name="next_event">Next Event</string>
+
+    <!-- Settings -->
+    <string name="settings_title">AmbientDeck Settings</string>
+    <string name="settings_subtitle">Customization for TV, Wall &amp; Kiosk displays</string>
+    <string name="close">Close</string>
+    <string name="sec_location_title">GEOGRAPHIC HUB (WEATHER &amp; FLIGHT RADAR)</string>
+    <string name="show_custom_gps">▼ Enter custom GPS coordinates (latitude / longitude)</string>
+    <string name="hide_custom_gps">▲ Hide custom GPS coordinate input</string>
+    <string name="city_location_name">City/Location Name</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="apply_custom_coords">Apply Custom Coordinates</string>
+    <string name="sec_layout_title">DASHBOARD LAYOUT MODE</string>
+    <string name="sec_art_title">4K ART &amp; WALLPAPER CURATION</string>
+    <string name="sec_units_title">UNITS &amp; TELEMETRY</string>
+    <string name="temperature">Temperature</string>
+    <string name="wind_speed">Wind &amp; Speed</string>
+    <string name="flight_altitude">Flight Altitude</string>
+    <string name="celsius_label">Celsius (°C)</string>
+    <string name="fahrenheit_label">Fahrenheit (°F)</string>
+    <string name="mph_label">Miles/h (mph)</string>
+    <string name="kmh_label">Km/h</string>
+    <string name="feet_label">Feet (ft)</string>
+    <string name="meters_label">Meters (m)</string>
+    <string name="sec_widgets_title">ACTIVE WIDGET MODULES &amp; BURN-IN PROTECTION</string>
+    <string name="widget_weather_label">Open-Meteo Weather &amp; AQI</string>
+    <string name="widget_crypto_label">Binance Crypto Ticker Tape</string>
+    <string name="widget_radar_label">OpenSky Live Flight Radar</string>
+    <string name="widget_history_label">MuffinLabs Today in History</string>
+    <string name="widget_burnin_label">OLED Burn-in Pixel Drift (Shift ±2px every 2m)</string>
+    <string name="sec_engagement_title">APP EXPERIENCE &amp; SUPPORT</string>
+    <string name="action_rate_app">Rate AmbientDeck</string>
+    <string name="action_share_app">Share with Friends</string>
+    <string name="action_check_update">Check for Updates</string>
+    <string name="action_privacy_policy">Privacy Policy</string>
+    <string name="apply_return_dashboard">Apply &amp; Return to Dashboard</string>
+
+    <!-- Detail Dialog -->
+    <string name="weather_detail_title">7-Day Atmospheric &amp; Air Quality Forecast</string>
+    <string name="radar_detail_title">Live Overhead Flight Manifest (%1$d Tracked)</string>
+    <string name="crypto_detail_title">Crypto Asset Market Depth (Binance)</string>
+    <string name="history_detail_title">On This Day in History Archive</string>
+    <string name="air_quality_telemetry">AIR QUALITY &amp; POLLUTANT TELEMETRY</string>
+    <string name="us_aqi">US AQI</string>
+    <string name="eu_aqi">European AQI</string>
+    <string name="pm25_particles">PM2.5 Particles</string>
+    <string name="pm10_particles">PM10 Particles</string>
+    <string name="outlook_7day">7-DAY OUTLOOK</string>
+    <string name="speed_label">SPEED</string>
+
+    <!-- Floating Actions & Miscellaneous -->
+    <string name="next_wallpaper">Next Wallpaper</string>
+    <string name="switch_layout">Switch Layout</string>
+    <string name="aqi_good">Good</string>
+    <string name="aqi_moderate">Moderate</string>
+    <string name="aqi_sensitive">Sensitive</string>
+    <string name="aqi_unhealthy">Unhealthy</string>
+
+    <!-- Layout Modes -->
+    <string name="layout_cinematic_name">Cinematic Wall</string>
+    <string name="layout_cinematic_desc">Hero 4K art backdrop with floating glassmorphic widgets</string>
+    <string name="layout_grid_name">Kiosk Multi-Panel</string>
+    <string name="layout_grid_desc">Structured dense grid dashboard displaying all feeds simultaneously</string>
+    <string name="layout_zen_name">Zen Clock Minimal</string>
+    <string name="layout_zen_desc">Minimalist large typography clock and subtle ambient weather</string>
+
+    <!-- Art Categories -->
+    <string name="art_scenic">Scenic Landscapes</string>
+    <string name="art_cyber">Cyberpunk &amp; Night Lights</string>
+    <string name="art_space">Cosmic &amp; Astrophotography</string>
+    <string name="art_architecture">Modern Architecture</string>
+    <string name="art_fine_art">Fine Art &amp; Museum</string>
+
+    <string name="updated_at">Updated at %1$s</string>
+    <string name="just_now">Just now</string>
+
+    <!-- Engagement Dialogs (Rate, Update, Share) -->
+    <string name="rate_dialog_title">Enjoying AmbientDeck?</string>
+    <string name="rate_dialog_desc">If AmbientDeck enhances your living room or workspace display, taking a moment to rate us on Google Play means the world!</string>
+    <string name="rate_now">Rate on Google Play</string>
+    <string name="rate_never">Don\'t Ask Again</string>
+    <string name="remind_later">Remind Me Later</string>
+    <string name="update_dialog_title">Update Available</string>
+    <string name="update_dialog_desc">A new version with performance improvements and refreshed 4K collections is ready.</string>
+    <string name="update_now">Update Now</string>
+    <string name="share_dialog_title">Share AmbientDeck</string>
+    <string name="share_dialog_desc">Know someone who would love a sleek ambient dashboard for their TV or kiosk? Share AmbientDeck with them!</string>
+    <string name="share_now">Share AmbientDeck</string>
+    <string name="maybe_later">Maybe Later</string>
+    <string name="share_subject">AmbientDeck: Smart TV Wall &amp; Kiosk</string>
+    <string name="share_body">Check out AmbientDeck! It turns idle Android TV, tablets, and kiosks into a sleek ambient command center with 4K art, weather, crypto, and live flight radar: %1$s</string>
+
+    <!-- Privacy Policy Dialog -->
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="privacy_policy_title">Privacy &amp; Data Policy</string>
+    <string name="privacy_policy_content">AmbientDeck is designed with complete privacy in mind. We do not collect, store, track, or share any personal data or device identifiers. Weather telemetry is fetched anonymously via Open-Meteo for your selected location coordinates. Airspace flight data is retrieved from public OpenSky feeds. Crypto tickers are retrieved directly from public Binance endpoints. All user preferences remain solely on your device.</string>
+    <string name="privacy_bullet_zero_data_title">Zero Data Collection</string>
+    <string name="privacy_bullet_zero_data_desc">No analytics trackers, advertising IDs, or telemetry profiling.</string>
+    <string name="privacy_bullet_open_apis_title">Open Free APIs</string>
+    <string name="privacy_bullet_open_apis_desc">Live data comes from public Open-Meteo, Binance, and OpenSky Network.</string>
+    <string name="privacy_bullet_local_storage_title">Local Device Storage</string>
+    <string name="privacy_bullet_local_storage_desc">Preferences and locations stay strictly on your local device.</string>
+    <string name="privacy_policy_ok">Understood</string>
+</resources>

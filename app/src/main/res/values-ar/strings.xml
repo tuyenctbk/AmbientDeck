@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmbientDeck</string>
+    <string name="refresh_data">تحديث البيانات</string>
+    <string name="deck_settings">إعدادات اللوحة</string>
+    <string name="location_icon">الموقع</string>
+    <string name="ambient_art_by">%1$s • تصوير %2$s</string>
+
+    <string name="splash_title">AmbientDeck</string>
+    <string name="splash_subtitle">لوحة شاشة التلفزيون الذكي والأكشاك</string>
+    <string name="splash_loading">جارٍ تهيئة البث المباشر والقياس عن بعد...</string>
+
+    <string name="weather_aqi_title">طقس وبيئة Open-Meteo</string>
+    <string name="aqi_format">مؤشر جودة الهواء %1$d • %2$s</string>
+    <string name="loading_weather">جارٍ تحميل بيانات الطقس والغلاف الجوي...</string>
+    <string name="humidity_format">%1$d%% رطوبة</string>
+    <string name="wind_format">%1$.0f %2$s سرعة الرياح</string>
+    <string name="temp_high_low">ع: %1$.0f° • د: %2$.0f°</string>
+    <string name="click_for_7day">عرض توقعات 7 أيام →</string>
+
+    <string name="radar_title">رادار الأجواء المباشر OpenSky</string>
+    <string name="aircraft_active_format">%1$d طائرة نشطة</string>
+    <string name="radar_scanning">جارٍ مسح المجال الجوي للمنطقة...</string>
+    <string name="click_inspect_flights">عرض رحلات المجال الجوي →</string>
+    <string name="altitude_label">الارتفاع</string>
+    <string name="groundspeed_label">السرعة الأرضية</string>
+    <string name="heading_label">الاتجاه</string>
+    <string name="radar_icon_desc">رادار</string>
+    <string name="flight_icon_desc">رحلة</string>
+
+    <string name="crypto_title">أسعار بينانس على مدار 24 ساعة</string>
+    <string name="streaming_realtime">بث مباشر في الوقت الحقيقي</string>
+    <string name="crypto_icon_desc">عملات رقمية</string>
+
+    <string name="history_title">MuffinLabs • في مثل هذا اليوم</string>
+    <string name="history_count_format">%1$d من %2$d</string>
+    <string name="history_retrieving">استرجاع المحطات التاريخية لهذا اليوم...</string>
+    <string name="click_read_full_timeline">قراءة الجدول الزمني كاملاً →</string>
+    <string name="previous_event">الحدث السابق</string>
+    <string name="next_event">الحدث التالي</string>
+
+    <string name="settings_title">إعدادات AmbientDeck</string>
+    <string name="settings_subtitle">تخصيص لشاشات التلفزيون والشاشات الجدارية والأكشاك</string>
+    <string name="close">إغلاق</string>
+    <string name="sec_location_title">مركز الموقع (الطقس ورادار الطيران)</string>
+    <string name="show_custom_gps">▼ إدخال إحداثيات GPS مخصصة (خط العرض / خط الطول)</string>
+    <string name="hide_custom_gps">▲ إخفاء إدخال إحداثيات GPS</string>
+    <string name="city_location_name">اسم المدينة / الموقع</string>
+    <string name="latitude">خط العرض</string>
+    <string name="longitude">خط الطول</string>
+    <string name="apply_custom_coords">تطبيق الإحداثيات</string>
+    <string name="sec_layout_title">نمط تخطيط لوحة المعلومات</string>
+    <string name="sec_art_title">معرض الفنون والخلفيات بدقة 4K</string>
+    <string name="sec_units_title">الوحدات والقياسات</string>
+    <string name="temperature">وحدة الحرارة</string>
+    <string name="wind_speed">وحدة سرعة الرياح</string>
+    <string name="flight_altitude">وحدة ارتفاع الطيران</string>
+    <string name="celsius_label">مئوية (°C)</string>
+    <string name="fahrenheit_label">فهرنهايت (°F)</string>
+    <string name="mph_label">ميل/ساعة (mph)</string>
+    <string name="kmh_label">كم/ساعة (km/h)</string>
+    <string name="feet_label">قدم (ft)</string>
+    <string name="meters_label">متر (m)</string>
+    <string name="sec_widgets_title">الوحدات النشطة وحماية شاشات OLED</string>
+    <string name="widget_weather_label">طقس وجودة هواء Open-Meteo</string>
+    <string name="widget_crypto_label">شريط أسعار بينانس للعملات الرقمية</string>
+    <string name="widget_radar_label">رادار الرحلات المباشر OpenSky</string>
+    <string name="widget_history_label">أحداث تاريخ اليوم MuffinLabs</string>
+    <string name="widget_burnin_label">حماية OLED من الاحتراق (إزاحة ±2 بكسل كل دقيقتين)</string>
+    <string name="sec_engagement_title">التجربة والدعم</string>
+    <string name="action_rate_app">تقييم AmbientDeck</string>
+    <string name="action_share_app">مشاركة مع الأصدقاء</string>
+    <string name="action_check_update">التحقق من وجود تحديثات</string>
+    <string name="action_privacy_policy">سياسة الخصوصية</string>
+    <string name="apply_return_dashboard">تطبيق والعودة إلى اللوحة</string>
+
+    <string name="weather_detail_title">توقعات الطقس وجودة الهواء لمدة 7 أيام</string>
+    <string name="radar_detail_title">بيانات الرحلات الجوية النشطة (%1$d طائرة يتم تتبعها)</string>
+    <string name="crypto_detail_title">عمق سوق الأصول الرقمية (بينانس)</string>
+    <string name="history_detail_title">أرشيف أحداث مثل هذا اليوم</string>
+    <string name="air_quality_telemetry">قياسات جودة الهواء والملوثات</string>
+    <string name="us_aqi">AQI الأمريكي</string>
+    <string name="eu_aqi">AQI الأوروبي</string>
+    <string name="pm25_particles">جسيمات PM2.5</string>
+    <string name="pm10_particles">جسيمات PM10</string>
+    <string name="outlook_7day">توقعات 7 أيام</string>
+    <string name="speed_label">السرعة</string>
+
+    <string name="next_wallpaper">الخلفية التالية</string>
+    <string name="switch_layout">تبديل التخطيط</string>
+    <string name="aqi_good">جيد</string>
+    <string name="aqi_moderate">معتدل</string>
+    <string name="aqi_sensitive">حساس لفئات معينة</string>
+    <string name="aqi_unhealthy">غير صحي</string>
+
+    <string name="layout_cinematic_name">شاشة سينمائية</string>
+    <string name="layout_cinematic_desc">خلفية فنية 4K مع عناصر زجاجية عائمة</string>
+    <string name="layout_grid_name">كشك متعدد الألواح</string>
+    <string name="layout_grid_desc">شبكة منظمة تعرض جميع البيانات في وقت واحد</string>
+    <string name="layout_zen_name">ساعة زين البسيطة</string>
+    <string name="layout_zen_desc">ساعة كبيرة وأنيقة مع طقس خفيف وهادئ</string>
+
+    <string name="art_scenic">مناظر طبيعية خلابة</string>
+    <string name="art_cyber">سايبربانك وأضواء ليلية</string>
+    <string name="art_space">فضاء وتصوير فلكي</string>
+    <string name="art_architecture">عمارة حديثة</string>
+    <string name="art_fine_art">فنون تشكيلية ومتاحف</string>
+
+    <string name="updated_at">تم التحديث في %1$s</string>
+    <string name="just_now">الآن</string>
+
+    <string name="rate_dialog_title">هل تستمتع بـ AmbientDeck؟</string>
+    <string name="rate_dialog_desc">إذا كان AmbientDeck يضفي لمسة جمالية على شاشتك، فإن تقييمك لنا على Google Play يعني لنا الكثير!</string>
+    <string name="rate_now">تقييم على Google Play</string>
+    <string name="rate_never">عدم السؤال مرة أخرى</string>
+    <string name="remind_later">تذكيري لاحقاً</string>
+    <string name="update_dialog_title">يتوفر تحديث جديد</string>
+    <string name="update_dialog_desc">إصدار جديد مع تحسينات في الأداء ومجموعات فنية بدقة 4K أصبح جاهزاً.</string>
+    <string name="update_now">تحديث الآن</string>
+    <string name="share_dialog_title">مشاركة AmbientDeck</string>
+    <string name="share_dialog_desc">هل تعرف أحداً يود تحويل شاشته إلى لوحة معلومات أنيقة؟ شارك AmbientDeck معه!</string>
+    <string name="share_now">مشاركة AmbientDeck</string>
+    <string name="maybe_later">ربما لاحقاً</string>
+    <string name="share_subject">AmbientDeck: لوحة شاشة التلفزيون الذكي والأكشاك</string>
+    <string name="share_body">اكتشف AmbientDeck! يحول شاشات التلفزيون والأجهزة اللوحية إلى لوحة تحكم أنيقة تضم فنون 4K والطقس وأسعار الكريبتو ورادار الطيران: %1$s</string>
+
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="privacy_policy_title">سياسة الخصوصية والبيانات</string>
+    <string name="privacy_policy_content">تم تصميم AmbientDeck لحماية خصوصيتك بالكامل. نحن لا نجمع أو نخزن أو نتتبع أي بيانات شخصية أو معرفات أجهزة. يتم جلب بيانات الطقس دون هوية عبر Open-Meteo، وبيانات الطيران من مصادر OpenSky العامة، وأسعار العملات من بينانس مباشرة. تظل جميع إعداداتك محفوظة على جهازك فقط.</string>
+    <string name="privacy_policy_ok">موافق</string>
+</resources>

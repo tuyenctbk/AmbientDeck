@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmbientDeck</string>
+    <string name="refresh_data">データを更新</string>
+    <string name="deck_settings">デッキ設定</string>
+    <string name="location_icon">位置情報</string>
+    <string name="ambient_art_by">%1$s • 撮影：%2$s</string>
+
+    <string name="splash_title">AmbientDeck</string>
+    <string name="splash_subtitle">スマートTV・キオスク壁面ダッシュボード</string>
+    <string name="splash_loading">ライブフィードとテレメトリを初期化中...</string>
+
+    <string name="weather_aqi_title">Open-Meteo 気象・大気データ</string>
+    <string name="aqi_format">AQI %1$d • %2$s</string>
+    <string name="loading_weather">気象および大気データを読み込み中...</string>
+    <string name="humidity_format">湿度 %1$d%%</string>
+    <string name="wind_format">風速 %1$.0f %2$s</string>
+    <string name="temp_high_low">最高: %1$.0f° • 最低: %2$.0f°</string>
+    <string name="click_for_7day">7日間の天気予報を見る →</string>
+
+    <string name="radar_title">OpenSky 上空ライブレーダー</string>
+    <string name="aircraft_active_format">%1$d 機飛行中</string>
+    <string name="radar_scanning">周辺空域をスキャン中...</string>
+    <string name="click_inspect_flights">飛行中の航空機を確認 →</string>
+    <string name="altitude_label">高度</string>
+    <string name="groundspeed_label">対地速度</string>
+    <string name="heading_label">方位</string>
+    <string name="radar_icon_desc">レーダー</string>
+    <string name="flight_icon_desc">フライト</string>
+
+    <string name="crypto_title">Binance 24時間ティッカー</string>
+    <string name="streaming_realtime">リアルタイム配信中</string>
+    <string name="crypto_icon_desc">暗号資産</string>
+
+    <string name="history_title">MuffinLabs • 歴史上の今日</string>
+    <string name="history_count_format">%2$d件中 %1$d件目</string>
+    <string name="history_retrieving">本日の歴史的な出来事を取得中...</string>
+    <string name="click_read_full_timeline">年表をすべて見る →</string>
+    <string name="previous_event">前の出来事</string>
+    <string name="next_event">次の出来事</string>
+
+    <string name="settings_title">AmbientDeck 設定</string>
+    <string name="settings_subtitle">TV・壁掛け・キオスク向けカスタム設定</string>
+    <string name="close">閉じる</string>
+    <string name="sec_location_title">地理ハブ（天気・フライトレーダー）</string>
+    <string name="show_custom_gps">▼ カスタムGPS座標を入力（緯度・経度）</string>
+    <string name="hide_custom_gps">▲ カスタムGPS座標入力を隠す</string>
+    <string name="city_location_name">都市・場所の名前</string>
+    <string name="latitude">緯度</string>
+    <string name="longitude">経度</string>
+    <string name="apply_custom_coords">座標を適用</string>
+    <string name="sec_layout_title">ダッシュボード表示レイアウト</string>
+    <string name="sec_art_title">4Kアート＆壁紙コレクション</string>
+    <string name="sec_units_title">単位＆テレメトリ設定</string>
+    <string name="temperature">気温単位</string>
+    <string name="wind_speed">風速単位</string>
+    <string name="flight_altitude">飛行高度単位</string>
+    <string name="celsius_label">摂氏 (°C)</string>
+    <string name="fahrenheit_label">華氏 (°F)</string>
+    <string name="mph_label">マイル/時 (mph)</string>
+    <string name="kmh_label">キロ/時 (km/h)</string>
+    <string name="feet_label">フィート (ft)</string>
+    <string name="meters_label">メートル (m)</string>
+    <string name="sec_widgets_title">表示モジュール＆OLED画面保護</string>
+    <string name="widget_weather_label">Open-Meteo 天気＆大気質(AQI)</string>
+    <string name="widget_crypto_label">Binance 暗号資産ティッカー</string>
+    <string name="widget_radar_label">OpenSky 上空フライトレーダー</string>
+    <string name="widget_history_label">MuffinLabs 歴史上の今日</string>
+    <string name="widget_burnin_label">OLED焼き付き防止ドリフト (2分毎に±2px移動)</string>
+    <string name="sec_engagement_title">アプリ情報＆サポート</string>
+    <string name="action_rate_app">AmbientDeckを評価</string>
+    <string name="action_share_app">友達に共有</string>
+    <string name="action_check_update">アップデートを確認</string>
+    <string name="action_privacy_policy">プライバシーポリシー</string>
+    <string name="apply_return_dashboard">設定を適用して戻る</string>
+
+    <string name="weather_detail_title">7日間の気象＆大気質詳細予報</string>
+    <string name="radar_detail_title">上空航空機マニフェスト（%1$d機 追跡中）</string>
+    <string name="crypto_detail_title">暗号資産マーケット詳細 (Binance)</string>
+    <string name="history_detail_title">歴史上の今日 アーカイブ</string>
+    <string name="air_quality_telemetry">大気質＆微粒子テレメトリ</string>
+    <string name="us_aqi">米国AQI</string>
+    <string name="eu_aqi">欧州AQI</string>
+    <string name="pm25_particles">PM2.5微粒子</string>
+    <string name="pm10_particles">PM10微粒子</string>
+    <string name="outlook_7day">7日間の見通し</string>
+    <string name="speed_label">速度</string>
+
+    <string name="next_wallpaper">次の壁紙</string>
+    <string name="switch_layout">レイアウト切替</string>
+    <string name="aqi_good">良好</string>
+    <string name="aqi_moderate">普通</string>
+    <string name="aqi_sensitive">敏感層に注意</string>
+    <string name="aqi_unhealthy">健康に影響あり</string>
+
+    <string name="layout_cinematic_name">シネマティックウォール</string>
+    <string name="layout_cinematic_desc">4Kアート背景に浮遊するグラスモーフィズム</string>
+    <string name="layout_grid_name">キオスク・マルチパネル</string>
+    <string name="layout_grid_desc">すべての情報を同時に見渡せる高密度グリッド</string>
+    <string name="layout_zen_name">ミニマルZenクロック</string>
+    <string name="layout_zen_desc">巨大タイポグラフィ時計とさりげない天気表示</string>
+
+    <string name="art_scenic">大自然・風景</string>
+    <string name="art_cyber">サイバーパンク＆ナイトライト</string>
+    <string name="art_space">宇宙＆天体写真</string>
+    <string name="art_architecture">モダン建築</string>
+    <string name="art_fine_art">ファインアート＆美術館</string>
+
+    <string name="updated_at">%1$s に更新</string>
+    <string name="just_now">たった今</string>
+
+    <string name="rate_dialog_title">AmbientDeckはいかがですか？</string>
+    <string name="rate_dialog_desc">AmbientDeckがリビングや空間づくりに役立っているなら、Google Playで星のレビューをいただけると開発の励みになります！</string>
+    <string name="rate_now">Google Playで評価する</string>
+    <string name="rate_never">今後は表示しない</string>
+    <string name="remind_later">後で通知</string>
+    <string name="update_dialog_title">新しいアップデートがあります</string>
+    <string name="update_dialog_desc">パフォーマンス向上と新しい4K壁紙を追加した最新バージョンが利用可能です。</string>
+    <string name="update_now">今すぐ更新</string>
+    <string name="share_dialog_title">AmbientDeckをシェアする</string>
+    <string name="share_dialog_desc">TVやタブレットをおしゃれなスマートダッシュボードに変えるAmbientDeckを友達にも紹介しませんか？</string>
+    <string name="share_now">AmbientDeckをシェア</string>
+    <string name="maybe_later">後で</string>
+    <string name="share_subject">AmbientDeck: スマートTV・キオスク壁面ダッシュボード</string>
+    <string name="share_body">AmbientDeckをチェック！使っていないAndroid TVやタブレットが高精細4Kアート・天気・暗号資産・上空レーダーを表示するアンビエント画面に生まれ変わります: %1$s</string>
+
+    <string name="privacy_policy">プライバシーポリシー</string>
+    <string name="privacy_policy_title">プライバシー＆データ利用規約</string>
+    <string name="privacy_policy_content">AmbientDeckはユーザーのプライバシーを最優先に設計されています。個人情報やデバイス固有の識別子の収集・保存・追跡・外部送信は一切行いません。気象データはOpen-Meteoから匿名で取得され、フライト情報はOpenSkyの公開データを利用しています。暗号資産レートはBinanceから直接取得されます。すべての設定はユーザーの端末内にのみ安全に保持されます。</string>
+    <string name="privacy_policy_ok">理解しました</string>
+</resources>

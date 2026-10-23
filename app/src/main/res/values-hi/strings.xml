@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AmbientDeck</string>
+    <string name="refresh_data">डेटा ताज़ा करें</string>
+    <string name="deck_settings">डेक सेटिंग्स</string>
+    <string name="location_icon">स्थान</string>
+    <string name="ambient_art_by">%1$s • फ़ोटो: %2$s</string>
+
+    <string name="splash_title">AmbientDeck</string>
+    <string name="splash_subtitle">स्मार्ट टीवी और कियोस्क परिवेश डैशबोर्ड</string>
+    <string name="splash_loading">लाइव फ़ीड और टेलीमेट्री शुरू हो रही है...</string>
+
+    <string name="weather_aqi_title">Open-Meteo मौसम और वायु</string>
+    <string name="aqi_format">AQI %1$d • %2$s</string>
+    <string name="loading_weather">मौसम और वायु डेटा लोड हो रहा है...</string>
+    <string name="humidity_format">%1$d%% नमी</string>
+    <string name="wind_format">%1$.0f %2$s हवा</string>
+    <string name="temp_high_low">उ: %1$.0f° • नि: %2$.0f°</string>
+    <string name="click_for_7day">7 दिनों का पूर्वानुमान देखें →</string>
+
+    <string name="radar_title">OpenSky ओवरहेड रडार</string>
+    <string name="aircraft_active_format">%1$d विमान सक्रिय</string>
+    <string name="radar_scanning">हवाई क्षेत्र स्कैन हो रहा है...</string>
+    <string name="click_inspect_flights">हवाई उड़ानें जांचें →</string>
+    <string name="altitude_label">ऊंचाई</string>
+    <string name="groundspeed_label">गति</string>
+    <string name="heading_label">दिशा</string>
+    <string name="radar_icon_desc">रडार</string>
+    <string name="flight_icon_desc">उड़ान</string>
+
+    <string name="crypto_title">Binance 24 घंटे की दरें</string>
+    <string name="streaming_realtime">रियल-टाइम स्ट्रीमिंग</string>
+    <string name="crypto_icon_desc">क्रिप्टो</string>
+
+    <string name="history_title">MuffinLabs • आज का इतिहास</string>
+    <string name="history_count_format">%1$d / %2$d</string>
+    <string name="history_retrieving">आज की ऐतिहासिक घटनाओं को खोजा जा रहा है...</string>
+    <string name="click_read_full_timeline">पूरी समयरेखा पढ़ें →</string>
+    <string name="previous_event">पिछली घटना</string>
+    <string name="next_event">अगली घटना</string>
+
+    <string name="settings_title">AmbientDeck सेटिंग्स</string>
+    <string name="settings_subtitle">टीवी, वॉल और कियोस्क डिस्प्ले के लिए अनुकूलन</string>
+    <string name="close">बंद करें</string>
+    <string name="sec_location_title">स्थान केंद्र (मौसम और उड़ान रडार)</string>
+    <string name="show_custom_gps">▼ कस्टम GPS निर्देशांक दर्ज करें (अक्षांश / देशांतर)</string>
+    <string name="hide_custom_gps">▲ GPS इनपुट छुपाएं</string>
+    <string name="city_location_name">शहर / स्थान का नाम</string>
+    <string name="latitude">अक्षांश</string>
+    <string name="longitude">देशांतर</string>
+    <string name="apply_custom_coords">निर्देशांक लागू करें</string>
+    <string name="sec_layout_title">डैशबोर्ड लेआउट मोड</string>
+    <string name="sec_art_title">4K कला और वॉलपेपर संग्रह</string>
+    <string name="sec_units_title">इकाइयां और टेलीमेट्री</string>
+    <string name="temperature">तापमान</string>
+    <string name="wind_speed">हवा और गति</string>
+    <string name="flight_altitude">उड़ान ऊंचाई</string>
+    <string name="celsius_label">सेल्सियस (°C)</string>
+    <string name="fahrenheit_label">फ़ारेनहाइट (°F)</string>
+    <string name="mph_label">मील/घंटा (mph)</string>
+    <string name="kmh_label">किमी/घंटा</string>
+    <string name="feet_label">फीट (ft)</string>
+    <string name="meters_label">मीटर (m)</string>
+    <string name="sec_widgets_title">सक्रिय विजेट और OLED स्क्रीन सुरक्षा</string>
+    <string name="widget_weather_label">Open-Meteo मौसम और AQI</string>
+    <string name="widget_crypto_label">Binance क्रिप्टो टिकर पट्टी</string>
+    <string name="widget_radar_label">OpenSky लाइव उड़ान रडार</string>
+    <string name="widget_history_label">MuffinLabs आज का इतिहास</string>
+    <string name="widget_burnin_label">OLED बर्न-इन सुरक्षा पिक्सेल ड्रिफ्ट (±2px / 2 मिनट)</string>
+    <string name="sec_engagement_title">अनुभव और सहायता</string>
+    <string name="action_rate_app">AmbientDeck को रेट करें</string>
+    <string name="action_share_app">मित्रों के साथ साझा करें</string>
+    <string name="action_check_update">अपडेट जांचें</string>
+    <string name="action_privacy_policy">गोपनीयता नीति</string>
+    <string name="apply_return_dashboard">लागू करें और वापस जाएं</string>
+
+    <string name="weather_detail_title">7 दिनों का वायुमंडलीय और वायु गुणवत्ता पूर्वानुमान</string>
+    <string name="radar_detail_title">हवाई उड़ान विवरण (%1$d ट्रैक किए गए)</string>
+    <string name="crypto_detail_title">क्रिप्टो संपत्ति बाजार गहराई (Binance)</string>
+    <string name="history_detail_title">आज के इतिहास का संग्रह</string>
+    <string name="air_quality_telemetry">वायु गुणवत्ता और प्रदूषक टेलीमेट्री</string>
+    <string name="us_aqi">US AQI</string>
+    <string name="eu_aqi">यूरोपीय AQI</string>
+    <string name="pm25_particles">PM2.5 कण</string>
+    <string name="pm10_particles">PM10 कण</string>
+    <string name="outlook_7day">7 दिनों का दृष्टिकोण</string>
+    <string name="speed_label">गति</string>
+
+    <string name="next_wallpaper">अगला वॉलपेपर</string>
+    <string name="switch_layout">लेआउट बदलें</string>
+    <string name="aqi_good">अच्छा</string>
+    <string name="aqi_moderate">मध्यम</string>
+    <string name="aqi_sensitive">संवेदनशील</string>
+    <string name="aqi_unhealthy">अस्वस्थ</string>
+
+    <string name="layout_cinematic_name">सिनेमैटिक वॉल</string>
+    <string name="layout_cinematic_desc">4K आर्ट बैकड्रॉप और पारदर्शी ग्लास विजेट</string>
+    <string name="layout_grid_name">कियोस्क मल्टी-पैनल</string>
+    <string name="layout_grid_desc">सभी फ़ीड को एक साथ प्रदर्शित करने वाला संरचित ग्रिड</string>
+    <string name="layout_zen_name">ज़ेन मिनिमल क्लॉक</string>
+    <string name="layout_zen_desc">बड़ी संख्या वाली न्यूनतम घड़ी और हल्का मौसम</string>
+
+    <string name="art_scenic">प्राकृतिक दृश्य</string>
+    <string name="art_cyber">साइबरपंक और रात की रोशनी</string>
+    <string name="art_space">ब्रह्मांड और खगोलीय फोटोग्राफी</string>
+    <string name="art_architecture">आधुनिक वास्तुकला</string>
+    <string name="art_fine_art">ललित कला और संग्रहालय</string>
+
+    <string name="updated_at">%1$s पर अपडेट किया गया</string>
+    <string name="just_now">अभी-अभी</string>
+
+    <string name="rate_dialog_title">AmbientDeck पसंद आ रहा है?</string>
+    <string name="rate_dialog_desc">यदि AmbientDeck आपके कमरे या स्क्रीन की सुंदरता बढ़ा रहा है, तो Google Play पर समीक्षा देने से हमें बहुत मदद मिलेगी!</string>
+    <string name="rate_now">Google Play पर रेट करें</string>
+    <string name="rate_never">फिर कभी न पूछें</string>
+    <string name="remind_later">बाद में याद दिलाएं</string>
+    <string name="update_dialog_title">नया अपडेट उपलब्ध है</string>
+    <string name="update_dialog_desc">बेहतर प्रदर्शन और नए 4K कला संग्रह के साथ नया संस्करण तैयार है।</string>
+    <string name="update_now">अभी अपडेट करें</string>
+    <string name="share_dialog_title">AmbientDeck साझा करें</string>
+    <string name="share_dialog_desc">क्या आप किसी ऐसे व्यक्ति को जानते हैं जिसे अपनी टीवी स्क्रीन पर यह पसंद आएगा? AmbientDeck साझा करें!</string>
+    <string name="share_now">AmbientDeck साझा करें</string>
+    <string name="maybe_later">शायद बाद में</string>
+    <string name="share_subject">AmbientDeck: स्मार्ट टीवी और कियोस्क परिवेश डैशबोर्ड</string>
+    <string name="share_body">AmbientDeck देखें! यह आपके टीवी और टैबलेट को 4K आर्ट, मौसम, क्रिप्टो और उड़ान रडार के साथ एक सुंदर डैशबोर्ड में बदल देता है: %1$s</string>
+
+    <string name="privacy_policy">गोपनीयता नीति</string>
+    <string name="privacy_policy_title">गोपनीयता और डेटा नीति</string>
+    <string name="privacy_policy_content">AmbientDeck पूरी गोपनीयता के साथ बनाया गया है। हम कोई भी व्यक्तिगत डेटा या डिवाइस पहचानकर्ता एकत्र, संग्रहीत या साझा नहीं करते हैं। मौसम डेटा Open-Meteo से अज्ञात रूप से लाया जाता है। उड़ान डेटा OpenSky के सार्वजनिक फ़ीड से लिया जाता है। क्रिप्टो दरें Binance से सीधे प्राप्त होती हैं। आपकी सभी प्राथमिकताएं केवल आपके डिवाइस पर रहती हैं।</string>
+    <string name="privacy_policy_ok">समझ गया</string>
+</resources>
