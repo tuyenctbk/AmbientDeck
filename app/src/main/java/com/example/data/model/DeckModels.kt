@@ -1,7 +1,7 @@
 package com.example.data.model
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import androidx.annotation.StringRes
+import com.example.R
 
 enum class LayoutMode(val displayName: String, val description: String) {
     CINEMATIC("Cinematic Wall", "Hero 4K art backdrop with floating glassmorphic widgets"),
@@ -32,7 +32,6 @@ data class WeatherData(
     val windSpeed: Double,
     val weatherCode: Int,
     val isDay: Boolean,
-    val conditionText: String,
     val uvIndex: Double = 3.5,
     val aqiUs: Int = 32,
     val aqiEu: Int = 28,
@@ -44,11 +43,11 @@ data class WeatherData(
 )
 
 data class DayForecast(
-    val dayName: String,
-    val weatherCode: Int,
-    val conditionText: String,
-    val maxTemp: Double,
-    val minTemp: Double
+    val isToday: Boolean = false,
+    val dayName: String = "",
+    val weatherCode: Int = 0,
+    val maxTemp: Double = 0.0,
+    val minTemp: Double = 0.0
 )
 
 data class CryptoTicker(
@@ -78,7 +77,7 @@ data class FlightState(
 data class HistoryItem(
     val year: String,
     val text: String,
-    val category: String = "Event"
+    val isBirth: Boolean = false
 )
 
 data class WallpaperItem(
@@ -117,4 +116,24 @@ object DefaultLocations {
     val DUBAI = LocationPreset("dxb", "Dubai", "UAE", 25.2048, 55.2708)
 
     val ALL = listOf(NEW_YORK, LONDON, TOKYO, PARIS, SAN_FRANCISCO, SINGAPORE, SYDNEY, BERLIN, DUBAI)
+}
+
+@StringRes
+fun getWeatherConditionRes(weatherCode: Int): Int {
+    return when (weatherCode) {
+        0 -> R.string.weather_clear_sky
+        1 -> R.string.weather_mainly_clear
+        2 -> R.string.weather_partly_cloudy
+        3 -> R.string.weather_overcast
+        45, 48 -> R.string.weather_foggy
+        51, 53, 55 -> R.string.weather_light_drizzle
+        61, 63, 65 -> R.string.weather_rain
+        71, 73, 75 -> R.string.weather_snowfall
+        77 -> R.string.weather_snow_grains
+        80, 81, 82 -> R.string.weather_rain_showers
+        85, 86 -> R.string.weather_snow_showers
+        95 -> R.string.weather_thunderstorm
+        96, 99 -> R.string.weather_severe_storm
+        else -> R.string.weather_partly_cloudy
+    }
 }

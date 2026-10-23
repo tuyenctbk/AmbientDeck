@@ -128,4 +128,27 @@
     <string name="privacy_policy_title">プライバシー＆データ利用規約</string>
     <string name="privacy_policy_content">AmbientDeckはユーザーのプライバシーを最優先に設計されています。個人情報やデバイス固有の識別子の収集・保存・追跡・外部送信は一切行いません。気象データはOpen-Meteoから匿名で取得され、フライト情報はOpenSkyの公開データを利用しています。暗号資産レートはBinanceから直接取得されます。すべての設定はユーザーの端末内にのみ安全に保持されます。</string>
     <string name="privacy_policy_ok">理解しました</string>
+
+    <string name="weather_clear_sky">快晴</string>
+    <string name="weather_mainly_clear">晴れ</string>
+    <string name="weather_partly_cloudy">一部曇り</string>
+    <string name="weather_overcast">曇天</string>
+    <string name="weather_foggy">霧</string>
+    <string name="weather_light_drizzle">小雨</string>
+    <string name="weather_rain">雨</string>
+    <string name="weather_snowfall">降雪</string>
+    <string name="weather_snow_grains">霧雪</string>
+    <string name="weather_rain_showers">にわか雨</string>
+    <string name="weather_snow_showers">にわか雪</string>
+    <string name="weather_thunderstorm">雷雨</string>
+    <string name="weather_severe_storm">激しい雷雨</string>
+
+    <string name="forecast_today">今日</string>
+    <string name="pm25_label">PM2.5</string>
+    <string name="pm10_label">PM10</string>
+    <string name="eu_aqi_label">EU AQI</string>
+    <string name="zen_weather_format">%1$s • %2$.0f%3$s • %4$s • AQI %5$d</string>
+
+    <string name="history_category_event">出来事</string>
+    <string name="history_category_birth">誕生</string>
 </resources>

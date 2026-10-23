@@ -128,4 +128,27 @@
     <string name="privacy_policy_title">Zásady ochrany dat a soukromí</string>
     <string name="privacy_policy_content">AmbientDeck byl navržen s ohledem na maximální soukromí. Neshromažďujeme, neukládáme ani nesdílíme žádné osobní údaje ani identifikátory zařízení. Údaje o počasí jsou získávány anonymně přes Open-Meteo, informace o letech z veřejných dat OpenSky a kurzy kryptoměn přímo z Binance. Veškerá nastavení zůstávají výhradně ve vašem zařízení.</string>
     <string name="privacy_policy_ok">Rozumím</string>
+
+    <string name="weather_clear_sky">Jasno</string>
+    <string name="weather_mainly_clear">Převážně jasno</string>
+    <string name="weather_partly_cloudy">Polojasno</string>
+    <string name="weather_overcast">Zataženo</string>
+    <string name="weather_foggy">Mlha</string>
+    <string name="weather_light_drizzle">Slabé mrholení</string>
+    <string name="weather_rain">Déšť</string>
+    <string name="weather_snowfall">Sněžení</string>
+    <string name="weather_snow_grains">Sněhové krupky</string>
+    <string name="weather_rain_showers">Přeháňky</string>
+    <string name="weather_snow_showers">Sněhové přeháňky</string>
+    <string name="weather_thunderstorm">Bouřka</string>
+    <string name="weather_severe_storm">Silná bouře</string>
+
+    <string name="forecast_today">Dnes</string>
+    <string name="pm25_label">PM2.5</string>
+    <string name="pm10_label">PM10</string>
+    <string name="eu_aqi_label">AQI EU</string>
+    <string name="zen_weather_format">%1$s • %2$.0f%3$s • %4$s • AQI %5$d</string>
+
+    <string name="history_category_event">Událost</string>
+    <string name="history_category_birth">Narození</string>
 </resources>

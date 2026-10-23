@@ -128,4 +128,27 @@
     <string name="privacy_policy_title">Політика конфіденційності та даних</string>
     <string name="privacy_policy_content">AmbientDeck створено з повною повагою до приватності. Ми не збираємо, не зберігаємо і не передаємо персональні дані або ідентифікатори пристрою. Погодні дані отримуються анонімно через Open-Meteo, польоти — з відкритих джерел OpenSky, а крипта — з Binance. Усі налаштування зберігаються виключно на вашому пристрої.</string>
     <string name="privacy_policy_ok">Зрозуміло</string>
+
+    <string name="weather_clear_sky">Ясно</string>
+    <string name="weather_mainly_clear">Переважно ясно</string>
+    <string name="weather_partly_cloudy">Мінлива хмарність</string>
+    <string name="weather_overcast">Похмуро</string>
+    <string name="weather_foggy">Туман</string>
+    <string name="weather_light_drizzle">Легка мряка</string>
+    <string name="weather_rain">Дощ</string>
+    <string name="weather_snowfall">Снігопад</string>
+    <string name="weather_snow_grains">Сніжні зерна</string>
+    <string name="weather_rain_showers">Зливовий дощ</string>
+    <string name="weather_snow_showers">Зливовий сніг</string>
+    <string name="weather_thunderstorm">Гроза</string>
+    <string name="weather_severe_storm">Сильна буря</string>
+
+    <string name="forecast_today">Сьогодні</string>
+    <string name="pm25_label">PM2.5</string>
+    <string name="pm10_label">PM10</string>
+    <string name="eu_aqi_label">AQI ЄС</string>
+    <string name="zen_weather_format">%1$s • %2$.0f%3$s • %4$s • AQI %5$d</string>
+
+    <string name="history_category_event">Подія</string>
+    <string name="history_category_birth">Народження</string>
 </resources>

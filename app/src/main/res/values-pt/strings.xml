@@ -128,4 +128,27 @@
     <string name="privacy_policy_title">Política de privacidade e dados</string>
     <string name="privacy_policy_content">O AmbientDeck foi desenvolvido com total respeito à sua privacidade. Não coletamos, armazenamos ou compartilhamos dados pessoais nem identificadores de dispositivo. As informações meteorológicas são consultadas anonimamente pela Open-Meteo com base nas coordenadas escolhidas. Dados aéreos provêm de fontes públicas da OpenSky. Cotações de cripto vêm da Binance. Todas as preferências ficam exclusivamente em seu aparelho.</string>
     <string name="privacy_policy_ok">Entendido</string>
+
+    <string name="weather_clear_sky">Céu limpo</string>
+    <string name="weather_mainly_clear">Predominantemente limpo</string>
+    <string name="weather_partly_cloudy">Parcialmente nublado</string>
+    <string name="weather_overcast">Encoberto</string>
+    <string name="weather_foggy">Nevoeiro</string>
+    <string name="weather_light_drizzle">Garoa leve</string>
+    <string name="weather_rain">Chuva</string>
+    <string name="weather_snowfall">Queda de neve</string>
+    <string name="weather_snow_grains">Grãos de neve</string>
+    <string name="weather_rain_showers">Pancadas de chuva</string>
+    <string name="weather_snow_showers">Aguaceiros de neve</string>
+    <string name="weather_thunderstorm">Tempestade</string>
+    <string name="weather_severe_storm">Tempestade severa</string>
+
+    <string name="forecast_today">Hoje</string>
+    <string name="pm25_label">PM2.5</string>
+    <string name="pm10_label">PM10</string>
+    <string name="eu_aqi_label">IQA UE</string>
+    <string name="zen_weather_format">%1$s • %2$.0f%3$s • %4$s • IQA %5$d</string>
+
+    <string name="history_category_event">Evento</string>
+    <string name="history_category_birth">Nascimento</string>
 </resources>

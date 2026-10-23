@@ -146,4 +146,30 @@
     <string name="privacy_bullet_local_storage_title">Local Device Storage</string>
     <string name="privacy_bullet_local_storage_desc">Preferences and locations stay strictly on your local device.</string>
     <string name="privacy_policy_ok">Understood</string>
+
+    <!-- Weather Conditions -->
+    <string name="weather_clear_sky">Clear Sky</string>
+    <string name="weather_mainly_clear">Mainly Clear</string>
+    <string name="weather_partly_cloudy">Partly Cloudy</string>
+    <string name="weather_overcast">Overcast</string>
+    <string name="weather_foggy">Foggy</string>
+    <string name="weather_light_drizzle">Light Drizzle</string>
+    <string name="weather_rain">Rain</string>
+    <string name="weather_snowfall">Snowfall</string>
+    <string name="weather_snow_grains">Snow Grains</string>
+    <string name="weather_rain_showers">Rain Showers</string>
+    <string name="weather_snow_showers">Snow Showers</string>
+    <string name="weather_thunderstorm">Thunderstorm</string>
+    <string name="weather_severe_storm">Severe Storm</string>
+
+    <!-- Forecast & Telemetry Labels -->
+    <string name="forecast_today">Today</string>
+    <string name="pm25_label">PM2.5</string>
+    <string name="pm10_label">PM10</string>
+    <string name="eu_aqi_label">EU AQI</string>
+    <string name="zen_weather_format">%1$s • %2$.0f%3$s • %4$s • AQI %5$d</string>
+
+    <!-- History Categories -->
+    <string name="history_category_event">Event</string>
+    <string name="history_category_birth">Birth</string>
 </resources>

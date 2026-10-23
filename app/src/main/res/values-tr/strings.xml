@@ -128,4 +128,27 @@
     <string name="privacy_policy_title">Gizlilik ve Veri Güvenliği Politikası</string>
     <string name="privacy_policy_content">AmbientDeck gizliliğinize tam saygı gösterilerek tasarlanmıştır. Kişisel veri veya cihaz kimliği toplamıyoruz, saklamıyoruz ve paylaşmıyoruz. Hava durumu Open-Meteo üzerinden anonim olarak, uçuşlar OpenSky kamu verilerinden, kripto verileri ise Binance açık API\'lerinden alınır. Tüm ayarlarınız yalnızca cihazınızda saklanır.</string>
     <string name="privacy_policy_ok">Anladım</string>
+
+    <string name="weather_clear_sky">Açık Gökyüzü</string>
+    <string name="weather_mainly_clear">Çoğunlukla Açık</string>
+    <string name="weather_partly_cloudy">Parçalı Bulutlu</string>
+    <string name="weather_overcast">Kapalı</string>
+    <string name="weather_foggy">Sisli</string>
+    <string name="weather_light_drizzle">Hafif Çiseleme</string>
+    <string name="weather_rain">Yağmur</string>
+    <string name="weather_snowfall">Kar Yağışı</string>
+    <string name="weather_snow_grains">Kar Taneleri</string>
+    <string name="weather_rain_showers">Sağanak Yağış</string>
+    <string name="weather_snow_showers">Kar Sağanağı</string>
+    <string name="weather_thunderstorm">Gök Gürültülü Fırtına</string>
+    <string name="weather_severe_storm">Şiddetli Fırtına</string>
+
+    <string name="forecast_today">Bugün</string>
+    <string name="pm25_label">PM2.5</string>
+    <string name="pm10_label">PM10</string>
+    <string name="eu_aqi_label">AB AQI</string>
+    <string name="zen_weather_format">%1$s • %2$.0f%3$s • %4$s • AQI %5$d</string>
+
+    <string name="history_category_event">Olay</string>
+    <string name="history_category_birth">Doğum</string>
 </resources>

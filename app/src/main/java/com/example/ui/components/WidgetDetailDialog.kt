@@ -43,6 +43,7 @@ import com.example.data.model.CryptoTicker
 import com.example.data.model.FlightState
 import com.example.data.model.HistoryItem
 import com.example.data.model.WeatherData
+import com.example.data.model.getWeatherConditionRes
 import com.example.ui.InspectWidgetType
 import com.example.ui.theme.CoralRed
 import com.example.ui.theme.CyanAccent
@@ -192,6 +193,8 @@ private fun WeatherDetailView(weather: WeatherData?, isCelsius: Boolean, isCompa
             val maxT = if (isCelsius) day.maxTemp else (day.maxTemp * 9 / 5 + 32)
             val minT = if (isCelsius) day.minTemp else (day.minTemp * 9 / 5 + 32)
             val unitStr = if (isCelsius) "°C" else "°F"
+            val dayTitle = if (day.isToday) stringResource(R.string.forecast_today) else day.dayName
+            val conditionStr = stringResource(getWeatherConditionRes(day.weatherCode))
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -202,8 +205,8 @@ private fun WeatherDetailView(weather: WeatherData?, isCelsius: Boolean, isCompa
                     .background(DarkSurfaceElevated.copy(alpha = 0.5f))
                     .padding(horizontal = 12.dp, vertical = 8.dp)
             ) {
-                Text(text = day.dayName, color = TextPrimary, fontSize = 13.sp, fontWeight = FontWeight.SemiBold, modifier = Modifier.width(55.dp))
-                Text(text = day.conditionText, color = TextSecondary, fontSize = 12.sp, maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis, modifier = Modifier.weight(1f))
+                Text(text = dayTitle, color = TextPrimary, fontSize = 13.sp, fontWeight = FontWeight.SemiBold, modifier = Modifier.width(55.dp))
+                Text(text = conditionStr, color = TextSecondary, fontSize = 12.sp, maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis, modifier = Modifier.weight(1f))
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(text = "%.0f%s".format(minT, unitStr), color = TextMuted, fontSize = 12.sp, fontWeight = FontWeight.Medium)
                 Spacer(modifier = Modifier.width(6.dp))
@@ -336,6 +339,12 @@ private fun CryptoDetailView(tickers: List<CryptoTicker>) {
 private fun HistoryDetailView(items: List<HistoryItem>) {
     LazyColumn(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         items(items) { item ->
+            val categoryLabel = if (item.isBirth) {
+                stringResource(R.string.history_category_birth)
+            } else {
+                stringResource(R.string.history_category_event)
+            }
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -354,7 +363,7 @@ private fun HistoryDetailView(items: List<HistoryItem>) {
                 )
                 Spacer(modifier = Modifier.width(10.dp))
                 Column(modifier = Modifier.weight(1f)) {
-                    Text(text = item.category.uppercase(), color = CyanAccent, fontSize = 10.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
+                    Text(text = categoryLabel.uppercase(), color = CyanAccent, fontSize = 10.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.sp)
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(text = item.text, color = TextPrimary, fontSize = 13.sp, lineHeight = 18.sp)
                 }

@@ -128,4 +128,27 @@
     <string name="privacy_policy_title">Privacy- en gegevensbeleid</string>
     <string name="privacy_policy_content">AmbientDeck is ontworpen met volledige privacy in het achterhoofd. Wij verzamelen, bewaren of delen geen persoonlijke gegevens of apparaat-id\'s. Weergegevens worden anoniem opgehaald via Open-Meteo. Vluchtgegevens zijn afkomstig van openbare bronnen van OpenSky. Cryptokoersen komen rechtstreeks van Binance. Al je instellingen blijven uitsluitend op je apparaat.</string>
     <string name="privacy_policy_ok">Begrepen</string>
+
+    <string name="weather_clear_sky">Heldere hemel</string>
+    <string name="weather_mainly_clear">Grotendeels helder</string>
+    <string name="weather_partly_cloudy">Gedeeltelijk bewolkt</string>
+    <string name="weather_overcast">Geheel bewolkt</string>
+    <string name="weather_foggy">Mistig</string>
+    <string name="weather_light_drizzle">Lichte motregen</string>
+    <string name="weather_rain">Regen</string>
+    <string name="weather_snowfall">Sneeuwval</string>
+    <string name="weather_snow_grains">Motsneeuw</string>
+    <string name="weather_rain_showers">Regenbuien</string>
+    <string name="weather_snow_showers">Sneeuwbuien</string>
+    <string name="weather_thunderstorm">Onweer</string>
+    <string name="weather_severe_storm">Zwaar onweer</string>
+
+    <string name="forecast_today">Vandaag</string>
+    <string name="pm25_label">PM2.5</string>
+    <string name="pm10_label">PM10</string>
+    <string name="eu_aqi_label">EU AQI</string>
+    <string name="zen_weather_format">%1$s • %2$.0f%3$s • %4$s • AQI %5$d</string>
+
+    <string name="history_category_event">Gebeurtenis</string>
+    <string name="history_category_birth">Geboorte</string>
 </resources>

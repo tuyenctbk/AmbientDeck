@@ -9,7 +9,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -132,6 +131,12 @@ fun HistoryWidget(
                 label = "history_event_transition"
             ) { item ->
                 if (item != null) {
+                    val categoryLabel = if (item.isBirth) {
+                        stringResource(R.string.history_category_birth)
+                    } else {
+                        stringResource(R.string.history_category_event)
+                    }
+
                     Column {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             // Year Badge
@@ -151,7 +156,7 @@ fun HistoryWidget(
                             Spacer(modifier = Modifier.width(8.dp))
 
                             Text(
-                                text = item.category.uppercase(),
+                                text = categoryLabel.uppercase(),
                                 color = CyanAccent,
                                 fontSize = 10.sp,
                                 fontWeight = FontWeight.Bold,

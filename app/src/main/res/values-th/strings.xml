@@ -128,4 +128,27 @@
     <string name="privacy_policy_title">นโยบายข้อมูลและความเป็นส่วนตัว</string>
     <string name="privacy_policy_content">AmbientDeck ให้ความสำคัญกับความเป็นส่วนตัวของคุณสูงสุด เราไม่เก็บรวบรวม ไม่จัดเก็บ และไม่ส่งต่อข้อมูลส่วนบุคคลหรือข้อมูลระบุตัวตนอุปกรณ์ ข้อมูลสภาพอากาศดึงมาจาก Open-Meteo ข้อมูลเที่ยวบินมาจาก OpenSky สาธารณะ และราคาคริปโตดึงตรงจาก Binance การตั้งค่าทั้งหมดจะถูกบันทึกไว้ในอุปกรณ์ของคุณเท่านั้น</string>
     <string name="privacy_policy_ok">เข้าใจแล้ว</string>
+
+    <string name="weather_clear_sky">ท้องฟ้าแจ่มใส</string>
+    <string name="weather_mainly_clear">แจ่มใสเป็นส่วนใหญ่</string>
+    <string name="weather_partly_cloudy">มีเมฆเป็นบางส่วน</string>
+    <string name="weather_overcast">มืดครึ้ม</string>
+    <string name="weather_foggy">มีหมอก</string>
+    <string name="weather_light_drizzle">ฝนตกปรอยๆ</string>
+    <string name="weather_rain">ฝนตก</string>
+    <string name="weather_snowfall">หิมะตก</string>
+    <string name="weather_snow_grains">เกล็ดหิมะ</string>
+    <string name="weather_rain_showers">ฝนฟ้าคะนอง</string>
+    <string name="weather_snow_showers">หิมะตกประปราย</string>
+    <string name="weather_thunderstorm">พายุฝนฟ้าคะนอง</string>
+    <string name="weather_severe_storm">พายุรุนแรง</string>
+
+    <string name="forecast_today">วันนี้</string>
+    <string name="pm25_label">PM2.5</string>
+    <string name="pm10_label">PM10</string>
+    <string name="eu_aqi_label">EU AQI</string>
+    <string name="zen_weather_format">%1$s • %2$.0f%3$s • %4$s • AQI %5$d</string>
+
+    <string name="history_category_event">เหตุการณ์</string>
+    <string name="history_category_birth">กำเนิด</string>
 </resources>

@@ -128,4 +128,27 @@
     <string name="privacy_policy_title">Politique de confidentialité et données</string>
     <string name="privacy_policy_content">AmbientDeck est conçu pour préserver votre vie privée. Nous ne collectons, ne stockons et ne partageons aucune donnée personnelle ni identifiant d\'appareil. Les données météorologiques sont consultées anonymement via Open-Meteo pour les coordonnées choisies. Les données de vol proviennent de flux publics OpenSky. Les cours de cryptomonnaies sont issus d\'API publiques Binance. Tous vos paramètres restent uniquement sur votre appareil.</string>
     <string name="privacy_policy_ok">Compris</string>
+
+    <string name="weather_clear_sky">Ciel dégagé</string>
+    <string name="weather_mainly_clear">En partie dégagé</string>
+    <string name="weather_partly_cloudy">Partiellement nuageux</string>
+    <string name="weather_overcast">Couvert</string>
+    <string name="weather_foggy">Brumeux</string>
+    <string name="weather_light_drizzle">Bruine légère</string>
+    <string name="weather_rain">Pluie</string>
+    <string name="weather_snowfall">Chute de neige</string>
+    <string name="weather_snow_grains">Neige en grains</string>
+    <string name="weather_rain_showers">Averses de pluie</string>
+    <string name="weather_snow_showers">Averses de neige</string>
+    <string name="weather_thunderstorm">Orage</string>
+    <string name="weather_severe_storm">Violent orage</string>
+
+    <string name="forecast_today">Aujourd\'hui</string>
+    <string name="pm25_label">PM2.5</string>
+    <string name="pm10_label">PM10</string>
+    <string name="eu_aqi_label">IQA UE</string>
+    <string name="zen_weather_format">%1$s • %2$.0f%3$s • %4$s • IQA %5$d</string>
+
+    <string name="history_category_event">Événement</string>
+    <string name="history_category_birth">Naissance</string>
 </resources>

@@ -128,4 +128,27 @@
     <string name="privacy_policy_title">سياسة الخصوصية والبيانات</string>
     <string name="privacy_policy_content">تم تصميم AmbientDeck لحماية خصوصيتك بالكامل. نحن لا نجمع أو نخزن أو نتتبع أي بيانات شخصية أو معرفات أجهزة. يتم جلب بيانات الطقس دون هوية عبر Open-Meteo، وبيانات الطيران من مصادر OpenSky العامة، وأسعار العملات من بينانس مباشرة. تظل جميع إعداداتك محفوظة على جهازك فقط.</string>
     <string name="privacy_policy_ok">موافق</string>
+
+    <string name="weather_clear_sky">سماء صافية</string>
+    <string name="weather_mainly_clear">صافٍ غالباً</string>
+    <string name="weather_partly_cloudy">غائم جزئياً</string>
+    <string name="weather_overcast">غائم كلياً</string>
+    <string name="weather_foggy">ضبابي</string>
+    <string name="weather_light_drizzle">رذاذ خفيف</string>
+    <string name="weather_rain">مطر</string>
+    <string name="weather_snowfall">تساقط الثلوج</string>
+    <string name="weather_snow_grains">حبيبات الثلج</string>
+    <string name="weather_rain_showers">زخات مطر</string>
+    <string name="weather_snow_showers">زخات ثلج</string>
+    <string name="weather_thunderstorm">عاصفة رعدية</string>
+    <string name="weather_severe_storm">عاصفة شديدة</string>
+
+    <string name="forecast_today">اليوم</string>
+    <string name="pm25_label">PM2.5</string>
+    <string name="pm10_label">PM10</string>
+    <string name="eu_aqi_label">مؤشر جودة الهواء الأوروبي</string>
+    <string name="zen_weather_format">%1$s • %2$.0f%3$s • %4$s • AQI %5$d</string>
+
+    <string name="history_category_event">حدث</string>
+    <string name="history_category_birth">ولادة</string>
 </resources>

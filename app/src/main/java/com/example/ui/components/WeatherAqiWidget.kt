@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.R
 import com.example.data.model.WeatherData
+import com.example.data.model.getWeatherConditionRes
 import com.example.ui.theme.CoralRed
 import com.example.ui.theme.CyanAccent
 import com.example.ui.theme.EmeraldGreen
@@ -95,6 +96,8 @@ fun WeatherAqiWidget(
                 )
             }
         } else {
+            val conditionStr = stringResource(getWeatherConditionRes(weather.weatherCode))
+
             Column(modifier = Modifier.padding(padding)) {
                 // Header line: Title + AQI Pill
                 Row(
@@ -108,7 +111,7 @@ fun WeatherAqiWidget(
                     ) {
                         Icon(
                             imageVector = getWeatherIcon(weather.weatherCode, weather.isDay),
-                            contentDescription = weather.conditionText,
+                            contentDescription = conditionStr,
                             tint = if (weather.isDay) SunsetAmber else CyanAccent,
                             modifier = Modifier.size(if (isCompact) 18.dp else 20.dp)
                         )
@@ -181,7 +184,7 @@ fun WeatherAqiWidget(
                         }
 
                         Text(
-                            text = weather.conditionText,
+                            text = conditionStr,
                             color = TextPrimary,
                             fontSize = if (isCompact) 13.sp else 15.sp,
                             fontWeight = FontWeight.Medium,
@@ -231,9 +234,9 @@ fun WeatherAqiWidget(
                     verticalArrangement = Arrangement.spacedBy(6.dp),
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    PollutantChip(label = stringResource(R.string.pm25_particles).substringBefore(" "), value = "%.1f µg/m³".format(weather.pm25))
-                    PollutantChip(label = stringResource(R.string.pm10_particles).substringBefore(" "), value = "%.1f µg/m³".format(weather.pm10))
-                    PollutantChip(label = "EU AQI", value = "${weather.aqiEu}")
+                    PollutantChip(label = stringResource(R.string.pm25_label), value = "%.1f µg/m³".format(weather.pm25))
+                    PollutantChip(label = stringResource(R.string.pm10_label), value = "%.1f µg/m³".format(weather.pm10))
+                    PollutantChip(label = stringResource(R.string.eu_aqi_label), value = "${weather.aqiEu}")
                     Text(
                         text = stringResource(R.string.click_for_7day),
                         color = CyanAccent.copy(alpha = 0.85f),

@@ -15,8 +15,6 @@ import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
-import kotlin.math.cos
-import kotlin.math.sin
 
 class AmbientDeckRepository {
 
@@ -26,7 +24,7 @@ class AmbientDeckRepository {
     private val openSkyApi = NetworkClientProvider.openSkyApi
     private val historyApi = NetworkClientProvider.muffinLabsApi
 
-    suspend fun fetchWeather(latitude: Double, longitude: Double): WeatherData = withContext(Dispatchers.IO) {
+    suspend fun fetchWeather(latitude: Double, longitude: Double): WeatherData? = withContext(Dispatchers.IO) {
         try {
             coroutineScope {
                 val forecastDeferred = async { forecastApi.getForecast(latitude, longitude) }
@@ -41,21 +39,21 @@ class AmbientDeckRepository {
                 val forecast = forecastDeferred.await()
                 val aqi = aqiDeferred.await()
 
-                val current = forecast.current
-                val currentTemp = current?.temperature2m ?: 21.5
-                val apparentTemp = current?.apparentTemperature ?: currentTemp
-                val humidity = current?.relativeHumidity2m?.toInt() ?: 55
-                val windSpeed = current?.windSpeed10m ?: 12.0
-                val weatherCode = current?.weatherCode ?: 0
-                val isDay = (current?.isDay ?: 1) == 1
+                val current = forecast.current ?: return@coroutineScope null
+                val currentTemp = current.temperature2m ?: 0.0
+                val apparentTemp = current.apparentTemperature ?: currentTemp
+                val humidity = current.relativeHumidity2m?.toInt() ?: 0
+                val windSpeed = current.windSpeed10m ?: 0.0
+                val weatherCode = current.weatherCode ?: 0
+                val isDay = (current.isDay ?: 1) == 1
 
-                val aqiEuVal = aqi?.current?.europeanAqi?.toInt() ?: 25
-                val aqiUsVal = aqi?.current?.usAqi?.toInt() ?: 30
-                val pm25Val = aqi?.current?.pm25 ?: 6.5
-                val pm10Val = aqi?.current?.pm10 ?: 12.0
+                val aqiEuVal = aqi?.current?.europeanAqi?.toInt() ?: 0
+                val aqiUsVal = aqi?.current?.usAqi?.toInt() ?: 0
+                val pm25Val = aqi?.current?.pm25 ?: 0.0
+                val pm10Val = aqi?.current?.pm10 ?: 0.0
 
-                val dailyMax = forecast.daily?.temperature2mMax?.firstOrNull() ?: (currentTemp + 4.0)
-                val dailyMin = forecast.daily?.temperature2mMin?.firstOrNull() ?: (currentTemp - 4.0)
+                val dailyMax = forecast.daily?.temperature2mMax?.firstOrNull() ?: currentTemp
+                val dailyMin = forecast.daily?.temperature2mMin?.firstOrNull() ?: currentTemp
 
                 // 7-day forecast
                 val forecastDays = mutableListOf<DayForecast>()
@@ -67,16 +65,16 @@ class AmbientDeckRepository {
                 val mins = forecast.daily?.temperature2mMin ?: emptyList()
 
                 for (i in 0 until minOf(times.size, codes.size, maxs.size, mins.size)) {
-                    val label = if (i == 0) "Today" else {
+                    val label = if (i == 0) "" else {
                         cal.add(Calendar.DAY_OF_YEAR, 1)
                         dayFormat.format(cal.time)
                     }
                     val code = codes[i]
                     forecastDays.add(
                         DayForecast(
+                            isToday = (i == 0),
                             dayName = label,
                             weatherCode = code,
-                            conditionText = mapWeatherCodeToText(code),
                             maxTemp = maxs[i],
                             minTemp = mins[i]
                         )
@@ -90,7 +88,6 @@ class AmbientDeckRepository {
                     windSpeed = windSpeed,
                     weatherCode = weatherCode,
                     isDay = isDay,
-                    conditionText = mapWeatherCodeToText(weatherCode),
                     aqiUs = aqiUsVal,
                     aqiEu = aqiEuVal,
                     pm25 = pm25Val,
@@ -101,8 +98,7 @@ class AmbientDeckRepository {
                 )
             }
         } catch (e: Exception) {
-            // Graceful fallback for offline / connectivity hiccups
-            getFallbackWeather(latitude)
+            null
         }
     }
 
@@ -128,7 +124,6 @@ class AmbientDeckRepository {
                 val high = item.highPrice?.toDoubleOrNull() ?: price
                 val low = item.lowPrice?.toDoubleOrNull() ?: price
 
-                // Generate 8-point mini sparkline based on trend
                 val sparkline = generateSparkline(price, change, high, low)
 
                 CryptoTicker(
@@ -142,7 +137,7 @@ class AmbientDeckRepository {
                 )
             }
         } catch (e: Exception) {
-            getFallbackCrypto()
+            emptyList()
         }
     }
 
@@ -194,13 +189,9 @@ class AmbientDeckRepository {
                 }
             }
 
-            if (parsedFlights.isNotEmpty()) {
-                parsedFlights.take(16)
-            } else {
-                generateRepresentativeFlights(latitude, longitude)
-            }
+            parsedFlights.take(16)
         } catch (e: Exception) {
-            generateRepresentativeFlights(latitude, longitude)
+            emptyList()
         }
     }
 
@@ -215,7 +206,7 @@ class AmbientDeckRepository {
                 val yr = item.year ?: ""
                 val txt = item.text ?: ""
                 if (txt.isNotBlank()) {
-                    list.add(HistoryItem(year = yr, text = txt, category = "Event"))
+                    list.add(HistoryItem(year = yr, text = txt, isBirth = false))
                 }
             }
 
@@ -223,13 +214,13 @@ class AmbientDeckRepository {
                 val yr = item.year ?: ""
                 val txt = item.text ?: ""
                 if (txt.isNotBlank()) {
-                    list.add(HistoryItem(year = yr, text = "Birth: $txt", category = "Birth"))
+                    list.add(HistoryItem(year = yr, text = txt, isBirth = true))
                 }
             }
 
-            if (list.isNotEmpty()) list else getFallbackHistory()
+            list
         } catch (e: Exception) {
-            getFallbackHistory()
+            emptyList()
         }
     }
 
@@ -266,25 +257,6 @@ class AmbientDeckRepository {
         }
     }
 
-    private fun mapWeatherCodeToText(code: Int): String {
-        return when (code) {
-            0 -> "Clear Sky"
-            1 -> "Mainly Clear"
-            2 -> "Partly Cloudy"
-            3 -> "Overcast"
-            45, 48 -> "Foggy"
-            51, 53, 55 -> "Light Drizzle"
-            61, 63, 65 -> "Rain"
-            71, 73, 75 -> "Snowfall"
-            77 -> "Snow Grains"
-            80, 81, 82 -> "Rain Showers"
-            85, 86 -> "Snow Showers"
-            95 -> "Thunderstorm"
-            96, 99 -> "Severe Storm"
-            else -> "Partly Cloudy"
-        }
-    }
-
     private fun generateSparkline(price: Double, changePercent: Double, high: Double, low: Double): List<Float> {
         val points = mutableListOf<Float>()
         val startRatio = if (changePercent >= 0) 0.35f else 0.75f
@@ -298,84 +270,5 @@ class AmbientDeckRepository {
         val endRatio = if (changePercent >= 0) 0.85f else 0.2f
         points.add(endRatio)
         return points
-    }
-
-    private fun generateRepresentativeFlights(centerLat: Double, centerLon: Double): List<FlightState> {
-        val simulated = listOf(
-            Triple("UAL412", "United Airlines", 0.4 to 0.5),
-            Triple("AAL889", "American Airlines", -0.6 to 0.3),
-            Triple("DAL104", "Delta Air Lines", 0.3 to -0.7),
-            Triple("BAW178", "British Airways", -0.4 to -0.5),
-            Triple("AFR022", "Air France", 0.8 to 0.2),
-            Triple("SWA210", "Southwest Airlines", -0.2 to 0.8)
-        )
-
-        return simulated.mapIndexed { index, (callsign, country, offset) ->
-            val lat = centerLat + offset.first
-            val lon = centerLon + offset.second
-            val altMeters = 7500.0 + (index * 600)
-            val speedMs = 210.0 + (index * 15)
-            val heading = (index * 58.0 + 35.0) % 360.0
-
-            FlightState(
-                icao24 = "sim${1000 + index}",
-                callsign = callsign,
-                originCountry = country,
-                altitudeMeters = altMeters,
-                altitudeFeet = altMeters * 3.28084,
-                velocityKmh = speedMs * 3.6,
-                velocityKnots = speedMs * 1.94384,
-                headingDegrees = heading,
-                latitude = lat,
-                longitude = lon,
-                verticalRate = if (index % 2 == 0) 2.5 else -1.2
-            )
-        }
-    }
-
-    private fun getFallbackWeather(latitude: Double): WeatherData {
-        return WeatherData(
-            currentTemp = 21.0,
-            apparentTemp = 20.5,
-            humidity = 58,
-            windSpeed = 14.2,
-            weatherCode = 1,
-            isDay = true,
-            conditionText = "Mainly Clear",
-            aqiUs = 34,
-            aqiEu = 28,
-            pm25 = 7.4,
-            pm10 = 13.0,
-            dailyMax = 25.0,
-            dailyMin = 16.0,
-            forecastDays = listOf(
-                DayForecast("Today", 1, "Mainly Clear", 25.0, 16.0),
-                DayForecast("Wed", 2, "Partly Cloudy", 24.0, 15.0),
-                DayForecast("Thu", 0, "Clear Sky", 26.0, 17.0),
-                DayForecast("Fri", 61, "Showers", 22.0, 14.0),
-                DayForecast("Sat", 2, "Partly Cloudy", 23.0, 15.0)
-            )
-        )
-    }
-
-    private fun getFallbackCrypto(): List<CryptoTicker> {
-        return listOf(
-            CryptoTicker("BTC", "Bitcoin", 67840.0, 2.45, 68500.0, 66100.0, listOf(0.3f, 0.4f, 0.35f, 0.6f, 0.55f, 0.7f, 0.85f)),
-            CryptoTicker("ETH", "Ethereum", 3540.0, 3.12, 3610.0, 3420.0, listOf(0.4f, 0.45f, 0.5f, 0.65f, 0.6f, 0.78f, 0.88f)),
-            CryptoTicker("SOL", "Solana", 158.4, 5.84, 162.0, 149.0, listOf(0.2f, 0.35f, 0.4f, 0.55f, 0.7f, 0.8f, 0.92f)),
-            CryptoTicker("BNB", "BNB Chain", 584.2, -0.65, 595.0, 580.0, listOf(0.7f, 0.65f, 0.6f, 0.55f, 0.5f, 0.45f, 0.4f)),
-            CryptoTicker("DOGE", "Dogecoin", 0.128, 1.80, 0.134, 0.122, listOf(0.4f, 0.45f, 0.5f, 0.48f, 0.6f, 0.7f, 0.75f)),
-            CryptoTicker("AVAX", "Avalanche", 28.5, 4.20, 29.8, 27.1, listOf(0.3f, 0.4f, 0.45f, 0.6f, 0.7f, 0.82f, 0.88f))
-        )
-    }
-
-    private fun getFallbackHistory(): List<HistoryItem> {
-        return listOf(
-            HistoryItem("1947", "Chuck Yeager breaks the sound barrier in the Bell X-1 rocket airplane.", "Aviation Milestone"),
-            HistoryItem("1968", "Apollo 7 performs the first live American television broadcast from orbit.", "Space Exploration"),
-            HistoryItem("1908", "The Chicago Cubs defeat the Detroit Tigers to win the World Series.", "Sports Legend"),
-            HistoryItem("1964", "Martin Luther King Jr. becomes the youngest recipient of the Nobel Peace Prize.", "World History"),
-            HistoryItem("1979", "The first national gay rights march draws 100,000 people to Washington D.C.", "Civil Rights")
-        )
     }
 }

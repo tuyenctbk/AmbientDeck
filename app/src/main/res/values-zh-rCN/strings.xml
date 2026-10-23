@@ -128,4 +128,27 @@
     <string name="privacy_policy_title">隐私与数据安全政策</string>
     <string name="privacy_policy_content">AmbientDeck 秉持纯净安全理念。我们不收集、不存储、不追踪亦不向第三方出售任何个人身份或设备特征。天气数据根据您选择的坐标从 Open-Meteo 匿名获取；航班信息基于 OpenSky 公共空域；加密货币行情直接连接币安公开接口。所有偏好完全保存在您的本地设备上。</string>
     <string name="privacy_policy_ok">我知道了</string>
+
+    <string name="weather_clear_sky">晴朗</string>
+    <string name="weather_mainly_clear">大部晴朗</string>
+    <string name="weather_partly_cloudy">多云</string>
+    <string name="weather_overcast">阴天</string>
+    <string name="weather_foggy">雾</string>
+    <string name="weather_light_drizzle">毛毛细雨</string>
+    <string name="weather_rain">雨</string>
+    <string name="weather_snowfall">降雪</string>
+    <string name="weather_snow_grains">米雪</string>
+    <string name="weather_rain_showers">阵雨</string>
+    <string name="weather_snow_showers">阵雪</string>
+    <string name="weather_thunderstorm">雷暴</string>
+    <string name="weather_severe_storm">强风暴</string>
+
+    <string name="forecast_today">今天</string>
+    <string name="pm25_label">PM2.5</string>
+    <string name="pm10_label">PM10</string>
+    <string name="eu_aqi_label">欧洲AQI</string>
+    <string name="zen_weather_format">%1$s • %2$.0f%3$s • %4$s • AQI %5$d</string>
+
+    <string name="history_category_event">历史事件</string>
+    <string name="history_category_birth">诞生</string>
 </resources>

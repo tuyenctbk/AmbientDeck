@@ -128,4 +128,27 @@
     <string name="privacy_policy_title">Informativa sulla privacy e dati</string>
     <string name="privacy_policy_content">AmbientDeck è progettata nel massimo rispetto della privacy. Non raccogliamo, salviamo né condividiamo dati personali o identificatori del dispositivo. Le informazioni meteo vengono richieste in forma anonima tramite Open-Meteo per le coordinate scelte. I dati di volo provengono da feed pubblici OpenSky. Le quotazioni crypto derivano da API pubbliche Binance. Tutte le tue preferenze restano esclusivamente sul dispositivo.</string>
     <string name="privacy_policy_ok">Ho capito</string>
+
+    <string name="weather_clear_sky">Cielo sereno</string>
+    <string name="weather_mainly_clear">Prevalentemente sereno</string>
+    <string name="weather_partly_cloudy">Parzialmente nuvoloso</string>
+    <string name="weather_overcast">Coperto</string>
+    <string name="weather_foggy">Nebbioso</string>
+    <string name="weather_light_drizzle">Pioggerella leggera</string>
+    <string name="weather_rain">Pioggia</string>
+    <string name="weather_snowfall">Nevicata</string>
+    <string name="weather_snow_grains">Neve a granuli</string>
+    <string name="weather_rain_showers">Rovesci di pioggia</string>
+    <string name="weather_snow_showers">Rovesci di neve</string>
+    <string name="weather_thunderstorm">Temporale</string>
+    <string name="weather_severe_storm">Tempesta violenta</string>
+
+    <string name="forecast_today">Oggi</string>
+    <string name="pm25_label">PM2.5</string>
+    <string name="pm10_label">PM10</string>
+    <string name="eu_aqi_label">AQI UE</string>
+    <string name="zen_weather_format">%1$s • %2$.0f%3$s • %4$s • AQI %5$d</string>
+
+    <string name="history_category_event">Evento</string>
+    <string name="history_category_birth">Nascita</string>
 </resources>

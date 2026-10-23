@@ -544,6 +544,7 @@ private fun ZenMinimalLayout(
             uiState.weather?.let { w ->
                 val displayTemp = if (uiState.settings.isCelsius) w.currentTemp else (w.currentTemp * 9 / 5 + 32)
                 val unitStr = if (uiState.settings.isCelsius) "°C" else "°F"
+                val conditionStr = stringResource(com.example.data.model.getWeatherConditionRes(w.weatherCode))
 
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
@@ -555,10 +556,12 @@ private fun ZenMinimalLayout(
                         .padding(horizontal = 16.dp, vertical = 8.dp)
                 ) {
                     Text(
-                        text = "${uiState.settings.selectedCity.name} • %.0f%s • %s • AQI %d".format(
+                        text = stringResource(
+                            R.string.zen_weather_format,
+                            uiState.settings.selectedCity.name,
                             displayTemp,
                             unitStr,
-                            w.conditionText,
+                            conditionStr,
                             w.aqiUs
                         ),
                         color = TextPrimary,

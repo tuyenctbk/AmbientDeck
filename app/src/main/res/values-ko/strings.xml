@@ -128,4 +128,27 @@
     <string name="privacy_policy_title">개인정보 및 데이터 정책</string>
     <string name="privacy_policy_content">AmbientDeck은 철저한 프라이버시 보호를 원칙으로 합니다. 어떠한 개인정보나 기기 식별자도 수집, 저장, 추적 또는 외부로 전송하지 않습니다. 날씨 정보는 Open-Meteo를 통해 익명으로 가져오며, 항공 정보는 OpenSky 공개 데이터를 사용합니다. 코인 시세는 Binance 공개 API를 직접 호출합니다. 모든 사용자 설정은 기기에만 안전하게 보관됩니다.</string>
     <string name="privacy_policy_ok">확인</string>
+
+    <string name="weather_clear_sky">맑음</string>
+    <string name="weather_mainly_clear">대체로 맑음</string>
+    <string name="weather_partly_cloudy">구름 조금</string>
+    <string name="weather_overcast">흐림</string>
+    <string name="weather_foggy">안개</string>
+    <string name="weather_light_drizzle">이슬비</string>
+    <string name="weather_rain">비</string>
+    <string name="weather_snowfall">눈</string>
+    <string name="weather_snow_grains">싸락눈</string>
+    <string name="weather_rain_showers">소나기</string>
+    <string name="weather_snow_showers">눈 소나기</string>
+    <string name="weather_thunderstorm">뇌우</string>
+    <string name="weather_severe_storm">격렬한 폭풍</string>
+
+    <string name="forecast_today">오늘</string>
+    <string name="pm25_label">PM2.5</string>
+    <string name="pm10_label">PM10</string>
+    <string name="eu_aqi_label">EU AQI</string>
+    <string name="zen_weather_format">%1$s • %2$.0f%3$s • %4$s • AQI %5$d</string>
+
+    <string name="history_category_event">역사적 사건</string>
+    <string name="history_category_birth">탄생</string>
 </resources>
