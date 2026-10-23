@@ -151,4 +151,9 @@
 
     <string name="history_category_event">Sự kiện</string>
     <string name="history_category_birth">Sinh nhật</string>
+
+    <string name="usage_telemetry_title">THỐNG KÊ SỬ DỤNG ỨNG DỤNG</string>
+    <string name="usage_sessions">Phiên: %1$d</string>
+    <string name="usage_active_time">Thời gian hoạt động: %1$d phút</string>
+    <string name="usage_interactions">Tương tác: %1$d</string>
 </resources>

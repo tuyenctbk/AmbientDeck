@@ -151,4 +151,9 @@
 
     <string name="history_category_event">Peristiwa</string>
     <string name="history_category_birth">Kelahiran</string>
+
+    <string name="usage_telemetry_title">STATISTIK PENGGUNAAN APLIKASI</string>
+    <string name="usage_sessions">Sesi: %1$d</string>
+    <string name="usage_active_time">Waktu Aktif: %1$d mnt</string>
+    <string name="usage_interactions">Interaksi: %1$d</string>
 </resources>

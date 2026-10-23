@@ -151,4 +151,9 @@
 
     <string name="history_category_event">Olay</string>
     <string name="history_category_birth">Doğum</string>
+
+    <string name="usage_telemetry_title">UYGULAMA KULLANIM İSTATİSTİKLERİ</string>
+    <string name="usage_sessions">Oturumlar: %1$d</string>
+    <string name="usage_active_time">Aktif Süre: %1$d dk</string>
+    <string name="usage_interactions">Etkileşimler: %1$d</string>
 </resources>

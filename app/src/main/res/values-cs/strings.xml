@@ -151,4 +151,9 @@
 
     <string name="history_category_event">Událost</string>
     <string name="history_category_birth">Narození</string>
+
+    <string name="usage_telemetry_title">STATISTIKA POUŽITÍ APLIKACE</string>
+    <string name="usage_sessions">Relace: %1$d</string>
+    <string name="usage_active_time">Aktivní čas: %1$d min</string>
+    <string name="usage_interactions">Interakce: %1$d</string>
 </resources>

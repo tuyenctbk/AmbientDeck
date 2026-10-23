@@ -151,4 +151,9 @@
 
     <string name="history_category_event">历史事件</string>
     <string name="history_category_birth">诞生</string>
+
+    <string name="usage_telemetry_title">应用使用统计与数据</string>
+    <string name="usage_sessions">会话次数: %1$d</string>
+    <string name="usage_active_time">活跃时间: %1$d 分钟</string>
+    <string name="usage_interactions">交互次数: %1$d</string>
 </resources>

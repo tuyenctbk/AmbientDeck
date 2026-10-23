@@ -151,4 +151,9 @@
 
     <string name="history_category_event">역사적 사건</string>
     <string name="history_category_birth">탄생</string>
+
+    <string name="usage_telemetry_title">앱 사용 통계 및 상태</string>
+    <string name="usage_sessions">세션 수: %1$d회</string>
+    <string name="usage_active_time">사용 시간: %1$d분</string>
+    <string name="usage_interactions">상호작용: %1$d회</string>
 </resources>

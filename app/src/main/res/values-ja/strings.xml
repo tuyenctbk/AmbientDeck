@@ -151,4 +151,9 @@
 
     <string name="history_category_event">出来事</string>
     <string name="history_category_birth">誕生</string>
+
+    <string name="usage_telemetry_title">アプリ利用統計＆ステータス</string>
+    <string name="usage_sessions">起動回数: %1$d回</string>
+    <string name="usage_active_time">利用時間: %1$d分</string>
+    <string name="usage_interactions">操作回数: %1$d回</string>
 </resources>

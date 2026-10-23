@@ -151,4 +151,9 @@
 
     <string name="history_category_event">เหตุการณ์</string>
     <string name="history_category_birth">กำเนิด</string>
+
+    <string name="usage_telemetry_title">สถิติการใช้งานแอปพลิเคชัน</string>
+    <string name="usage_sessions">จำนวนเซสชัน: %1$d</string>
+    <string name="usage_active_time">เวลาที่ใช้งาน: %1$d นาที</string>
+    <string name="usage_interactions">การโต้ตอบ: %1$d</string>
 </resources>

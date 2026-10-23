@@ -172,4 +172,10 @@
     <!-- History Categories -->
     <string name="history_category_event">Event</string>
     <string name="history_category_birth">Birth</string>
+
+    <!-- Usage Telemetry & Stats -->
+    <string name="usage_telemetry_title">APP USAGE TELEMETRY &amp; STATS</string>
+    <string name="usage_sessions">Sessions: %1$d</string>
+    <string name="usage_active_time">Active Time: %1$d mins</string>
+    <string name="usage_interactions">Interactions: %1$d</string>
 </resources>

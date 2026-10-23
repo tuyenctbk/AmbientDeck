@@ -151,4 +151,9 @@
 
     <string name="history_category_event">Подія</string>
     <string name="history_category_birth">Народження</string>
+
+    <string name="usage_telemetry_title">СТАТИСТИКА ВИКОРИСТАННЯ ДОДАТКУ</string>
+    <string name="usage_sessions">Сесії: %1$d</string>
+    <string name="usage_active_time">Активний час: %1$d хв</string>
+    <string name="usage_interactions">Взаємодії: %1$d</string>
 </resources>

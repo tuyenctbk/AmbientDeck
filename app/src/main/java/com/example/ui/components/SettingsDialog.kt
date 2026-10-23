@@ -77,12 +77,14 @@ import com.example.ui.theme.SunsetAmber
 import com.example.ui.theme.TextMuted
 import com.example.ui.theme.TextPrimary
 import com.example.ui.theme.TextSecondary
+import com.example.data.manager.UsageStats
 import com.example.ui.theme.VoidBlack
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun SettingsDialog(
     settings: DeckSettings,
+    usageStats: UsageStats = UsageStats(1, 0, 0),
     onClose: () -> Unit,
     onSelectLocation: (LocationPreset) -> Unit,
     onSelectCustomLocation: (String, Double, Double) -> Unit,
@@ -559,6 +561,54 @@ fun SettingsDialog(
                         title = stringResource(R.string.sec_engagement_title)
                     )
                     Spacer(modifier = Modifier.height(8.dp))
+
+                    // Usage Telemetry Card
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(12.dp))
+                            .background(DarkSurfaceElevated)
+                            .border(1.dp, DarkBorder, RoundedCornerShape(12.dp))
+                            .padding(12.dp)
+                            .testTag("usage_telemetry_card")
+                    ) {
+                        Column {
+                            Text(
+                                text = stringResource(R.string.usage_telemetry_title),
+                                color = SunsetAmber,
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold,
+                                letterSpacing = 1.sp
+                            )
+                            Spacer(modifier = Modifier.height(6.dp))
+                            FlowRow(
+                                horizontalArrangement = Arrangement.spacedBy(14.dp),
+                                verticalArrangement = Arrangement.spacedBy(4.dp),
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Text(
+                                    text = stringResource(R.string.usage_sessions, usageStats.sessions),
+                                    color = TextPrimary,
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.SemiBold
+                                )
+                                Text(
+                                    text = stringResource(R.string.usage_active_time, usageStats.activeTimeMinutes),
+                                    color = CyanAccent,
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.SemiBold
+                                )
+                                Text(
+                                    text = stringResource(R.string.usage_interactions, usageStats.interactionCount),
+                                    color = EmeraldGreen,
+                                    fontSize = 12.sp,
+                                    fontWeight = FontWeight.SemiBold
+                                )
+                            }
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(10.dp))
 
                     FlowRow(
                         horizontalArrangement = Arrangement.spacedBy(10.dp),

@@ -151,4 +151,9 @@
 
     <string name="history_category_event">Событие</string>
     <string name="history_category_birth">Рождение</string>
+
+    <string name="usage_telemetry_title">СТАТИСТИКА ИСПОЛЬЗОВАНИЯ ПРИЛОЖЕНИЯ</string>
+    <string name="usage_sessions">Сессии: %1$d</string>
+    <string name="usage_active_time">Активное время: %1$d мин</string>
+    <string name="usage_interactions">Взаимодействия: %1$d</string>
 </resources>

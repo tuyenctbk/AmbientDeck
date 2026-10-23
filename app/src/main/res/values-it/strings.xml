@@ -151,4 +151,9 @@
 
     <string name="history_category_event">Evento</string>
     <string name="history_category_birth">Nascita</string>
+
+<string name="usage_telemetry_title">STATISTICHE D\'USO DELL\'APP</string>
+    <string name="usage_sessions">Sessioni: %1$d</string>
+    <string name="usage_active_time">Tempo attivo: %1$d min</string>
+    <string name="usage_interactions">Interazioni: %1$d</string>
 </resources>

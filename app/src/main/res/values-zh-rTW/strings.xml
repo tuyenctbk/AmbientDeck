@@ -151,4 +151,9 @@
 
     <string name="history_category_event">歷史事件</string>
     <string name="history_category_birth">誕生</string>
+
+    <string name="usage_telemetry_title">應用程式使用統計與數據</string>
+    <string name="usage_sessions">會話次數: %1$d</string>
+    <string name="usage_active_time">活躍時間: %1$d 分鐘</string>
+    <string name="usage_interactions">互動次數: %1$d</string>
 </resources>

@@ -151,4 +151,9 @@
 
     <string name="history_category_event">ऐतिहासिक घटना</string>
     <string name="history_category_birth">जन्म</string>
+
+    <string name="usage_telemetry_title">ऐप उपयोग आँकड़े</string>
+    <string name="usage_sessions">सत्र: %1$d</string>
+    <string name="usage_active_time">सक्रिय समय: %1$d मिनट</string>
+    <string name="usage_interactions">इंटरैक्शन: %1$d</string>
 </resources>

@@ -137,6 +137,7 @@ fun AmbientDeckScreen(
         if (uiState.isSettingsOpen) {
             SettingsDialog(
                 settings = uiState.settings,
+                usageStats = uiState.usageStats,
                 onClose = { viewModel.onToggleSettings(false) },
                 onSelectLocation = { viewModel.onSelectLocation(it) },
                 onSelectCustomLocation = { name, lat, lon -> viewModel.onSelectCustomLocation(name, lat, lon) },

@@ -5,10 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.manager.EngagementManager
 import com.example.data.manager.PromptType
+import com.example.data.manager.UsageStats
 import com.example.data.model.ArtCategory
 import com.example.data.model.CryptoTicker
 import com.example.data.model.DeckSettings
-import com.example.data.model.DefaultLocations
 import com.example.data.model.FlightState
 import com.example.data.model.HistoryItem
 import com.example.data.model.LayoutMode
@@ -65,8 +65,9 @@ data class DeckUiState(
     val inspectedWidget: InspectWidgetType? = null,
     val isSettingsOpen: Boolean = false,
     val lastUpdated: String = "Just now",
-    val pendingPrompt: com.example.data.manager.PromptType? = null,
-    val showPrivacyPolicy: Boolean = false
+    val pendingPrompt: PromptType? = null,
+    val showPrivacyPolicy: Boolean = false,
+    val usageStats: UsageStats = UsageStats(1, 0, 0)
 )
 
 class AmbientDeckViewModel(
@@ -79,6 +80,7 @@ class AmbientDeckViewModel(
     private var clockJob: Job? = null
     private var dataPollingJob: Job? = null
     private var wallpaperJob: Job? = null
+    private var engagementManager: EngagementManager? = null
 
     init {
         loadWallpapers(_uiState.value.settings.artCategory)
@@ -86,6 +88,17 @@ class AmbientDeckViewModel(
         refreshAllData()
         startDataPolling()
         startWallpaperRotation()
+    }
+
+    private fun loadWallpapers(category: ArtCategory) {
+        val list = repository.getWallpapersForCategory(category)
+        _uiState.update { current ->
+            current.copy(
+                wallpapers = list,
+                wallpaperIndex = 0,
+                currentWallpaper = list.firstOrNull()
+            )
+        }
     }
 
     private fun startClockLoop() {
@@ -100,6 +113,20 @@ class AmbientDeckViewModel(
             while (isActive) {
                 val now = Date()
                 tickCounter++
+
+                // Record active usage time every 10 seconds
+                if (tickCounter % 10 == 0) {
+                    engagementManager?.recordActiveTime(10000L)
+                    val stats = engagementManager?.getUsageStats()
+                    if (stats != null) {
+                        _uiState.update { it.copy(usageStats = stats) }
+                    }
+                }
+
+                // Check pending engagement prompt every 60 seconds if not busy
+                if (tickCounter % 60 == 0) {
+                    checkAutoPrompt()
+                }
 
                 // Pixel shift every 120 seconds for OLED burn-in mitigation
                 val shiftX = if (_uiState.value.settings.burnInShiftEnabled) {
@@ -135,6 +162,7 @@ class AmbientDeckViewModel(
     }
 
     fun cycleWallpaper() {
+        engagementManager?.recordInteraction()
         _uiState.update { current ->
             if (current.wallpapers.isEmpty()) current
             else {
@@ -179,6 +207,7 @@ class AmbientDeckViewModel(
     }
 
     fun refreshAllData() {
+        engagementManager?.recordInteraction()
         viewModelScope.launch {
             _uiState.update { it.copy(isRefreshing = true) }
             val city = _uiState.value.settings.selectedCity
@@ -222,6 +251,7 @@ class AmbientDeckViewModel(
     }
 
     fun onSelectLocation(preset: LocationPreset) {
+        engagementManager?.recordInteraction()
         _uiState.update { current ->
             current.copy(
                 settings = current.settings.copy(selectedCity = preset)
@@ -231,6 +261,7 @@ class AmbientDeckViewModel(
     }
 
     fun onSelectCustomLocation(name: String, lat: Double, lon: Double) {
+        engagementManager?.recordInteraction()
         val customPreset = LocationPreset("custom", name, "Custom", lat, lon)
         _uiState.update { current ->
             current.copy(
@@ -241,6 +272,7 @@ class AmbientDeckViewModel(
     }
 
     fun onSelectLayoutMode(mode: LayoutMode) {
+        engagementManager?.recordInteraction()
         _uiState.update { current ->
             current.copy(
                 settings = current.settings.copy(layoutMode = mode)
@@ -249,6 +281,7 @@ class AmbientDeckViewModel(
     }
 
     fun onSelectArtCategory(category: ArtCategory) {
+        engagementManager?.recordInteraction()
         _uiState.update { current ->
             current.copy(
                 settings = current.settings.copy(artCategory = category)
@@ -258,21 +291,11 @@ class AmbientDeckViewModel(
         startWallpaperRotation()
     }
 
-    private fun loadWallpapers(category: ArtCategory) {
-        val list = repository.getWallpapersForCategory(category)
-        _uiState.update { current ->
-            current.copy(
-                wallpapers = list,
-                wallpaperIndex = 0,
-                currentWallpaper = list.firstOrNull()
-            )
-        }
-    }
-
-    fun onToggleWidget(type: WidgetToggleType) {
+    fun onToggleWidget(widgetType: WidgetToggleType) {
+        engagementManager?.recordInteraction()
         _uiState.update { current ->
             val settings = current.settings
-            val updated = when (type) {
+            val updated = when (widgetType) {
                 WidgetToggleType.WEATHER -> settings.copy(showWeather = !settings.showWeather)
                 WidgetToggleType.CRYPTO -> settings.copy(showCrypto = !settings.showCrypto)
                 WidgetToggleType.RADAR -> settings.copy(showRadar = !settings.showRadar)
@@ -284,6 +307,7 @@ class AmbientDeckViewModel(
     }
 
     fun onToggleTempUnit() {
+        engagementManager?.recordInteraction()
         _uiState.update { current ->
             current.copy(
                 settings = current.settings.copy(isCelsius = !current.settings.isCelsius)
@@ -292,6 +316,7 @@ class AmbientDeckViewModel(
     }
 
     fun onToggleSpeedUnit() {
+        engagementManager?.recordInteraction()
         _uiState.update { current ->
             current.copy(
                 settings = current.settings.copy(isMph = !current.settings.isMph)
@@ -300,6 +325,7 @@ class AmbientDeckViewModel(
     }
 
     fun onToggleAltitudeUnit() {
+        engagementManager?.recordInteraction()
         _uiState.update { current ->
             current.copy(
                 settings = current.settings.copy(isAltitudeFeet = !current.settings.isAltitudeFeet)
@@ -308,6 +334,7 @@ class AmbientDeckViewModel(
     }
 
     fun onToggleBurnInProtection() {
+        engagementManager?.recordInteraction()
         _uiState.update { current ->
             current.copy(
                 settings = current.settings.copy(burnInShiftEnabled = !current.settings.burnInShiftEnabled)
@@ -316,10 +343,12 @@ class AmbientDeckViewModel(
     }
 
     fun onInspectWidget(widget: InspectWidgetType?) {
+        if (widget != null) engagementManager?.recordInteraction()
         _uiState.update { it.copy(inspectedWidget = widget) }
     }
 
     fun onToggleSettings(open: Boolean) {
+        if (open) engagementManager?.recordInteraction()
         _uiState.update { it.copy(isSettingsOpen = open) }
     }
 
@@ -343,30 +372,39 @@ class AmbientDeckViewModel(
         }
     }
 
-    private var engagementManager: EngagementManager? = null
-
     fun initEngagement(context: Context) {
         if (engagementManager == null) {
             val manager = EngagementManager(context)
             engagementManager = manager
             manager.recordAppLaunch()
+            _uiState.update { it.copy(usageStats = manager.getUsageStats()) }
 
-            // Check pending prompt after initial settling delay (6 seconds)
             viewModelScope.launch {
-                delay(6000)
-                val prompt = manager.checkPendingPrompt(currentVersionCode = 1)
-                if (prompt != null) {
-                    _uiState.update { it.copy(pendingPrompt = prompt) }
-                }
+                delay(8000)
+                checkAutoPrompt()
             }
         }
     }
 
     fun onDismissSplash() {
         _uiState.update { it.copy(showSplash = false) }
+        viewModelScope.launch {
+            delay(2000)
+            checkAutoPrompt()
+        }
+    }
+
+    private fun checkAutoPrompt() {
+        val state = _uiState.value
+        val isBusy = state.isSettingsOpen || state.inspectedWidget != null || state.showSplash || state.showPrivacyPolicy || state.pendingPrompt != null
+        val prompt = engagementManager?.checkPendingPrompt(currentVersionCode = 1, isUserBusy = isBusy)
+        if (prompt != null) {
+            _uiState.update { it.copy(pendingPrompt = prompt) }
+        }
     }
 
     fun onOpenPrompt(promptType: PromptType) {
+        engagementManager?.recordInteraction()
         _uiState.update { it.copy(pendingPrompt = promptType) }
     }
 
@@ -406,6 +444,7 @@ class AmbientDeckViewModel(
     }
 
     fun onTogglePrivacyPolicy(show: Boolean) {
+        if (show) engagementManager?.recordInteraction()
         _uiState.update { it.copy(showPrivacyPolicy = show) }
     }
 }

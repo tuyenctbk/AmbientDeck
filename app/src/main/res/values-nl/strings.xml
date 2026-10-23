@@ -151,4 +151,9 @@
 
     <string name="history_category_event">Gebeurtenis</string>
     <string name="history_category_birth">Geboorte</string>
+
+    <string name="usage_telemetry_title">APP GEBRUIKSSTATISTIEKEN</string>
+    <string name="usage_sessions">Sessies: %1$d</string>
+    <string name="usage_active_time">Actieve tijd: %1$d min</string>
+    <string name="usage_interactions">Interacties: %1$d</string>
 </resources>

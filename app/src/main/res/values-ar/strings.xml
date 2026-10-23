@@ -151,4 +151,9 @@
 
     <string name="history_category_event">حدث</string>
     <string name="history_category_birth">ولادة</string>
+
+    <string name="usage_telemetry_title">إحصائيات استخدام التطبيق</string>
+    <string name="usage_sessions">الجلسات: %1$d</string>
+    <string name="usage_active_time">الوقت النشط: %1$d دقيقة</string>
+    <string name="usage_interactions">التفاعلات: %1$d</string>
 </resources>
