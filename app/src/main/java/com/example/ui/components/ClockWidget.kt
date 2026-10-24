@@ -29,6 +29,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
@@ -54,16 +55,24 @@ fun ClockWidget(
     currentPeriod: String,
     currentDate: String,
     settings: DeckSettings,
-    lastUpdated: String,
+    lastUpdatedTime: String?,
     isRefreshing: Boolean,
     onOpenSettings: () -> Unit,
     onManualRefresh: () -> Unit,
+    isShort: Boolean = false,
     modifier: Modifier = Modifier
 ) {
     var isFocused by remember { mutableStateOf(false) }
 
+    val focusScale by androidx.compose.animation.core.animateFloatAsState(
+        targetValue = if (isFocused) 1.02f else 1.0f,
+        animationSpec = androidx.compose.animation.core.tween(200),
+        label = "clock_focus_scale"
+    )
+
     androidx.compose.foundation.layout.BoxWithConstraints(
         modifier = modifier
+            .scale(focusScale)
             .clip(RoundedCornerShape(20.dp))
             .background(GlassOverlay)
             .border(
@@ -76,24 +85,31 @@ fun ClockWidget(
             .clickable { onOpenSettings() }
             .testTag("clock_widget_container")
     ) {
-        val isCompact = maxWidth < 380.dp
+        val isCompact = maxWidth < 440.dp || isShort
         val isNarrow = maxWidth < 340.dp
 
         val timeFontSize = when {
-            maxWidth < 320.dp -> 38.sp
-            maxWidth < 380.dp -> 48.sp
-            maxWidth < 480.dp -> 58.sp
-            maxWidth < 640.dp -> 68.sp
-            else -> 72.sp
+            isShort -> 42.sp
+            maxWidth < 320.dp -> 36.sp
+            maxWidth < 360.dp -> 40.sp
+            maxWidth < 440.dp -> 44.sp
+            maxWidth < 640.dp -> 60.sp
+            else -> 70.sp
         }
-        val periodFontSize = if (isCompact) 14.sp else 18.sp
-        val secondsFontSize = if (isCompact) 12.sp else 16.sp
-        val dateFontSize = if (isCompact) 13.sp else 15.sp
+        val periodFontSize = if (isCompact) 13.sp else 18.sp
+        val secondsFontSize = if (isCompact) 11.sp else 16.sp
+        val dateFontSize = if (isCompact) 12.sp else 15.sp
+
+        val lastUpdatedText = if (lastUpdatedTime != null) {
+            stringResource(R.string.updated_at, lastUpdatedTime)
+        } else {
+            stringResource(R.string.just_now)
+        }
 
         Column(
             modifier = Modifier.padding(
-                horizontal = if (isCompact) 14.dp else 22.dp,
-                vertical = if (isCompact) 12.dp else 16.dp
+                horizontal = if (isShort) 14.dp else if (isCompact) 14.dp else 22.dp,
+                vertical = if (isShort) 6.dp else if (isCompact) 8.dp else 16.dp
             )
         ) {
             // Top status line with location chip, layout tag, and action buttons
@@ -102,7 +118,7 @@ fun ClockWidget(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 6.dp)
+                    .padding(bottom = if (isCompact) 4.dp else 6.dp)
             ) {
                 // City / Coordinates pill
                 Row(
@@ -122,7 +138,7 @@ fun ClockWidget(
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
-                        text = "${settings.selectedCity.name}, ${settings.selectedCity.country}",
+                        text = stringResource(R.string.city_country_format, settings.selectedCity.name, settings.selectedCity.country),
                         color = CyanAccent,
                         fontSize = 11.sp,
                         fontWeight = FontWeight.SemiBold,
@@ -135,7 +151,7 @@ fun ClockWidget(
                 if (!isNarrow) {
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = settings.layoutMode.displayName.uppercase(),
+                        text = stringResource(settings.layoutMode.titleRes).uppercase(),
                         color = SunsetAmber,
                         fontSize = 10.sp,
                         fontWeight = FontWeight.Bold,
@@ -147,38 +163,39 @@ fun ClockWidget(
                     )
                 }
 
-                Spacer(modifier = Modifier.width(6.dp))
+                // Actions row (desktop/tablet/wide screens only, since mobile has persistent dock)
+                if (!isCompact) {
+                    Spacer(modifier = Modifier.width(6.dp))
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        // Manual refresh button
+                        IconButton(
+                            onClick = onManualRefresh,
+                            modifier = Modifier
+                                .size(32.dp)
+                                .testTag("clock_refresh_button")
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Refresh,
+                                contentDescription = stringResource(R.string.refresh_data),
+                                tint = if (isRefreshing) CyanAccent else TextSecondary,
+                                modifier = Modifier.size(16.dp)
+                            )
+                        }
 
-                // Actions row
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    // Manual refresh button
-                    IconButton(
-                        onClick = onManualRefresh,
-                        modifier = Modifier
-                            .size(if (isCompact) 28.dp else 32.dp)
-                            .testTag("clock_refresh_button")
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Refresh,
-                            contentDescription = stringResource(R.string.refresh_data),
-                            tint = if (isRefreshing) CyanAccent else TextSecondary,
-                            modifier = Modifier.size(16.dp)
-                        )
-                    }
-
-                    // Settings quick trigger
-                    IconButton(
-                        onClick = onOpenSettings,
-                        modifier = Modifier
-                            .size(if (isCompact) 28.dp else 32.dp)
-                            .testTag("clock_settings_button")
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Tune,
-                            contentDescription = stringResource(R.string.deck_settings),
-                            tint = TextSecondary,
-                            modifier = Modifier.size(16.dp)
-                        )
+                        // Settings quick trigger
+                        IconButton(
+                            onClick = onOpenSettings,
+                            modifier = Modifier
+                                .size(32.dp)
+                                .testTag("clock_settings_button")
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Tune,
+                                contentDescription = stringResource(R.string.deck_settings),
+                                tint = TextSecondary,
+                                modifier = Modifier.size(16.dp)
+                            )
+                        }
                     }
                 }
             }
@@ -241,7 +258,7 @@ fun ClockWidget(
                 Spacer(modifier = Modifier.width(8.dp))
 
                 Text(
-                    text = lastUpdated,
+                    text = lastUpdatedText,
                     color = TextMuted,
                     fontSize = 10.sp,
                     maxLines = 1

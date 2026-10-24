@@ -32,6 +32,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -60,12 +61,20 @@ fun WeatherAqiWidget(
     isCelsius: Boolean,
     isMph: Boolean,
     onInspect: () -> Unit,
+    isShort: Boolean = false,
     modifier: Modifier = Modifier
 ) {
     var isFocused by remember { mutableStateOf(false) }
 
+    val focusScale by androidx.compose.animation.core.animateFloatAsState(
+        targetValue = if (isFocused) 1.02f else 1.0f,
+        animationSpec = androidx.compose.animation.core.tween(200),
+        label = "weather_focus_scale"
+    )
+
     androidx.compose.foundation.layout.BoxWithConstraints(
         modifier = modifier
+            .scale(focusScale)
             .clip(RoundedCornerShape(20.dp))
             .background(GlassOverlay)
             .border(
@@ -78,15 +87,15 @@ fun WeatherAqiWidget(
             .clickable { onInspect() }
             .testTag("weather_aqi_widget_card")
     ) {
-        val isCompact = maxWidth < 380.dp
-        val padding = if (isCompact) 14.dp else 18.dp
+        val isCompact = maxWidth < 440.dp || isShort
+        val padding = if (isShort) 6.dp else if (isCompact) 8.dp else 18.dp
 
         if (weather == null) {
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(140.dp)
+                    .height(130.dp)
                     .padding(padding)
             ) {
                 Text(
@@ -154,7 +163,7 @@ fun WeatherAqiWidget(
                     }
                 }
 
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(if (isShort || isCompact) 3.dp else 8.dp))
 
                 // Main Temp & Condition Row
                 Row(
@@ -170,23 +179,23 @@ fun WeatherAqiWidget(
                             Text(
                                 text = "%.0f".format(displayTemp),
                                 color = TextPrimary,
-                                fontSize = if (isCompact) 36.sp else 44.sp,
+                                fontSize = if (isShort) 26.sp else if (isCompact) 30.sp else 44.sp,
                                 fontWeight = FontWeight.Bold,
                                 modifier = Modifier.testTag("weather_temp_text")
                             )
                             Text(
                                 text = unitStr,
                                 color = CyanAccent,
-                                fontSize = if (isCompact) 16.sp else 20.sp,
+                                fontSize = if (isShort) 13.sp else if (isCompact) 14.sp else 20.sp,
                                 fontWeight = FontWeight.SemiBold,
-                                modifier = Modifier.padding(top = 4.dp, start = 2.dp)
+                                modifier = Modifier.padding(top = 3.dp, start = 2.dp)
                             )
                         }
 
                         Text(
                             text = conditionStr,
                             color = TextPrimary,
-                            fontSize = if (isCompact) 13.sp else 15.sp,
+                            fontSize = if (isCompact) 12.sp else 15.sp,
                             fontWeight = FontWeight.Medium,
                             maxLines = 1,
                             overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis
@@ -198,7 +207,7 @@ fun WeatherAqiWidget(
                     // Key telemetry: Humidity, Wind, High/Low
                     Column(
                         horizontalAlignment = Alignment.End,
-                        verticalArrangement = Arrangement.spacedBy(3.dp)
+                        verticalArrangement = Arrangement.spacedBy(2.dp)
                     ) {
                         val displayWind = if (isMph) weather.windSpeed * 0.621371 else weather.windSpeed
                         val windUnit = if (isMph) stringResource(R.string.mph_label) else stringResource(R.string.kmh_label)
@@ -226,23 +235,36 @@ fun WeatherAqiWidget(
                     }
                 }
 
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(if (isShort || isCompact) 4.dp else 10.dp))
 
-                // Pollutant mini tags with FlowRow so it never exceeds screen or card width
-                androidx.compose.foundation.layout.FlowRow(
-                    horizontalArrangement = Arrangement.spacedBy(6.dp),
-                    verticalArrangement = Arrangement.spacedBy(6.dp),
+                // Pollutant mini tags & 7-day forecast link
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    PollutantChip(label = stringResource(R.string.pm25_label), value = "%.1f µg/m³".format(weather.pm25))
-                    PollutantChip(label = stringResource(R.string.pm10_label), value = "%.1f µg/m³".format(weather.pm10))
-                    PollutantChip(label = stringResource(R.string.eu_aqi_label), value = "${weather.aqiEu}")
+                    val pm25Str = if (isCompact) "%.1f".format(weather.pm25) else stringResource(R.string.pollutant_value_ugm3, weather.pm25)
+                    val pm10Str = if (isCompact) "%.1f".format(weather.pm10) else stringResource(R.string.pollutant_value_ugm3, weather.pm10)
+
+                    androidx.compose.foundation.layout.FlowRow(
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                        verticalArrangement = Arrangement.spacedBy(4.dp),
+                        modifier = Modifier.weight(1f, fill = false)
+                    ) {
+                        PollutantChip(label = stringResource(R.string.pm25_label), value = pm25Str, isCompact = isCompact)
+                        PollutantChip(label = stringResource(R.string.pm10_label), value = pm10Str, isCompact = isCompact)
+                        PollutantChip(label = stringResource(R.string.eu_aqi_label), value = "${weather.aqiEu}", isCompact = isCompact)
+                    }
+
+                    Spacer(modifier = Modifier.width(6.dp))
+
                     Text(
                         text = stringResource(R.string.click_for_7day),
                         color = CyanAccent.copy(alpha = 0.85f),
-                        fontSize = 11.sp,
+                        fontSize = if (isCompact) 10.sp else 11.sp,
                         fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier.padding(top = 2.dp)
+                        maxLines = 1,
+                        modifier = Modifier.testTag("weather_forecast_hint")
                     )
                 }
             }
@@ -251,16 +273,15 @@ fun WeatherAqiWidget(
 }
 
 @Composable
-private fun PollutantChip(label: String, value: String) {
+private fun PollutantChip(label: String, value: String, isCompact: Boolean = false) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .clip(RoundedCornerShape(6.dp))
             .background(Color(0x22FFFFFF))
-            .padding(horizontal = 6.dp, vertical = 2.dp)
+            .padding(horizontal = if (isCompact) 4.dp else 6.dp, vertical = 2.dp)
     ) {
-        Text(text = "$label: ", color = TextSecondary, fontSize = 10.sp)
-        Text(text = value, color = TextPrimary, fontSize = 10.sp, fontWeight = FontWeight.SemiBold)
+        Text(text = stringResource(R.string.label_colon_format, label, value), color = TextPrimary, fontSize = if (isCompact) 9.sp else 10.sp, fontWeight = FontWeight.SemiBold)
     }
 }
 

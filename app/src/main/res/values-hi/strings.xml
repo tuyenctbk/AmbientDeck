@@ -156,4 +156,28 @@
     <string name="usage_sessions">सत्र: %1$d</string>
     <string name="usage_active_time">सक्रिय समय: %1$d मिनट</string>
     <string name="usage_interactions">इंटरैक्शन: %1$d</string>
+
+    <string name="privacy_bullet_zero_data_title">शून्य डेटा संग्रह</string>
+    <string name="privacy_bullet_zero_data_desc">कोई एनालिटिक्स ट्रैकर, विज्ञापन आईडी या टेलीमेट्री प्रोफाइलिंग नहीं।</string>
+    <string name="privacy_bullet_open_apis_title">ओपन निःशुल्क एपीआई</string>
+    <string name="privacy_bullet_open_apis_desc">लाइव डेटा सार्वजनिक Open-Meteo, Binance और OpenSky Network से आता है।</string>
+    <string name="privacy_bullet_local_storage_title">स्थानीय डिवाइस संग्रहण</string>
+    <string name="privacy_bullet_local_storage_desc">प्राथमिकताएं और स्थान विशेष रूप से आपके स्थानीय डिवाइस पर रहते हैं।</string>
+    <string name="change_24h_format">%1$+.2f%% (24 घंटे)</string>
+    <string name="unknown_country">अज्ञात</string>
+    <string name="custom_location_country">कस्टम</string>
+    <string name="pollutant_value_ugm3">%1$.1f µg/m³</string>
+    <string name="label_colon_format">%1$s: %2$s</string>
+    <string name="usd_price_format">$%1$s</string>
+    <string name="flight_origin_icao_format">%1$s • ICAO: %2$s</string>
+    <string name="flight_origin_short_format">%1$s • %2$s</string>
+    <string name="crypto_pair_format">%1$s / %2$s</string>
+    <string name="altitude_feet_format">%1$.0f ft</string>
+    <string name="altitude_meters_format">%1$.0f m</string>
+    <string name="speed_knots_format">%1$.0f kts</string>
+    <string name="speed_kmh_format">%1$.0f km/h</string>
+    <string name="speed_mph_format">%1$.0f mph</string>
+    <string name="heading_degrees_format">%1$.0f°</string>
+    <string name="city_country_format">%1$s, %2$s</string>
+    <string name="flight_callsign_fallback">FLT-%1$s</string>
 </resources>

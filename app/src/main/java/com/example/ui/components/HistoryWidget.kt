@@ -1,6 +1,9 @@
 package com.example.ui.components
 
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
@@ -33,6 +36,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
@@ -58,13 +62,23 @@ fun HistoryWidget(
     onNext: () -> Unit,
     onPrev: () -> Unit,
     onInspect: () -> Unit,
+    isShort: Boolean = false,
     modifier: Modifier = Modifier
 ) {
     var isFocused by remember { mutableStateOf(false) }
+    val focusScale by animateFloatAsState(
+        targetValue = if (isFocused) 1.02f else 1.0f,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessLow
+        ),
+        label = "history_focus_scale"
+    )
     val currentItem = historyItems.getOrNull(activeIndex)
 
     androidx.compose.foundation.layout.BoxWithConstraints(
         modifier = modifier
+            .scale(focusScale)
             .clip(RoundedCornerShape(20.dp))
             .background(GlassOverlay)
             .border(
@@ -77,8 +91,8 @@ fun HistoryWidget(
             .clickable { onInspect() }
             .testTag("history_widget_card")
     ) {
-        val isCompact = maxWidth < 380.dp
-        val padding = if (isCompact) 14.dp else 18.dp
+        val isCompact = maxWidth < 440.dp || isShort
+        val padding = if (isShort) 6.dp else if (isCompact) 8.dp else 18.dp
 
         Column(modifier = Modifier.padding(padding)) {
             // Header Row
@@ -122,7 +136,7 @@ fun HistoryWidget(
                 }
             }
 
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(if (isShort || isCompact) 4.dp else 10.dp))
 
             // Animated Event content
             AnimatedContent(
@@ -143,13 +157,13 @@ fun HistoryWidget(
                             Text(
                                 text = item.year,
                                 color = SunsetAmber,
-                                fontSize = if (isCompact) 15.sp else 18.sp,
+                                fontSize = if (isShort) 14.sp else if (isCompact) 15.sp else 18.sp,
                                 fontWeight = FontWeight.Bold,
                                 fontFamily = FontFamily.Monospace,
                                 modifier = Modifier
                                     .clip(RoundedCornerShape(8.dp))
                                     .background(Color(0x22FFB300))
-                                    .padding(horizontal = 8.dp, vertical = 3.dp)
+                                    .padding(horizontal = if (isShort) 6.dp else 8.dp, vertical = if (isShort) 2.dp else 3.dp)
                                     .testTag("history_year_badge")
                             )
 
@@ -166,15 +180,15 @@ fun HistoryWidget(
                             )
                         }
 
-                        Spacer(modifier = Modifier.height(8.dp))
+                        Spacer(modifier = Modifier.height(if (isShort || isCompact) 4.dp else 8.dp))
 
                         Text(
                             text = item.text,
                             color = TextPrimary,
-                            fontSize = if (isCompact) 13.sp else 14.sp,
+                            fontSize = if (isShort) 12.sp else if (isCompact) 13.sp else 14.sp,
                             fontWeight = FontWeight.Normal,
-                            lineHeight = if (isCompact) 18.sp else 20.sp,
-                            maxLines = 3,
+                            lineHeight = if (isShort) 16.sp else if (isCompact) 18.sp else 20.sp,
+                            maxLines = if (isShort || isCompact) 2 else 3,
                             overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
                             modifier = Modifier.testTag("history_event_text")
                         )
@@ -188,7 +202,7 @@ fun HistoryWidget(
                 }
             }
 
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(if (isShort || isCompact) 4.dp else 10.dp))
 
             // Footer action bar: Prev / Next buttons
             Row(

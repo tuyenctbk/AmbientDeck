@@ -3,18 +3,18 @@ package com.example.data.model
 import androidx.annotation.StringRes
 import com.example.R
 
-enum class LayoutMode(val displayName: String, val description: String) {
-    CINEMATIC("Cinematic Wall", "Hero 4K art backdrop with floating glassmorphic widgets"),
-    GRID("Kiosk Multi-Panel", "Structured dense grid dashboard displaying all feeds simultaneously"),
-    ZEN("Zen Clock Minimal", "Minimalist large typography clock and subtle ambient weather")
+enum class LayoutMode(@StringRes val titleRes: Int, @StringRes val descRes: Int) {
+    CINEMATIC(R.string.layout_cinematic_name, R.string.layout_cinematic_desc),
+    GRID(R.string.layout_grid_name, R.string.layout_grid_desc),
+    ZEN(R.string.layout_zen_name, R.string.layout_zen_desc)
 }
 
-enum class ArtCategory(val displayName: String) {
-    SCENIC("Scenic Landscapes"),
-    CYBER_NIGHT("Cyberpunk & Night Lights"),
-    SPACE("Cosmic & Astrophotography"),
-    ARCHITECTURE("Modern Architecture"),
-    FINE_ART("Fine Art & Museum")
+enum class ArtCategory(@StringRes val titleRes: Int) {
+    SCENIC(R.string.art_scenic),
+    CYBER_NIGHT(R.string.art_cyber),
+    SPACE(R.string.art_space),
+    ARCHITECTURE(R.string.art_architecture),
+    FINE_ART(R.string.art_fine_art)
 }
 
 data class LocationPreset(
@@ -32,13 +32,13 @@ data class WeatherData(
     val windSpeed: Double,
     val weatherCode: Int,
     val isDay: Boolean,
-    val uvIndex: Double = 3.5,
-    val aqiUs: Int = 32,
-    val aqiEu: Int = 28,
-    val pm25: Double = 8.2,
-    val pm10: Double = 14.5,
-    val dailyMax: Double = 22.0,
-    val dailyMin: Double = 14.0,
+    val uvIndex: Double = 0.0,
+    val aqiUs: Int = 0,
+    val aqiEu: Int = 0,
+    val pm25: Double = 0.0,
+    val pm10: Double = 0.0,
+    val dailyMax: Double = 0.0,
+    val dailyMin: Double = 0.0,
     val forecastDays: List<DayForecast> = emptyList()
 )
 

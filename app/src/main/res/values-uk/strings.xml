@@ -156,4 +156,28 @@
     <string name="usage_sessions">Сесії: %1$d</string>
     <string name="usage_active_time">Активний час: %1$d хв</string>
     <string name="usage_interactions">Взаємодії: %1$d</string>
+
+    <string name="privacy_bullet_zero_data_title">Нульовий збір даних</string>
+    <string name="privacy_bullet_zero_data_desc">Жодних аналітичних трекерів, рекламних ідентифікаторів чи профілювання.</string>
+    <string name="privacy_bullet_open_apis_title">Відкриті безкоштовні API</string>
+    <string name="privacy_bullet_open_apis_desc">Дані в реальному часі надходять із відкритих джерел Open-Meteo, Binance та OpenSky Network.</string>
+    <string name="privacy_bullet_local_storage_title">Локальне сховище пристрою</string>
+    <string name="privacy_bullet_local_storage_desc">Налаштування та розташування зберігаються виключно на вашому пристрої.</string>
+    <string name="change_24h_format">%1$+.2f%% (24 год)</string>
+    <string name="unknown_country">Невідомо</string>
+    <string name="custom_location_country">Користувацький</string>
+    <string name="pollutant_value_ugm3">%1$.1f µg/m³</string>
+    <string name="label_colon_format">%1$s: %2$s</string>
+    <string name="usd_price_format">$%1$s</string>
+    <string name="flight_origin_icao_format">%1$s • ICAO: %2$s</string>
+    <string name="flight_origin_short_format">%1$s • %2$s</string>
+    <string name="crypto_pair_format">%1$s / %2$s</string>
+    <string name="altitude_feet_format">%1$.0f ft</string>
+    <string name="altitude_meters_format">%1$.0f m</string>
+    <string name="speed_knots_format">%1$.0f kts</string>
+    <string name="speed_kmh_format">%1$.0f km/h</string>
+    <string name="speed_mph_format">%1$.0f mph</string>
+    <string name="heading_degrees_format">%1$.0f°</string>
+    <string name="city_country_format">%1$s, %2$s</string>
+    <string name="flight_callsign_fallback">FLT-%1$s</string>
 </resources>

@@ -156,4 +156,28 @@
     <string name="usage_sessions">Oturumlar: %1$d</string>
     <string name="usage_active_time">Aktif Süre: %1$d dk</string>
     <string name="usage_interactions">Etkileşimler: %1$d</string>
+
+    <string name="privacy_bullet_zero_data_title">Sıfır Veri Toplama</string>
+    <string name="privacy_bullet_zero_data_desc">Analiz izleyicisi, reklam kimliği veya telemetri profillemesi yoktur.</string>
+    <string name="privacy_bullet_open_apis_title">Açık Ücretsiz API\'ler</string>
+    <string name="privacy_bullet_open_apis_desc">Canlı veriler herkese açık Open-Meteo, Binance ve OpenSky Network kaynaklarından gelir.</string>
+    <string name="privacy_bullet_local_storage_title">Yerel Cihaz Depolaması</string>
+    <string name="privacy_bullet_local_storage_desc">Tercihler ve konumlar yalnızca yerel cihazınızda tutulur.</string>
+    <string name="change_24h_format">%1$+.2f%% (24s)</string>
+    <string name="unknown_country">Bilinmiyor</string>
+    <string name="custom_location_country">Özel</string>
+    <string name="pollutant_value_ugm3">%1$.1f µg/m³</string>
+    <string name="label_colon_format">%1$s: %2$s</string>
+    <string name="usd_price_format">$%1$s</string>
+    <string name="flight_origin_icao_format">%1$s • ICAO: %2$s</string>
+    <string name="flight_origin_short_format">%1$s • %2$s</string>
+    <string name="crypto_pair_format">%1$s / %2$s</string>
+    <string name="altitude_feet_format">%1$.0f ft</string>
+    <string name="altitude_meters_format">%1$.0f m</string>
+    <string name="speed_knots_format">%1$.0f kts</string>
+    <string name="speed_kmh_format">%1$.0f km/h</string>
+    <string name="speed_mph_format">%1$.0f mph</string>
+    <string name="heading_degrees_format">%1$.0f°</string>
+    <string name="city_country_format">%1$s, %2$s</string>
+    <string name="flight_callsign_fallback">FLT-%1$s</string>
 </resources>

@@ -36,6 +36,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
@@ -71,11 +73,10 @@ fun FlightRadarWidget(
     isAltitudeFeet: Boolean,
     isKnots: Boolean,
     onInspect: () -> Unit,
+    isShort: Boolean = false,
     modifier: Modifier = Modifier
 ) {
-    var isFocused by remember { mutableStateOf(false) }
-
-    // Infinite radar sweep angle
+    // Infinite radar sweep angle & sonar ping
     val infiniteTransition = rememberInfiniteTransition(label = "radar_sweep")
     val sweepAngle by infiniteTransition.animateFloat(
         initialValue = 0f,
@@ -87,8 +88,27 @@ fun FlightRadarWidget(
         label = "sweep_angle"
     )
 
+    val sonarPing by infiniteTransition.animateFloat(
+        initialValue = 0.1f,
+        targetValue = 1.0f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis = 2500, easing = LinearEasing),
+            repeatMode = RepeatMode.Restart
+        ),
+        label = "sonar_ping"
+    )
+
+    var isFocused by remember { mutableStateOf(false) }
+
+    val focusScale by androidx.compose.animation.core.animateFloatAsState(
+        targetValue = if (isFocused) 1.02f else 1.0f,
+        animationSpec = androidx.compose.animation.core.tween(200),
+        label = "radar_focus_scale"
+    )
+
     androidx.compose.foundation.layout.BoxWithConstraints(
         modifier = modifier
+            .scale(focusScale)
             .clip(RoundedCornerShape(20.dp))
             .background(GlassOverlay)
             .border(
@@ -101,12 +121,13 @@ fun FlightRadarWidget(
             .clickable { onInspect() }
             .testTag("flight_radar_widget_card")
     ) {
-        val isCompact = maxWidth < 400.dp
+        val isCompact = maxWidth < 440.dp || isShort
         val isNarrow = maxWidth < 340.dp
-        val padding = if (isCompact) 14.dp else 18.dp
+        val padding = if (isShort) 6.dp else if (isCompact) 8.dp else 18.dp
         val radarScopeSize = when {
-            isNarrow -> 96.dp
-            isCompact -> 116.dp
+            isShort -> 68.dp
+            isNarrow -> 70.dp
+            isCompact -> 74.dp
             else -> 140.dp
         }
 
@@ -164,7 +185,7 @@ fun FlightRadarWidget(
                 }
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(if (isShort || isCompact) 4.dp else 12.dp))
 
             // Radar Scope Canvas + Nearest Flight Info Card
             Row(
@@ -234,7 +255,13 @@ fun FlightRadarWidget(
                             strokeWidth = 2f
                         )
 
-                        // Center Ground Station Dot
+                        // Center Ground Station Dot & expanding sonar ring
+                        drawCircle(
+                            color = EmeraldGreen.copy(alpha = (1f - sonarPing) * 0.4f),
+                            radius = radius * 0.9f * sonarPing,
+                            center = center,
+                            style = Stroke(width = 1.2f)
+                        )
                         drawCircle(
                             color = CyanAccent,
                             radius = 3.5f,
@@ -249,7 +276,12 @@ fun FlightRadarWidget(
                             val planeX = (center.x + dx).coerceIn(4f, size.width - 4f)
                             val planeY = (center.y + dy).coerceIn(4f, size.height - 4f)
 
-                            // Aircraft dot blip
+                            // Aircraft aura and dot blip
+                            drawCircle(
+                                color = EmeraldGreen.copy(alpha = 0.35f),
+                                radius = 6f,
+                                center = Offset(planeX, planeY)
+                            )
                             drawCircle(
                                 color = EmeraldGreen,
                                 radius = 3f,
@@ -270,7 +302,9 @@ fun FlightRadarWidget(
                                 imageVector = Icons.Default.Flight,
                                 contentDescription = stringResource(R.string.flight_icon_desc),
                                 tint = CyanAccent,
-                                modifier = Modifier.size(15.dp)
+                                modifier = Modifier
+                                    .size(15.dp)
+                                    .rotate(nearest.headingDegrees.toFloat())
                             )
                             Spacer(modifier = Modifier.width(6.dp))
                             Text(
@@ -285,8 +319,14 @@ fun FlightRadarWidget(
                             )
                         }
 
+                        val countryText = if (nearest.originCountry.isBlank() || nearest.originCountry.equals("Unknown", ignoreCase = true)) {
+                            stringResource(R.string.unknown_country)
+                        } else {
+                            nearest.originCountry
+                        }
+
                         Text(
-                            text = nearest.originCountry,
+                            text = countryText,
                             color = TextSecondary,
                             fontSize = 11.sp,
                             fontWeight = FontWeight.Medium,
@@ -297,8 +337,17 @@ fun FlightRadarWidget(
                         Spacer(modifier = Modifier.height(6.dp))
 
                         // Altitude, Velocity, Heading using FlowRow
-                        val altText = if (isAltitudeFeet) "%.0f ft".format(nearest.altitudeFeet) else "%.0f m".format(nearest.altitudeMeters)
-                        val speedText = if (isKnots) "%.0f kts".format(nearest.velocityKnots) else "%.0f km/h".format(nearest.velocityKmh)
+                        val altText = if (isAltitudeFeet) {
+                            stringResource(R.string.altitude_feet_format, nearest.altitudeFeet)
+                        } else {
+                            stringResource(R.string.altitude_meters_format, nearest.altitudeMeters)
+                        }
+                        val speedText = if (isKnots) {
+                            stringResource(R.string.speed_knots_format, nearest.velocityKnots)
+                        } else {
+                            stringResource(R.string.speed_kmh_format, nearest.velocityKmh)
+                        }
+                        val headingText = stringResource(R.string.heading_degrees_format, nearest.headingDegrees)
 
                         androidx.compose.foundation.layout.FlowRow(
                             horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -314,7 +363,7 @@ fun FlightRadarWidget(
                             }
                             Column {
                                 Text(text = stringResource(R.string.heading_label), color = TextMuted, fontSize = 9.sp, fontWeight = FontWeight.Bold)
-                                Text(text = "%.0f°".format(nearest.headingDegrees), color = CyanAccent, fontSize = if (isCompact) 11.sp else 12.sp, fontWeight = FontWeight.SemiBold)
+                                Text(text = headingText, color = CyanAccent, fontSize = if (isCompact) 11.sp else 12.sp, fontWeight = FontWeight.SemiBold)
                             }
                         }
                     } else {

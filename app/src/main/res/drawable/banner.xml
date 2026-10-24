@@ -6,7 +6,7 @@
     android:viewportWidth="320"
     android:viewportHeight="180">
 
-    <!-- Background 16:9 Gradient -->
+    <!-- Deep Ambient 16:9 Cinema Gradient Background -->
     <path android:pathData="M0,0h320v180h-320z">
         <aapt:attr name="android:fillColor">
             <gradient
@@ -15,72 +15,107 @@
                 android:endX="320"
                 android:endY="180"
                 android:type="linear">
-                <item android:offset="0.0" android:color="#070A0F" />
-                <item android:offset="0.5" android:color="#0F1726" />
-                <item android:offset="1.0" android:color="#172238" />
+                <item android:offset="0.0" android:color="#04060A" />
+                <item android:offset="0.4" android:color="#0B111D" />
+                <item android:offset="1.0" android:color="#141E34" />
             </gradient>
         </aapt:attr>
     </path>
 
-    <!-- Ambient Grid Lines -->
+    <!-- Glowing Cyber Ambient Grid -->
     <path
-        android:pathData="M0,45h320 M0,90h320 M0,135h320 M80,0v180 M160,0v180 M240,0v180"
-        android:strokeWidth="0.6"
-        android:strokeColor="#1800E5FF" />
+        android:pathData="M0,36h320 M0,72h320 M0,108h320 M0,144h320 M64,0v180 M128,0v180 M192,0v180 M256,0v180"
+        android:strokeWidth="0.5"
+        android:strokeColor="#1200E5FF" />
 
-    <!-- Left Hero Dashboard Frame -->
+    <!-- Radiant Ambient Core Glow Behind Display -->
     <path
-        android:fillColor="#152033"
-        android:pathData="M24,28h110c4.4,0 8,3.6 8,8v104c0,4.4 -3.6,8 -8,8h-110c-4.4,0 -8,-3.6 -8,-8v-104c0,-4.4 3.6,-8 8,-8z" />
-    <path
-        android:fillColor="#0A0E17"
-        android:pathData="M28,32h102c2.2,0 4,1.8 4,4v96c0,2.2 -1.8,4 -4,4h-102c-2.2,0 -4,-1.8 -4,-4v-96c0,-2.2 1.8,-4 4,-4z" />
+        android:pathData="M30,24a45,45 0 1,0 90,0a45,45 0 1,0 -90,0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="75"
+                android:startY="24"
+                android:endX="75"
+                android:endY="90"
+                android:type="radial"
+                android:gradientRadius="55">
+                <item android:offset="0.0" android:color="#2400E5FF" />
+                <item android:offset="1.0" android:color="#00000000" />
+            </gradient>
+        </aapt:attr>
+    </path>
 
-    <!-- TV Stand -->
+    <!-- TV Display Outer Glass Bezel -->
+    <path
+        android:fillColor="#182338"
+        android:pathData="M22,26h114c4.4,0 8,3.6 8,8v106c0,4.4 -3.6,8 -8,8h-114c-4.4,0 -8,-3.6 -8,-8v-106c0,-4.4 3.6,-8 8,-8z" />
+
+    <!-- TV Display Inner Border Glow -->
+    <path
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="1.2"
+        android:fillColor="#090E17"
+        android:pathData="M26,30h106c2.2,0 4,1.8 4,4v98c0,2.2 -1.8,4 -4,4h-106c-2.2,0 -4,-1.8 -4,-4v-98c0,-2.2 1.8,-4 4,-4z" />
+
+    <!-- TV Heavy Duty Metallic Stand -->
     <path
         android:fillColor="#00E5FF"
-        android:pathData="M75,148h18v4h-18z M66,152h36v3h-36z" />
+        android:pathData="M75,148h18v4h-18z M64,152h40v3.5h-40z" />
+    <path
+        android:fillColor="#00E676"
+        android:pathData="M72,154h24v1.5h-24z" />
 
-    <!-- Widget 1: Sun & Clock -->
+    <!-- Widget 1: Ambient Weather & Digital Clock Top-Left -->
     <path
         android:fillColor="#FFB300"
-        android:pathData="M44,48a5,5 0 1,0 0.001,0z" />
+        android:pathData="M44,48a5.5,5.5 0 1,0 0.001,0z" />
     <path
         android:fillColor="#00E5FF"
-        android:pathData="M54,46h24v4h-24z M54,53h36v3h-36z" />
+        android:pathData="M55,45h26v4.5h-26z M55,53h38v3h-38z" />
 
-    <!-- Widget 2: Radar Ring & Aircraft -->
+    <!-- Widget 2: Active Sonar Radar & Aircraft Blip Top-Right -->
     <path
         android:strokeColor="#00E676"
         android:strokeWidth="1.5"
-        android:fillColor="#00000000"
-        android:pathData="M102,52m-12,0a12,12 0 1,0 24,0a12,12 0 1,0 -24,0" />
+        android:fillColor="#0A1820"
+        android:pathData="M104,52m-13,0a13,13 0 1,0 26,0a13,13 0 1,0 -26,0" />
     <path
         android:strokeColor="#00E676"
         android:strokeWidth="0.8"
         android:fillColor="#00000000"
-        android:pathData="M90,52h24 M102,40v24" />
+        android:pathData="M91,52h26 M104,39v26" />
     <path
         android:fillColor="#00E5FF"
-        android:pathData="M106,47l4,-2l-2,4z" />
+        android:pathData="M109,47l5,-2.5l-2.5,5z" />
+    <path
+        android:fillColor="#FFD54F"
+        android:pathData="M98,58a1.8,1.8 0 1,0 0.001,0z" />
 
-    <!-- Widget 3: Crypto Trend Sparkline -->
+    <!-- Widget 3: Live Crypto Sparkline & Gradient Area Fill -->
+    <path
+        android:fillColor="#1500E676"
+        android:pathData="M34,84L48,75L62,79L76,66L90,70L104,60L122,64v22h-88z" />
     <path
         android:strokeColor="#00E676"
-        android:strokeWidth="2.0"
+        android:strokeWidth="2.2"
         android:fillColor="#00000000"
-        android:pathData="M34,84L48,76L62,80L76,68L90,72L104,62L118,65" />
-
-    <!-- Widget 4: Modular History Cards -->
+        android:pathData="M34,84L48,75L62,79L76,66L90,70L104,60L122,64" />
     <path
-        android:fillColor="#20304A"
-        android:pathData="M34,96h90c2,0 4,2 4,4v14c0,2 -2,4 -4,4h-90c-2,0 -4,-2 -4,-4v-14c0,-2 2,-4 4,-4z" />
+        android:fillColor="#00E676"
+        android:pathData="M122,64a2.5,2.5 0 1,0 0.001,0z" />
+
+    <!-- Widget 4: Modular History & Intelligence Cards Bottom -->
+    <path
+        android:fillColor="#1C273C"
+        android:strokeColor="#2C3D5E"
+        android:strokeWidth="0.8"
+        android:pathData="M34,96h92c2,0 4,2 4,4v15c0,2 -2,4 -4,4h-92c-2,0 -4,-2 -4,-4v-15c0,-2 2,-4 4,-4z" />
+    <path
+        android:fillColor="#FFB300"
+        android:pathData="M40,102h18v3.5h-18z" />
     <path
         android:fillColor="#00E5FF"
-        android:pathData="M40,102h18v3h-18z" />
-    <path
-        android:fillColor="#8898AA"
-        android:pathData="M64,102h52v3h-52z M40,108h76v2h-76z" />
+        android:pathData="M64,102h54v3h-54z M40,109h78v2h-78z" />
 
     <!-- Right Brand Title Block: AMBIENT DECK -->
     <!-- Letter A -->
@@ -108,19 +143,27 @@
     <!-- Letter K -->
     <path android:fillColor="#FFB300" android:pathData="M210,108V90h3.8v7.8l5.5,-7.8h4.8l-6.5,8.8l7,9.2h-5l-5.8,-7.8v7.8z" />
 
-    <!-- Subtitle Bar: SMART TV WALL &amp; KIOSK -->
+    <!-- Pill Subtitle Bar: SMART TV WALL &amp; KIOSK -->
     <path
-        android:fillColor="#00E5FF"
-        android:pathData="M160,118h134v2h-134z" />
+        android:fillColor="#152238"
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="0.8"
+        android:pathData="M160,118h138c3,0 5,2 5,5v6c0,3 -2,5 -5,5h-138c-3,0 -5,-2 -5,-5v-6c0,-3 2,-5 5,-5z" />
     <path
         android:fillColor="#00E676"
-        android:pathData="M160,123h50v1.5h-50z" />
+        android:pathData="M166,125a2,2 0 1,0 0.001,0z" />
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M173,124h82v3h-82z M260,124h30v3h-30z" />
 
-    <!-- Glowing Accent Circles -->
+    <!-- Glowing Accent Constellation Circles -->
     <path
         android:fillColor="#00E676"
-        android:pathData="M296,44a4,4 0 1,0 0.001,0z" />
+        android:pathData="M298,42a4.5,4.5 0 1,0 0.001,0z" />
     <path
         android:fillColor="#00E5FF"
-        android:pathData="M306,44a3,3 0 1,0 0.001,0z" />
+        android:pathData="M310,48a2.5,2.5 0 1,0 0.001,0z" />
+    <path
+        android:fillColor="#FFB300"
+        android:pathData="M288,52a2,2 0 1,0 0.001,0z" />
 </vector>

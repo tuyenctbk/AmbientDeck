@@ -90,10 +90,10 @@ class EngagementManager(private val context: Context) {
             return null
         }
 
-        // 1. Check if update is available (simulated v1.1.0 = code 2)
-        val availableRemoteVersion = 2
+        // 1. Check if update is available from remote configuration (no hardcoded fake version)
+        val availableRemoteVersion = prefs.getInt("remote_latest_version", currentVersionCode)
         val dismissedVersion = prefs.getInt(KEY_DISMISSED_VERSION, 0)
-        if (availableRemoteVersion > currentVersionCode && dismissedVersion < availableRemoteVersion && launches >= 2) {
+        if (availableRemoteVersion > currentVersionCode && dismissedVersion < availableRemoteVersion && launches >= 3) {
             return PromptType.UPDATE
         }
 

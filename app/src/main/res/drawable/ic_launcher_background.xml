@@ -14,15 +14,31 @@
                 android:endX="108"
                 android:endY="108"
                 android:type="linear">
-                <item android:offset="0.0" android:color="#0B0F19" />
-                <item android:offset="0.5" android:color="#121829" />
-                <item android:offset="1.0" android:color="#1A243D" />
+                <item android:offset="0.0" android:color="#060911" />
+                <item android:offset="0.5" android:color="#0F1626" />
+                <item android:offset="1.0" android:color="#17233B" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Radiant ambient core -->
+    <path
+        android:pathData="M27,27a27,27 0 1,0 54,0a27,27 0 1,0 -54,0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="54"
+                android:startY="27"
+                android:endX="54"
+                android:endY="81"
+                android:type="radial"
+                android:gradientRadius="36">
+                <item android:offset="0.0" android:color="#3300E5FF" />
+                <item android:offset="1.0" android:color="#00000000" />
             </gradient>
         </aapt:attr>
     </path>
     <!-- Subtle tech grid -->
     <path
-        android:pathData="M0,36h108 M0,72h108 M36,0v108 M72,0v108"
+        android:pathData="M0,27h108 M0,54h108 M0,81h108 M27,0v108 M54,0v108 M81,0v108"
         android:strokeWidth="0.5"
-        android:strokeColor="#1500E5FF" />
+        android:strokeColor="#1800E5FF" />
 </vector>

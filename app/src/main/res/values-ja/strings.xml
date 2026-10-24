@@ -156,4 +156,28 @@
     <string name="usage_sessions">起動回数: %1$d回</string>
     <string name="usage_active_time">利用時間: %1$d分</string>
     <string name="usage_interactions">操作回数: %1$d回</string>
+
+    <string name="privacy_bullet_zero_data_title">データ収集ゼロ</string>
+    <string name="privacy_bullet_zero_data_desc">アナリティクストラッカー、広告ID、テレメトリプロファイリングは一切ありません。</string>
+    <string name="privacy_bullet_open_apis_title">オープンで無料のAPI</string>
+    <string name="privacy_bullet_open_apis_desc">リアルタイムデータは、Open-Meteo、Binance、OpenSky Networkの公開フィードから取得されます。</string>
+    <string name="privacy_bullet_local_storage_title">ローカルデバイスストレージ</string>
+    <string name="privacy_bullet_local_storage_desc">設定や位置情報はローカルデバイスにのみ保存されます。</string>
+    <string name="change_24h_format">%1$+.2f%% (24時間)</string>
+    <string name="unknown_country">不明</string>
+    <string name="custom_location_country">カスタム</string>
+    <string name="pollutant_value_ugm3">%1$.1f µg/m³</string>
+    <string name="label_colon_format">%1$s: %2$s</string>
+    <string name="usd_price_format">$%1$s</string>
+    <string name="flight_origin_icao_format">%1$s • ICAO: %2$s</string>
+    <string name="flight_origin_short_format">%1$s • %2$s</string>
+    <string name="crypto_pair_format">%1$s / %2$s</string>
+    <string name="altitude_feet_format">%1$.0f ft</string>
+    <string name="altitude_meters_format">%1$.0f m</string>
+    <string name="speed_knots_format">%1$.0f kts</string>
+    <string name="speed_kmh_format">%1$.0f km/h</string>
+    <string name="speed_mph_format">%1$.0f mph</string>
+    <string name="heading_degrees_format">%1$.0f°</string>
+    <string name="city_country_format">%1$s, %2$s</string>
+    <string name="flight_callsign_fallback">FLT-%1$s</string>
 </resources>

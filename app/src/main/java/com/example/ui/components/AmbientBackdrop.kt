@@ -99,18 +99,5 @@ fun AmbientBackdrop(
                     )
                 )
         )
-
-        // Wallpaper metadata watermark
-        if (wallpaper != null) {
-            Text(
-                text = stringResource(R.string.ambient_art_by, wallpaper.title, wallpaper.author),
-                color = TextMuted.copy(alpha = 0.7f),
-                fontSize = 11.sp,
-                modifier = Modifier
-                    .align(Alignment.BottomStart)
-                    .padding(start = 24.dp, bottom = 12.dp)
-                    .testTag("wallpaper_metadata_tag")
-            )
-        }
     }
 }

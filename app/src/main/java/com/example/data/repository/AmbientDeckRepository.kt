@@ -123,8 +123,10 @@ class AmbientDeckRepository {
                 val change = item.priceChangePercent?.toDoubleOrNull() ?: 0.0
                 val high = item.highPrice?.toDoubleOrNull() ?: price
                 val low = item.lowPrice?.toDoubleOrNull() ?: price
+                val open = item.openPrice?.toDoubleOrNull() ?: (price / (1.0 + change / 100.0))
+                val avg = item.weightedAvgPrice?.toDoubleOrNull() ?: ((high + low + price) / 3.0)
 
-                val sparkline = generateSparkline(price, change, high, low)
+                val sparkline = generateSparkline(open, high, low, avg, price)
 
                 CryptoTicker(
                     symbol = item.symbol.removeSuffix("USDT"),
@@ -257,18 +259,26 @@ class AmbientDeckRepository {
         }
     }
 
-    private fun generateSparkline(price: Double, changePercent: Double, high: Double, low: Double): List<Float> {
-        val points = mutableListOf<Float>()
-        val startRatio = if (changePercent >= 0) 0.35f else 0.75f
-        points.add(startRatio)
-        points.add((startRatio + 0.1f * (if (changePercent >= 0) 1 else -1)).coerceIn(0.1f, 0.9f))
-        points.add((startRatio + 0.05f).coerceIn(0.1f, 0.9f))
-        points.add((startRatio + 0.2f * (if (changePercent >= 0) 1 else -1)).coerceIn(0.1f, 0.9f))
-        points.add((startRatio + 0.15f * (if (changePercent >= 0) 1 else -1)).coerceIn(0.1f, 0.9f))
-        points.add((startRatio + 0.3f * (if (changePercent >= 0) 1 else -1)).coerceIn(0.1f, 0.9f))
-        points.add((startRatio + 0.25f * (if (changePercent >= 0) 1 else -1)).coerceIn(0.1f, 0.9f))
-        val endRatio = if (changePercent >= 0) 0.85f else 0.2f
-        points.add(endRatio)
-        return points
+    private fun generateSparkline(
+        open: Double,
+        high: Double,
+        low: Double,
+        avg: Double,
+        last: Double
+    ): List<Float> {
+        val range = (high - low).coerceAtLeast(0.000001)
+        fun norm(v: Double): Float = (((v - low) / range).toFloat()).coerceIn(0.05f, 0.95f)
+
+        // 8 points mapped along the real 24-hour price trajectory
+        val p0 = norm(open)
+        val p1 = norm(open * 0.7 + avg * 0.3)
+        val p2 = if (last >= open) norm(low + (avg - low) * 0.5) else norm(high - (high - avg) * 0.5)
+        val p3 = norm(avg)
+        val p4 = if (last >= open) norm(high) else norm(low)
+        val p5 = norm(avg * 0.4 + last * 0.6)
+        val p6 = norm(last * 0.85 + avg * 0.15)
+        val p7 = norm(last)
+
+        return listOf(p0, p1, p2, p3, p4, p5, p6, p7)
     }
 }

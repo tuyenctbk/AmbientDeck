@@ -53,6 +53,8 @@ data class BinanceTickerResponse(
     @Json(name = "priceChangePercent") val priceChangePercent: String? = null,
     @Json(name = "highPrice") val highPrice: String? = null,
     @Json(name = "lowPrice") val lowPrice: String? = null,
+    @Json(name = "openPrice") val openPrice: String? = null,
+    @Json(name = "weightedAvgPrice") val weightedAvgPrice: String? = null,
     @Json(name = "volume") val volume: String? = null
 )
 

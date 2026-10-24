@@ -47,10 +47,10 @@ data class DeckUiState(
     val showSplash: Boolean = true,
     val isLoading: Boolean = true,
     val isRefreshing: Boolean = false,
-    val currentTime: String = "12:00",
-    val currentSeconds: String = ":00",
-    val currentPeriod: String = "PM",
-    val currentDate: String = "Wednesday, Oct 14",
+    val currentTime: String = "",
+    val currentSeconds: String = "",
+    val currentPeriod: String = "",
+    val currentDate: String = "",
     val weather: WeatherData? = null,
     val cryptoTickers: List<CryptoTicker> = emptyList(),
     val flights: List<FlightState> = emptyList(),
@@ -64,7 +64,7 @@ data class DeckUiState(
     val pixelShiftY: Float = 0f,
     val inspectedWidget: InspectWidgetType? = null,
     val isSettingsOpen: Boolean = false,
-    val lastUpdated: String = "Just now",
+    val lastUpdatedTime: String? = null,
     val pendingPrompt: PromptType? = null,
     val showPrivacyPolicy: Boolean = false,
     val usageStats: UsageStats = UsageStats(1, 0, 0)
@@ -83,6 +83,19 @@ class AmbientDeckViewModel(
     private var engagementManager: EngagementManager? = null
 
     init {
+        val now = Date()
+        val timeFormat = SimpleDateFormat("hh:mm", Locale.getDefault())
+        val secFormat = SimpleDateFormat(":ss", Locale.getDefault())
+        val periodFormat = SimpleDateFormat("a", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("EEEE, MMMM d", Locale.getDefault())
+        _uiState.update { current ->
+            current.copy(
+                currentTime = timeFormat.format(now),
+                currentSeconds = secFormat.format(now),
+                currentPeriod = periodFormat.format(now),
+                currentDate = dateFormat.format(now)
+            )
+        }
         loadWallpapers(_uiState.value.settings.artCategory)
         startClockLoop()
         refreshAllData()
@@ -227,7 +240,7 @@ class AmbientDeckViewModel(
                     cryptoTickers = crypto,
                     flights = flights,
                     historyItems = history,
-                    lastUpdated = "Updated at $timeStamp"
+                    lastUpdatedTime = timeStamp
                 )
             }
         }
@@ -397,7 +410,7 @@ class AmbientDeckViewModel(
     private fun checkAutoPrompt() {
         val state = _uiState.value
         val isBusy = state.isSettingsOpen || state.inspectedWidget != null || state.showSplash || state.showPrivacyPolicy || state.pendingPrompt != null
-        val prompt = engagementManager?.checkPendingPrompt(currentVersionCode = 1, isUserBusy = isBusy)
+        val prompt = engagementManager?.checkPendingPrompt(currentVersionCode = com.example.BuildConfig.VERSION_CODE, isUserBusy = isBusy)
         if (prompt != null) {
             _uiState.update { it.copy(pendingPrompt = prompt) }
         }
@@ -439,7 +452,7 @@ class AmbientDeckViewModel(
     }
 
     fun onDismissUpdate() {
-        engagementManager?.onDismissUpdate(versionCode = 2)
+        engagementManager?.onDismissUpdate(versionCode = com.example.BuildConfig.VERSION_CODE)
         _uiState.update { it.copy(pendingPrompt = null) }
     }
 

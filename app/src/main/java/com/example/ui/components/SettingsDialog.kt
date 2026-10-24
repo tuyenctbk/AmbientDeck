@@ -1,8 +1,10 @@
 package com.example.ui.components
 
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -52,6 +54,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.testTag
@@ -120,14 +124,17 @@ fun SettingsDialog(
         ) {
             val isCompact = maxWidth < 460.dp
             val isSmallScreen = maxWidth < 540.dp
-            val contentPadding = if (isCompact) 14.dp else 22.dp
+            val isShortScreen = maxHeight < 620.dp
+            val contentPadding = if (isShortScreen) 12.dp else if (isCompact) 14.dp else 22.dp
+            val sectionSpacing = if (isShortScreen) 12.dp else 20.dp
 
             Card(
                 colors = CardDefaults.cardColors(containerColor = DarkSurface),
                 shape = RoundedCornerShape(24.dp),
                 modifier = Modifier
+                    .fillMaxWidth(if (isCompact) 0.96f else 0.86f)
                     .widthIn(max = 760.dp)
-                    .fillMaxHeight(if (maxHeight < 640.dp) 0.98f else 0.92f)
+                    .fillMaxHeight(if (maxHeight < 640.dp) 0.96f else 0.92f)
                     .border(1.dp, DarkBorder, RoundedCornerShape(24.dp))
                     .testTag("settings_dialog_card")
             ) {
@@ -200,7 +207,7 @@ fun SettingsDialog(
                         DefaultLocations.ALL.forEach { city ->
                             val isSelected = settings.selectedCity.name == city.name
                             SelectableChip(
-                                label = "${city.name}, ${city.country}",
+                                label = stringResource(R.string.city_country_format, city.name, city.country),
                                 isSelected = isSelected,
                                 onClick = { onSelectLocation(city) }
                             )
@@ -340,7 +347,7 @@ fun SettingsDialog(
                         }
                     }
 
-                    Spacer(modifier = Modifier.height(20.dp))
+                    Spacer(modifier = Modifier.height(sectionSpacing))
 
                     // SECTION 2: Layout Preset
                     SectionHeader(
@@ -356,16 +363,8 @@ fun SettingsDialog(
                         ) {
                             LayoutMode.values().forEach { mode ->
                                 val isSelected = settings.layoutMode == mode
-                                val modeName = when (mode) {
-                                    LayoutMode.CINEMATIC -> stringResource(R.string.layout_cinematic_name)
-                                    LayoutMode.GRID -> stringResource(R.string.layout_grid_name)
-                                    LayoutMode.ZEN -> stringResource(R.string.layout_zen_name)
-                                }
-                                val modeDesc = when (mode) {
-                                    LayoutMode.CINEMATIC -> stringResource(R.string.layout_cinematic_desc)
-                                    LayoutMode.GRID -> stringResource(R.string.layout_grid_desc)
-                                    LayoutMode.ZEN -> stringResource(R.string.layout_zen_desc)
-                                }
+                                val modeName = stringResource(mode.titleRes)
+                                val modeDesc = stringResource(mode.descRes)
 
                                 Box(
                                     modifier = Modifier
@@ -405,16 +404,8 @@ fun SettingsDialog(
                         ) {
                             LayoutMode.values().forEach { mode ->
                                 val isSelected = settings.layoutMode == mode
-                                val modeName = when (mode) {
-                                    LayoutMode.CINEMATIC -> stringResource(R.string.layout_cinematic_name)
-                                    LayoutMode.GRID -> stringResource(R.string.layout_grid_name)
-                                    LayoutMode.ZEN -> stringResource(R.string.layout_zen_name)
-                                }
-                                val modeDesc = when (mode) {
-                                    LayoutMode.CINEMATIC -> stringResource(R.string.layout_cinematic_desc)
-                                    LayoutMode.GRID -> stringResource(R.string.layout_grid_desc)
-                                    LayoutMode.ZEN -> stringResource(R.string.layout_zen_desc)
-                                }
+                                val modeName = stringResource(mode.titleRes)
+                                val modeDesc = stringResource(mode.descRes)
 
                                 Box(
                                     modifier = Modifier
@@ -449,7 +440,7 @@ fun SettingsDialog(
                         }
                     }
 
-                    Spacer(modifier = Modifier.height(20.dp))
+                    Spacer(modifier = Modifier.height(sectionSpacing))
 
                     // SECTION 3: Art & Ambient Canvas Theme
                     SectionHeader(
@@ -464,13 +455,7 @@ fun SettingsDialog(
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         ArtCategory.values().forEach { cat ->
-                            val catName = when (cat) {
-                                ArtCategory.SCENIC -> stringResource(R.string.art_scenic)
-                                ArtCategory.CYBER_NIGHT -> stringResource(R.string.art_cyber)
-                                ArtCategory.SPACE -> stringResource(R.string.art_space)
-                                ArtCategory.ARCHITECTURE -> stringResource(R.string.art_architecture)
-                                ArtCategory.FINE_ART -> stringResource(R.string.art_fine_art)
-                            }
+                            val catName = stringResource(cat.titleRes)
                             SelectableChip(
                                 label = catName,
                                 isSelected = settings.artCategory == cat,
@@ -479,7 +464,7 @@ fun SettingsDialog(
                         }
                     }
 
-                    Spacer(modifier = Modifier.height(20.dp))
+                    Spacer(modifier = Modifier.height(sectionSpacing))
 
                     // SECTION 4: Measurement Units & Hardware
                     SectionHeader(
@@ -536,7 +521,7 @@ fun SettingsDialog(
                         }
                     }
 
-                    Spacer(modifier = Modifier.height(20.dp))
+                    Spacer(modifier = Modifier.height(sectionSpacing))
 
                     // SECTION 5: Widget Visibility & OLED Protection
                     SectionHeader(
@@ -553,7 +538,7 @@ fun SettingsDialog(
                         WidgetToggleRow(stringResource(R.string.widget_burnin_label), settings.burnInShiftEnabled) { onToggleBurnInProtection() }
                     }
 
-                    Spacer(modifier = Modifier.height(20.dp))
+                    Spacer(modifier = Modifier.height(sectionSpacing))
 
                     // SECTION 6: App Experience & Support
                     SectionHeader(
@@ -693,15 +678,24 @@ private fun SectionHeader(icon: ImageVector, title: String) {
 
 @Composable
 private fun SelectableChip(label: String, isSelected: Boolean, onClick: () -> Unit) {
+    var isFocused by remember { mutableStateOf(false) }
+    val focusScale by animateFloatAsState(
+        targetValue = if (isFocused) 1.05f else 1.0f,
+        label = "chip_focus_scale"
+    )
+
     Box(
         modifier = Modifier
+            .scale(focusScale)
             .clip(RoundedCornerShape(8.dp))
             .background(if (isSelected) Color(0x3300E5FF) else DarkSurfaceElevated)
             .border(
-                width = if (isSelected) 1.5.dp else 1.dp,
-                color = if (isSelected) CyanAccent else DarkBorder,
+                width = if (isSelected || isFocused) 1.5.dp else 1.dp,
+                color = if (isSelected || isFocused) CyanAccent else DarkBorder,
                 shape = RoundedCornerShape(8.dp)
             )
+            .focusable()
+            .onFocusChanged { isFocused = it.isFocused }
             .clickable { onClick() }
             .padding(horizontal = 12.dp, vertical = 6.dp)
     ) {
@@ -712,9 +706,9 @@ private fun SelectableChip(label: String, isSelected: Boolean, onClick: () -> Un
             }
             Text(
                 text = label,
-                color = if (isSelected) CyanAccent else TextPrimary,
+                color = if (isSelected || isFocused) CyanAccent else TextPrimary,
                 fontSize = 12.sp,
-                fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
+                fontWeight = if (isSelected || isFocused) FontWeight.Bold else FontWeight.Normal
             )
         }
     }
@@ -722,11 +716,24 @@ private fun SelectableChip(label: String, isSelected: Boolean, onClick: () -> Un
 
 @Composable
 private fun ToggleUnitBox(title: String, value: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
+    var isFocused by remember { mutableStateOf(false) }
+    val focusScale by animateFloatAsState(
+        targetValue = if (isFocused) 1.04f else 1.0f,
+        label = "unit_box_scale"
+    )
+
     Box(
         modifier = modifier
+            .scale(focusScale)
             .clip(RoundedCornerShape(10.dp))
             .background(DarkSurfaceElevated)
-            .border(1.dp, DarkBorder, RoundedCornerShape(10.dp))
+            .border(
+                width = if (isFocused) 1.5.dp else 1.dp,
+                color = if (isFocused) CyanAccent else DarkBorder,
+                shape = RoundedCornerShape(10.dp)
+            )
+            .focusable()
+            .onFocusChanged { isFocused = it.isFocused }
             .clickable { onClick() }
             .padding(10.dp)
     ) {

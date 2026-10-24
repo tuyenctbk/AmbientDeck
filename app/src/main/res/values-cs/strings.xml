@@ -156,4 +156,28 @@
     <string name="usage_sessions">Relace: %1$d</string>
     <string name="usage_active_time">Aktivní čas: %1$d min</string>
     <string name="usage_interactions">Interakce: %1$d</string>
+
+    <string name="privacy_bullet_zero_data_title">Nulový sběr dat</string>
+    <string name="privacy_bullet_zero_data_desc">Žádné analytické sledovače, reklamní ID ani profilování telemetrie.</string>
+    <string name="privacy_bullet_open_apis_title">Otevřená bezplatná API</string>
+    <string name="privacy_bullet_open_apis_desc">Živá data pocházejí z veřejných zdrojů Open-Meteo, Binance a OpenSky Network.</string>
+    <string name="privacy_bullet_local_storage_title">Místní úložiště zařízení</string>
+    <string name="privacy_bullet_local_storage_desc">Předvolby a polohy zůstávají výhradně v místním zařízení.</string>
+    <string name="change_24h_format">%1$+.2f%% (24 h)</string>
+    <string name="unknown_country">Neznámá</string>
+    <string name="custom_location_country">Vlastní</string>
+    <string name="pollutant_value_ugm3">%1$.1f µg/m³</string>
+    <string name="label_colon_format">%1$s: %2$s</string>
+    <string name="usd_price_format">$%1$s</string>
+    <string name="flight_origin_icao_format">%1$s • ICAO: %2$s</string>
+    <string name="flight_origin_short_format">%1$s • %2$s</string>
+    <string name="crypto_pair_format">%1$s / %2$s</string>
+    <string name="altitude_feet_format">%1$.0f ft</string>
+    <string name="altitude_meters_format">%1$.0f m</string>
+    <string name="speed_knots_format">%1$.0f kts</string>
+    <string name="speed_kmh_format">%1$.0f km/h</string>
+    <string name="speed_mph_format">%1$.0f mph</string>
+    <string name="heading_degrees_format">%1$.0f°</string>
+    <string name="city_country_format">%1$s, %2$s</string>
+    <string name="flight_callsign_fallback">FLT-%1$s</string>
 </resources>

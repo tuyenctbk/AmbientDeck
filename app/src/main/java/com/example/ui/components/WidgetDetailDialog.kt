@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -84,14 +85,19 @@ fun WidgetDetailDialog(
                 .testTag("widget_detail_dialog_scrim")
         ) {
             val isCompact = maxWidth < 460.dp
-            val contentPadding = if (isCompact) 14.dp else 22.dp
+            val isShortScreen = maxHeight < 620.dp
+            val contentPadding = if (isShortScreen) 12.dp else if (isCompact) 14.dp else 22.dp
+
+            val isRadarEmpty = widgetType == InspectWidgetType.RADAR && flights.isEmpty()
+            val maxAllowedHeight = if (isShortScreen) maxHeight * 0.94f else maxHeight * 0.85f
 
             Card(
                 colors = CardDefaults.cardColors(containerColor = DarkSurface),
                 shape = RoundedCornerShape(24.dp),
                 modifier = Modifier
-                    .widthIn(max = 760.dp)
-                    .fillMaxHeight(if (maxHeight < 640.dp) 0.98f else 0.90f)
+                    .fillMaxWidth(if (isCompact) 0.95f else 0.82f)
+                    .widthIn(max = 740.dp)
+                    .heightIn(max = maxAllowedHeight)
                     .border(1.dp, DarkBorder, RoundedCornerShape(24.dp))
                     .testTag("widget_detail_card")
             ) {
@@ -128,11 +134,13 @@ fun WidgetDetailDialog(
 
                     Spacer(modifier = Modifier.height(14.dp))
 
-                    when (widgetType) {
-                        InspectWidgetType.WEATHER -> WeatherDetailView(weather, isCelsius, isCompact)
-                        InspectWidgetType.RADAR -> RadarDetailView(flights, isAltitudeFeet, isMph, isCompact)
-                        InspectWidgetType.CRYPTO -> CryptoDetailView(tickers)
-                        InspectWidgetType.HISTORY -> HistoryDetailView(historyItems)
+                    Box(modifier = Modifier.weight(1f, fill = false)) {
+                        when (widgetType) {
+                            InspectWidgetType.WEATHER -> WeatherDetailView(weather, isCelsius, isCompact)
+                            InspectWidgetType.RADAR -> RadarDetailView(flights, isAltitudeFeet, isMph, isCompact)
+                            InspectWidgetType.CRYPTO -> CryptoDetailView(tickers)
+                            InspectWidgetType.HISTORY -> HistoryDetailView(historyItems)
+                        }
                     }
                 }
             }
@@ -174,11 +182,11 @@ private fun WeatherDetailView(weather: WeatherData?, isCelsius: Boolean, isCompa
                         }
                         Column {
                             Text(text = stringResource(R.string.pm25_particles), color = TextMuted, fontSize = 10.sp)
-                            Text(text = "%.1f µg/m³".format(weather.pm25), color = CyanAccent, fontSize = 17.sp, fontWeight = FontWeight.Bold)
+                            Text(text = stringResource(R.string.pollutant_value_ugm3, weather.pm25), color = CyanAccent, fontSize = 17.sp, fontWeight = FontWeight.Bold)
                         }
                         Column {
                             Text(text = stringResource(R.string.pm10_particles), color = TextMuted, fontSize = 10.sp)
-                            Text(text = "%.1f µg/m³".format(weather.pm10), color = CyanAccent, fontSize = 17.sp, fontWeight = FontWeight.Bold)
+                            Text(text = stringResource(R.string.pollutant_value_ugm3, weather.pm10), color = CyanAccent, fontSize = 17.sp, fontWeight = FontWeight.Bold)
                         }
                     }
                 }
@@ -219,10 +227,35 @@ private fun WeatherDetailView(weather: WeatherData?, isCelsius: Boolean, isCompa
 @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
 @Composable
 private fun RadarDetailView(flights: List<FlightState>, isAltitudeFeet: Boolean, isMph: Boolean, isCompact: Boolean) {
-    LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+    if (flights.isEmpty()) {
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = if (isCompact) 20.dp else 32.dp, horizontal = 24.dp)
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                Icon(
+                    Icons.Default.Flight,
+                    contentDescription = null,
+                    tint = TextMuted,
+                    modifier = Modifier.size(40.dp)
+                )
+                Text(
+                    text = stringResource(R.string.radar_scanning),
+                    color = TextSecondary,
+                    fontSize = 14.sp
+                )
+            }
+        }
+    } else {
+        LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         items(flights) { flight ->
-            val altStr = if (isAltitudeFeet) "%.0f ft".format(flight.altitudeFeet) else "%.0f m".format(flight.altitudeMeters)
-            val speedStr = if (isMph) "%.0f mph".format(flight.velocityKmh * 0.621371) else "%.0f kts".format(flight.velocityKnots)
+            val altStr = if (isAltitudeFeet) stringResource(R.string.altitude_feet_format, flight.altitudeFeet) else stringResource(R.string.altitude_meters_format, flight.altitudeMeters)
+            val speedStr = if (isMph) stringResource(R.string.speed_mph_format, flight.velocityKmh * 0.621371) else stringResource(R.string.speed_knots_format, flight.velocityKnots)
 
             Box(
                 modifier = Modifier
@@ -239,7 +272,7 @@ private fun RadarDetailView(flights: List<FlightState>, isAltitudeFeet: Boolean,
                             Spacer(modifier = Modifier.width(8.dp))
                             Column {
                                 Text(text = flight.callsign, color = TextPrimary, fontSize = 14.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
-                                Text(text = "${flight.originCountry} • ${flight.icao24}", color = TextMuted, fontSize = 11.sp, maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+                                Text(text = stringResource(R.string.flight_origin_short_format, flight.originCountry, flight.icao24), color = TextMuted, fontSize = 11.sp, maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
                             }
                         }
 
@@ -257,7 +290,7 @@ private fun RadarDetailView(flights: List<FlightState>, isAltitudeFeet: Boolean,
                             }
                             Column {
                                 Text(text = stringResource(R.string.heading_label), color = TextMuted, fontSize = 9.sp, fontWeight = FontWeight.Bold)
-                                Text(text = "%.0f°".format(flight.headingDegrees), color = CyanAccent, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
+                                Text(text = stringResource(R.string.heading_degrees_format, flight.headingDegrees), color = CyanAccent, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
                             }
                         }
                     }
@@ -275,7 +308,7 @@ private fun RadarDetailView(flights: List<FlightState>, isAltitudeFeet: Boolean,
                             Spacer(modifier = Modifier.width(10.dp))
                             Column {
                                 Text(text = flight.callsign, color = TextPrimary, fontSize = 15.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
-                                Text(text = "${flight.originCountry} • ICAO: ${flight.icao24}", color = TextMuted, fontSize = 11.sp, maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+                                Text(text = stringResource(R.string.flight_origin_icao_format, flight.originCountry, flight.icao24), color = TextMuted, fontSize = 11.sp, maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
                             }
                         }
 
@@ -292,13 +325,14 @@ private fun RadarDetailView(flights: List<FlightState>, isAltitudeFeet: Boolean,
                             }
                             Column(horizontalAlignment = Alignment.End) {
                                 Text(text = stringResource(R.string.heading_label), color = TextMuted, fontSize = 9.sp, fontWeight = FontWeight.Bold)
-                                Text(text = "%.0f°".format(flight.headingDegrees), color = CyanAccent, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
+                                Text(text = stringResource(R.string.heading_degrees_format, flight.headingDegrees), color = CyanAccent, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
                             }
                         }
                     }
                 }
             }
         }
+    }
     }
 }
 
@@ -322,13 +356,13 @@ private fun CryptoDetailView(tickers: List<CryptoTicker>) {
                     .padding(14.dp)
             ) {
                 Column {
-                    Text(text = "${ticker.symbol} / USDT", color = TextPrimary, fontSize = 15.sp, fontWeight = FontWeight.Bold)
+                    Text(text = stringResource(R.string.crypto_pair_format, ticker.symbol, "USDT"), color = TextPrimary, fontSize = 15.sp, fontWeight = FontWeight.Bold)
                     Text(text = ticker.name, color = TextMuted, fontSize = 11.sp)
                 }
 
                 Column(horizontalAlignment = Alignment.End) {
-                    Text(text = "$$priceStr", color = TextPrimary, fontSize = 16.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
-                    Text(text = "%+.2f%% (24h)".format(ticker.changePercent24h), color = color, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
+                    Text(text = stringResource(R.string.usd_price_format, priceStr), color = TextPrimary, fontSize = 16.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
+                    Text(text = stringResource(R.string.change_24h_format, ticker.changePercent24h), color = color, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
                 }
             }
         }

@@ -156,4 +156,28 @@
     <string name="usage_sessions">Sitzungen: %1$d</string>
     <string name="usage_active_time">Aktive Zeit: %1$d Min.</string>
     <string name="usage_interactions">Interaktionen: %1$d</string>
+
+    <string name="privacy_bullet_zero_data_title">Keine Datenerfassung</string>
+    <string name="privacy_bullet_zero_data_desc">Keine Analyse-Tracker, Werbe-IDs oder Telemetrie-Profiling.</string>
+    <string name="privacy_bullet_open_apis_title">Offene kostenlose APIs</string>
+    <string name="privacy_bullet_open_apis_desc">Live-Daten stammen aus öffentlichen Feeds von Open-Meteo, Binance und OpenSky Network.</string>
+    <string name="privacy_bullet_local_storage_title">Lokaler Gerätespeicher</string>
+    <string name="privacy_bullet_local_storage_desc">Einstellungen und Standorte bleiben ausschließlich auf Ihrem lokalen Gerät.</string>
+    <string name="change_24h_format">%1$+.2f%% (24 Std.)</string>
+    <string name="unknown_country">Unbekannt</string>
+    <string name="custom_location_country">Benutzerdefiniert</string>
+    <string name="pollutant_value_ugm3">%1$.1f µg/m³</string>
+    <string name="label_colon_format">%1$s: %2$s</string>
+    <string name="usd_price_format">$%1$s</string>
+    <string name="flight_origin_icao_format">%1$s • ICAO: %2$s</string>
+    <string name="flight_origin_short_format">%1$s • %2$s</string>
+    <string name="crypto_pair_format">%1$s / %2$s</string>
+    <string name="altitude_feet_format">%1$.0f ft</string>
+    <string name="altitude_meters_format">%1$.0f m</string>
+    <string name="speed_knots_format">%1$.0f kts</string>
+    <string name="speed_kmh_format">%1$.0f km/h</string>
+    <string name="speed_mph_format">%1$.0f mph</string>
+    <string name="heading_degrees_format">%1$.0f°</string>
+    <string name="city_country_format">%1$s, %2$s</string>
+    <string name="flight_callsign_fallback">FLT-%1$s</string>
 </resources>

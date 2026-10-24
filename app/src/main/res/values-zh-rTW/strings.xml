@@ -156,4 +156,28 @@
     <string name="usage_sessions">會話次數: %1$d</string>
     <string name="usage_active_time">活躍時間: %1$d 分鐘</string>
     <string name="usage_interactions">互動次數: %1$d</string>
+
+    <string name="privacy_bullet_zero_data_title">零資料收集</string>
+    <string name="privacy_bullet_zero_data_desc">無分析追蹤器、廣告 ID 或遙測分析畫像。</string>
+    <string name="privacy_bullet_open_apis_title">開放免費 API</string>
+    <string name="privacy_bullet_open_apis_desc">即時資料來自公共 Open-Meteo、Binance 和 OpenSky Network 資料來源。</string>
+    <string name="privacy_bullet_local_storage_title">本機裝置儲存空間</string>
+    <string name="privacy_bullet_local_storage_desc">偏好設定與位置資訊僅嚴格保存在您的本機裝置上。</string>
+    <string name="change_24h_format">%1$+.2f%% (24小時)</string>
+    <string name="unknown_country">未知</string>
+    <string name="custom_location_country">自訂</string>
+    <string name="pollutant_value_ugm3">%1$.1f µg/m³</string>
+    <string name="label_colon_format">%1$s: %2$s</string>
+    <string name="usd_price_format">$%1$s</string>
+    <string name="flight_origin_icao_format">%1$s • ICAO: %2$s</string>
+    <string name="flight_origin_short_format">%1$s • %2$s</string>
+    <string name="crypto_pair_format">%1$s / %2$s</string>
+    <string name="altitude_feet_format">%1$.0f ft</string>
+    <string name="altitude_meters_format">%1$.0f m</string>
+    <string name="speed_knots_format">%1$.0f kts</string>
+    <string name="speed_kmh_format">%1$.0f km/h</string>
+    <string name="speed_mph_format">%1$.0f mph</string>
+    <string name="heading_degrees_format">%1$.0f°</string>
+    <string name="city_country_format">%1$s, %2$s</string>
+    <string name="flight_callsign_fallback">FLT-%1$s</string>
 </resources>

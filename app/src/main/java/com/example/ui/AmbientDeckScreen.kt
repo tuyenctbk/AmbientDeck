@@ -1,8 +1,12 @@
 package com.example.ui
 
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -63,11 +67,14 @@ import com.example.ui.components.SettingsDialog
 import com.example.ui.components.SplashScreen
 import com.example.ui.components.WeatherAqiWidget
 import com.example.ui.components.WidgetDetailDialog
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import com.example.ui.theme.CyanAccent
 import com.example.ui.theme.EmeraldGreen
 import com.example.ui.theme.GlassBorder
 import com.example.ui.theme.GlassOverlay
 import com.example.ui.theme.SunsetAmber
+import com.example.ui.theme.TextMuted
 import com.example.ui.theme.TextPrimary
 import com.example.ui.theme.TextSecondary
 import com.example.ui.theme.VoidBlack
@@ -95,41 +102,88 @@ fun AmbientDeckScreen(
                 .offset(x = uiState.pixelShiftX.dp, y = uiState.pixelShiftY.dp)
                 .safeDrawingPadding()
         ) {
-            val isWide = maxWidth >= 720.dp && maxHeight >= 480.dp
+            val isLandscapePhone = maxWidth >= 580.dp && maxHeight < 500.dp
+            val isWide = maxWidth >= 600.dp || isLandscapePhone
             val isCompactScreen = maxWidth < 440.dp
+            val isShortScreen = maxHeight < 620.dp
             val screenHorizontalPadding = if (maxWidth < 420.dp) 12.dp else if (maxWidth < 600.dp) 16.dp else 24.dp
-            val screenVerticalPadding = if (maxHeight < 500.dp) 10.dp else 16.dp
+            val screenVerticalPadding = if (isShortScreen) 6.dp else if (isCompactScreen) 10.dp else 16.dp
 
-            Box(
+            Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(horizontal = screenHorizontalPadding, vertical = screenVerticalPadding)
             ) {
-                when (uiState.settings.layoutMode) {
-                    LayoutMode.CINEMATIC -> CinematicLayout(uiState, viewModel, isWide)
-                    LayoutMode.GRID -> GridLayout(uiState, viewModel, isWide)
-                    LayoutMode.ZEN -> ZenMinimalLayout(uiState, viewModel)
+                // Main widget canvas area - cards scroll cleanly above the dock
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()
+                ) {
+                    AnimatedContent(
+                        targetState = uiState.settings.layoutMode,
+                        transitionSpec = {
+                            (fadeIn(animationSpec = tween(320)) + scaleIn(initialScale = 0.97f, animationSpec = tween(320)))
+                                .togetherWith(fadeOut(animationSpec = tween(200)))
+                        },
+                        label = "layout_mode_transition",
+                        modifier = Modifier.fillMaxSize()
+                    ) { targetMode ->
+                        when (targetMode) {
+                            LayoutMode.CINEMATIC -> CinematicLayout(uiState, viewModel, isWide, isShortScreen)
+                            LayoutMode.GRID -> GridLayout(uiState, viewModel, isWide, isShortScreen)
+                            LayoutMode.ZEN -> ZenMinimalLayout(uiState, viewModel)
+                        }
+                    }
                 }
 
-                // Quick Floating Control Bar (Docked bottom right)
-                FloatingControlBar(
-                    isRefreshing = uiState.isRefreshing,
-                    isCompact = isCompactScreen,
-                    onCycleWallpaper = { viewModel.cycleWallpaper() },
-                    onCycleLayout = {
-                        val nextMode = when (uiState.settings.layoutMode) {
-                            LayoutMode.CINEMATIC -> LayoutMode.GRID
-                            LayoutMode.GRID -> LayoutMode.ZEN
-                            LayoutMode.ZEN -> LayoutMode.CINEMATIC
-                        }
-                        viewModel.onSelectLayoutMode(nextMode)
-                    },
-                    onOpenSettings = { viewModel.onToggleSettings(true) },
-                    onRefresh = { viewModel.refreshAllData() },
+                // Dedicated Bottom Control Bar & Wallpaper Attribution Dock
+                Row(
                     modifier = Modifier
-                        .align(Alignment.BottomEnd)
-                        .padding(bottom = 6.dp)
-                )
+                        .fillMaxWidth()
+                        .padding(top = if (isShortScreen) 4.dp else 8.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    // Wallpaper metadata watermark
+                    val wallpaper = uiState.currentWallpaper
+                    if (wallpaper != null) {
+                        Text(
+                            text = stringResource(
+                                R.string.ambient_art_by,
+                                wallpaper.title,
+                                wallpaper.author
+                            ),
+                            color = TextMuted.copy(alpha = 0.85f),
+                            fontSize = if (isShortScreen || isCompactScreen) 10.sp else 11.sp,
+                            maxLines = 1,
+                            overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
+                            modifier = Modifier
+                                .weight(1f, fill = false)
+                                .testTag("wallpaper_metadata_tag")
+                        )
+                    } else {
+                        Spacer(modifier = Modifier.width(1.dp))
+                    }
+
+                    Spacer(modifier = Modifier.width(10.dp))
+
+                    FloatingControlBar(
+                        isRefreshing = uiState.isRefreshing,
+                        isCompact = isCompactScreen || isShortScreen,
+                        onCycleWallpaper = { viewModel.cycleWallpaper() },
+                        onCycleLayout = {
+                            val nextMode = when (uiState.settings.layoutMode) {
+                                LayoutMode.CINEMATIC -> LayoutMode.GRID
+                                LayoutMode.GRID -> LayoutMode.ZEN
+                                LayoutMode.ZEN -> LayoutMode.CINEMATIC
+                            }
+                            viewModel.onSelectLayoutMode(nextMode)
+                        },
+                        onOpenSettings = { viewModel.onToggleSettings(true) },
+                        onRefresh = { viewModel.refreshAllData() }
+                    )
+                }
             }
         }
 
@@ -194,8 +248,8 @@ fun AmbientDeckScreen(
         // 7. Initial Animated Splash Screen
         AnimatedVisibility(
             visible = uiState.showSplash,
-            enter = fadeIn(),
-            exit = fadeOut(),
+            enter = androidx.compose.animation.EnterTransition.None,
+            exit = fadeOut(animationSpec = androidx.compose.animation.core.tween(400)),
             modifier = Modifier.fillMaxSize()
         ) {
             SplashScreen(
@@ -209,8 +263,11 @@ fun AmbientDeckScreen(
 private fun CinematicLayout(
     uiState: DeckUiState,
     viewModel: AmbientDeckViewModel,
-    isWide: Boolean
+    isWide: Boolean,
+    isShort: Boolean
 ) {
+    val rowSpacing = if (isShort) 6.dp else if (!isWide) 8.dp else 16.dp
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -219,7 +276,7 @@ private fun CinematicLayout(
         if (isWide) {
             // Wide Screen: Side-by-side Clock & Weather
             Row(
-                horizontalArrangement = Arrangement.spacedBy(18.dp),
+                horizontalArrangement = Arrangement.spacedBy(rowSpacing),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 if (uiState.settings.showClock) {
@@ -229,10 +286,11 @@ private fun CinematicLayout(
                         currentPeriod = uiState.currentPeriod,
                         currentDate = uiState.currentDate,
                         settings = uiState.settings,
-                        lastUpdated = uiState.lastUpdated,
+                        lastUpdatedTime = uiState.lastUpdatedTime,
                         isRefreshing = uiState.isRefreshing,
                         onOpenSettings = { viewModel.onToggleSettings(true) },
                         onManualRefresh = { viewModel.refreshAllData() },
+                        isShort = isShort,
                         modifier = Modifier.weight(1.15f)
                     )
                 }
@@ -243,6 +301,7 @@ private fun CinematicLayout(
                         isCelsius = uiState.settings.isCelsius,
                         isMph = uiState.settings.isMph,
                         onInspect = { viewModel.onInspectWidget(InspectWidgetType.WEATHER) },
+                        isShort = isShort,
                         modifier = Modifier.weight(1.25f)
                     )
                 }
@@ -256,13 +315,14 @@ private fun CinematicLayout(
                     currentPeriod = uiState.currentPeriod,
                     currentDate = uiState.currentDate,
                     settings = uiState.settings,
-                    lastUpdated = uiState.lastUpdated,
+                    lastUpdatedTime = uiState.lastUpdatedTime,
                     isRefreshing = uiState.isRefreshing,
                     onOpenSettings = { viewModel.onToggleSettings(true) },
                     onManualRefresh = { viewModel.refreshAllData() },
+                    isShort = isShort,
                     modifier = Modifier.fillMaxWidth()
                 )
-                Spacer(modifier = Modifier.height(14.dp))
+                Spacer(modifier = Modifier.height(rowSpacing))
             }
 
             if (uiState.settings.showWeather) {
@@ -271,27 +331,29 @@ private fun CinematicLayout(
                     isCelsius = uiState.settings.isCelsius,
                     isMph = uiState.settings.isMph,
                     onInspect = { viewModel.onInspectWidget(InspectWidgetType.WEATHER) },
+                    isShort = isShort,
                     modifier = Modifier.fillMaxWidth()
                 )
             }
         }
 
-        Spacer(modifier = Modifier.height(18.dp))
+        Spacer(modifier = Modifier.height(rowSpacing))
 
         // Middle Row: Crypto Tickers full width
         if (uiState.settings.showCrypto && uiState.cryptoTickers.isNotEmpty()) {
             CryptoTickerWidget(
                 tickers = uiState.cryptoTickers,
                 onInspect = { viewModel.onInspectWidget(InspectWidgetType.CRYPTO) },
+                isShort = isShort,
                 modifier = Modifier.fillMaxWidth()
             )
-            Spacer(modifier = Modifier.height(18.dp))
+            Spacer(modifier = Modifier.height(rowSpacing))
         }
 
         // Bottom Row: Overhead Radar & Today in History
         if (isWide) {
             Row(
-                horizontalArrangement = Arrangement.spacedBy(18.dp),
+                horizontalArrangement = Arrangement.spacedBy(rowSpacing),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 if (uiState.settings.showRadar) {
@@ -302,6 +364,7 @@ private fun CinematicLayout(
                         isAltitudeFeet = uiState.settings.isAltitudeFeet,
                         isKnots = !uiState.settings.isMph,
                         onInspect = { viewModel.onInspectWidget(InspectWidgetType.RADAR) },
+                        isShort = isShort,
                         modifier = Modifier.weight(1.3f)
                     )
                 }
@@ -313,6 +376,7 @@ private fun CinematicLayout(
                         onNext = { viewModel.nextHistoryItem() },
                         onPrev = { viewModel.prevHistoryItem() },
                         onInspect = { viewModel.onInspectWidget(InspectWidgetType.HISTORY) },
+                        isShort = isShort,
                         modifier = Modifier.weight(1.1f)
                     )
                 }
@@ -326,9 +390,10 @@ private fun CinematicLayout(
                     isAltitudeFeet = uiState.settings.isAltitudeFeet,
                     isKnots = !uiState.settings.isMph,
                     onInspect = { viewModel.onInspectWidget(InspectWidgetType.RADAR) },
+                    isShort = isShort,
                     modifier = Modifier.fillMaxWidth()
                 )
-                Spacer(modifier = Modifier.height(14.dp))
+                Spacer(modifier = Modifier.height(rowSpacing))
             }
 
             if (uiState.settings.showHistory) {
@@ -338,12 +403,13 @@ private fun CinematicLayout(
                     onNext = { viewModel.nextHistoryItem() },
                     onPrev = { viewModel.prevHistoryItem() },
                     onInspect = { viewModel.onInspectWidget(InspectWidgetType.HISTORY) },
+                    isShort = isShort,
                     modifier = Modifier.fillMaxWidth()
                 )
             }
         }
 
-        Spacer(modifier = Modifier.height(64.dp))
+        Spacer(modifier = Modifier.height(if (isShort || !isWide) 6.dp else 16.dp))
     }
 }
 
@@ -351,8 +417,11 @@ private fun CinematicLayout(
 private fun GridLayout(
     uiState: DeckUiState,
     viewModel: AmbientDeckViewModel,
-    isWide: Boolean
+    isWide: Boolean,
+    isShort: Boolean
 ) {
+    val rowSpacing = if (isShort) 6.dp else if (!isWide) 8.dp else 16.dp
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -360,7 +429,7 @@ private fun GridLayout(
     ) {
         if (isWide) {
             Row(
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(rowSpacing),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 ClockWidget(
@@ -369,10 +438,11 @@ private fun GridLayout(
                     currentPeriod = uiState.currentPeriod,
                     currentDate = uiState.currentDate,
                     settings = uiState.settings,
-                    lastUpdated = uiState.lastUpdated,
+                    lastUpdatedTime = uiState.lastUpdatedTime,
                     isRefreshing = uiState.isRefreshing,
                     onOpenSettings = { viewModel.onToggleSettings(true) },
                     onManualRefresh = { viewModel.refreshAllData() },
+                    isShort = isShort,
                     modifier = Modifier.weight(1f)
                 )
 
@@ -381,14 +451,15 @@ private fun GridLayout(
                     isCelsius = uiState.settings.isCelsius,
                     isMph = uiState.settings.isMph,
                     onInspect = { viewModel.onInspectWidget(InspectWidgetType.WEATHER) },
+                    isShort = isShort,
                     modifier = Modifier.weight(1f)
                 )
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(rowSpacing))
 
             Row(
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(rowSpacing),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 FlightRadarWidget(
@@ -398,6 +469,7 @@ private fun GridLayout(
                     isAltitudeFeet = uiState.settings.isAltitudeFeet,
                     isKnots = !uiState.settings.isMph,
                     onInspect = { viewModel.onInspectWidget(InspectWidgetType.RADAR) },
+                    isShort = isShort,
                     modifier = Modifier.weight(1.2f)
                 )
 
@@ -407,6 +479,7 @@ private fun GridLayout(
                     onNext = { viewModel.nextHistoryItem() },
                     onPrev = { viewModel.prevHistoryItem() },
                     onInspect = { viewModel.onInspectWidget(InspectWidgetType.HISTORY) },
+                    isShort = isShort,
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -417,24 +490,26 @@ private fun GridLayout(
                 currentPeriod = uiState.currentPeriod,
                 currentDate = uiState.currentDate,
                 settings = uiState.settings,
-                lastUpdated = uiState.lastUpdated,
+                lastUpdatedTime = uiState.lastUpdatedTime,
                 isRefreshing = uiState.isRefreshing,
                 onOpenSettings = { viewModel.onToggleSettings(true) },
                 onManualRefresh = { viewModel.refreshAllData() },
+                isShort = isShort,
                 modifier = Modifier.fillMaxWidth()
             )
 
-            Spacer(modifier = Modifier.height(14.dp))
+            Spacer(modifier = Modifier.height(rowSpacing))
 
             WeatherAqiWidget(
                 weather = uiState.weather,
                 isCelsius = uiState.settings.isCelsius,
                 isMph = uiState.settings.isMph,
                 onInspect = { viewModel.onInspectWidget(InspectWidgetType.WEATHER) },
+                isShort = isShort,
                 modifier = Modifier.fillMaxWidth()
             )
 
-            Spacer(modifier = Modifier.height(14.dp))
+            Spacer(modifier = Modifier.height(rowSpacing))
 
             FlightRadarWidget(
                 flights = uiState.flights,
@@ -443,10 +518,11 @@ private fun GridLayout(
                 isAltitudeFeet = uiState.settings.isAltitudeFeet,
                 isKnots = !uiState.settings.isMph,
                 onInspect = { viewModel.onInspectWidget(InspectWidgetType.RADAR) },
+                isShort = isShort,
                 modifier = Modifier.fillMaxWidth()
             )
 
-            Spacer(modifier = Modifier.height(14.dp))
+            Spacer(modifier = Modifier.height(rowSpacing))
 
             HistoryWidget(
                 historyItems = uiState.historyItems,
@@ -454,20 +530,22 @@ private fun GridLayout(
                 onNext = { viewModel.nextHistoryItem() },
                 onPrev = { viewModel.prevHistoryItem() },
                 onInspect = { viewModel.onInspectWidget(InspectWidgetType.HISTORY) },
+                isShort = isShort,
                 modifier = Modifier.fillMaxWidth()
             )
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(rowSpacing))
 
         // Grid Row: Crypto Market Ticker
         CryptoTickerWidget(
             tickers = uiState.cryptoTickers,
             onInspect = { viewModel.onInspectWidget(InspectWidgetType.CRYPTO) },
+            isShort = isShort,
             modifier = Modifier.fillMaxWidth()
         )
 
-        Spacer(modifier = Modifier.height(64.dp))
+        Spacer(modifier = Modifier.height(if (isShort || !isWide) 6.dp else 16.dp))
     }
 }
 

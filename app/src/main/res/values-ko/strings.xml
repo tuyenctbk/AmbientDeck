@@ -156,4 +156,28 @@
     <string name="usage_sessions">세션 수: %1$d회</string>
     <string name="usage_active_time">사용 시간: %1$d분</string>
     <string name="usage_interactions">상호작용: %1$d회</string>
+
+    <string name="privacy_bullet_zero_data_title">데이터 수집 제로</string>
+    <string name="privacy_bullet_zero_data_desc">분석 트래커, 광고 ID 또는 텔레메트리 프로파일링이 없습니다.</string>
+    <string name="privacy_bullet_open_apis_title">개방형 무료 API</string>
+    <string name="privacy_bullet_open_apis_desc">실시간 데이터는 Open-Meteo, Binance 및 OpenSky Network의 공개 피드에서 제공됩니다.</string>
+    <string name="privacy_bullet_local_storage_title">로컬 기기 저장소</string>
+    <string name="privacy_bullet_local_storage_desc">환경설정과 위치는 오직 로컬 기기에만 보관됩니다.</string>
+    <string name="change_24h_format">%1$+.2f%% (24시간)</string>
+    <string name="unknown_country">알 수 없음</string>
+    <string name="custom_location_country">사용자 지정</string>
+    <string name="pollutant_value_ugm3">%1$.1f µg/m³</string>
+    <string name="label_colon_format">%1$s: %2$s</string>
+    <string name="usd_price_format">$%1$s</string>
+    <string name="flight_origin_icao_format">%1$s • ICAO: %2$s</string>
+    <string name="flight_origin_short_format">%1$s • %2$s</string>
+    <string name="crypto_pair_format">%1$s / %2$s</string>
+    <string name="altitude_feet_format">%1$.0f ft</string>
+    <string name="altitude_meters_format">%1$.0f m</string>
+    <string name="speed_knots_format">%1$.0f kts</string>
+    <string name="speed_kmh_format">%1$.0f km/h</string>
+    <string name="speed_mph_format">%1$.0f mph</string>
+    <string name="heading_degrees_format">%1$.0f°</string>
+    <string name="city_country_format">%1$s, %2$s</string>
+    <string name="flight_callsign_fallback">FLT-%1$s</string>
 </resources>
