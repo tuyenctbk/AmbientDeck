@@ -251,4 +251,43 @@
     <string name="screensaver_style_dim_desc">Minimalist OLED burn-in safe night clock</string>
     <string name="action_test_screensaver">Test Screensaver Now</string>
     <string name="screensaver_dismiss_hint">Tap screen or press any key to wake</string>
+
+    <string name="voice_command_title">Voice Commands</string>
+    <string name="voice_command_subtitle">Speak hands-free to control widgets and art</string>
+    <string name="voice_status_listening">Listening… Speak now</string>
+    <string name="voice_status_processing">Processing voice command…</string>
+    <string name="voice_status_idle">Tap microphone to speak</string>
+    <string name="voice_status_permission_needed">Microphone permission required for voice commands</string>
+    <string name="voice_status_not_available">Speech recognition service not available on this device</string>
+    <string name="voice_grant_permission">Grant Permission</string>
+    <string name="voice_hint_suggestions">Try saying: \"Toggle Weather\", \"Show Radar\", \"Mountains\", \"Next Photo\", or \"Screensaver\"</string>
+    <string name="voice_cmd_sample_weather">Toggle Weather</string>
+    <string name="voice_cmd_sample_radar">Show Flight Radar</string>
+    <string name="voice_cmd_sample_crypto">Toggle Crypto</string>
+    <string name="voice_cmd_sample_mountains">Mountains</string>
+    <string name="voice_cmd_sample_aurora">Nordic Aurora</string>
+    <string name="voice_cmd_sample_next">Next Photo</string>
+    <string name="voice_cmd_sample_screensaver">Screensaver</string>
+    <string name="voice_feedback_weather">Weather widget toggled</string>
+    <string name="voice_feedback_crypto">Crypto ticker toggled</string>
+    <string name="voice_feedback_radar">Flight radar toggled</string>
+    <string name="voice_feedback_history">Today in History toggled</string>
+    <string name="voice_feedback_clock">Clock widget toggled</string>
+    <string name="voice_feedback_collection">Switched to %1$s collection</string>
+    <string name="voice_feedback_next_photo">Advancing to next landscape photo</string>
+    <string name="voice_feedback_prev_photo">Returning to previous landscape photo</string>
+    <string name="voice_feedback_cycle_collection">Cycling landscape collection</string>
+    <string name="voice_feedback_refresh_art">Refreshing landscape imagery</string>
+    <string name="voice_feedback_gallery">Opened Art Gallery</string>
+    <string name="voice_feedback_settings">Opened Settings</string>
+    <string name="voice_feedback_screensaver">Screensaver started</string>
+    <string name="voice_feedback_layout">Dashboard layout switched</string>
+    <string name="voice_feedback_temp_unit">Temperature unit toggled</string>
+    <string name="voice_feedback_unknown">Command not recognized. Please try again.</string>
+    <string name="action_voice_command">Voice Control</string>
+
+    <string name="tv_press_ok_to_inspect">Press [OK] to Inspect</string>
+    <string name="tv_press_ok_to_open_settings">Press [OK] for Settings</string>
+    <string name="tv_focused_badge">TV FOCUS</string>
+    <string name="tv_dpad_hint">[OK] Inspect</string>
 </resources>

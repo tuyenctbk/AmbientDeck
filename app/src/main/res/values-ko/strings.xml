@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">OLED 번인 방지 미니멀 야간 시계</string>
     <string name="action_test_screensaver">화면 보호기 지금 테스트</string>
     <string name="screensaver_dismiss_hint">화면을 탭하거나 아무 키나 눌러 해제</string>
+
+    <string name="voice_command_title">음성 명령</string>
+    <string name="voice_command_subtitle">위젯과 풍경 아트를 음성으로 제어</string>
+    <string name="voice_status_listening">듣는 중… 지금 말씀하세요</string>
+    <string name="voice_status_processing">음성 명령 처리 중…</string>
+    <string name="voice_status_idle">마이크를 눌러 말하기</string>
+    <string name="voice_status_permission_needed">음성 명령을 사용하려면 마이크 권한이 필요합니다</string>
+    <string name="voice_status_not_available">이 기기에서 음성 인식을 사용할 수 없습니다</string>
+    <string name="voice_grant_permission">권한 허용</string>
+    <string name="voice_hint_suggestions">명령어 예시: \"날씨 전환\", \"레이더 표시\", \"산\", \"다음 사진\", \"화면 보호기\"</string>
+    <string name="voice_cmd_sample_weather">날씨 전환</string>
+    <string name="voice_cmd_sample_radar">비행 레이더 표시</string>
+    <string name="voice_cmd_sample_crypto">암호화폐 전환</string>
+    <string name="voice_cmd_sample_mountains">산</string>
+    <string name="voice_cmd_sample_aurora">오로라</string>
+    <string name="voice_cmd_sample_next">다음 사진</string>
+    <string name="voice_cmd_sample_screensaver">화면 보호기</string>
+    <string name="voice_feedback_weather">날씨 위젯이 전환되었습니다</string>
+    <string name="voice_feedback_crypto">암호화폐 위젯이 전환되었습니다</string>
+    <string name="voice_feedback_radar">비행 레이더가 전환되었습니다</string>
+    <string name="voice_feedback_history">역사 위젯이 전환되었습니다</string>
+    <string name="voice_feedback_clock">시계 위젯이 전환되었습니다</string>
+    <string name="voice_feedback_collection">%1$s 컬렉션으로 전환되었습니다</string>
+    <string name="voice_feedback_next_photo">다음 풍경 사진으로 이동합니다</string>
+    <string name="voice_feedback_prev_photo">이전 풍경 사진으로 돌아갑니다</string>
+    <string name="voice_feedback_cycle_collection">풍경 컬렉션을 순환합니다</string>
+    <string name="voice_feedback_refresh_art">풍경 사진을 새로고침했습니다</string>
+    <string name="voice_feedback_gallery">아트 갤러리가 열렸습니다</string>
+    <string name="voice_feedback_settings">설정이 열렸습니다</string>
+    <string name="voice_feedback_screensaver">화면 보호기를 시작했습니다</string>
+    <string name="voice_feedback_layout">대시보드 레이아웃이 변경되었습니다</string>
+    <string name="voice_feedback_temp_unit">온도 단위가 전환되었습니다</string>
+    <string name="voice_feedback_unknown">명령을 인식하지 못했습니다. 다시 시도해 주세요.</string>
+    <string name="action_voice_command">음성 제어</string>
+
+    <string name="five_day_forecast">5일간 일기예보</string>
+    <string name="tv_press_ok_to_inspect">[OK]를 눌러 자세히 보기</string>
+    <string name="tv_press_ok_to_open_settings">[OK]를 눌러 설정 열기</string>
+    <string name="tv_focused_badge">TV 포커스</string>
+    <string name="tv_dpad_hint">[OK] 상세보기</string>
 </resources>

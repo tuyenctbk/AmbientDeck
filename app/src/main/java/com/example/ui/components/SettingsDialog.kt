@@ -28,6 +28,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Dashboard
 import androidx.compose.material.icons.filled.Landscape
 import androidx.compose.material.icons.filled.LocationCity
+import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.Nightlight
 import androidx.compose.material.icons.filled.PhotoLibrary
 import androidx.compose.material.icons.filled.Security
@@ -108,6 +109,7 @@ fun SettingsDialog(
     onSelectScreensaverTimeout: (Int) -> Unit = {},
     onSelectScreensaverStyle: (ScreensaverStyle) -> Unit = {},
     onLaunchScreensaverNow: () -> Unit = {},
+    onOpenVoiceCommand: () -> Unit = {},
     onOpenRate: () -> Unit = {},
     onOpenShare: () -> Unit = {},
     onOpenUpdate: () -> Unit = {},
@@ -702,6 +704,36 @@ fun SettingsDialog(
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
                             text = stringResource(R.string.action_test_screensaver),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 12.sp
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    OutlinedButton(
+                        onClick = {
+                            onClose()
+                            onOpenVoiceCommand()
+                        },
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = DarkSurfaceElevated,
+                            contentColor = CyanAccent
+                        ),
+                        border = androidx.compose.foundation.BorderStroke(1.dp, CyanAccent.copy(alpha = 0.5f)),
+                        shape = RoundedCornerShape(12.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .testTag("settings_open_voice_command_button")
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Mic,
+                            contentDescription = null,
+                            modifier = Modifier.size(16.dp)
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = stringResource(R.string.action_voice_command),
                             fontWeight = FontWeight.Bold,
                             fontSize = 12.sp
                         )

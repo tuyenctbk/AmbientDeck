@@ -90,4 +90,51 @@ class ExampleRobolectricTest {
         assertEquals(120, defaultSettings.screensaverTimeoutSec)
         assertEquals(com.example.data.model.ScreensaverStyle.SLIDESHOW, defaultSettings.screensaverStyle)
     }
+
+    @Test
+    fun `verify voice command parser parses actions accurately`() {
+        val weatherToggle = com.example.data.voice.VoiceCommandParser.parse("Please toggle weather widget")
+        assertEquals(com.example.data.voice.VoiceAction.TOGGLE_WEATHER, weatherToggle.action)
+
+        val cryptoHide = com.example.data.voice.VoiceCommandParser.parse("hide crypto ticker")
+        assertEquals(com.example.data.voice.VoiceAction.HIDE_CRYPTO, cryptoHide.action)
+
+        val cryptoToggle = com.example.data.voice.VoiceCommandParser.parse("toggle crypto")
+        assertEquals(com.example.data.voice.VoiceAction.TOGGLE_CRYPTO, cryptoToggle.action)
+
+        val radarShow = com.example.data.voice.VoiceCommandParser.parse("show flight radar")
+        assertEquals(com.example.data.voice.VoiceAction.SHOW_RADAR, radarShow.action)
+
+        val radarToggle = com.example.data.voice.VoiceCommandParser.parse("toggle flight radar")
+        assertEquals(com.example.data.voice.VoiceAction.TOGGLE_RADAR, radarToggle.action)
+
+        val auroraCollection = com.example.data.voice.VoiceCommandParser.parse("switch to nordic aurora gallery")
+        assertEquals(com.example.data.voice.VoiceAction.SET_COLLECTION_AURORA, auroraCollection.action)
+        assertEquals(com.example.data.model.LandscapeCollection.NORDIC_AURORA, auroraCollection.targetCollection)
+
+        val nextPhoto = com.example.data.voice.VoiceCommandParser.parse("next wallpaper please")
+        assertEquals(com.example.data.voice.VoiceAction.NEXT_WALLPAPER, nextPhoto.action)
+
+        val screensaver = com.example.data.voice.VoiceCommandParser.parse("start screensaver now")
+        assertEquals(com.example.data.voice.VoiceAction.START_SCREENSAVER, screensaver.action)
+
+        val cycleLayout = com.example.data.voice.VoiceCommandParser.parse("switch layout mode")
+        assertEquals(com.example.data.voice.VoiceAction.CYCLE_LAYOUT, cycleLayout.action)
+    }
+
+    @Test
+    fun `verify voice command localized strings load correctly`() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        val voiceTitle = context.getString(R.string.voice_command_title)
+        assertNotNull(voiceTitle)
+        assertTrue(voiceTitle.isNotBlank())
+
+        val listening = context.getString(R.string.voice_status_listening)
+        assertNotNull(listening)
+        assertTrue(listening.isNotBlank())
+
+        val feedbackWeather = context.getString(R.string.voice_feedback_weather)
+        assertNotNull(feedbackWeather)
+        assertTrue(feedbackWeather.isNotBlank())
+    }
 }

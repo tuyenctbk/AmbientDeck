@@ -9,6 +9,11 @@ import androidx.compose.animation.scaleIn
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.KeyEventType
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
+import androidx.compose.ui.input.key.type
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -33,6 +38,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Dashboard
 import androidx.compose.material.icons.filled.Image
+import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material3.CircularProgressIndicator
@@ -70,6 +76,7 @@ import com.example.ui.components.PrivacyPolicyDialog
 import com.example.ui.components.ScreensaverOverlay
 import com.example.ui.components.SettingsDialog
 import com.example.ui.components.SplashScreen
+import com.example.ui.components.VoiceCommandOverlay
 import com.example.ui.components.WeatherAqiWidget
 import com.example.ui.components.WidgetDetailDialog
 import androidx.compose.ui.graphics.Brush
@@ -193,6 +200,7 @@ fun AmbientDeckScreen(
                             }
                             viewModel.onSelectLayoutMode(nextMode)
                         },
+                        onOpenVoiceCommand = { viewModel.onToggleVoiceOverlay(true) },
                         onOpenSettings = { viewModel.onToggleSettings(true) },
                         onRefresh = { viewModel.refreshAllData() }
                     )
@@ -220,6 +228,7 @@ fun AmbientDeckScreen(
                 onSelectScreensaverTimeout = { viewModel.onSelectScreensaverTimeout(it) },
                 onSelectScreensaverStyle = { viewModel.onSelectScreensaverStyle(it) },
                 onLaunchScreensaverNow = { viewModel.onToggleScreensaver(true) },
+                onOpenVoiceCommand = { viewModel.onToggleVoiceOverlay(true) },
                 onOpenRate = { viewModel.onOpenPrompt(PromptType.RATE) },
                 onOpenShare = { viewModel.onOpenPrompt(PromptType.SHARE) },
                 onOpenUpdate = { viewModel.onOpenPrompt(PromptType.UPDATE) },
@@ -294,6 +303,19 @@ fun AmbientDeckScreen(
                 weather = uiState.weather,
                 isCelsius = uiState.settings.isCelsius,
                 onWake = { viewModel.onUserActivity() }
+            )
+        }
+
+        // 9. Voice Commands Overlay
+        if (uiState.isVoiceOverlayOpen) {
+            VoiceCommandOverlay(
+                voiceState = uiState.voiceState,
+                rmsDb = uiState.voiceRmsDb,
+                lastResult = uiState.lastVoiceResult,
+                onStartListening = { viewModel.startVoiceListening() },
+                onStopListening = { viewModel.stopVoiceListening() },
+                onSimulateCommand = { viewModel.simulateVoiceCommand(it) },
+                onClose = { viewModel.onToggleVoiceOverlay(false) }
             )
         }
 
@@ -676,14 +698,31 @@ private fun ZenMinimalLayout(
                 val displayTemp = if (uiState.settings.isCelsius) w.currentTemp else (w.currentTemp * 9 / 5 + 32)
                 val unitStr = if (uiState.settings.isCelsius) "°C" else "°F"
                 val conditionStr = stringResource(com.example.data.model.getWeatherConditionRes(w.weatherCode))
+                var isPillFocused by remember { mutableStateOf(false) }
 
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
                         .clip(RoundedCornerShape(20.dp))
-                        .background(GlassOverlay)
-                        .border(1.dp, GlassBorder, RoundedCornerShape(20.dp))
+                        .background(if (isPillFocused) CyanAccent.copy(alpha = 0.25f) else GlassOverlay)
+                        .border(
+                            width = if (isPillFocused) 2.5.dp else 1.dp,
+                            color = if (isPillFocused) CyanAccent else GlassBorder,
+                            shape = RoundedCornerShape(20.dp)
+                        )
+                        .focusable()
+                        .onFocusChanged { isPillFocused = it.isFocused }
                         .clickable { viewModel.onToggleSettings(true) }
+                        .onKeyEvent { event ->
+                            if (event.type == KeyEventType.KeyUp &&
+                                (event.key == Key.DirectionCenter ||
+                                 event.key == Key.Enter ||
+                                 event.key == Key.NumPadEnter)
+                            ) {
+                                viewModel.onToggleSettings(true)
+                                true
+                            } else false
+                        }
                         .padding(horizontal = 16.dp, vertical = 8.dp)
                 ) {
                     Text(
@@ -715,6 +754,7 @@ private fun FloatingControlBar(
     onCycleWallpaper: () -> Unit,
     onCycleLayout: () -> Unit,
     onOpenSettings: () -> Unit,
+    onOpenVoiceCommand: () -> Unit = {},
     onRefresh: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -758,6 +798,14 @@ private fun FloatingControlBar(
             modifier = Modifier.size(if (isCompact) 30.dp else 36.dp).testTag("action_cycle_layout")
         ) {
             Icon(Icons.Default.Dashboard, contentDescription = stringResource(R.string.switch_layout), tint = SunsetAmber, modifier = Modifier.size(if (isCompact) 15.dp else 18.dp))
+        }
+
+        // Voice Commands Interface
+        IconButton(
+            onClick = onOpenVoiceCommand,
+            modifier = Modifier.size(if (isCompact) 30.dp else 36.dp).testTag("action_voice_command")
+        ) {
+            Icon(Icons.Default.Mic, contentDescription = stringResource(R.string.action_voice_command), tint = CyanAccent, modifier = Modifier.size(if (isCompact) 15.dp else 18.dp))
         }
 
         // Refresh Data

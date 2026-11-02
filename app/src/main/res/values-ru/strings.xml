@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">Минималистичные часы с защитой OLED</string>
     <string name="action_test_screensaver">Проверить заставку сейчас</string>
     <string name="screensaver_dismiss_hint">Каснитесь экрана или нажмите клавишу, чтобы выйти</string>
+
+    <string name="voice_command_title">Голосовые команды</string>
+    <string name="voice_command_subtitle">Управление виджетами и картинами без рук</string>
+    <string name="voice_status_listening">Слушаю… Говорите</string>
+    <string name="voice_status_processing">Обработка голосовой команды…</string>
+    <string name="voice_status_idle">Нажмите на микрофон для записи</string>
+    <string name="voice_status_permission_needed">Для голосовых команд требуется разрешение на микрофон</string>
+    <string name="voice_status_not_available">Служба распознавания речи недоступна на устройстве</string>
+    <string name="voice_grant_permission">Разрешить доступ</string>
+    <string name="voice_hint_suggestions">Скажите: \"Переключить погоду\", \"Показать радар\", \"Горы\", \"Следующее фото\" или \"Заставка\"</string>
+    <string name="voice_cmd_sample_weather">Переключить погоду</string>
+    <string name="voice_cmd_sample_radar">Показать радар рейсов</string>
+    <string name="voice_cmd_sample_crypto">Переключить крипту</string>
+    <string name="voice_cmd_sample_mountains">Горы</string>
+    <string name="voice_cmd_sample_aurora">Северное сияние</string>
+    <string name="voice_cmd_sample_next">Следующее фото</string>
+    <string name="voice_cmd_sample_screensaver">Заставка</string>
+    <string name="voice_feedback_weather">Виджет погоды переключен</string>
+    <string name="voice_feedback_crypto">Криптотикер переключен</string>
+    <string name="voice_feedback_radar">Радар рейсов переключен</string>
+    <string name="voice_feedback_history">Виджет истории переключен</string>
+    <string name="voice_feedback_clock">Виджет часов переключен</string>
+    <string name="voice_feedback_collection">Переключено на коллекцию %1$s</string>
+    <string name="voice_feedback_next_photo">Переход к следующей фотографии</string>
+    <string name="voice_feedback_prev_photo">Возврат к предыдущей фотографии</string>
+    <string name="voice_feedback_cycle_collection">Смена коллекции пейзажей</string>
+    <string name="voice_feedback_refresh_art">Фотографии пейзажей обновлены</string>
+    <string name="voice_feedback_gallery">Галерея искусств открыта</string>
+    <string name="voice_feedback_settings">Настройки открыты</string>
+    <string name="voice_feedback_screensaver">Заставка запущена</string>
+    <string name="voice_feedback_layout">Макет панели изменен</string>
+    <string name="voice_feedback_temp_unit">Единица температуры переключена</string>
+    <string name="voice_feedback_unknown">Команда не распознана. Повторите попытку.</string>
+    <string name="action_voice_command">Голосовое управление</string>
+
+    <string name="five_day_forecast">Прогноз на 5 дней</string>
+    <string name="tv_press_ok_to_inspect">Нажмите [OK] для просмотра</string>
+    <string name="tv_press_ok_to_open_settings">Нажмите [OK] для настроек</string>
+    <string name="tv_focused_badge">ФОКУС ТВ</string>
+    <string name="tv_dpad_hint">[OK] Открыть</string>
 </resources>

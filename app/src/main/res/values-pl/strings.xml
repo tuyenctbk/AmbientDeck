@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">Minimalistyczny zegar nocny chroniący OLED</string>
     <string name="action_test_screensaver">Testuj wygaszacz ekranu</string>
     <string name="screensaver_dismiss_hint">Dotknij ekranu lub naciśnij klawisz, aby wybudzić</string>
+
+    <string name="voice_command_title">Polecenia głosowe</string>
+    <string name="voice_command_subtitle">Steruj widżetami i tapetami bez użycia rąk</string>
+    <string name="voice_status_listening">Słucham… Mów teraz</string>
+    <string name="voice_status_processing">Przetwarzanie polecenia głosowego…</string>
+    <string name="voice_status_idle">Dotknij mikrofonu, aby mówić</string>
+    <string name="voice_status_permission_needed">Wymagane uprawnienie do mikrofonu dla poleceń głosowych</string>
+    <string name="voice_status_not_available">Rozpoznawanie mowy jest niedostępne na tym urządzeniu</string>
+    <string name="voice_grant_permission">Przyznaj uprawnienie</string>
+    <string name="voice_hint_suggestions">Powiedz: \"Przełącz pogodę\", \"Pokaż radar\", \"Góry\", \"Następne zdjęcie\" lub \"Wygaszacz\"</string>
+    <string name="voice_cmd_sample_weather">Przełącz pogodę</string>
+    <string name="voice_cmd_sample_radar">Pokaż radar lotów</string>
+    <string name="voice_cmd_sample_crypto">Przełącz krypto</string>
+    <string name="voice_cmd_sample_mountains">Góry</string>
+    <string name="voice_cmd_sample_aurora">Zorza polarna</string>
+    <string name="voice_cmd_sample_next">Następne zdjęcie</string>
+    <string name="voice_cmd_sample_screensaver">Wygaszacz ekranu</string>
+    <string name="voice_feedback_weather">Przełączono widżet pogody</string>
+    <string name="voice_feedback_crypto">Przełączono ticker krypto</string>
+    <string name="voice_feedback_radar">Przełączono radar lotów</string>
+    <string name="voice_feedback_history">Przełączono dzisiejsze wydarzenia</string>
+    <string name="voice_feedback_clock">Przełączono widżet zegara</string>
+    <string name="voice_feedback_collection">Przełączono na kolekcję %1$s</string>
+    <string name="voice_feedback_next_photo">Przejście do następnego zdjęcia krajobrazu</string>
+    <string name="voice_feedback_prev_photo">Powrót do poprzedniego zdjęcia krajobrazu</string>
+    <string name="voice_feedback_cycle_collection">Zmiana kolekcji krajobrazów</string>
+    <string name="voice_feedback_refresh_art">Odświeżono zdjęcia krajobrazów</string>
+    <string name="voice_feedback_gallery">Otwarto galerię sztuki</string>
+    <string name="voice_feedback_settings">Otwarto ustawienia</string>
+    <string name="voice_feedback_screensaver">Uruchomiono wygaszacz ekranu</string>
+    <string name="voice_feedback_layout">Zmieniono układ panelu</string>
+    <string name="voice_feedback_temp_unit">Przełączono jednostkę temperatury</string>
+    <string name="voice_feedback_unknown">Nie rozpoznano polecenia. Spróbuj ponownie.</string>
+    <string name="action_voice_command">Sterowanie głosem</string>
+
+    <string name="five_day_forecast">Prognoza 5-dniowa</string>
+    <string name="tv_press_ok_to_inspect">Naciśnij [OK], aby sprawdzić</string>
+    <string name="tv_press_ok_to_open_settings">Naciśnij [OK], aby przejść do ustawień</string>
+    <string name="tv_focused_badge">FOKUS TV</string>
+    <string name="tv_dpad_hint">[OK] Sprawdź</string>
 </resources>

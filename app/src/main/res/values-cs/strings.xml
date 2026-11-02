@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">Minimalistické hodiny šetrné k OLED</string>
     <string name="action_test_screensaver">Otestovat šetřič obrazovky</string>
     <string name="screensaver_dismiss_hint">Klepnutím nebo stisknutím klávesy probudíte</string>
+
+    <string name="voice_command_title">Hlasové příkazy</string>
+    <string name="voice_command_subtitle">Ovládejte widgety a tapety bez použití rukou</string>
+    <string name="voice_status_listening">Poslouchám… Mluvte</string>
+    <string name="voice_status_processing">Zpracování hlasového příkazu…</string>
+    <string name="voice_status_idle">Klepnutím na mikrofon mluvte</string>
+    <string name="voice_status_permission_needed">Pro hlasové příkazy je vyžadováno oprávnění k mikrofonu</string>
+    <string name="voice_status_not_available">Rozpoznávání řeči není na tomto zařízení k dispozici</string>
+    <string name="voice_grant_permission">Udělit oprávnění</string>
+    <string name="voice_hint_suggestions">Zkuste říct: \"Přepnout počasí\", \"Zobrazit radar\", \"Hory\", \"Další foto\" nebo \"Šetřič\"</string>
+    <string name="voice_cmd_sample_weather">Přepnout počasí</string>
+    <string name="voice_cmd_sample_radar">Zobrazit letecký radar</string>
+    <string name="voice_cmd_sample_crypto">Přepnout krypto</string>
+    <string name="voice_cmd_sample_mountains">Hory</string>
+    <string name="voice_cmd_sample_aurora">Polární záře</string>
+    <string name="voice_cmd_sample_next">Další foto</string>
+    <string name="voice_cmd_sample_screensaver">Šetřič obrazovky</string>
+    <string name="voice_feedback_weather">Widget počasí byl přepnut</string>
+    <string name="voice_feedback_crypto">Krypto ticker byl přepnut</string>
+    <string name="voice_feedback_radar">Letecký radar byl přepnut</string>
+    <string name="voice_feedback_history">Dnes v historii bylo přepnuto</string>
+    <string name="voice_feedback_clock">Widget hodin byl přepnut</string>
+    <string name="voice_feedback_collection">Přepnuto na kolekci %1$s</string>
+    <string name="voice_feedback_next_photo">Přechod na další fotografii</string>
+    <string name="voice_feedback_prev_photo">Návrat k předchozí fotografii</string>
+    <string name="voice_feedback_cycle_collection">Přepnutí kolekce krajin</string>
+    <string name="voice_feedback_refresh_art">Aktualizace fotografií krajin</string>
+    <string name="voice_feedback_gallery">Otevřena galerie umění</string>
+    <string name="voice_feedback_settings">Otevřeno nastavení</string>
+    <string name="voice_feedback_screensaver">Spuštěn šetřič obrazovky</string>
+    <string name="voice_feedback_layout">Rozložení panelu změněno</string>
+    <string name="voice_feedback_temp_unit">Jednotka teploty změněna</string>
+    <string name="voice_feedback_unknown">Příkaz nerozpoznán. Zkuste to prosím znovu.</string>
+    <string name="action_voice_command">Hlasové ovládání</string>
+
+    <string name="five_day_forecast">Předpověď na 5 dní</string>
+    <string name="tv_press_ok_to_inspect">Stiskněte [OK] pro detail</string>
+    <string name="tv_press_ok_to_open_settings">Stiskněte [OK] pro nastavení</string>
+    <string name="tv_focused_badge">TV VÝBĚR</string>
+    <string name="tv_dpad_hint">[OK] Detail</string>
 </resources>

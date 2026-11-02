@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">OLED防烙印極簡夜間時鐘</string>
     <string name="action_test_screensaver">立即測試螢幕保護</string>
     <string name="screensaver_dismiss_hint">點擊螢幕或按任意鍵喚醒</string>
+
+    <string name="voice_command_title">語音控制</string>
+    <string name="voice_command_subtitle">免持語音控制小工具與風景桌布</string>
+    <string name="voice_status_listening">正在聆聽… 請說話</string>
+    <string name="voice_status_processing">正在處理語音指令…</string>
+    <string name="voice_status_idle">點擊麥克風說話</string>
+    <string name="voice_status_permission_needed">語音控制需要麥克風權限</string>
+    <string name="voice_status_not_available">此裝置暫不支援語音辨識服務</string>
+    <string name="voice_grant_permission">授予權限</string>
+    <string name="voice_hint_suggestions">嘗試說：\"切換天氣\"、\"顯示雷達\"、\"山脈\"、\"下一張相片\"或\"螢幕保護\"</string>
+    <string name="voice_cmd_sample_weather">切換天氣</string>
+    <string name="voice_cmd_sample_radar">顯示航班雷達</string>
+    <string name="voice_cmd_sample_crypto">切換加密貨幣</string>
+    <string name="voice_cmd_sample_mountains">山脈</string>
+    <string name="voice_cmd_sample_aurora">極光</string>
+    <string name="voice_cmd_sample_next">下一張相片</string>
+    <string name="voice_cmd_sample_screensaver">螢幕保護</string>
+    <string name="voice_feedback_weather">已切換天氣小工具</string>
+    <string name="voice_feedback_crypto">已切換加密貨幣行情</string>
+    <string name="voice_feedback_radar">已切換航班雷達</string>
+    <string name="voice_feedback_history">已切換歷史上的今天</string>
+    <string name="voice_feedback_clock">已切換時鐘部件</string>
+    <string name="voice_feedback_collection">已切換至 %1$s 集合</string>
+    <string name="voice_feedback_next_photo">切換至下一張風景相片</string>
+    <string name="voice_feedback_prev_photo">返回上一張風景相片</string>
+    <string name="voice_feedback_cycle_collection">輪換風景攝影集合</string>
+    <string name="voice_feedback_refresh_art">已重新整理風景桌布</string>
+    <string name="voice_feedback_gallery">已開啟藝術畫廊</string>
+    <string name="voice_feedback_settings">已開啟設定</string>
+    <string name="voice_feedback_screensaver">已啟動螢幕保護</string>
+    <string name="voice_feedback_layout">已切換儀表板版面配置</string>
+    <string name="voice_feedback_temp_unit">已切換溫度單位</string>
+    <string name="voice_feedback_unknown">無法識別指令，請重試。</string>
+    <string name="action_voice_command">語音控制</string>
+
+    <string name="five_day_forecast">5天詳細天氣預報</string>
+    <string name="tv_press_ok_to_inspect">按 [OK] 查看詳情</string>
+    <string name="tv_press_ok_to_open_settings">按 [OK] 開啟設定</string>
+    <string name="tv_focused_badge">TV 選中</string>
+    <string name="tv_dpad_hint">[OK] 詳情</string>
 </resources>

@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">Horloge nocturne sécurisée pour écrans OLED</string>
     <string name="action_test_screensaver">Tester l\'écran de veille</string>
     <string name="screensaver_dismiss_hint">Touchez l\'écran ou appuyez sur una touche pour sortir de veille</string>
+
+    <string name="voice_command_title">Commandes vocales</string>
+    <string name="voice_command_subtitle">Contrôlez les widgets et les paysages en mains libres</string>
+    <string name="voice_status_listening">À l\'écoute… Parlez maintenant</string>
+    <string name="voice_status_processing">Traitement de la commande vocale…</string>
+    <string name="voice_status_idle">Appuyez sur le micro pour parler</string>
+    <string name="voice_status_permission_needed">Autorisation du micro requise pour les commandes vocales</string>
+    <string name="voice_status_not_available">Reconnaissance vocale non disponible sur cet appareil</string>
+    <string name="voice_grant_permission">Accorder l\'autorisation</string>
+    <string name="voice_hint_suggestions">Essayez : \"Météo\", \"Afficher le radar\", \"Montagnes\", \"Photo suivante\" ou \"Écran de veille\"</string>
+    <string name="voice_cmd_sample_weather">Basculer la météo</string>
+    <string name="voice_cmd_sample_radar">Afficher le radar aérien</string>
+    <string name="voice_cmd_sample_crypto">Basculer les cryptos</string>
+    <string name="voice_cmd_sample_mountains">Montagnes</string>
+    <string name="voice_cmd_sample_aurora">Aurores boréales</string>
+    <string name="voice_cmd_sample_next">Photo suivante</string>
+    <string name="voice_cmd_sample_screensaver">Écran de veille</string>
+    <string name="voice_feedback_weather">Widget météo basculé</string>
+    <string name="voice_feedback_crypto">Widget crypto basculé</string>
+    <string name="voice_feedback_radar">Radar aérien basculé</string>
+    <string name="voice_feedback_history">Widget historique basculé</string>
+    <string name="voice_feedback_clock">Widget horloge basculé</string>
+    <string name="voice_feedback_collection">Passage à la collection %1$s</string>
+    <string name="voice_feedback_next_photo">Passage à la photo suivante</string>
+    <string name="voice_feedback_prev_photo">Retour à la photo précédente</string>
+    <string name="voice_feedback_cycle_collection">Rotation de la collection de paysages</string>
+    <string name="voice_feedback_refresh_art">Actualisation des paysages</string>
+    <string name="voice_feedback_gallery">Galerie d\'art ouverte</string>
+    <string name="voice_feedback_settings">Paramètres ouverts</string>
+    <string name="voice_feedback_screensaver">Écran de veille lancé</string>
+    <string name="voice_feedback_layout">Disposition du tableau changée</string>
+    <string name="voice_feedback_temp_unit">Unité de température basculée</string>
+    <string name="voice_feedback_unknown">Commande non reconnue. Veuillez réessayer.</string>
+    <string name="action_voice_command">Commande vocale</string>
+
+    <string name="five_day_forecast">Prévisions sur 5 jours</string>
+    <string name="tv_press_ok_to_inspect">Appuyez sur [OK] pour inspecter</string>
+    <string name="tv_press_ok_to_open_settings">Appuyez sur [OK] pour les paramètres</string>
+    <string name="tv_focused_badge">FOCUS TV</string>
+    <string name="tv_dpad_hint">[OK] Inspecter</string>
 </resources>

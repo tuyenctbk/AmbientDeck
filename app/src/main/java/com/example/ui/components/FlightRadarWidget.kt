@@ -64,6 +64,18 @@ import com.example.ui.theme.TextSecondary
 import kotlin.math.cos
 import kotlin.math.sin
 
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.KeyEventType
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
+import androidx.compose.ui.input.key.type
+
 @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
 @Composable
 fun FlightRadarWidget(
@@ -100,25 +112,52 @@ fun FlightRadarWidget(
 
     var isFocused by remember { mutableStateOf(false) }
 
-    val focusScale by androidx.compose.animation.core.animateFloatAsState(
-        targetValue = if (isFocused) 1.02f else 1.0f,
-        animationSpec = androidx.compose.animation.core.tween(200),
+    val focusScale by animateFloatAsState(
+        targetValue = if (isFocused) 1.035f else 1.0f,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessLow
+        ),
         label = "radar_focus_scale"
     )
 
-    androidx.compose.foundation.layout.BoxWithConstraints(
+    BoxWithConstraints(
         modifier = modifier
             .scale(focusScale)
+            .shadow(
+                elevation = if (isFocused) 18.dp else 0.dp,
+                shape = RoundedCornerShape(20.dp),
+                spotColor = EmeraldGreen,
+                ambientColor = EmeraldGreen
+            )
             .clip(RoundedCornerShape(20.dp))
-            .background(GlassOverlay)
+            .background(
+                if (isFocused) {
+                    Brush.verticalGradient(
+                        listOf(EmeraldGreen.copy(alpha = 0.16f), GlassOverlay, EmeraldGreen.copy(alpha = 0.06f))
+                    )
+                } else {
+                    SolidColor(GlassOverlay)
+                }
+            )
             .border(
-                width = if (isFocused) 2.5.dp else 1.dp,
+                width = if (isFocused) 3.5.dp else 1.dp,
                 color = if (isFocused) EmeraldGreen else GlassBorder,
                 shape = RoundedCornerShape(20.dp)
             )
             .focusable()
             .onFocusChanged { isFocused = it.isFocused }
             .clickable { onInspect() }
+            .onKeyEvent { event ->
+                if (event.type == KeyEventType.KeyUp &&
+                    (event.key == Key.DirectionCenter ||
+                     event.key == Key.Enter ||
+                     event.key == Key.NumPadEnter)
+                ) {
+                    onInspect()
+                    true
+                } else false
+            }
             .testTag("flight_radar_widget_card")
     ) {
         val isCompact = maxWidth < 440.dp || isShort
@@ -160,28 +199,35 @@ fun FlightRadarWidget(
                     )
                 }
 
-                Spacer(modifier = Modifier.width(6.dp))
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    TvFocusBadge(
+                        isFocused = isFocused,
+                        text = stringResource(R.string.tv_dpad_hint),
+                        accentColor = EmeraldGreen
+                    )
+                    Spacer(modifier = Modifier.width(6.dp))
 
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(10.dp))
-                        .background(EmeraldGreen.copy(alpha = 0.2f))
-                        .padding(horizontal = 8.dp, vertical = 3.dp)
-                ) {
-                    Box(
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
-                            .size(6.dp)
-                            .clip(CircleShape)
-                            .background(EmeraldGreen)
-                    )
-                    Spacer(modifier = Modifier.width(5.dp))
-                    Text(
-                        text = stringResource(R.string.aircraft_active_format, flights.size),
-                        color = EmeraldGreen,
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight.Bold
-                    )
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(EmeraldGreen.copy(alpha = 0.2f))
+                            .padding(horizontal = 8.dp, vertical = 3.dp)
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .size(6.dp)
+                                .clip(CircleShape)
+                                .background(EmeraldGreen)
+                        )
+                        Spacer(modifier = Modifier.width(5.dp))
+                        Text(
+                            text = stringResource(R.string.aircraft_active_format, flights.size),
+                            color = EmeraldGreen,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
                 }
             }
 

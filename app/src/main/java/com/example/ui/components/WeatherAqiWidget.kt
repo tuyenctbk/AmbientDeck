@@ -53,6 +53,18 @@ import com.example.ui.theme.SunsetAmber
 import com.example.ui.theme.TextMuted
 import com.example.ui.theme.TextPrimary
 import com.example.ui.theme.TextSecondary
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.KeyEventType
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
+import androidx.compose.ui.input.key.type
 
 @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
 @Composable
@@ -66,25 +78,52 @@ fun WeatherAqiWidget(
 ) {
     var isFocused by remember { mutableStateOf(false) }
 
-    val focusScale by androidx.compose.animation.core.animateFloatAsState(
-        targetValue = if (isFocused) 1.02f else 1.0f,
-        animationSpec = androidx.compose.animation.core.tween(200),
+    val focusScale by animateFloatAsState(
+        targetValue = if (isFocused) 1.035f else 1.0f,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessLow
+        ),
         label = "weather_focus_scale"
     )
 
-    androidx.compose.foundation.layout.BoxWithConstraints(
+    BoxWithConstraints(
         modifier = modifier
             .scale(focusScale)
+            .shadow(
+                elevation = if (isFocused) 18.dp else 0.dp,
+                shape = RoundedCornerShape(20.dp),
+                spotColor = CyanAccent,
+                ambientColor = CyanAccent
+            )
             .clip(RoundedCornerShape(20.dp))
-            .background(GlassOverlay)
+            .background(
+                if (isFocused) {
+                    Brush.verticalGradient(
+                        listOf(CyanAccent.copy(alpha = 0.16f), GlassOverlay, CyanAccent.copy(alpha = 0.06f))
+                    )
+                } else {
+                    SolidColor(GlassOverlay)
+                }
+            )
             .border(
-                width = if (isFocused) 2.5.dp else 1.dp,
+                width = if (isFocused) 3.5.dp else 1.dp,
                 color = if (isFocused) CyanAccent else GlassBorder,
                 shape = RoundedCornerShape(20.dp)
             )
             .focusable()
             .onFocusChanged { isFocused = it.isFocused }
             .clickable { onInspect() }
+            .onKeyEvent { event ->
+                if (event.type == KeyEventType.KeyUp &&
+                    (event.key == Key.DirectionCenter ||
+                     event.key == Key.Enter ||
+                     event.key == Key.NumPadEnter)
+                ) {
+                    onInspect()
+                    true
+                } else false
+            }
             .testTag("weather_aqi_widget_card")
     ) {
         val isCompact = maxWidth < 440.dp || isShort
@@ -136,17 +175,23 @@ fun WeatherAqiWidget(
                         )
                     }
 
-                    Spacer(modifier = Modifier.width(6.dp))
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        TvFocusBadge(
+                            isFocused = isFocused,
+                            text = stringResource(R.string.tv_dpad_hint),
+                            accentColor = CyanAccent
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
 
-                    // AQI Quality Indicator Pill
-                    val (aqiColor, aqiLabel) = getAqiLevel(weather.aqiUs)
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(10.dp))
-                            .background(aqiColor.copy(alpha = 0.2f))
-                            .padding(horizontal = 8.dp, vertical = 3.dp)
-                    ) {
+                        // AQI Quality Indicator Pill
+                        val (aqiColor, aqiLabel) = getAqiLevel(weather.aqiUs)
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(10.dp))
+                                .background(aqiColor.copy(alpha = 0.2f))
+                                .padding(horizontal = 8.dp, vertical = 3.dp)
+                        ) {
                         Box(
                             modifier = Modifier
                                 .size(6.dp)
@@ -162,6 +207,7 @@ fun WeatherAqiWidget(
                         )
                     }
                 }
+            }
 
                 Spacer(modifier = Modifier.height(if (isShort || isCompact) 3.dp else 8.dp))
 

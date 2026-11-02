@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">OLED ekran korumalı minimalist gece saati</string>
     <string name="action_test_screensaver">Ekran Koruyucuyu Şimdi Test Et</string>
     <string name="screensaver_dismiss_hint">Uyandırmak için ekrana dokunun veya bir tuşa basın</string>
+
+    <string name="voice_command_title">Sesli Komutlar</string>
+    <string name="voice_command_subtitle">Widget\'ları ve manzaraları eller serbest yönetin</string>
+    <string name="voice_status_listening">Dinleniyor… Şimdi konuşun</string>
+    <string name="voice_status_processing">Sesli komut işleniyor…</string>
+    <string name="voice_status_idle">Konuşmak için mikrofona dokunun</string>
+    <string name="voice_status_permission_needed">Sesli komutlar için mikrofon izni gereklidir</string>
+    <string name="voice_status_not_available">Bu cihazda ses tanıma hizmeti mevcut değil</string>
+    <string name="voice_grant_permission">İzin Ver</string>
+    <string name="voice_hint_suggestions">Şunu söylemeyi deneyin: \"Hava Durumunu Değiştir\", \"Radarı Göster\", \"Dağlar\", \"Sonraki Fotoğraf\" veya \"Ekran Koruyucu\"</string>
+    <string name="voice_cmd_sample_weather">Hava Durumunu Değiştir</string>
+    <string name="voice_cmd_sample_radar">Uçuş Radarını Göster</string>
+    <string name="voice_cmd_sample_crypto">Kriptoyu Değiştir</string>
+    <string name="voice_cmd_sample_mountains">Dağlar</string>
+    <string name="voice_cmd_sample_aurora">Kuzey Işıkları</string>
+    <string name="voice_cmd_sample_next">Sonraki Fotoğraf</string>
+    <string name="voice_cmd_sample_screensaver">Ekran Koruyucu</string>
+    <string name="voice_feedback_weather">Hava durumu widget\'ı değiştirildi</string>
+    <string name="voice_feedback_crypto">Kripto göstergesi değiştirildi</string>
+    <string name="voice_feedback_radar">Uçuş radarı değiştirildi</string>
+    <string name="voice_feedback_history">Tarihte Bugün widget\'ı değiştirildi</string>
+    <string name="voice_feedback_clock">Saat widget\'ı değiştirildi</string>
+    <string name="voice_feedback_collection">%1$s koleksiyonuna geçildi</string>
+    <string name="voice_feedback_next_photo">Sonraki manzara fotoğrafına geçiliyor</string>
+    <string name="voice_feedback_prev_photo">Önceki manzara fotoğrafına dönülüyor</string>
+    <string name="voice_feedback_cycle_collection">Manzara koleksiyonu değiştiriliyor</string>
+    <string name="voice_feedback_refresh_art">Manzara fotoğrafları yenilendi</string>
+    <string name="voice_feedback_gallery">Sanat Galerisi açıldı</string>
+    <string name="voice_feedback_settings">Ayarlar açıldı</string>
+    <string name="voice_feedback_screensaver">Ekran koruyucu başlatıldı</string>
+    <string name="voice_feedback_layout">Panel düzeni değiştirildi</string>
+    <string name="voice_feedback_temp_unit">Sıcaklık birimi değiştirildi</string>
+    <string name="voice_feedback_unknown">Komut anlaşılamadı. Lütfen tekrar deneyin.</string>
+    <string name="action_voice_command">Sesli Kontrol</string>
+
+    <string name="five_day_forecast">5 Günlük Tahmin</string>
+    <string name="tv_press_ok_to_inspect">Ayrıntılar için [OK] tuşuna basın</string>
+    <string name="tv_press_ok_to_open_settings">Ayarlar için [OK] tuşuna basın</string>
+    <string name="tv_focused_badge">TV ODAK</string>
+    <string name="tv_dpad_hint">[OK] İncele</string>
 </resources>

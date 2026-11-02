@@ -54,6 +54,15 @@ import com.example.ui.theme.SunsetAmber
 import com.example.ui.theme.TextMuted
 import com.example.ui.theme.TextPrimary
 import com.example.ui.theme.TextSecondary
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.KeyEventType
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
+import androidx.compose.ui.input.key.type
 
 @Composable
 fun HistoryWidget(
@@ -67,7 +76,7 @@ fun HistoryWidget(
 ) {
     var isFocused by remember { mutableStateOf(false) }
     val focusScale by animateFloatAsState(
-        targetValue = if (isFocused) 1.02f else 1.0f,
+        targetValue = if (isFocused) 1.035f else 1.0f,
         animationSpec = spring(
             dampingRatio = Spring.DampingRatioMediumBouncy,
             stiffness = Spring.StiffnessLow
@@ -76,19 +85,43 @@ fun HistoryWidget(
     )
     val currentItem = historyItems.getOrNull(activeIndex)
 
-    androidx.compose.foundation.layout.BoxWithConstraints(
+    BoxWithConstraints(
         modifier = modifier
             .scale(focusScale)
+            .shadow(
+                elevation = if (isFocused) 18.dp else 0.dp,
+                shape = RoundedCornerShape(20.dp),
+                spotColor = CyanAccent,
+                ambientColor = CyanAccent
+            )
             .clip(RoundedCornerShape(20.dp))
-            .background(GlassOverlay)
+            .background(
+                if (isFocused) {
+                    Brush.verticalGradient(
+                        listOf(CyanAccent.copy(alpha = 0.16f), GlassOverlay, CyanAccent.copy(alpha = 0.06f))
+                    )
+                } else {
+                    SolidColor(GlassOverlay)
+                }
+            )
             .border(
-                width = if (isFocused) 2.5.dp else 1.dp,
+                width = if (isFocused) 3.5.dp else 1.dp,
                 color = if (isFocused) CyanAccent else GlassBorder,
                 shape = RoundedCornerShape(20.dp)
             )
             .focusable()
             .onFocusChanged { isFocused = it.isFocused }
             .clickable { onInspect() }
+            .onKeyEvent { event ->
+                if (event.type == KeyEventType.KeyUp &&
+                    (event.key == Key.DirectionCenter ||
+                     event.key == Key.Enter ||
+                     event.key == Key.NumPadEnter)
+                ) {
+                    onInspect()
+                    true
+                } else false
+            }
             .testTag("history_widget_card")
     ) {
         val isCompact = maxWidth < 440.dp || isShort
@@ -123,16 +156,23 @@ fun HistoryWidget(
                     )
                 }
 
-                Spacer(modifier = Modifier.width(6.dp))
-
-                // Item index pill
-                if (historyItems.isNotEmpty()) {
-                    Text(
-                        text = stringResource(R.string.history_count_format, activeIndex + 1, historyItems.size),
-                        color = TextMuted,
-                        fontSize = 11.sp,
-                        fontWeight = FontWeight.Medium
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    TvFocusBadge(
+                        isFocused = isFocused,
+                        text = stringResource(R.string.tv_dpad_hint),
+                        accentColor = CyanAccent
                     )
+                    Spacer(modifier = Modifier.width(6.dp))
+
+                    // Item index pill
+                    if (historyItems.isNotEmpty()) {
+                        Text(
+                            text = stringResource(R.string.history_count_format, activeIndex + 1, historyItems.size),
+                            color = TextMuted,
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Medium
+                        )
+                    }
                 }
             }
 

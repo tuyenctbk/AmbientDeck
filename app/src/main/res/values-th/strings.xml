@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">นาฬิกากลางคืนป้องกันจอ OLED เบิร์นอิน</string>
     <string name="action_test_screensaver">ทดสอบสกรีนเซฟเวอร์ตอนนี้</string>
     <string name="screensaver_dismiss_hint">แตะหน้าจอหรือกดปุ่มใดๆ เพื่อปลุก</string>
+
+    <string name="voice_command_title">คำสั่งเสียง</string>
+    <string name="voice_command_subtitle">ควบคุมวิดเจ็ตและภาพทิวทัศน์แบบแฮนด์ฟรี</string>
+    <string name="voice_status_listening">กำลังฟัง… พูดได้เลย</string>
+    <string name="voice_status_processing">กำลังประมวลผลคำสั่งเสียง…</string>
+    <string name="voice_status_idle">แตะไมโครโฟนเพื่อพูด</string>
+    <string name="voice_status_permission_needed">ต้องได้รับอนุญาตใช้ไมโครโฟนสำหรับคำสั่งเสียง</string>
+    <string name="voice_status_not_available">บริการจดจำเสียงไม่พร้อมใช้งานบนอุปกรณ์นี้</string>
+    <string name="voice_grant_permission">ให้สิทธิ์อนุญาต</string>
+    <string name="voice_hint_suggestions">ลองพูด: \"สลับสภาพอากาศ\", \"แสดงเรดาร์\", \"ภูเขา\", \"รูปถัดไป\", หรือ \"สกรีนเซฟเวอร์\"</string>
+    <string name="voice_cmd_sample_weather">สลับสภาพอากาศ</string>
+    <string name="voice_cmd_sample_radar">แสดงเรดาร์การบิน</string>
+    <string name="voice_cmd_sample_crypto">สลับคริปโต</string>
+    <string name="voice_cmd_sample_mountains">ภูเขา</string>
+    <string name="voice_cmd_sample_aurora">แสงเหนือ</string>
+    <string name="voice_cmd_sample_next">รูปถัดไป</string>
+    <string name="voice_cmd_sample_screensaver">สกรีนเซฟเวอร์</string>
+    <string name="voice_feedback_weather">สลับวิดเจ็ตสภาพอากาศแล้ว</string>
+    <string name="voice_feedback_crypto">สลับวิดเจ็ตคริปโตแล้ว</string>
+    <string name="voice_feedback_radar">สลับเรดาร์การบินแล้ว</string>
+    <string name="voice_feedback_history">สลับวิดเจ็ตประวัติศาสตร์แล้ว</string>
+    <string name="voice_feedback_clock">สลับวิดเจ็ตนาฬิกาแล้ว</string>
+    <string name="voice_feedback_collection">เปลี่ยนเป็นคอลเลกชัน %1$s แล้ว</string>
+    <string name="voice_feedback_next_photo">ไปยังรูปภาพทิวทัศน์ถัดไป</string>
+    <string name="voice_feedback_prev_photo">กลับไปยังรูปภาพทิวทัศน์ก่อนหน้า</string>
+    <string name="voice_feedback_cycle_collection">กำลังหมุนเวียนคอลเลกชันทิวทัศน์</string>
+    <string name="voice_feedback_refresh_art">รีเฟรชภาพทิวทัศน์แล้ว</string>
+    <string name="voice_feedback_gallery">เปิดแกลเลอรีภาพแล้ว</string>
+    <string name="voice_feedback_settings">เปิดการตั้งค่าแล้ว</string>
+    <string name="voice_feedback_screensaver">เริ่มสกรีนเซฟเวอร์แล้ว</string>
+    <string name="voice_feedback_layout">เปลี่ยนเค้าโครงแดชบอร์ดแล้ว</string>
+    <string name="voice_feedback_temp_unit">สลับหน่วยอุณหภูมิแล้ว</string>
+    <string name="voice_feedback_unknown">ไม่รู้จักคำสั่ง โปรดลองใหม่อีกครั้ง</string>
+    <string name="action_voice_command">ควบคุมด้วยเสียง</string>
+
+    <string name="five_day_forecast">พยากรณ์อากาศ 5 วัน</string>
+    <string name="tv_press_ok_to_inspect">กด [OK] เพื่อดูรายละเอียด</string>
+    <string name="tv_press_ok_to_open_settings">กด [OK] สำหรับการตั้งค่า</string>
+    <string name="tv_focused_badge">โฟกัสทีวี</string>
+    <string name="tv_dpad_hint">[OK] รายละเอียด</string>
 </resources>

@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">OLED स्क्रीन सुरक्षा के साथ नाइट क्लॉक</string>
     <string name="action_test_screensaver">अभी स्क्रीनसेवर का परीक्षण करें</string>
     <string name="screensaver_dismiss_hint">जागने के लिए स्क्रीन टैप करें या कोई कुंजी दबाएं</string>
+
+    <string name="voice_command_title">वॉयस कमांड</string>
+    <string name="voice_command_subtitle">विजेट्स और कला को हैंड्स-फ्री नियंत्रित करें</string>
+    <string name="voice_status_listening">सुन रहा हूँ… अब बोलें</string>
+    <string name="voice_status_processing">वॉयस कमांड प्रोसेस हो रहा है…</string>
+    <string name="voice_status_idle">बोलने के लिए माइक दबाएं</string>
+    <string name="voice_status_permission_needed">वॉयस कमांड के लिए माइक्रोफ़ोन अनुमति आवश्यक है</string>
+    <string name="voice_status_not_available">इस उपकरण पर वाक् पहचान उपलब्ध नहीं है</string>
+    <string name="voice_grant_permission">अनुमति दें</string>
+    <string name="voice_hint_suggestions">बोलें: \"मौसम बदलें\", \"रडार दिखाएं\", \"पहाड़\", \"अगली फोटो\" या \"स्क्रीनसेवर\"</string>
+    <string name="voice_cmd_sample_weather">मौसम टॉगल करें</string>
+    <string name="voice_cmd_sample_radar">उड़ान रडार दिखाएं</string>
+    <string name="voice_cmd_sample_crypto">क्रिप्टो टॉगल करें</string>
+    <string name="voice_cmd_sample_mountains">पहाड़</string>
+    <string name="voice_cmd_sample_aurora">उत्तरी रोशनी</string>
+    <string name="voice_cmd_sample_next">अगली फोटो</string>
+    <string name="voice_cmd_sample_screensaver">स्क्रीनसेवर</string>
+    <string name="voice_feedback_weather">मौसम विजेट टॉगल किया गया</string>
+    <string name="voice_feedback_crypto">क्रिप्टो टिकर टॉगल किया गया</string>
+    <string name="voice_feedback_radar">उड़ान रडार टॉगल किया गया</string>
+    <string name="voice_feedback_history">इतिहास विजेट टॉगल किया गया</string>
+    <string name="voice_feedback_clock">घड़ी विजेट टॉगल किया गया</string>
+    <string name="voice_feedback_collection">%1$s संग्रह पर स्विच किया गया</string>
+    <string name="voice_feedback_next_photo">अगली लैंडस्केप फोटो पर जा रहे हैं</string>
+    <string name="voice_feedback_prev_photo">पिछली लैंडस्केप फोटो पर लौट रहे हैं</string>
+    <string name="voice_feedback_cycle_collection">लैंडस्केप संग्रह बदला जा रहा है</string>
+    <string name="voice_feedback_refresh_art">लैंडस्केप छवियां ताज़ा की गईं</string>
+    <string name="voice_feedback_gallery">आर्ट गैलरी खोली गई</string>
+    <string name="voice_feedback_settings">सेटिंग्स खोली गईं</string>
+    <string name="voice_feedback_screensaver">स्क्रीनसेवर शुरू हुआ</string>
+    <string name="voice_feedback_layout">डैशबोर्ड लेआउट बदला गया</string>
+    <string name="voice_feedback_temp_unit">तापमान इकाई बदली गई</string>
+    <string name="voice_feedback_unknown">कमांड पहचानी नहीं गई। कृपया पुनः प्रयास करें।</string>
+    <string name="action_voice_command">वॉयस कंट्रोल</string>
+
+    <string name="five_day_forecast">5-दिवसीय पूर्वानुमान</string>
+    <string name="tv_press_ok_to_inspect">विस्तार के लिए [OK] दबाएं</string>
+    <string name="tv_press_ok_to_open_settings">सेटिंग्स के लिए [OK] दबाएं</string>
+    <string name="tv_focused_badge">टीवी फोकस</string>
+    <string name="tv_dpad_hint">[OK] विस्तार</string>
 </resources>

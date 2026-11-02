@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">ساعة ليلية آمنة لشاشات OLED</string>
     <string name="action_test_screensaver">تجربة شاشة التوقف الآن</string>
     <string name="screensaver_dismiss_hint">انقر على الشاشة أو اضغط على أي زر للاستيقاظ</string>
+
+    <string name="voice_command_title">الأوامر الصوتية</string>
+    <string name="voice_command_subtitle">تحكم بدون استخدام اليدين في الأدوات والفن</string>
+    <string name="voice_status_listening">جاري الاستماع… تحدث الآن</string>
+    <string name="voice_status_processing">معالجة الأمر الصوتي…</string>
+    <string name="voice_status_idle">انقر على الميكروفون للتحدث</string>
+    <string name="voice_status_permission_needed">إذن الميكروفون مطلوب للأوامر الصوتية</string>
+    <string name="voice_status_not_available">خدمة التعرف على الصوت غير متوفرة على هذا الجهاز</string>
+    <string name="voice_grant_permission">منح الإذن</string>
+    <string name="voice_hint_suggestions">جرب قول: \"تبديل الطقس\"، \"عرض الرادار\"، \"الجبال\"، \"الصورة التالية\"، أو \"شاشة التوقف\"</string>
+    <string name="voice_cmd_sample_weather">تبديل الطقس</string>
+    <string name="voice_cmd_sample_radar">عرض رادار الطيران</string>
+    <string name="voice_cmd_sample_crypto">تبديل العملات الرقمية</string>
+    <string name="voice_cmd_sample_mountains">الجبال</string>
+    <string name="voice_cmd_sample_aurora">الشفق القطبي</string>
+    <string name="voice_cmd_sample_next">الصورة التالية</string>
+    <string name="voice_cmd_sample_screensaver">شاشة التوقف</string>
+    <string name="voice_feedback_weather">تم تبديل أداة الطقس</string>
+    <string name="voice_feedback_crypto">تم تبديل أسعار العملات</string>
+    <string name="voice_feedback_radar">تم تبديل رادار الطيران</string>
+    <string name="voice_feedback_history">تم تبديل حدث في مثل هذا اليوم</string>
+    <string name="voice_feedback_clock">تم تبديل الساعة</string>
+    <string name="voice_feedback_collection">تم التبديل إلى مجموعة %1$s</string>
+    <string name="voice_feedback_next_photo">الانتقال إلى الصورة التالية</string>
+    <string name="voice_feedback_prev_photo">الرجوع إلى الصورة السابقة</string>
+    <string name="voice_feedback_cycle_collection">تدوير المجموعات الطبيعية</string>
+    <string name="voice_feedback_refresh_art">تحديث الصور الطبيعية</string>
+    <string name="voice_feedback_gallery">تم فتح معرض الفنون</string>
+    <string name="voice_feedback_settings">تم فتح الإعدادات</string>
+    <string name="voice_feedback_screensaver">تم تشغيل شاشة التوقف</string>
+    <string name="voice_feedback_layout">تم تغيير تخطيط اللوحة</string>
+    <string name="voice_feedback_temp_unit">تم تغيير وحدة درجة الحرارة</string>
+    <string name="voice_feedback_unknown">لم يتم التعرف على الأمر. حاول مجدداً.</string>
+    <string name="action_voice_command">التحكم الصوتي</string>
+
+    <string name="five_day_forecast">توقعات 5 أيام</string>
+    <string name="tv_press_ok_to_inspect">اضغط [OK] للمعاينة</string>
+    <string name="tv_press_ok_to_open_settings">اضغط [OK] للإعدادات</string>
+    <string name="tv_focused_badge">محدد للتلفاز</string>
+    <string name="tv_dpad_hint">[OK] معاينة</string>
 </resources>

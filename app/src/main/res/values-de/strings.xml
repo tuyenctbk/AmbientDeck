@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">Minimalistische OLED-schonende Nachtuhr</string>
     <string name="action_test_screensaver">Bildschirmschoner jetzt testen</string>
     <string name="screensaver_dismiss_hint">Tippen oder Taste drücken zum Aufwachen</string>
+
+    <string name="voice_command_title">Sprachbefehle</string>
+    <string name="voice_command_subtitle">Freihändige Steuerung für Widgets und Kunst</string>
+    <string name="voice_status_listening">Höre zu… Jetzt sprechen</string>
+    <string name="voice_status_processing">Verarbeite Sprachbefehl…</string>
+    <string name="voice_status_idle">Tippen zum Sprechen</string>
+    <string name="voice_status_permission_needed">Mikrofonberechtigung für Sprachbefehle erforderlich</string>
+    <string name="voice_status_not_available">Spracherkennung auf diesem Gerät nicht verfügbar</string>
+    <string name="voice_grant_permission">Berechtigung erteilen</string>
+    <string name="voice_hint_suggestions">Versuchen Sie: \"Wetter umschalten\", \"Radar anzeigen\", \"Berge\", \"Nächstes Foto\" oder \"Bildschirmschoner\"</string>
+    <string name="voice_cmd_sample_weather">Wetter umschalten</string>
+    <string name="voice_cmd_sample_radar">Flugradar anzeigen</string>
+    <string name="voice_cmd_sample_crypto">Krypto umschalten</string>
+    <string name="voice_cmd_sample_mountains">Berge</string>
+    <string name="voice_cmd_sample_aurora">Nordlichter</string>
+    <string name="voice_cmd_sample_next">Nächstes Foto</string>
+    <string name="voice_cmd_sample_screensaver">Bildschirmschoner</string>
+    <string name="voice_feedback_weather">Wetter-Widget umgeschaltet</string>
+    <string name="voice_feedback_crypto">Krypto-Ticker umgeschaltet</string>
+    <string name="voice_feedback_radar">Flugradar umgeschaltet</string>
+    <string name="voice_feedback_history">Heute in der Geschichte umgeschaltet</string>
+    <string name="voice_feedback_clock">Uhr-Widget umgeschaltet</string>
+    <string name="voice_feedback_collection">Gewechselt zur Sammlung %1$s</string>
+    <string name="voice_feedback_next_photo">Wechsle zum nächsten Landschaftsfoto</string>
+    <string name="voice_feedback_prev_photo">Zurück zum vorherigen Landschaftsfoto</string>
+    <string name="voice_feedback_cycle_collection">Landschaftssammlung gewechselt</string>
+    <string name="voice_feedback_refresh_art">Landschaftsbilder aktualisiert</string>
+    <string name="voice_feedback_gallery">Kunstgalerie geöffnet</string>
+    <string name="voice_feedback_settings">Einstellungen geöffnet</string>
+    <string name="voice_feedback_screensaver">Bildschirmschoner gestartet</string>
+    <string name="voice_feedback_layout">Dashboard-Layout gewechselt</string>
+    <string name="voice_feedback_temp_unit">Temperatureinheit umgeschaltet</string>
+    <string name="voice_feedback_unknown">Befehl nicht erkannt. Bitte erneut versuchen.</string>
+    <string name="action_voice_command">Sprachsteuerung</string>
+
+    <string name="five_day_forecast">5-Tage-Vorhersage</string>
+    <string name="tv_press_ok_to_inspect">Drücken Sie [OK] für Details</string>
+    <string name="tv_press_ok_to_open_settings">Drücken Sie [OK] für Einstellungen</string>
+    <string name="tv_focused_badge">TV FOKUS</string>
+    <string name="tv_dpad_hint">[OK] Öffnen</string>
 </resources>

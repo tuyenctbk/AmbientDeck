@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">Jam malam minimalis aman untuk layar OLED</string>
     <string name="action_test_screensaver">Uji Screensaver Sekarang</string>
     <string name="screensaver_dismiss_hint">Ketuk layar atau tekan tombol untuk membangunkan</string>
+
+    <string name="voice_command_title">Perintah Suara</string>
+    <string name="voice_command_subtitle">Kontrol widget dan lanskap tanpa menyentuh layar</string>
+    <string name="voice_status_listening">Mendengarkan… Bicara sekarang</string>
+    <string name="voice_status_processing">Memproses perintah suara…</string>
+    <string name="voice_status_idle">Ketuk mikrofon untuk bicara</string>
+    <string name="voice_status_permission_needed">Izin mikrofon diperlukan untuk perintah suara</string>
+    <string name="voice_status_not_available">Layanan pengenalan suara tidak tersedia di perangkat ini</string>
+    <string name="voice_grant_permission">Berikan Izin</string>
+    <string name="voice_hint_suggestions">Coba katakan: \"Beralih Cuaca\", \"Tampilkan Radar\", \"Pegunungan\", \"Foto Berikutnya\", atau \"Screensaver\"</string>
+    <string name="voice_cmd_sample_weather">Beralih Cuaca</string>
+    <string name="voice_cmd_sample_radar">Tampilkan Radar Penerbangan</string>
+    <string name="voice_cmd_sample_crypto">Beralih Kripto</string>
+    <string name="voice_cmd_sample_mountains">Pegunungan</string>
+    <string name="voice_cmd_sample_aurora">Aurora Kutub</string>
+    <string name="voice_cmd_sample_next">Foto Berikutnya</string>
+    <string name="voice_cmd_sample_screensaver">Screensaver</string>
+    <string name="voice_feedback_weather">Widget cuaca dialihkan</string>
+    <string name="voice_feedback_crypto">Ticker kripto dialihkan</string>
+    <string name="voice_feedback_radar">Radar penerbangan dialihkan</string>
+    <string name="voice_feedback_history">Widget sejarah dialihkan</string>
+    <string name="voice_feedback_clock">Widget jam dialihkan</string>
+    <string name="voice_feedback_collection">Beralih ke koleksi %1$s</string>
+    <string name="voice_feedback_next_photo">Pindah ke foto lanskap berikutnya</string>
+    <string name="voice_feedback_prev_photo">Kembali ke foto lanskap sebelumnya</string>
+    <string name="voice_feedback_cycle_collection">Memutar koleksi lanskap</string>
+    <string name="voice_feedback_refresh_art">Memperbarui gambar pemandangan</string>
+    <string name="voice_feedback_gallery">Galeri seni dibuka</string>
+    <string name="voice_feedback_settings">Pengaturan dibuka</string>
+    <string name="voice_feedback_screensaver">Screensaver dimulai</string>
+    <string name="voice_feedback_layout">Tata letak dashboard diubah</string>
+    <string name="voice_feedback_temp_unit">Satuan suhu dialihkan</string>
+    <string name="voice_feedback_unknown">Perintah tidak dikenali. Silakan coba lagi.</string>
+    <string name="action_voice_command">Kontrol Suara</string>
+
+    <string name="five_day_forecast">Prakiraan 5 Hari</string>
+    <string name="tv_press_ok_to_inspect">Tekan [OK] untuk Memeriksa</string>
+    <string name="tv_press_ok_to_open_settings">Tekan [OK] untuk Pengaturan</string>
+    <string name="tv_focused_badge">FOKUS TV</string>
+    <string name="tv_dpad_hint">[OK] Periksa</string>
 </resources>

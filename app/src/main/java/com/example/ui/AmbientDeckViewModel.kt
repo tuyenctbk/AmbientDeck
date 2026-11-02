@@ -30,6 +30,10 @@ import java.util.Date
 import java.util.Locale
 
 import com.example.data.model.ScreensaverStyle
+import com.example.data.voice.VoiceAction
+import com.example.data.voice.VoiceCommandManager
+import com.example.data.voice.VoiceCommandResult
+import com.example.data.voice.VoiceState
 
 enum class InspectWidgetType {
     WEATHER,
@@ -53,6 +57,10 @@ data class DeckUiState(
     val isFetchingArt: Boolean = false,
     val isArtGalleryOpen: Boolean = false,
     val isScreensaverActive: Boolean = false,
+    val isVoiceOverlayOpen: Boolean = false,
+    val voiceState: VoiceState = VoiceState.Idle,
+    val voiceRmsDb: Float = 0f,
+    val lastVoiceResult: VoiceCommandResult? = null,
     val currentTime: String = "",
     val currentSeconds: String = "",
     val currentPeriod: String = "",
@@ -576,5 +584,135 @@ class AmbientDeckViewModel(
     fun onTogglePrivacyPolicy(show: Boolean) {
         if (show) engagementManager?.recordInteraction()
         _uiState.update { it.copy(showPrivacyPolicy = show) }
+    }
+
+    private var voiceCommandManager: VoiceCommandManager? = null
+
+    fun initVoice(context: Context) {
+        if (voiceCommandManager == null) {
+            voiceCommandManager = VoiceCommandManager(context)
+        }
+    }
+
+    fun onToggleVoiceOverlay(open: Boolean) {
+        onUserActivity()
+        if (open) engagementManager?.recordInteraction()
+        _uiState.update { it.copy(isVoiceOverlayOpen = open, voiceState = if (open) VoiceState.Idle else VoiceState.Idle) }
+        if (!open) {
+            voiceCommandManager?.stopListening()
+        }
+    }
+
+    fun startVoiceListening() {
+        onUserActivity()
+        engagementManager?.recordInteraction()
+        _uiState.update { it.copy(isVoiceOverlayOpen = true, voiceState = VoiceState.Listening, voiceRmsDb = 0f) }
+        voiceCommandManager?.startListening(
+            onStateChange = { state ->
+                _uiState.update { it.copy(voiceState = state) }
+            },
+            onRmsChanged = { rms ->
+                _uiState.update { it.copy(voiceRmsDb = rms) }
+            },
+            onResult = { result ->
+                executeVoiceCommand(result)
+            }
+        )
+    }
+
+    fun stopVoiceListening() {
+        voiceCommandManager?.stopListening()
+        _uiState.update { it.copy(voiceState = VoiceState.Idle, voiceRmsDb = 0f) }
+    }
+
+    fun simulateVoiceCommand(text: String) {
+        onUserActivity()
+        engagementManager?.recordInteraction()
+        _uiState.update { it.copy(isVoiceOverlayOpen = true) }
+        voiceCommandManager?.simulateCommand(
+            spokenText = text,
+            onStateChange = { state ->
+                _uiState.update { it.copy(voiceState = state) }
+            },
+            onResult = { result ->
+                executeVoiceCommand(result)
+            }
+        )
+    }
+
+    fun executeVoiceCommand(result: VoiceCommandResult) {
+        _uiState.update { it.copy(lastVoiceResult = result) }
+        if (!result.isSuccess) return
+
+        when (result.action) {
+            VoiceAction.TOGGLE_WEATHER -> onToggleWidget(WidgetToggleType.WEATHER)
+            VoiceAction.SHOW_WEATHER -> _uiState.update { it.copy(settings = it.settings.copy(showWeather = true)) }
+            VoiceAction.HIDE_WEATHER -> _uiState.update { it.copy(settings = it.settings.copy(showWeather = false)) }
+
+            VoiceAction.TOGGLE_CRYPTO -> onToggleWidget(WidgetToggleType.CRYPTO)
+            VoiceAction.SHOW_CRYPTO -> _uiState.update { it.copy(settings = it.settings.copy(showCrypto = true)) }
+            VoiceAction.HIDE_CRYPTO -> _uiState.update { it.copy(settings = it.settings.copy(showCrypto = false)) }
+
+            VoiceAction.TOGGLE_RADAR -> onToggleWidget(WidgetToggleType.RADAR)
+            VoiceAction.SHOW_RADAR -> _uiState.update { it.copy(settings = it.settings.copy(showRadar = true)) }
+            VoiceAction.HIDE_RADAR -> _uiState.update { it.copy(settings = it.settings.copy(showRadar = false)) }
+
+            VoiceAction.TOGGLE_HISTORY -> onToggleWidget(WidgetToggleType.HISTORY)
+            VoiceAction.SHOW_HISTORY -> _uiState.update { it.copy(settings = it.settings.copy(showHistory = true)) }
+            VoiceAction.HIDE_HISTORY -> _uiState.update { it.copy(settings = it.settings.copy(showHistory = false)) }
+
+            VoiceAction.TOGGLE_CLOCK -> onToggleWidget(WidgetToggleType.CLOCK)
+            VoiceAction.SHOW_CLOCK -> _uiState.update { it.copy(settings = it.settings.copy(showClock = true)) }
+            VoiceAction.HIDE_CLOCK -> _uiState.update { it.copy(settings = it.settings.copy(showClock = false)) }
+
+            VoiceAction.SET_COLLECTION_MOUNTAINS,
+            VoiceAction.SET_COLLECTION_COASTAL,
+            VoiceAction.SET_COLLECTION_FOREST,
+            VoiceAction.SET_COLLECTION_AURORA,
+            VoiceAction.SET_COLLECTION_DESERT,
+            VoiceAction.SET_COLLECTION_LAKES,
+            VoiceAction.SET_COLLECTION_GOLDEN_HOUR,
+            VoiceAction.SET_COLLECTION_AERIAL -> {
+                result.targetCollection?.let { col ->
+                    selectLandscapeCollection(col)
+                }
+            }
+
+            VoiceAction.NEXT_WALLPAPER -> cycleWallpaper()
+            VoiceAction.PREV_WALLPAPER -> prevWallpaper()
+            VoiceAction.CYCLE_COLLECTION -> cycleCollection()
+            VoiceAction.REFRESH_ART -> fetchFreshUnsplashPhotos()
+
+            VoiceAction.OPEN_ART_GALLERY -> onToggleArtGallery(true)
+            VoiceAction.CLOSE_ART_GALLERY -> onToggleArtGallery(false)
+
+            VoiceAction.OPEN_SETTINGS -> onToggleSettings(true)
+            VoiceAction.CLOSE_SETTINGS -> onToggleSettings(false)
+
+            VoiceAction.START_SCREENSAVER -> onToggleScreensaver(true)
+            VoiceAction.CYCLE_LAYOUT -> {
+                val nextMode = when (_uiState.value.settings.layoutMode) {
+                    LayoutMode.CINEMATIC -> LayoutMode.GRID
+                    LayoutMode.GRID -> LayoutMode.ZEN
+                    LayoutMode.ZEN -> LayoutMode.CINEMATIC
+                }
+                onSelectLayoutMode(nextMode)
+            }
+            VoiceAction.TOGGLE_TEMP_UNIT -> onToggleTempUnit()
+            VoiceAction.UNKNOWN -> {}
+        }
+
+        // Auto dismiss voice overlay after brief success confirmation
+        viewModelScope.launch {
+            delay(2800L)
+            if (_uiState.value.isVoiceOverlayOpen && _uiState.value.voiceState is VoiceState.Success) {
+                _uiState.update { it.copy(isVoiceOverlayOpen = false, voiceState = VoiceState.Idle) }
+            }
+        }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        voiceCommandManager?.destroy()
     }
 }

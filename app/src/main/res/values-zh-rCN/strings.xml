@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">OLED防烧屏极简夜间时钟</string>
     <string name="action_test_screensaver">立即测试屏幕保护</string>
     <string name="screensaver_dismiss_hint">点击屏幕或按任意键唤醒</string>
+
+    <string name="voice_command_title">语音控制</string>
+    <string name="voice_command_subtitle">免提语音控制小部件与风景壁纸</string>
+    <string name="voice_status_listening">正在聆听… 请说话</string>
+    <string name="voice_status_processing">正在处理语音命令…</string>
+    <string name="voice_status_idle">点击麦克风说话</string>
+    <string name="voice_status_permission_needed">语音控制需要麦克风权限</string>
+    <string name="voice_status_not_available">此设备暂不支持语音识别服务</string>
+    <string name="voice_grant_permission">授予权限</string>
+    <string name="voice_hint_suggestions">尝试说：\"切换天气\"、\"显示雷达\"、\"山脉\"、\"下一张照片\"或\"屏幕保护\"</string>
+    <string name="voice_cmd_sample_weather">切换天气</string>
+    <string name="voice_cmd_sample_radar">显示航班雷达</string>
+    <string name="voice_cmd_sample_crypto">切换加密货币</string>
+    <string name="voice_cmd_sample_mountains">山脉</string>
+    <string name="voice_cmd_sample_aurora">极光</string>
+    <string name="voice_cmd_sample_next">下一张照片</string>
+    <string name="voice_cmd_sample_screensaver">屏幕保护</string>
+    <string name="voice_feedback_weather">已切换天气小部件</string>
+    <string name="voice_feedback_crypto">已切换加密货币行情</string>
+    <string name="voice_feedback_radar">已切换航班雷达</string>
+    <string name="voice_feedback_history">已切换历史上的今天</string>
+    <string name="voice_feedback_clock">已切换时钟部件</string>
+    <string name="voice_feedback_collection">已切换至 %1$s 集合</string>
+    <string name="voice_feedback_next_photo">切换至下一张风景照片</string>
+    <string name="voice_feedback_prev_photo">返回上一张风景照片</string>
+    <string name="voice_feedback_cycle_collection">轮换风景摄影集合</string>
+    <string name="voice_feedback_refresh_art">已刷新风景壁纸</string>
+    <string name="voice_feedback_gallery">已打开艺术画廊</string>
+    <string name="voice_feedback_settings">已打开设置</string>
+    <string name="voice_feedback_screensaver">已启动屏幕保护</string>
+    <string name="voice_feedback_layout">已切换仪表盘布局</string>
+    <string name="voice_feedback_temp_unit">已切换温度单位</string>
+    <string name="voice_feedback_unknown">未能识别命令，请重试。</string>
+    <string name="action_voice_command">语音控制</string>
+
+    <string name="five_day_forecast">5天天气预报</string>
+    <string name="tv_press_ok_to_inspect">按 [OK] 查看详情</string>
+    <string name="tv_press_ok_to_open_settings">按 [OK] 打开设置</string>
+    <string name="tv_focused_badge">TV 选中</string>
+    <string name="tv_dpad_hint">[OK] 详情</string>
 </resources>

@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">Đồng hồ ban đêm an toàn chống lưu ảnh OLED</string>
     <string name="action_test_screensaver">Thử màn hình chờ ngay</string>
     <string name="screensaver_dismiss_hint">Chạm vào màn hình hoặc nhấn phím bất kỳ để bật lại</string>
+
+    <string name="voice_command_title">Lệnh giọng nói</string>
+    <string name="voice_command_subtitle">Điều khiển tiện ích và ảnh nền rảnh tay</string>
+    <string name="voice_status_listening">Đang lắng nghe… Hãy nói ngay</string>
+    <string name="voice_status_processing">Đang xử lý lệnh giọng nói…</string>
+    <string name="voice_status_idle">Chạm vào micrô để nói</string>
+    <string name="voice_status_permission_needed">Cần quyền truy cập micrô để dùng lệnh giọng nói</string>
+    <string name="voice_status_not_available">Dịch vụ nhận dạng giọng nói không khả dụng trên thiết bị này</string>
+    <string name="voice_grant_permission">Cấp quyền</string>
+    <string name="voice_hint_suggestions">Thử nói: \"Bật tắt thời tiết\", \"Hiện radar\", \"Núi non\", \"Ảnh tiếp theo\", hoặc \"Màn hình chờ\"</string>
+    <string name="voice_cmd_sample_weather">Bật tắt thời tiết</string>
+    <string name="voice_cmd_sample_radar">Hiện radar chuyến bay</string>
+    <string name="voice_cmd_sample_crypto">Bật tắt tiền điện tử</string>
+    <string name="voice_cmd_sample_mountains">Núi non</string>
+    <string name="voice_cmd_sample_aurora">Cực quang</string>
+    <string name="voice_cmd_sample_next">Ảnh tiếp theo</string>
+    <string name="voice_cmd_sample_screensaver">Màn hình chờ</string>
+    <string name="voice_feedback_weather">Đã chuyển đổi tiện ích thời tiết</string>
+    <string name="voice_feedback_crypto">Đã chuyển đổi bảng giá tiền mã hóa</string>
+    <string name="voice_feedback_radar">Đã chuyển đổi radar chuyến bay</string>
+    <string name="voice_feedback_history">Đã chuyển đổi sự kiện lịch sử</string>
+    <string name="voice_feedback_clock">Đã chuyển đổi tiện ích đồng hồ</string>
+    <string name="voice_feedback_collection">Đã chuyển sang bộ sưu tập %1$s</string>
+    <string name="voice_feedback_next_photo">Chuyển sang ảnh phong cảnh tiếp theo</string>
+    <string name="voice_feedback_prev_photo">Quay lại ảnh phong cảnh trước</string>
+    <string name="voice_feedback_cycle_collection">Đang xoay vòng bộ sưu tập phong cảnh</string>
+    <string name="voice_feedback_refresh_art">Đã làm mới ảnh phong cảnh</string>
+    <string name="voice_feedback_gallery">Đã mở phòng trưng bày nghệ thuật</string>
+    <string name="voice_feedback_settings">Đã mở cài đặt</string>
+    <string name="voice_feedback_screensaver">Đã kích hoạt màn hình chờ</string>
+    <string name="voice_feedback_layout">Đã thay đổi bố cục bảng điều khiển</string>
+    <string name="voice_feedback_temp_unit">Đã chuyển đổi đơn vị nhiệt độ</string>
+    <string name="voice_feedback_unknown">Không nhận diện được lệnh. Vui lòng thử lại.</string>
+    <string name="action_voice_command">Điều khiển giọng nói</string>
+
+    <string name="five_day_forecast">Dự báo thời tiết 5 ngày</string>
+    <string name="tv_press_ok_to_inspect">Nhấn [OK] để xem chi tiết</string>
+    <string name="tv_press_ok_to_open_settings">Nhấn [OK] để vào cài đặt</string>
+    <string name="tv_focused_badge">TIÊU ĐIỂM TV</string>
+    <string name="tv_dpad_hint">[OK] Xem</string>
 </resources>

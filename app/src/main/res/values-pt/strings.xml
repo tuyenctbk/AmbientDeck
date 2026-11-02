@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">Relógio noturno seguro para ecrãs OLED</string>
     <string name="action_test_screensaver">Testar proteção de ecrã agora</string>
     <string name="screensaver_dismiss_hint">Toque no ecrã ou prima qualquer tecla para acordar</string>
+
+    <string name="voice_command_title">Comandos de voz</string>
+    <string name="voice_command_subtitle">Controle widgets e arte sem as mãos</string>
+    <string name="voice_status_listening">A ouvir… Fale agora</string>
+    <string name="voice_status_processing">A processar comando de voz…</string>
+    <string name="voice_status_idle">Toque no microfone para falar</string>
+    <string name="voice_status_permission_needed">Permissão de microfone necessária para comandos de voz</string>
+    <string name="voice_status_not_available">Reconhecimento de voz indisponível neste dispositivo</string>
+    <string name="voice_grant_permission">Conceder permissão</string>
+    <string name="voice_hint_suggestions">Tente dizer: \"Alternar meteorologia\", \"Mostrar radar\", \"Montanhas\", \"Foto seguinte\" ou \"Proteção de ecrã\"</string>
+    <string name="voice_cmd_sample_weather">Alternar meteorologia</string>
+    <string name="voice_cmd_sample_radar">Mostrar radar de voos</string>
+    <string name="voice_cmd_sample_crypto">Alternar criptomoedas</string>
+    <string name="voice_cmd_sample_mountains">Montanhas</string>
+    <string name="voice_cmd_sample_aurora">Aurora boreal</string>
+    <string name="voice_cmd_sample_next">Foto seguinte</string>
+    <string name="voice_cmd_sample_screensaver">Proteção de ecrã</string>
+    <string name="voice_feedback_weather">Widget de meteorologia alternado</string>
+    <string name="voice_feedback_crypto">Ticker de cripto alternado</string>
+    <string name="voice_feedback_radar">Radar de voos alternado</string>
+    <string name="voice_feedback_history">Widget de história alternado</string>
+    <string name="voice_feedback_clock">Widget de relógio alternado</string>
+    <string name="voice_feedback_collection">Mudou para a coleção %1$s</string>
+    <string name="voice_feedback_next_photo">Avançar para a fotografia seguinte</string>
+    <string name="voice_feedback_prev_photo">Voltar para a fotografia anterior</string>
+    <string name="voice_feedback_cycle_collection">A alternar coleção de paisagens</string>
+    <string name="voice_feedback_refresh_art">Fotografias de paisagens atualizadas</string>
+    <string name="voice_feedback_gallery">Galeria de arte aberta</string>
+    <string name="voice_feedback_settings">Definições abertas</string>
+    <string name="voice_feedback_screensaver">Proteção de ecrã iniciada</string>
+    <string name="voice_feedback_layout">Esquema do painel alterado</string>
+    <string name="voice_feedback_temp_unit">Unidade de temperatura alternada</string>
+    <string name="voice_feedback_unknown">Comando não reconhecido. Tente novamente.</string>
+    <string name="action_voice_command">Controlo por voz</string>
+
+    <string name="five_day_forecast">Previsão de 5 dias</string>
+    <string name="tv_press_ok_to_inspect">Pressione [OK] para inspecionar</string>
+    <string name="tv_press_ok_to_open_settings">Pressione [OK] para definições</string>
+    <string name="tv_focused_badge">FOCO TV</string>
+    <string name="tv_dpad_hint">[OK] Inspecionar</string>
 </resources>

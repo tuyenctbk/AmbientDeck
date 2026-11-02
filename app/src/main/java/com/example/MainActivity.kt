@@ -29,6 +29,8 @@ class MainActivity : ComponentActivity() {
 
         // Initialize smart engagement manager (updates, rate, share)
         viewModel.initEngagement(this.applicationContext)
+        // Initialize voice commands manager
+        viewModel.initVoice(this.applicationContext)
 
         setContent {
             MyApplicationTheme {
@@ -46,6 +48,10 @@ class MainActivity : ComponentActivity() {
         return when (keyCode) {
             KeyEvent.KEYCODE_MENU -> {
                 viewModel.onToggleSettings(true)
+                true
+            }
+            KeyEvent.KEYCODE_SEARCH, KeyEvent.KEYCODE_VOICE_ASSIST -> {
+                viewModel.onToggleVoiceOverlay(true)
                 true
             }
             KeyEvent.KEYCODE_MEDIA_NEXT, KeyEvent.KEYCODE_PAGE_DOWN -> {

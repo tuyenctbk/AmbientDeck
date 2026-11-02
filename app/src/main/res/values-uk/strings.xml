@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">Мінімалістичний годинник із захистом OLED</string>
     <string name="action_test_screensaver">Перевірити заставку зараз</string>
     <string name="screensaver_dismiss_hint">Торкніться екрана або натисніть клавішу для виходу</string>
+
+    <string name="voice_command_title">Голосові команди</string>
+    <string name="voice_command_subtitle">Керуйте віджетами та фотографіями без рук</string>
+    <string name="voice_status_listening">Слухаю… Говоріть зараз</string>
+    <string name="voice_status_processing">Обробка голосової команди…</string>
+    <string name="voice_status_idle">Торкніться мікрофона, щоб говорити</string>
+    <string name="voice_status_permission_needed">Для голосових команд потрібен дозвіл на мікрофон</string>
+    <string name="voice_status_not_available">Розпізнавання мовлення недоступне на цьому пристрої</string>
+    <string name="voice_grant_permission">Надати дозвіл</string>
+    <string name="voice_hint_suggestions">Спробуйте сказати: \"Перемкнути погоду\", \"Показати радар\", \"Гори\", \"Наступне фото\" або \"Заставка\"</string>
+    <string name="voice_cmd_sample_weather">Перемкнути погоду</string>
+    <string name="voice_cmd_sample_radar">Показати радар польотів</string>
+    <string name="voice_cmd_sample_crypto">Перемкнути крипто</string>
+    <string name="voice_cmd_sample_mountains">Гори</string>
+    <string name="voice_cmd_sample_aurora">Полярне сяйво</string>
+    <string name="voice_cmd_sample_next">Наступне фото</string>
+    <string name="voice_cmd_sample_screensaver">Заставка</string>
+    <string name="voice_feedback_weather">Віджет погоди перемкнуто</string>
+    <string name="voice_feedback_crypto">Криптотикер перемкнуто</string>
+    <string name="voice_feedback_radar">Радар польотів перемкнуто</string>
+    <string name="voice_feedback_history">Віджет історії перемкнуто</string>
+    <string name="voice_feedback_clock">Віджет годинника перемкнуто</string>
+    <string name="voice_feedback_collection">Перемкнуто на колекцію %1$s</string>
+    <string name="voice_feedback_next_photo">Перехід до наступного фото</string>
+    <string name="voice_feedback_prev_photo">Повернення до попереднього фото</string>
+    <string name="voice_feedback_cycle_collection">Зміна колекції пейзажів</string>
+    <string name="voice_feedback_refresh_art">Фотографії пейзажів оновлено</string>
+    <string name="voice_feedback_gallery">Галерею мистецтв відкрито</string>
+    <string name="voice_feedback_settings">Налаштування відкрито</string>
+    <string name="voice_feedback_screensaver">Заставку запущено</string>
+    <string name="voice_feedback_layout">Макет панелі змінено</string>
+    <string name="voice_feedback_temp_unit">Одиницю температури перемкнуто</string>
+    <string name="voice_feedback_unknown">Команду не розпізнано. Спробуйте ще раз.</string>
+    <string name="action_voice_command">Голосове керування</string>
+
+    <string name="five_day_forecast">Прогноз на 5 днів</string>
+    <string name="tv_press_ok_to_inspect">Натисніть [OK] для перегляду</string>
+    <string name="tv_press_ok_to_open_settings">Натисніть [OK] для налаштувань</string>
+    <string name="tv_focused_badge">ФОКУС ТВ</string>
+    <string name="tv_dpad_hint">[OK] Відкрити</string>
 </resources>

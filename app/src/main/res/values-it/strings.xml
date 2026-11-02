@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">Orologio notturno sicuro per schermi OLED</string>
     <string name="action_test_screensaver">Testa il salvaschermo ora</string>
     <string name="screensaver_dismiss_hint">Tocca lo schermo o premi un tasto per riattivare</string>
+
+    <string name="voice_command_title">Comandi vocali</string>
+    <string name="voice_command_subtitle">Controlla widget e arte a mani libere</string>
+    <string name="voice_status_listening">In ascolto… Parla ora</string>
+    <string name="voice_status_processing">Elaborazione comando vocale…</string>
+    <string name="voice_status_idle">Tocca il microfono per parlare</string>
+    <string name="voice_status_permission_needed">Autorizzazione microfono richiesta per i comandi vocali</string>
+    <string name="voice_status_not_available">Riconoscimento vocale non disponibile su questo dispositivo</string>
+    <string name="voice_grant_permission">Concedi autorizzazione</string>
+    <string name="voice_hint_suggestions">Prova a dire: \"Attiva meteo\", \"Mostra radar\", \"Montagne\", \"Foto successiva\" o \"Salvaschermo\"</string>
+    <string name="voice_cmd_sample_weather">Attiva meteo</string>
+    <string name="voice_cmd_sample_radar">Mostra radar voli</string>
+    <string name="voice_cmd_sample_crypto">Attiva criptovalute</string>
+    <string name="voice_cmd_sample_mountains">Montagne</string>
+    <string name="voice_cmd_sample_aurora">Aurora boreale</string>
+    <string name="voice_cmd_sample_next">Foto successiva</string>
+    <string name="voice_cmd_sample_screensaver">Salvaschermo</string>
+    <string name="voice_feedback_weather">Widget meteo attivato/disattivato</string>
+    <string name="voice_feedback_crypto">Ticker cripto attivato/disattivato</string>
+    <string name="voice_feedback_radar">Radar voli attivato/disattivato</string>
+    <string name="voice_feedback_history">Widget cronologia attivato/disattivato</string>
+    <string name="voice_feedback_clock">Widget orologio attivato/disattivato</string>
+    <string name="voice_feedback_collection">Passato alla collezione %1$s</string>
+    <string name="voice_feedback_next_photo">Passaggio alla foto successiva</string>
+    <string name="voice_feedback_prev_photo">Ritorno alla foto precedente</string>
+    <string name="voice_feedback_cycle_collection">Rotazione collezione paesaggi</string>
+    <string name="voice_feedback_refresh_art">Immagini paesaggistiche aggiornate</string>
+    <string name="voice_feedback_gallery">Galleria d\'arte aperta</string>
+    <string name="voice_feedback_settings">Impostazioni aperte</string>
+    <string name="voice_feedback_screensaver">Salvaschermo avviato</string>
+    <string name="voice_feedback_layout">Layout dashboard modificato</string>
+    <string name="voice_feedback_temp_unit">Unità di temperatura cambiata</string>
+    <string name="voice_feedback_unknown">Comando non riconosciuto. Riprova.</string>
+    <string name="action_voice_command">Controllo vocale</string>
+
+    <string name="five_day_forecast">Previsioni a 5 giorni</string>
+    <string name="tv_press_ok_to_inspect">Premi [OK] per ispezionare</string>
+    <string name="tv_press_ok_to_open_settings">Premi [OK] per le impostazioni</string>
+    <string name="tv_focused_badge">FOCUS TV</string>
+    <string name="tv_dpad_hint">[OK] Ispeziona</string>
 </resources>

@@ -233,4 +233,44 @@
     <string name="screensaver_style_dim_desc">Minimalistische OLED-veilige nachtklok</string>
     <string name="action_test_screensaver">Schermbeveiliging nu testen</string>
     <string name="screensaver_dismiss_hint">Tik op het scherm of druk op een toets om te activeren</string>
+
+    <string name="voice_command_title">Spraakopdrachten</string>
+    <string name="voice_command_subtitle">Handsfree bediening voor widgets en landschappen</string>
+    <string name="voice_status_listening">Luisteren… Spreek nu</string>
+    <string name="voice_status_processing">Spraakopdracht verwerken…</string>
+    <string name="voice_status_idle">Tik op microfoon om te spreken</string>
+    <string name="voice_status_permission_needed">Microfoontoegang vereist voor spraakopdrachten</string>
+    <string name="voice_status_not_available">Spraakherkenning niet beschikbaar op dit apparaat</string>
+    <string name="voice_grant_permission">Toestemming geven</string>
+    <string name="voice_hint_suggestions">Probeer: \"Weer wisselen\", \"Toon radar\", \"Bergen\", \"Volgende foto\" of \"Schermbeveiliging\"</string>
+    <string name="voice_cmd_sample_weather">Weer wisselen</string>
+    <string name="voice_cmd_sample_radar">Vluchtradar tonen</string>
+    <string name="voice_cmd_sample_crypto">Crypto wisselen</string>
+    <string name="voice_cmd_sample_mountains">Bergen</string>
+    <string name="voice_cmd_sample_aurora">Noorderlicht</string>
+    <string name="voice_cmd_sample_next">Volgende foto</string>
+    <string name="voice_cmd_sample_screensaver">Schermbeveiliging</string>
+    <string name="voice_feedback_weather">Weerwidget omgeschakeld</string>
+    <string name="voice_feedback_crypto">Crypto-ticker omgeschakeld</string>
+    <string name="voice_feedback_radar">Vluchtradar omgeschakeld</string>
+    <string name="voice_feedback_history">Vandaag in de geschiedenis omgeschakeld</string>
+    <string name="voice_feedback_clock">Klokwidget omgeschakeld</string>
+    <string name="voice_feedback_collection">Gewisseld naar collectie %1$s</string>
+    <string name="voice_feedback_next_photo">Naar volgende landschapsfoto</string>
+    <string name="voice_feedback_prev_photo">Terug naar vorige landschapsfoto</string>
+    <string name="voice_feedback_cycle_collection">Landschapscollectie wisselen</string>
+    <string name="voice_feedback_refresh_art">Landschapsfoto\'s vernieuwd</string>
+    <string name="voice_feedback_gallery">Kunstgalerij geopend</string>
+    <string name="voice_feedback_settings">Instellingen geopend</string>
+    <string name="voice_feedback_screensaver">Schermbeveiliging gestart</string>
+    <string name="voice_feedback_layout">Dashboardindeling gewijzigd</string>
+    <string name="voice_feedback_temp_unit">Temperatuureenheid omgeschakeld</string>
+    <string name="voice_feedback_unknown">Opdracht niet herkend. Probeer het opnieuw.</string>
+    <string name="action_voice_command">Spraakbediening</string>
+
+    <string name="five_day_forecast">5-daagse weersverwachting</string>
+    <string name="tv_press_ok_to_inspect">Druk op [OK] voor details</string>
+    <string name="tv_press_ok_to_open_settings">Druk op [OK] voor instellingen</string>
+    <string name="tv_focused_badge">TV FOCUS</string>
+    <string name="tv_dpad_hint">[OK] Details</string>
 </resources>
