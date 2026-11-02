@@ -237,6 +237,53 @@ fun WeatherAqiWidget(
 
                 Spacer(modifier = Modifier.height(if (isShort || isCompact) 4.dp else 10.dp))
 
+                // 5-Day Forecast Mini-Strip
+                if (!isShort && weather.forecastDays.isNotEmpty()) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(8.dp))
+                            .background(Color(0x15FFFFFF))
+                            .padding(horizontal = 8.dp, vertical = 5.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        weather.forecastDays.take(5).forEach { day ->
+                            val maxT = if (isCelsius) day.maxTemp else (day.maxTemp * 9 / 5 + 32)
+                            val minT = if (isCelsius) day.minTemp else (day.minTemp * 9 / 5 + 32)
+                            val dayTitle = if (day.isToday) stringResource(R.string.forecast_today) else day.dayName
+
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier.weight(1f)
+                            ) {
+                                Text(
+                                    text = dayTitle,
+                                    color = TextSecondary,
+                                    fontSize = if (isCompact) 9.sp else 10.sp,
+                                    fontWeight = FontWeight.Medium,
+                                    maxLines = 1
+                                )
+                                Spacer(modifier = Modifier.height(2.dp))
+                                Icon(
+                                    imageVector = getWeatherIcon(day.weatherCode, isDay = true),
+                                    contentDescription = null,
+                                    tint = if (day.weatherCode <= 1) SunsetAmber else CyanAccent,
+                                    modifier = Modifier.size(if (isCompact) 12.dp else 14.dp)
+                                )
+                                Spacer(modifier = Modifier.height(2.dp))
+                                Text(
+                                    text = "%.0f°/%.0f°".format(maxT, minT),
+                                    color = TextPrimary,
+                                    fontSize = if (isCompact) 8.sp else 9.sp,
+                                    fontWeight = FontWeight.SemiBold
+                                )
+                            }
+                        }
+                    }
+                    Spacer(modifier = Modifier.height(6.dp))
+                }
+
                 // Pollutant mini tags & 7-day forecast link
                 Row(
                     verticalAlignment = Alignment.CenterVertically,

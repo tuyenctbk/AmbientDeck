@@ -32,9 +32,10 @@
     <string name="flight_icon_desc">Flight</string>
 
     <!-- Crypto -->
-    <string name="crypto_title">Binance 24h Tickers</string>
+    <string name="crypto_title">CoinGecko Market Tickers</string>
     <string name="streaming_realtime">Streaming Real-Time</string>
     <string name="crypto_icon_desc">Crypto</string>
+    <string name="five_day_forecast">5-Day Forecast</string>
 
     <!-- History -->
     <string name="history_title">MuffinLabs • On This Day</string>
@@ -69,7 +70,7 @@
     <string name="meters_label">Meters (m)</string>
     <string name="sec_widgets_title">ACTIVE WIDGET MODULES &amp; BURN-IN PROTECTION</string>
     <string name="widget_weather_label">Open-Meteo Weather &amp; AQI</string>
-    <string name="widget_crypto_label">Binance Crypto Ticker Tape</string>
+    <string name="widget_crypto_label">CoinGecko Crypto Ticker Tape</string>
     <string name="widget_radar_label">OpenSky Live Flight Radar</string>
     <string name="widget_history_label">MuffinLabs Today in History</string>
     <string name="widget_burnin_label">OLED Burn-in Pixel Drift (Shift ±2px every 2m)</string>
@@ -83,7 +84,7 @@
     <!-- Detail Dialog -->
     <string name="weather_detail_title">7-Day Atmospheric &amp; Air Quality Forecast</string>
     <string name="radar_detail_title">Live Overhead Flight Manifest (%1$d Tracked)</string>
-    <string name="crypto_detail_title">Crypto Asset Market Depth (Binance)</string>
+    <string name="crypto_detail_title">Crypto Asset Market Depth (CoinGecko &amp; Binance)</string>
     <string name="history_detail_title">On This Day in History Archive</string>
     <string name="air_quality_telemetry">AIR QUALITY &amp; POLLUTANT TELEMETRY</string>
     <string name="us_aqi">US AQI</string>
@@ -197,4 +198,57 @@
     <string name="unknown_country">Unknown</string>
     <string name="custom_location_country">Custom</string>
     <string name="flight_callsign_fallback">FLT-%1$s</string>
+
+    <string name="art_gallery_title">Art Gallery &amp; Collections</string>
+    <string name="art_gallery_subtitle">High-resolution royalty-free landscape imagery via Unsplash</string>
+    <string name="action_art_gallery">Art Gallery</string>
+    <string name="cycle_collection">Cycle Collection</string>
+    <string name="next_collection">Next Collection</string>
+    <string name="current_collection">Current Collection</string>
+    <string name="collections_label">LANDSCAPE COLLECTIONS</string>
+    <string name="unsplash_attribution_format">Photo by %1$s on Unsplash</string>
+    <string name="unsplash_royalty_free">Royalty-Free 4K via Unsplash</string>
+    <string name="fetch_fresh_unsplash">Fetch Fresh Images</string>
+    <string name="rotation_interval">Wallpaper Rotation Interval</string>
+    <string name="sec_30">30s</string>
+    <string name="sec_60">1m</string>
+    <string name="sec_180">3m</string>
+    <string name="sec_300">5m</string>
+    <string name="sec_600">10m</string>
+    <string name="prev_photo">Previous Photo</string>
+    <string name="next_photo">Next Photo</string>
+    <string name="col_mountains_title">Alpine Peaks &amp; Ridges</string>
+    <string name="col_mountains_desc">Majestic snowcapped summits and rugged ridges</string>
+    <string name="col_coastal_title">Coastal Horizons</string>
+    <string name="col_coastal_desc">Ocean shores, crashing surf and dramatic sea cliffs</string>
+    <string name="col_forest_title">Misty Forests &amp; Woods</string>
+    <string name="col_forest_desc">Ancient woodlands, redwoods and ethereal morning fog</string>
+    <string name="col_aurora_title">Nordic Skies &amp; Auroras</string>
+    <string name="col_aurora_desc">Aurora borealis ribbons, polar twilights and arctic nights</string>
+    <string name="col_desert_title">Canyons &amp; Red Dunes</string>
+    <string name="col_desert_desc">Sweeping sand dunes, sandstone arches and sunlit mesas</string>
+    <string name="col_lakes_title">Serene Alpine Lakes</string>
+    <string name="col_lakes_desc">Crystal clear glacial waters with glass-like reflections</string>
+    <string name="col_golden_title">Golden Hour &amp; Sunsets</string>
+    <string name="col_golden_desc">Warm twilight glow, fiery skies and silhouette horizons</string>
+    <string name="col_aerial_title">Aerial Earth Scenery</string>
+    <string name="col_aerial_desc">Breathtaking bird-eye views of natural Earth landscapes</string>
+    <string name="art_gallery_icon_desc">Art Gallery</string>
+    <string name="art_refresh_desc">Refresh artwork from Unsplash</string>
+    <string name="photos_count_format">%1$d Curated Photos</string>
+
+    <string name="sec_screensaver_title">Screensaver &amp; Inactivity Mode</string>
+    <string name="screensaver_timeout_label">INACTIVITY TIMEOUT</string>
+    <string name="screensaver_style_label">SCREENSAVER STYLE</string>
+    <string name="screensaver_off">Off</string>
+    <string name="screensaver_1m">1 min</string>
+    <string name="screensaver_2m">2 min</string>
+    <string name="screensaver_5m">5 min</string>
+    <string name="screensaver_10m">10 min</string>
+    <string name="screensaver_style_slideshow_title">Ambient Slideshow</string>
+    <string name="screensaver_style_slideshow_desc">Cycles high-resolution 4K landscape photography</string>
+    <string name="screensaver_style_dim_title">Ultra-Dim Clock</string>
+    <string name="screensaver_style_dim_desc">Minimalist OLED burn-in safe night clock</string>
+    <string name="action_test_screensaver">Test Screensaver Now</string>
+    <string name="screensaver_dismiss_hint">Tap screen or press any key to wake</string>
 </resources>

@@ -355,7 +355,7 @@ fun FlightRadarWidget(
                         ) {
                             Column {
                                 Text(text = stringResource(R.string.altitude_label), color = TextMuted, fontSize = 9.sp, fontWeight = FontWeight.Bold)
-                                Text(text = altText, color = TextPrimary, fontSize = if (isCompact) 11.sp else 12.sp, fontWeight = FontWeight.SemiBold)
+                                Text(text = altText, color = EmeraldGreen, fontSize = if (isCompact) 11.sp else 12.sp, fontWeight = FontWeight.Bold)
                             }
                             Column {
                                 Text(text = stringResource(R.string.groundspeed_label), color = TextMuted, fontSize = 9.sp, fontWeight = FontWeight.Bold)
@@ -364,6 +364,38 @@ fun FlightRadarWidget(
                             Column {
                                 Text(text = stringResource(R.string.heading_label), color = TextMuted, fontSize = 9.sp, fontWeight = FontWeight.Bold)
                                 Text(text = headingText, color = CyanAccent, fontSize = if (isCompact) 11.sp else 12.sp, fontWeight = FontWeight.SemiBold)
+                            }
+                        }
+
+                        if (!isShort && flights.size > 1) {
+                            Spacer(modifier = Modifier.height(6.dp))
+                            Row(
+                                horizontalArrangement = Arrangement.spacedBy(6.dp),
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                flights.drop(1).take(2).forEach { otherFlight ->
+                                    val otherAlt = if (isAltitudeFeet) {
+                                        stringResource(R.string.altitude_feet_format, otherFlight.altitudeFeet)
+                                    } else {
+                                        stringResource(R.string.altitude_meters_format, otherFlight.altitudeMeters)
+                                    }
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        modifier = Modifier
+                                            .clip(RoundedCornerShape(6.dp))
+                                            .background(Color(0x18FFFFFF))
+                                            .padding(horizontal = 6.dp, vertical = 2.dp)
+                                    ) {
+                                        Text(
+                                            text = "${otherFlight.callsign} • $otherAlt",
+                                            color = TextSecondary,
+                                            fontSize = if (isCompact) 9.sp else 10.sp,
+                                            fontWeight = FontWeight.Medium,
+                                            fontFamily = FontFamily.Monospace,
+                                            maxLines = 1
+                                        )
+                                    }
+                                }
                             }
                         }
                     } else {

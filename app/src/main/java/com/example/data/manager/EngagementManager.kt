@@ -20,6 +20,8 @@ class EngagementManager(private val context: Context) {
 
     private val prefs = context.getSharedPreferences("ambient_deck_engagement", Context.MODE_PRIVATE)
 
+    private var sessionStartMs: Long = System.currentTimeMillis()
+
     companion object {
         private const val KEY_LAUNCH_COUNT = "key_launch_count"
         private const val KEY_FIRST_LAUNCH = "key_first_launch"
@@ -29,23 +31,37 @@ class EngagementManager(private val context: Context) {
         private const val KEY_RATED_OR_OPTED_OUT = "key_rated_or_opted_out"
         private const val KEY_DISMISSED_VERSION = "key_dismissed_version"
         private const val KEY_LAST_SHARE_PROMPT = "key_last_share_prompt"
+        private const val KEY_RATE_PROMPT_COUNT = "key_rate_prompt_count"
+        private const val KEY_SHARE_PROMPT_COUNT = "key_share_prompt_count"
 
-        // Minimum time between automated prompts: 3 days (259,200,000 ms)
-        private const val MIN_PROMPT_INTERVAL_MS = 3L * 24 * 60 * 60 * 1000
-        // Minimum active usage (in millis) before rating prompt: 3 minutes (180,000 ms)
-        private const val MIN_ACTIVE_TIME_FOR_RATE_MS = 3L * 60 * 1000
-        // Minimum active usage before share prompt: 10 minutes (600,000 ms)
-        private const val MIN_ACTIVE_TIME_FOR_SHARE_MS = 10L * 60 * 1000
+        // Minimum session active time before any prompt can show: 90 seconds (never on app start)
+        private const val MIN_SESSION_ACTIVE_BEFORE_PROMPT_MS = 90_000L
+        // Minimum time since first install before prompts: 3 days
+        private const val MIN_DAYS_SINCE_FIRST_INSTALL_MS = 3L * 24 * 60 * 60 * 1000L
+        // Global quiet cooldown between ANY prompt: 7 days
+        private const val MIN_GLOBAL_COOLDOWN_MS = 7L * 24 * 60 * 60 * 1000L
+        // Specific cooldown after rating dismissal: 10 days
+        private const val MIN_RATE_COOLDOWN_MS = 10L * 24 * 60 * 60 * 1000L
+        // Specific cooldown after share dismissal: 14 days
+        private const val MIN_SHARE_COOLDOWN_MS = 14L * 24 * 60 * 60 * 1000L
+        // Minimum active usage before rating: 5 minutes
+        private const val MIN_ACTIVE_TIME_FOR_RATE_MS = 5L * 60 * 1000L
+        // Minimum active usage before sharing: 10 minutes
+        private const val MIN_ACTIVE_TIME_FOR_SHARE_MS = 10L * 60 * 1000L
+        // Lifetime frequency caps
+        private const val MAX_RATE_PROMPT_COUNT = 2
+        private const val MAX_SHARE_PROMPT_COUNT = 2
     }
 
     fun recordAppLaunch() {
+        sessionStartMs = System.currentTimeMillis()
         val launches = prefs.getInt(KEY_LAUNCH_COUNT, 0) + 1
         val firstLaunch = prefs.getLong(KEY_FIRST_LAUNCH, 0L)
 
         val editor = prefs.edit()
         editor.putInt(KEY_LAUNCH_COUNT, launches)
         if (firstLaunch == 0L) {
-            editor.putLong(KEY_FIRST_LAUNCH, System.currentTimeMillis())
+            editor.putLong(KEY_FIRST_LAUNCH, sessionStartMs)
         }
         editor.apply()
     }
@@ -73,40 +89,60 @@ class EngagementManager(private val context: Context) {
 
     /**
      * Smart calculation of prompt eligibility.
-     * Prevents nagging, respects quiet intervals, and prioritizes updates over ratings and sharing.
+     * Prevents nagging, respects quiet intervals, never shows on app start,
+     * and prioritizes updates over ratings and sharing.
      */
     fun checkPendingPrompt(currentVersionCode: Int = 1, isUserBusy: Boolean = false): PromptType? {
         if (isUserBusy) return null
 
         val now = System.currentTimeMillis()
+
+        // 1. Never show on app start / early session (must settle for at least 90s)
+        if ((now - sessionStartMs) < MIN_SESSION_ACTIVE_BEFORE_PROMPT_MS) {
+            return null
+        }
+
+        // 2. Must have installed the app at least 3 days ago
+        val firstLaunch = prefs.getLong(KEY_FIRST_LAUNCH, now)
+        if ((now - firstLaunch) < MIN_DAYS_SINCE_FIRST_INSTALL_MS) {
+            return null
+        }
+
         val lastPrompt = prefs.getLong(KEY_LAST_PROMPT_TIME, 0L)
+        // 3. Global cooldown: at least 7 days between any popups
+        if (lastPrompt > 0 && (now - lastPrompt) < MIN_GLOBAL_COOLDOWN_MS) {
+            return null
+        }
+
         val launches = prefs.getInt(KEY_LAUNCH_COUNT, 1)
         val activeMs = prefs.getLong(KEY_TOTAL_ACTIVE_TIME_MS, 0L)
         val interactions = prefs.getInt(KEY_INTERACTION_COUNT, 0)
         val ratedOrOptedOut = prefs.getBoolean(KEY_RATED_OR_OPTED_OUT, false)
+        val rateCount = prefs.getInt(KEY_RATE_PROMPT_COUNT, 0)
+        val shareCount = prefs.getInt(KEY_SHARE_PROMPT_COUNT, 0)
 
-        // Don't show prompts if one was shown within the cooldown window
-        if (lastPrompt > 0 && (now - lastPrompt) < MIN_PROMPT_INTERVAL_MS) {
-            return null
-        }
-
-        // 1. Check if update is available from remote configuration (no hardcoded fake version)
+        // 4. Remote app update check (only if non-dismissed newer version)
         val availableRemoteVersion = prefs.getInt("remote_latest_version", currentVersionCode)
         val dismissedVersion = prefs.getInt(KEY_DISMISSED_VERSION, 0)
         if (availableRemoteVersion > currentVersionCode && dismissedVersion < availableRemoteVersion && launches >= 3) {
             return PromptType.UPDATE
         }
 
-        // 2. Check rating prompt (after user has meaningful engagement: 3+ launches OR 3+ min active OR 4+ interactions)
-        if (!ratedOrOptedOut && (launches >= 3 || activeMs >= MIN_ACTIVE_TIME_FOR_RATE_MS || interactions >= 4)) {
-            return PromptType.RATE
+        // 5. Rate App check (requires proven engagement: 4+ launches, 5+ min active, 6+ interactions, max 2 lifetime prompts)
+        if (!ratedOrOptedOut && rateCount < MAX_RATE_PROMPT_COUNT) {
+            if (launches >= 4 && activeMs >= MIN_ACTIVE_TIME_FOR_RATE_MS && interactions >= 6) {
+                if (lastPrompt == 0L || (now - lastPrompt) >= MIN_RATE_COOLDOWN_MS) {
+                    return PromptType.RATE
+                }
+            }
         }
 
-        // 3. Gentle Share suggestion (after sustained usage: 6+ launches OR 10+ min active OR 10+ interactions)
+        // 6. Gentle Share suggestion (requires sustained loyalty: 6+ launches, 10+ min active, 10+ interactions, max 2 lifetime prompts)
         val lastSharePrompt = prefs.getLong(KEY_LAST_SHARE_PROMPT, 0L)
-        if ((launches >= 6 || activeMs >= MIN_ACTIVE_TIME_FOR_SHARE_MS || interactions >= 10) &&
-            (now - lastSharePrompt) > MIN_PROMPT_INTERVAL_MS) {
-            return PromptType.SHARE
+        if (shareCount < MAX_SHARE_PROMPT_COUNT && (now - lastSharePrompt) >= MIN_SHARE_COOLDOWN_MS) {
+            if (launches >= 6 && activeMs >= MIN_ACTIVE_TIME_FOR_SHARE_MS && interactions >= 10) {
+                return PromptType.SHARE
+            }
         }
 
         return null
@@ -133,7 +169,9 @@ class EngagementManager(private val context: Context) {
     }
 
     fun onRateLater() {
+        val currentCount = prefs.getInt(KEY_RATE_PROMPT_COUNT, 0)
         prefs.edit()
+            .putInt(KEY_RATE_PROMPT_COUNT, currentCount + 1)
             .putLong(KEY_LAST_PROMPT_TIME, System.currentTimeMillis())
             .apply()
     }
@@ -170,7 +208,9 @@ class EngagementManager(private val context: Context) {
     }
 
     fun onDismissShare() {
+        val currentCount = prefs.getInt(KEY_SHARE_PROMPT_COUNT, 0)
         prefs.edit()
+            .putInt(KEY_SHARE_PROMPT_COUNT, currentCount + 1)
             .putLong(KEY_LAST_SHARE_PROMPT, System.currentTimeMillis())
             .putLong(KEY_LAST_PROMPT_TIME, System.currentTimeMillis())
             .apply()

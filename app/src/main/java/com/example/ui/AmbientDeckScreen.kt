@@ -7,6 +7,8 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -56,13 +58,16 @@ import androidx.compose.ui.unit.sp
 import com.example.R
 import com.example.data.manager.PromptType
 import com.example.data.model.LayoutMode
+import androidx.compose.material.icons.filled.PhotoLibrary
 import com.example.ui.components.AmbientBackdrop
+import com.example.ui.components.ArtGalleryDialog
 import com.example.ui.components.ClockWidget
 import com.example.ui.components.CryptoTickerWidget
 import com.example.ui.components.EngagementDialog
 import com.example.ui.components.FlightRadarWidget
 import com.example.ui.components.HistoryWidget
 import com.example.ui.components.PrivacyPolicyDialog
+import com.example.ui.components.ScreensaverOverlay
 import com.example.ui.components.SettingsDialog
 import com.example.ui.components.SplashScreen
 import com.example.ui.components.WeatherAqiWidget
@@ -90,6 +95,11 @@ fun AmbientDeckScreen(
         modifier = modifier
             .fillMaxSize()
             .background(VoidBlack)
+            .pointerInput(Unit) {
+                detectTapGestures {
+                    viewModel.onUserActivity()
+                }
+            }
             .testTag("ambient_deck_screen_root")
     ) {
         // 1. Ambient 4K Artwork Canvas
@@ -145,7 +155,7 @@ fun AmbientDeckScreen(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    // Wallpaper metadata watermark
+                    // Wallpaper metadata watermark (clickable to open Art Gallery)
                     val wallpaper = uiState.currentWallpaper
                     if (wallpaper != null) {
                         Text(
@@ -160,6 +170,8 @@ fun AmbientDeckScreen(
                             overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
                             modifier = Modifier
                                 .weight(1f, fill = false)
+                                .clip(RoundedCornerShape(6.dp))
+                                .clickable { viewModel.onToggleArtGallery(true) }
                                 .testTag("wallpaper_metadata_tag")
                         )
                     } else {
@@ -171,6 +183,7 @@ fun AmbientDeckScreen(
                     FloatingControlBar(
                         isRefreshing = uiState.isRefreshing,
                         isCompact = isCompactScreen || isShortScreen,
+                        onOpenArtGallery = { viewModel.onToggleArtGallery(true) },
                         onCycleWallpaper = { viewModel.cycleWallpaper() },
                         onCycleLayout = {
                             val nextMode = when (uiState.settings.layoutMode) {
@@ -197,11 +210,16 @@ fun AmbientDeckScreen(
                 onSelectCustomLocation = { name, lat, lon -> viewModel.onSelectCustomLocation(name, lat, lon) },
                 onSelectLayoutMode = { viewModel.onSelectLayoutMode(it) },
                 onSelectArtCategory = { viewModel.onSelectArtCategory(it) },
+                onSelectLandscapeCollection = { viewModel.selectLandscapeCollection(it) },
+                onOpenArtGallery = { viewModel.onToggleArtGallery(true) },
                 onToggleWidget = { viewModel.onToggleWidget(it) },
                 onToggleTempUnit = { viewModel.onToggleTempUnit() },
                 onToggleSpeedUnit = { viewModel.onToggleSpeedUnit() },
                 onToggleAltitudeUnit = { viewModel.onToggleAltitudeUnit() },
                 onToggleBurnInProtection = { viewModel.onToggleBurnInProtection() },
+                onSelectScreensaverTimeout = { viewModel.onSelectScreensaverTimeout(it) },
+                onSelectScreensaverStyle = { viewModel.onSelectScreensaverStyle(it) },
+                onLaunchScreensaverNow = { viewModel.onToggleScreensaver(true) },
                 onOpenRate = { viewModel.onOpenPrompt(PromptType.RATE) },
                 onOpenShare = { viewModel.onOpenPrompt(PromptType.SHARE) },
                 onOpenUpdate = { viewModel.onOpenPrompt(PromptType.UPDATE) },
@@ -242,6 +260,40 @@ fun AmbientDeckScreen(
         if (uiState.showPrivacyPolicy) {
             PrivacyPolicyDialog(
                 onClose = { viewModel.onTogglePrivacyPolicy(false) }
+            )
+        }
+
+        // 7. Art Gallery & Collections Modal
+        if (uiState.isArtGalleryOpen) {
+            ArtGalleryDialog(
+                currentWallpaper = uiState.currentWallpaper,
+                wallpapers = uiState.wallpapers,
+                wallpaperIndex = uiState.wallpaperIndex,
+                selectedCollection = uiState.settings.landscapeCollection,
+                wallpaperIntervalSec = uiState.settings.wallpaperIntervalSec,
+                isFetchingArt = uiState.isFetchingArt,
+                onSelectCollection = { viewModel.selectLandscapeCollection(it) },
+                onCycleCollection = { viewModel.cycleCollection() },
+                onNextWallpaper = { viewModel.cycleWallpaper() },
+                onPrevWallpaper = { viewModel.prevWallpaper() },
+                onFetchFresh = { viewModel.fetchFreshUnsplashPhotos() },
+                onSelectInterval = { viewModel.onSelectWallpaperInterval(it) },
+                onClose = { viewModel.onToggleArtGallery(false) }
+            )
+        }
+
+        // 8. Screensaver Overlay
+        if (uiState.isScreensaverActive) {
+            ScreensaverOverlay(
+                style = uiState.settings.screensaverStyle,
+                currentWallpaper = uiState.currentWallpaper,
+                wallpapers = uiState.wallpapers,
+                currentTime = uiState.currentTime,
+                currentPeriod = uiState.currentPeriod,
+                currentDate = uiState.currentDate,
+                weather = uiState.weather,
+                isCelsius = uiState.settings.isCelsius,
+                onWake = { viewModel.onUserActivity() }
             )
         }
 
@@ -659,6 +711,7 @@ private fun ZenMinimalLayout(
 private fun FloatingControlBar(
     isRefreshing: Boolean,
     isCompact: Boolean = false,
+    onOpenArtGallery: () -> Unit,
     onCycleWallpaper: () -> Unit,
     onCycleLayout: () -> Unit,
     onOpenSettings: () -> Unit,
@@ -683,6 +736,14 @@ private fun FloatingControlBar(
             .padding(horizontal = if (isCompact) 8.dp else 12.dp, vertical = if (isCompact) 4.dp else 6.dp)
             .testTag("floating_control_bar")
     ) {
+        // Art Gallery & Collections
+        IconButton(
+            onClick = onOpenArtGallery,
+            modifier = Modifier.size(if (isCompact) 30.dp else 36.dp).testTag("action_art_gallery")
+        ) {
+            Icon(Icons.Default.PhotoLibrary, contentDescription = stringResource(R.string.action_art_gallery), tint = CyanAccent, modifier = Modifier.size(if (isCompact) 15.dp else 18.dp))
+        }
+
         // Next Wallpaper
         IconButton(
             onClick = onCycleWallpaper,

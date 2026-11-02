@@ -58,6 +58,24 @@ data class BinanceTickerResponse(
     @Json(name = "volume") val volume: String? = null
 )
 
+// CoinGecko Markets Response
+@JsonClass(generateAdapter = true)
+data class CoinGeckoMarketItem(
+    @Json(name = "id") val id: String? = null,
+    @Json(name = "symbol") val symbol: String? = null,
+    @Json(name = "name") val name: String? = null,
+    @Json(name = "current_price") val currentPrice: Double? = null,
+    @Json(name = "price_change_percentage_24h") val priceChangePercentage24h: Double? = null,
+    @Json(name = "high_24h") val high24h: Double? = null,
+    @Json(name = "low_24h") val low24h: Double? = null,
+    @Json(name = "sparkline_in_7d") val sparklineIn7d: CoinGeckoSparkline? = null
+)
+
+@JsonClass(generateAdapter = true)
+data class CoinGeckoSparkline(
+    @Json(name = "price") val price: List<Double>? = null
+)
+
 // OpenSky Network Response
 @JsonClass(generateAdapter = true)
 data class OpenSkyResponse(
@@ -82,4 +100,41 @@ data class MuffinLabsData(
 data class MuffinLabsEventItem(
     @Json(name = "year") val year: String? = null,
     @Json(name = "text") val text: String? = null
+)
+
+// Unsplash Image Search API
+@JsonClass(generateAdapter = true)
+data class UnsplashSearchResponse(
+    @Json(name = "total") val total: Int? = null,
+    @Json(name = "total_pages") val totalPages: Int? = null,
+    @Json(name = "results") val results: List<UnsplashPhotoItem>? = null
+)
+
+@JsonClass(generateAdapter = true)
+data class UnsplashPhotoItem(
+    @Json(name = "id") val id: String? = null,
+    @Json(name = "description") val description: String? = null,
+    @Json(name = "alt_description") val altDescription: String? = null,
+    @Json(name = "urls") val urls: UnsplashUrls? = null,
+    @Json(name = "user") val user: UnsplashUser? = null,
+    @Json(name = "links") val links: UnsplashLinks? = null
+)
+
+@JsonClass(generateAdapter = true)
+data class UnsplashUrls(
+    @Json(name = "raw") val raw: String? = null,
+    @Json(name = "full") val full: String? = null,
+    @Json(name = "regular") val regular: String? = null,
+    @Json(name = "small") val small: String? = null
+)
+
+@JsonClass(generateAdapter = true)
+data class UnsplashUser(
+    @Json(name = "name") val name: String? = null,
+    @Json(name = "username") val username: String? = null
+)
+
+@JsonClass(generateAdapter = true)
+data class UnsplashLinks(
+    @Json(name = "html") val html: String? = null
 )

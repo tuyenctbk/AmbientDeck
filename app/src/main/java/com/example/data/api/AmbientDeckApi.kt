@@ -37,6 +37,18 @@ interface BinanceApi {
     ): List<BinanceTickerResponse>
 }
 
+interface CoinGeckoApi {
+    @GET("api/v3/coins/markets")
+    suspend fun getTopCoins(
+        @Query("vs_currency") vsCurrency: String = "usd",
+        @Query("order") order: String = "market_cap_desc",
+        @Query("per_page") perPage: Int = 12,
+        @Query("page") page: Int = 1,
+        @Query("sparkline") sparkline: Boolean = true,
+        @Query("price_change_percentage") priceChangePercentage: String = "24h"
+    ): List<CoinGeckoMarketItem>
+}
+
 interface OpenSkyApi {
     @GET("api/states/all")
     suspend fun getStates(
@@ -50,6 +62,17 @@ interface OpenSkyApi {
 interface MuffinLabsApi {
     @GET("date")
     suspend fun getTodayInHistory(): MuffinLabsHistoryResponse
+}
+
+interface UnsplashApi {
+    @GET("search/photos")
+    suspend fun searchPhotos(
+        @Query("query") query: String,
+        @Query("orientation") orientation: String = "landscape",
+        @Query("per_page") perPage: Int = 20,
+        @Query("page") page: Int = 1,
+        @retrofit2.http.Header("Authorization") authorization: String? = null
+    ): UnsplashSearchResponse
 }
 
 object NetworkClientProvider {
@@ -92,6 +115,15 @@ object NetworkClientProvider {
             .create(BinanceApi::class.java)
     }
 
+    val coinGeckoApi: CoinGeckoApi by lazy {
+        Retrofit.Builder()
+            .baseUrl("https://api.coingecko.com/")
+            .client(okHttpClient)
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .build()
+            .create(CoinGeckoApi::class.java)
+    }
+
     val openSkyApi: OpenSkyApi by lazy {
         Retrofit.Builder()
             .baseUrl("https://opensky-network.org/")
@@ -108,5 +140,14 @@ object NetworkClientProvider {
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
             .create(MuffinLabsApi::class.java)
+    }
+
+    val unsplashApi: UnsplashApi by lazy {
+        Retrofit.Builder()
+            .baseUrl("https://api.unsplash.com/")
+            .client(okHttpClient)
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .build()
+            .create(UnsplashApi::class.java)
     }
 }

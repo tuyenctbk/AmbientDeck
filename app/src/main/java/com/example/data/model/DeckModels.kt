@@ -80,13 +80,39 @@ data class HistoryItem(
     val isBirth: Boolean = false
 )
 
+enum class LandscapeCollection(
+    @StringRes val titleRes: Int,
+    @StringRes val descRes: Int,
+    val searchQuery: String
+) {
+    MOUNTAINS(R.string.col_mountains_title, R.string.col_mountains_desc, "majestic mountains landscape"),
+    COASTAL(R.string.col_coastal_title, R.string.col_coastal_desc, "coastal ocean sunset landscape"),
+    FOREST(R.string.col_forest_title, R.string.col_forest_desc, "misty forest wilderness landscape"),
+    NORDIC_AURORA(R.string.col_aurora_title, R.string.col_aurora_desc, "northern lights aurora borealis landscape"),
+    DESERT_CANYONS(R.string.col_desert_title, R.string.col_desert_desc, "desert canyon dunes landscape"),
+    LAKES(R.string.col_lakes_title, R.string.col_lakes_desc, "alpine lake reflection landscape"),
+    GOLDEN_HOUR(R.string.col_golden_title, R.string.col_golden_desc, "golden hour landscape scenery"),
+    AERIAL(R.string.col_aerial_title, R.string.col_aerial_desc, "drone aerial landscape scenery earth")
+}
+
 data class WallpaperItem(
     val id: String,
     val title: String,
-    val category: ArtCategory,
+    val category: ArtCategory = ArtCategory.SCENIC,
+    val collection: LandscapeCollection = LandscapeCollection.MOUNTAINS,
     val imageUrl: String,
-    val author: String
+    val author: String,
+    val sourceUrl: String = "https://unsplash.com",
+    val isUnsplashApi: Boolean = true
 )
+
+enum class ScreensaverStyle(
+    @StringRes val titleRes: Int,
+    @StringRes val descRes: Int
+) {
+    SLIDESHOW(R.string.screensaver_style_slideshow_title, R.string.screensaver_style_slideshow_desc),
+    DIM_CLOCK(R.string.screensaver_style_dim_title, R.string.screensaver_style_dim_desc)
+}
 
 data class DeckSettings(
     val layoutMode: LayoutMode = LayoutMode.CINEMATIC,
@@ -100,8 +126,11 @@ data class DeckSettings(
     val showHistory: Boolean = true,
     val showClock: Boolean = true,
     val artCategory: ArtCategory = ArtCategory.SCENIC,
+    val landscapeCollection: LandscapeCollection = LandscapeCollection.MOUNTAINS,
     val wallpaperIntervalSec: Int = 60,
-    val burnInShiftEnabled: Boolean = true
+    val burnInShiftEnabled: Boolean = true,
+    val screensaverTimeoutSec: Int = 120,
+    val screensaverStyle: ScreensaverStyle = ScreensaverStyle.SLIDESHOW
 )
 
 object DefaultLocations {

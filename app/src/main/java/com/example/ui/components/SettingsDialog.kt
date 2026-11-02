@@ -28,6 +28,8 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Dashboard
 import androidx.compose.material.icons.filled.Landscape
 import androidx.compose.material.icons.filled.LocationCity
+import androidx.compose.material.icons.filled.Nightlight
+import androidx.compose.material.icons.filled.PhotoLibrary
 import androidx.compose.material.icons.filled.Security
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
@@ -69,8 +71,10 @@ import com.example.R
 import com.example.data.model.ArtCategory
 import com.example.data.model.DeckSettings
 import com.example.data.model.DefaultLocations
+import com.example.data.model.LandscapeCollection
 import com.example.data.model.LayoutMode
 import com.example.data.model.LocationPreset
+import com.example.data.model.ScreensaverStyle
 import com.example.ui.WidgetToggleType
 import com.example.ui.theme.CyanAccent
 import com.example.ui.theme.DarkBorder
@@ -94,11 +98,16 @@ fun SettingsDialog(
     onSelectCustomLocation: (String, Double, Double) -> Unit,
     onSelectLayoutMode: (LayoutMode) -> Unit,
     onSelectArtCategory: (ArtCategory) -> Unit,
+    onSelectLandscapeCollection: (LandscapeCollection) -> Unit = {},
+    onOpenArtGallery: () -> Unit = {},
     onToggleWidget: (WidgetToggleType) -> Unit,
     onToggleTempUnit: () -> Unit,
     onToggleSpeedUnit: () -> Unit,
     onToggleAltitudeUnit: () -> Unit,
     onToggleBurnInProtection: () -> Unit,
+    onSelectScreensaverTimeout: (Int) -> Unit = {},
+    onSelectScreensaverStyle: (ScreensaverStyle) -> Unit = {},
+    onLaunchScreensaverNow: () -> Unit = {},
     onOpenRate: () -> Unit = {},
     onOpenShare: () -> Unit = {},
     onOpenUpdate: () -> Unit = {},
@@ -449,6 +458,70 @@ fun SettingsDialog(
                     )
                     Spacer(modifier = Modifier.height(8.dp))
 
+                    // Launch Full Art Gallery Button
+                    OutlinedButton(
+                        onClick = {
+                            onClose()
+                            onOpenArtGallery()
+                        },
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = DarkSurfaceElevated,
+                            contentColor = CyanAccent
+                        ),
+                        border = androidx.compose.foundation.BorderStroke(1.dp, CyanAccent.copy(alpha = 0.6f)),
+                        shape = RoundedCornerShape(12.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .testTag("settings_open_art_gallery_button")
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.PhotoLibrary,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp)
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = stringResource(R.string.action_art_gallery),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 13.sp
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = "• " + stringResource(R.string.unsplash_royalty_free),
+                            color = TextSecondary,
+                            fontSize = 11.sp
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    Text(
+                        text = stringResource(R.string.collections_label),
+                        color = TextMuted,
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Bold,
+                        letterSpacing = 1.sp
+                    )
+                    Spacer(modifier = Modifier.height(6.dp))
+
+                    FlowRow(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        LandscapeCollection.values().forEach { col ->
+                            val colName = stringResource(col.titleRes)
+                            val isSelected = settings.landscapeCollection == col
+                            SelectableChip(
+                                label = colName,
+                                isSelected = isSelected,
+                                onClick = { onSelectLandscapeCollection(col) }
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
                     FlowRow(
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -536,6 +609,102 @@ fun SettingsDialog(
                         WidgetToggleRow(stringResource(R.string.widget_radar_label), settings.showRadar) { onToggleWidget(WidgetToggleType.RADAR) }
                         WidgetToggleRow(stringResource(R.string.widget_history_label), settings.showHistory) { onToggleWidget(WidgetToggleType.HISTORY) }
                         WidgetToggleRow(stringResource(R.string.widget_burnin_label), settings.burnInShiftEnabled) { onToggleBurnInProtection() }
+                    }
+
+                    Spacer(modifier = Modifier.height(sectionSpacing))
+
+                    // SECTION 5.5: Screensaver & Inactivity Ambient Mode
+                    SectionHeader(
+                        icon = Icons.Default.Nightlight,
+                        title = stringResource(R.string.sec_screensaver_title)
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Text(
+                        text = stringResource(R.string.screensaver_timeout_label),
+                        color = TextMuted,
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Bold,
+                        letterSpacing = 1.sp
+                    )
+                    Spacer(modifier = Modifier.height(6.dp))
+
+                    val timeoutOptions = listOf(
+                        0 to stringResource(R.string.screensaver_off),
+                        60 to stringResource(R.string.screensaver_1m),
+                        120 to stringResource(R.string.screensaver_2m),
+                        300 to stringResource(R.string.screensaver_5m),
+                        600 to stringResource(R.string.screensaver_10m)
+                    )
+
+                    FlowRow(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        timeoutOptions.forEach { (sec, label) ->
+                            SelectableChip(
+                                label = label,
+                                isSelected = settings.screensaverTimeoutSec == sec,
+                                onClick = { onSelectScreensaverTimeout(sec) }
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    Text(
+                        text = stringResource(R.string.screensaver_style_label),
+                        color = TextMuted,
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.Bold,
+                        letterSpacing = 1.sp
+                    )
+                    Spacer(modifier = Modifier.height(6.dp))
+
+                    FlowRow(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        ScreensaverStyle.values().forEach { st ->
+                            val stName = stringResource(st.titleRes)
+                            SelectableChip(
+                                label = stName,
+                                isSelected = settings.screensaverStyle == st,
+                                onClick = { onSelectScreensaverStyle(st) }
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    OutlinedButton(
+                        onClick = {
+                            onClose()
+                            onLaunchScreensaverNow()
+                        },
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = DarkSurfaceElevated,
+                            contentColor = CyanAccent
+                        ),
+                        border = androidx.compose.foundation.BorderStroke(1.dp, CyanAccent.copy(alpha = 0.5f)),
+                        shape = RoundedCornerShape(12.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .testTag("start_screensaver_now_button")
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Nightlight,
+                            contentDescription = null,
+                            modifier = Modifier.size(16.dp)
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = stringResource(R.string.action_test_screensaver),
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 12.sp
+                        )
                     }
 
                     Spacer(modifier = Modifier.height(sectionSpacing))

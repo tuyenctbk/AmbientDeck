@@ -11,6 +11,7 @@ import com.example.data.model.CryptoTicker
 import com.example.data.model.DeckSettings
 import com.example.data.model.FlightState
 import com.example.data.model.HistoryItem
+import com.example.data.model.LandscapeCollection
 import com.example.data.model.LayoutMode
 import com.example.data.model.LocationPreset
 import com.example.data.model.WallpaperItem
@@ -27,6 +28,8 @@ import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+
+import com.example.data.model.ScreensaverStyle
 
 enum class InspectWidgetType {
     WEATHER,
@@ -47,6 +50,9 @@ data class DeckUiState(
     val showSplash: Boolean = true,
     val isLoading: Boolean = true,
     val isRefreshing: Boolean = false,
+    val isFetchingArt: Boolean = false,
+    val isArtGalleryOpen: Boolean = false,
+    val isScreensaverActive: Boolean = false,
     val currentTime: String = "",
     val currentSeconds: String = "",
     val currentPeriod: String = "",
@@ -81,6 +87,8 @@ class AmbientDeckViewModel(
     private var dataPollingJob: Job? = null
     private var wallpaperJob: Job? = null
     private var engagementManager: EngagementManager? = null
+    private var lastUserActivityMs: Long = System.currentTimeMillis()
+    private var screensaverJob: Job? = null
 
     init {
         val now = Date()
@@ -96,11 +104,129 @@ class AmbientDeckViewModel(
                 currentDate = dateFormat.format(now)
             )
         }
-        loadWallpapers(_uiState.value.settings.artCategory)
+        loadLandscapeCollection(_uiState.value.settings.landscapeCollection)
         startClockLoop()
         refreshAllData()
         startDataPolling()
         startWallpaperRotation()
+        startScreensaverInactivityLoop()
+    }
+
+    fun onUserActivity() {
+        lastUserActivityMs = System.currentTimeMillis()
+        if (_uiState.value.isScreensaverActive) {
+            _uiState.update { it.copy(isScreensaverActive = false) }
+        }
+    }
+
+    fun onToggleScreensaver(active: Boolean) {
+        lastUserActivityMs = System.currentTimeMillis()
+        _uiState.update { it.copy(isScreensaverActive = active) }
+    }
+
+    fun onSelectScreensaverTimeout(seconds: Int) {
+        engagementManager?.recordInteraction()
+        _uiState.update { current ->
+            current.copy(settings = current.settings.copy(screensaverTimeoutSec = seconds))
+        }
+        startScreensaverInactivityLoop()
+    }
+
+    fun onSelectScreensaverStyle(style: ScreensaverStyle) {
+        engagementManager?.recordInteraction()
+        _uiState.update { current ->
+            current.copy(settings = current.settings.copy(screensaverStyle = style))
+        }
+    }
+
+    private fun startScreensaverInactivityLoop() {
+        screensaverJob?.cancel()
+        screensaverJob = viewModelScope.launch {
+            while (isActive) {
+                delay(5000L)
+                val timeoutSec = _uiState.value.settings.screensaverTimeoutSec
+                if (timeoutSec > 0 && !_uiState.value.isScreensaverActive) {
+                    val inactiveDurationMs = System.currentTimeMillis() - lastUserActivityMs
+                    if (inactiveDurationMs >= timeoutSec * 1000L) {
+                        _uiState.update { it.copy(isScreensaverActive = true) }
+                    }
+                }
+            }
+        }
+    }
+
+    fun loadLandscapeCollection(collection: LandscapeCollection) {
+        viewModelScope.launch {
+            _uiState.update { it.copy(isFetchingArt = true) }
+            val list = repository.fetchLandscapeCollection(collection)
+            _uiState.update { current ->
+                current.copy(
+                    isFetchingArt = false,
+                    wallpapers = list,
+                    wallpaperIndex = 0,
+                    currentWallpaper = list.firstOrNull(),
+                    settings = current.settings.copy(landscapeCollection = collection)
+                )
+            }
+        }
+    }
+
+    fun selectLandscapeCollection(collection: LandscapeCollection) {
+        engagementManager?.recordInteraction()
+        loadLandscapeCollection(collection)
+        startWallpaperRotation()
+    }
+
+    fun cycleCollection() {
+        engagementManager?.recordInteraction()
+        val allCollections = LandscapeCollection.values()
+        val currentIndex = allCollections.indexOf(_uiState.value.settings.landscapeCollection)
+        val nextIndex = (currentIndex + 1) % allCollections.size
+        selectLandscapeCollection(allCollections[nextIndex])
+    }
+
+    fun prevWallpaper() {
+        engagementManager?.recordInteraction()
+        _uiState.update { current ->
+            if (current.wallpapers.isEmpty()) current
+            else {
+                val prevIndex = if (current.wallpaperIndex - 1 < 0) current.wallpapers.size - 1 else current.wallpaperIndex - 1
+                current.copy(
+                    wallpaperIndex = prevIndex,
+                    currentWallpaper = current.wallpapers[prevIndex]
+                )
+            }
+        }
+    }
+
+    fun fetchFreshUnsplashPhotos() {
+        engagementManager?.recordInteraction()
+        val collection = _uiState.value.settings.landscapeCollection
+        viewModelScope.launch {
+            _uiState.update { it.copy(isFetchingArt = true) }
+            val list = repository.fetchLandscapeCollection(collection, forceRefresh = true)
+            _uiState.update { current ->
+                current.copy(
+                    isFetchingArt = false,
+                    wallpapers = list,
+                    wallpaperIndex = 0,
+                    currentWallpaper = list.firstOrNull()
+                )
+            }
+        }
+    }
+
+    fun onSelectWallpaperInterval(seconds: Int) {
+        engagementManager?.recordInteraction()
+        _uiState.update { current ->
+            current.copy(settings = current.settings.copy(wallpaperIntervalSec = seconds))
+        }
+        startWallpaperRotation()
+    }
+
+    fun onToggleArtGallery(open: Boolean) {
+        if (open) engagementManager?.recordInteraction()
+        _uiState.update { it.copy(isArtGalleryOpen = open) }
     }
 
     private fun loadWallpapers(category: ArtCategory) {
@@ -391,20 +517,11 @@ class AmbientDeckViewModel(
             engagementManager = manager
             manager.recordAppLaunch()
             _uiState.update { it.copy(usageStats = manager.getUsageStats()) }
-
-            viewModelScope.launch {
-                delay(8000)
-                checkAutoPrompt()
-            }
         }
     }
 
     fun onDismissSplash() {
         _uiState.update { it.copy(showSplash = false) }
-        viewModelScope.launch {
-            delay(2000)
-            checkAutoPrompt()
-        }
     }
 
     private fun checkAutoPrompt() {
