@@ -4,6 +4,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
@@ -13,6 +14,8 @@ import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -24,19 +27,26 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.R
 import com.example.ui.theme.CyanAccent
+import com.example.ui.theme.DarkBorder
 import com.example.ui.theme.TextPrimary
 
 /**
@@ -94,4 +104,47 @@ fun TvFocusBadge(
             )
         }
     }
+}
+
+/**
+ * High-visibility D-Pad focus modifier for TV remotes.
+ * Scales slightly on focus, renders a glowing border, and fills a subtle tint.
+ */
+@Composable
+fun Modifier.tvFocusHighlight(
+    shape: Shape = RoundedCornerShape(12.dp),
+    focusedBorderColor: Color = CyanAccent,
+    unfocusedBorderColor: Color = Color.Transparent,
+    borderWidth: Dp = 2.dp,
+    focusedScale: Float = 1.05f,
+    focusedBackgroundColor: Color = focusedBorderColor.copy(alpha = 0.18f),
+    onFocusChange: ((Boolean) -> Unit)? = null
+): Modifier {
+    var isFocused by remember { mutableStateOf(false) }
+    val scale by animateFloatAsState(
+        targetValue = if (isFocused) focusedScale else 1.0f,
+        animationSpec = tween(150),
+        label = "tv_focus_scale"
+    )
+
+    return this
+        .scale(scale)
+        .clip(shape)
+        .then(
+            if (isFocused) {
+                Modifier.background(focusedBackgroundColor)
+            } else {
+                Modifier
+            }
+        )
+        .border(
+            width = if (isFocused) borderWidth else 1.dp,
+            color = if (isFocused) focusedBorderColor else unfocusedBorderColor,
+            shape = shape
+        )
+        .focusable()
+        .onFocusChanged {
+            isFocused = it.isFocused
+            onFocusChange?.invoke(it.isFocused)
+        }
 }

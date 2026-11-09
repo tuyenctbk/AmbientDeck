@@ -176,7 +176,9 @@ fun ArtGalleryDialog(
 
                         IconButton(
                             onClick = onClose,
-                            modifier = Modifier.testTag("art_gallery_close_btn")
+                            modifier = Modifier
+                                .tvFocusHighlight(shape = RoundedCornerShape(8.dp), focusedScale = 1.15f)
+                                .testTag("art_gallery_close_btn")
                         ) {
                             Icon(Icons.Default.Close, contentDescription = stringResource(R.string.close), tint = TextSecondary)
                         }
@@ -230,6 +232,7 @@ fun ArtGalleryDialog(
                                 verticalAlignment = Alignment.CenterVertically,
                                 modifier = Modifier
                                     .clip(RoundedCornerShape(8.dp))
+                                    .tvFocusHighlight(shape = RoundedCornerShape(8.dp), focusedScale = 1.05f)
                                     .clickable { onCycleCollection() }
                                     .padding(horizontal = 8.dp, vertical = 4.dp)
                                     .testTag("btn_cycle_collection_header")
@@ -295,7 +298,7 @@ fun ArtGalleryDialog(
                                     contentAlignment = Alignment.Center,
                                     modifier = Modifier
                                         .weight(1f)
-                                        .clip(RoundedCornerShape(8.dp))
+                                        .tvFocusHighlight(shape = RoundedCornerShape(8.dp), focusedScale = 1.05f)
                                         .background(if (isChosen) CyanAccent.copy(alpha = 0.2f) else DarkSurfaceElevated)
                                         .border(1.dp, if (isChosen) CyanAccent else DarkBorder, RoundedCornerShape(8.dp))
                                         .clickable { onSelectInterval(sec) }
@@ -444,7 +447,7 @@ private fun ActivePhotoShowcase(
                         onClick = onPrev,
                         modifier = Modifier
                             .size(36.dp)
-                            .clip(RoundedCornerShape(8.dp))
+                            .tvFocusHighlight(shape = RoundedCornerShape(8.dp), focusedScale = 1.15f)
                             .background(Color(0x22FFFFFF))
                             .testTag("gallery_prev_photo_btn")
                     ) {
@@ -460,7 +463,7 @@ private fun ActivePhotoShowcase(
                         onClick = onNext,
                         modifier = Modifier
                             .size(36.dp)
-                            .clip(RoundedCornerShape(8.dp))
+                            .tvFocusHighlight(shape = RoundedCornerShape(8.dp), focusedScale = 1.15f)
                             .background(Color(0x22FFFFFF))
                             .testTag("gallery_next_photo_btn")
                     ) {
@@ -480,7 +483,10 @@ private fun ActivePhotoShowcase(
                         enabled = !isFetchingArt,
                         colors = ButtonDefaults.outlinedButtonColors(contentColor = CyanAccent),
                         shape = RoundedCornerShape(8.dp),
-                        modifier = Modifier.height(36.dp).testTag("gallery_fetch_fresh_btn")
+                        modifier = Modifier
+                            .height(36.dp)
+                            .tvFocusHighlight(shape = RoundedCornerShape(8.dp), focusedScale = 1.05f)
+                            .testTag("gallery_fetch_fresh_btn")
                     ) {
                         if (isFetchingArt) {
                             CircularProgressIndicator(modifier = Modifier.size(14.dp), strokeWidth = 1.5.dp, color = CyanAccent)
@@ -496,7 +502,10 @@ private fun ActivePhotoShowcase(
                         onClick = onCycleCollection,
                         colors = ButtonDefaults.buttonColors(containerColor = CyanAccent, contentColor = VoidBlack),
                         shape = RoundedCornerShape(8.dp),
-                        modifier = Modifier.height(36.dp).testTag("gallery_cycle_collection_btn")
+                        modifier = Modifier
+                            .height(36.dp)
+                            .tvFocusHighlight(shape = RoundedCornerShape(8.dp), focusedBorderColor = Color.White, focusedScale = 1.05f)
+                            .testTag("gallery_cycle_collection_btn")
                     ) {
                         Icon(Icons.Default.Autorenew, contentDescription = null, modifier = Modifier.size(14.dp))
                         Spacer(modifier = Modifier.width(4.dp))

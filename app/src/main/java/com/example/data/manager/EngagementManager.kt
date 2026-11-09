@@ -3,6 +3,7 @@ package com.example.data.manager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 
 enum class PromptType {
     UPDATE,
@@ -161,10 +162,14 @@ class EngagementManager(private val context: Context) {
             }
             context.startActivity(intent)
         } catch (e: Exception) {
-            val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageName")).apply {
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            try {
+                val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageName")).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
+                context.startActivity(webIntent)
+            } catch (e2: Exception) {
+                Log.w("EngagementManager", "Cannot open store review on this device", e2)
             }
-            context.startActivity(webIntent)
         }
     }
 
@@ -189,22 +194,26 @@ class EngagementManager(private val context: Context) {
             .putLong(KEY_LAST_PROMPT_TIME, System.currentTimeMillis())
             .apply()
 
-        val shareIntent = Intent(Intent.ACTION_SEND).apply {
-            type = "text/plain"
-            putExtra(Intent.EXTRA_SUBJECT, context.getString(com.example.R.string.share_subject))
-            putExtra(
-                Intent.EXTRA_TEXT,
-                context.getString(
-                    com.example.R.string.share_body,
-                    "https://play.google.com/store/apps/details?id=${context.packageName}"
+        try {
+            val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_SUBJECT, context.getString(com.example.R.string.share_subject))
+                putExtra(
+                    Intent.EXTRA_TEXT,
+                    context.getString(
+                        com.example.R.string.share_body,
+                        "https://play.google.com/store/apps/details?id=${context.packageName}"
+                    )
                 )
-            )
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+            val chooser = Intent.createChooser(shareIntent, context.getString(com.example.R.string.share_dialog_title)).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+            context.startActivity(chooser)
+        } catch (e: Exception) {
+            Log.w("EngagementManager", "Cannot share app on this device", e)
         }
-        val chooser = Intent.createChooser(shareIntent, context.getString(com.example.R.string.share_dialog_title)).apply {
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        }
-        context.startActivity(chooser)
     }
 
     fun onDismissShare() {
@@ -224,10 +233,14 @@ class EngagementManager(private val context: Context) {
             }
             context.startActivity(intent)
         } catch (e: Exception) {
-            val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageName")).apply {
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            try {
+                val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageName")).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }
+                context.startActivity(webIntent)
+            } catch (e2: Exception) {
+                Log.w("EngagementManager", "Cannot open store update on this device", e2)
             }
-            context.startActivity(webIntent)
         }
     }
 

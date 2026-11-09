@@ -191,7 +191,9 @@ fun SettingsDialog(
 
                         IconButton(
                             onClick = onClose,
-                            modifier = Modifier.testTag("settings_close_button")
+                            modifier = Modifier
+                                .tvFocusHighlight(shape = RoundedCornerShape(8.dp), focusedScale = 1.15f)
+                                .testTag("settings_close_button")
                         ) {
                             Icon(
                                 imageVector = Icons.Default.Close,
@@ -380,7 +382,7 @@ fun SettingsDialog(
                                 Box(
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .clip(RoundedCornerShape(12.dp))
+                                        .tvFocusHighlight(shape = RoundedCornerShape(12.dp), focusedBorderColor = CyanAccent, focusedScale = 1.03f)
                                         .background(if (isSelected) Color(0x3300E5FF) else DarkSurfaceElevated)
                                         .border(
                                             width = if (isSelected) 2.dp else 1.dp,
@@ -421,7 +423,7 @@ fun SettingsDialog(
                                 Box(
                                     modifier = Modifier
                                         .weight(1f)
-                                        .clip(RoundedCornerShape(12.dp))
+                                        .tvFocusHighlight(shape = RoundedCornerShape(12.dp), focusedBorderColor = CyanAccent, focusedScale = 1.03f)
                                         .background(if (isSelected) Color(0x3300E5FF) else DarkSurfaceElevated)
                                         .border(
                                             width = if (isSelected) 2.dp else 1.dp,
@@ -474,6 +476,7 @@ fun SettingsDialog(
                         shape = RoundedCornerShape(12.dp),
                         modifier = Modifier
                             .fillMaxWidth()
+                            .tvFocusHighlight(shape = RoundedCornerShape(12.dp), focusedScale = 1.02f)
                             .testTag("settings_open_art_gallery_button")
                     ) {
                         Icon(
@@ -694,6 +697,7 @@ fun SettingsDialog(
                         shape = RoundedCornerShape(12.dp),
                         modifier = Modifier
                             .fillMaxWidth()
+                            .tvFocusHighlight(shape = RoundedCornerShape(12.dp), focusedScale = 1.02f)
                             .testTag("start_screensaver_now_button")
                     ) {
                         Icon(
@@ -724,6 +728,7 @@ fun SettingsDialog(
                         shape = RoundedCornerShape(12.dp),
                         modifier = Modifier
                             .fillMaxWidth()
+                            .tvFocusHighlight(shape = RoundedCornerShape(12.dp), focusedScale = 1.02f)
                             .testTag("settings_open_voice_command_button")
                     ) {
                         Icon(
@@ -804,7 +809,9 @@ fun SettingsDialog(
                         OutlinedButton(
                             onClick = onOpenRate,
                             shape = RoundedCornerShape(10.dp),
-                            modifier = Modifier.testTag("settings_rate_button")
+                            modifier = Modifier
+                                .tvFocusHighlight(shape = RoundedCornerShape(10.dp), focusedScale = 1.05f)
+                                .testTag("settings_rate_button")
                         ) {
                             Icon(Icons.Default.Star, contentDescription = null, tint = SunsetAmber, modifier = Modifier.size(16.dp))
                             Spacer(modifier = Modifier.width(6.dp))
@@ -814,7 +821,9 @@ fun SettingsDialog(
                         OutlinedButton(
                             onClick = onOpenShare,
                             shape = RoundedCornerShape(10.dp),
-                            modifier = Modifier.testTag("settings_share_button")
+                            modifier = Modifier
+                                .tvFocusHighlight(shape = RoundedCornerShape(10.dp), focusedScale = 1.05f)
+                                .testTag("settings_share_button")
                         ) {
                             Icon(Icons.Default.Share, contentDescription = null, tint = CyanAccent, modifier = Modifier.size(16.dp))
                             Spacer(modifier = Modifier.width(6.dp))
@@ -824,7 +833,9 @@ fun SettingsDialog(
                         OutlinedButton(
                             onClick = onOpenUpdate,
                             shape = RoundedCornerShape(10.dp),
-                            modifier = Modifier.testTag("settings_update_button")
+                            modifier = Modifier
+                                .tvFocusHighlight(shape = RoundedCornerShape(10.dp), focusedScale = 1.05f)
+                                .testTag("settings_update_button")
                         ) {
                             Icon(Icons.Default.SystemUpdate, contentDescription = null, tint = EmeraldGreen, modifier = Modifier.size(16.dp))
                             Spacer(modifier = Modifier.width(6.dp))
@@ -834,7 +845,9 @@ fun SettingsDialog(
                         OutlinedButton(
                             onClick = onOpenPrivacyPolicy,
                             shape = RoundedCornerShape(10.dp),
-                            modifier = Modifier.testTag("settings_privacy_button")
+                            modifier = Modifier
+                                .tvFocusHighlight(shape = RoundedCornerShape(10.dp), focusedScale = 1.05f)
+                                .testTag("settings_privacy_button")
                         ) {
                             Icon(Icons.Default.Security, contentDescription = null, tint = TextMuted, modifier = Modifier.size(16.dp))
                             Spacer(modifier = Modifier.width(6.dp))
@@ -852,6 +865,7 @@ fun SettingsDialog(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(48.dp)
+                            .tvFocusHighlight(shape = RoundedCornerShape(12.dp), focusedBorderColor = Color.White, focusedScale = 1.02f)
                             .testTag("settings_done_button")
                     ) {
                         Text(stringResource(R.string.apply_return_dashboard), fontWeight = FontWeight.Bold, fontSize = 14.sp)
@@ -881,7 +895,7 @@ private fun SectionHeader(icon: ImageVector, title: String) {
 private fun SelectableChip(label: String, isSelected: Boolean, onClick: () -> Unit) {
     var isFocused by remember { mutableStateOf(false) }
     val focusScale by animateFloatAsState(
-        targetValue = if (isFocused) 1.05f else 1.0f,
+        targetValue = if (isFocused) 1.08f else 1.0f,
         label = "chip_focus_scale"
     )
 
@@ -889,10 +903,10 @@ private fun SelectableChip(label: String, isSelected: Boolean, onClick: () -> Un
         modifier = Modifier
             .scale(focusScale)
             .clip(RoundedCornerShape(8.dp))
-            .background(if (isSelected) Color(0x3300E5FF) else DarkSurfaceElevated)
+            .background(if (isFocused) CyanAccent.copy(alpha = 0.28f) else if (isSelected) Color(0x3300E5FF) else DarkSurfaceElevated)
             .border(
-                width = if (isSelected || isFocused) 1.5.dp else 1.dp,
-                color = if (isSelected || isFocused) CyanAccent else DarkBorder,
+                width = if (isFocused) 2.dp else if (isSelected) 1.5.dp else 1.dp,
+                color = if (isFocused) Color.White else if (isSelected) CyanAccent else DarkBorder,
                 shape = RoundedCornerShape(8.dp)
             )
             .focusable()
@@ -907,7 +921,7 @@ private fun SelectableChip(label: String, isSelected: Boolean, onClick: () -> Un
             }
             Text(
                 text = label,
-                color = if (isSelected || isFocused) CyanAccent else TextPrimary,
+                color = if (isFocused) Color.White else if (isSelected) CyanAccent else TextPrimary,
                 fontSize = 12.sp,
                 fontWeight = if (isSelected || isFocused) FontWeight.Bold else FontWeight.Normal
             )
@@ -919,7 +933,7 @@ private fun SelectableChip(label: String, isSelected: Boolean, onClick: () -> Un
 private fun ToggleUnitBox(title: String, value: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
     var isFocused by remember { mutableStateOf(false) }
     val focusScale by animateFloatAsState(
-        targetValue = if (isFocused) 1.04f else 1.0f,
+        targetValue = if (isFocused) 1.05f else 1.0f,
         label = "unit_box_scale"
     )
 
@@ -927,10 +941,10 @@ private fun ToggleUnitBox(title: String, value: String, onClick: () -> Unit, mod
         modifier = modifier
             .scale(focusScale)
             .clip(RoundedCornerShape(10.dp))
-            .background(DarkSurfaceElevated)
+            .background(if (isFocused) CyanAccent.copy(alpha = 0.15f) else DarkSurfaceElevated)
             .border(
-                width = if (isFocused) 1.5.dp else 1.dp,
-                color = if (isFocused) CyanAccent else DarkBorder,
+                width = if (isFocused) 2.dp else 1.dp,
+                color = if (isFocused) Color.White else DarkBorder,
                 shape = RoundedCornerShape(10.dp)
             )
             .focusable()
@@ -939,7 +953,7 @@ private fun ToggleUnitBox(title: String, value: String, onClick: () -> Unit, mod
             .padding(10.dp)
     ) {
         Column {
-            Text(text = title, color = TextMuted, fontSize = 10.sp)
+            Text(text = title, color = if (isFocused) Color.White else TextMuted, fontSize = 10.sp)
             Spacer(modifier = Modifier.height(2.dp))
             Text(text = value, color = CyanAccent, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
         }
@@ -948,16 +962,31 @@ private fun ToggleUnitBox(title: String, value: String, onClick: () -> Unit, mod
 
 @Composable
 private fun WidgetToggleRow(label: String, checked: Boolean, onCheckedChange: (Boolean) -> Unit) {
+    var isFocused by remember { mutableStateOf(false) }
+
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(8.dp))
-            .background(DarkSurfaceElevated.copy(alpha = 0.5f))
+            .background(if (isFocused) CyanAccent.copy(alpha = 0.18f) else DarkSurfaceElevated.copy(alpha = 0.5f))
+            .border(
+                width = if (isFocused) 2.dp else 1.dp,
+                color = if (isFocused) Color.White else Color.Transparent,
+                shape = RoundedCornerShape(8.dp)
+            )
+            .focusable()
+            .onFocusChanged { isFocused = it.isFocused }
+            .clickable { onCheckedChange(!checked) }
             .padding(horizontal = 12.dp, vertical = 6.dp)
     ) {
-        Text(text = label, color = TextPrimary, fontSize = 13.sp)
+        Text(
+            text = label,
+            color = if (isFocused) Color.White else TextPrimary,
+            fontSize = 13.sp,
+            fontWeight = if (isFocused) FontWeight.Bold else FontWeight.Normal
+        )
         Switch(
             checked = checked,
             onCheckedChange = onCheckedChange,

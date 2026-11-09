@@ -205,7 +205,9 @@ fun VoiceCommandOverlay(
 
                         IconButton(
                             onClick = onClose,
-                            modifier = Modifier.testTag("voice_close_button")
+                            modifier = Modifier
+                                .tvFocusHighlight(shape = RoundedCornerShape(8.dp), focusedScale = 1.15f)
+                                .testTag("voice_close_button")
                         ) {
                             Icon(
                                 imageVector = Icons.Default.Close,
@@ -395,7 +397,9 @@ fun VoiceCommandOverlay(
                                     },
                                     colors = ButtonDefaults.buttonColors(containerColor = CyanAccent, contentColor = VoidBlack),
                                     shape = RoundedCornerShape(12.dp),
-                                    modifier = Modifier.testTag("voice_grant_permission_button")
+                                    modifier = Modifier
+                                        .tvFocusHighlight(shape = RoundedCornerShape(12.dp), focusedBorderColor = Color.White, focusedScale = 1.05f)
+                                        .testTag("voice_grant_permission_button")
                                 ) {
                                     Text(stringResource(R.string.voice_grant_permission), fontWeight = FontWeight.Bold)
                                 }
@@ -444,10 +448,10 @@ fun VoiceCommandOverlay(
                             Box(
                                 modifier = Modifier
                                     .clip(RoundedCornerShape(10.dp))
-                                    .background(DarkSurfaceElevated)
+                                    .background(if (isChipFocused) CyanAccent.copy(alpha = 0.22f) else DarkSurfaceElevated)
                                     .border(
-                                        width = if (isChipFocused) 1.5.dp else 1.dp,
-                                        color = if (isChipFocused) CyanAccent else DarkBorder,
+                                        width = if (isChipFocused) 2.dp else 1.dp,
+                                        color = if (isChipFocused) Color.White else DarkBorder,
                                         shape = RoundedCornerShape(10.dp)
                                     )
                                     .focusable()
@@ -460,7 +464,7 @@ fun VoiceCommandOverlay(
                             ) {
                                 Text(
                                     text = label,
-                                    color = if (isChipFocused) CyanAccent else TextSecondary,
+                                    color = if (isChipFocused) Color.White else TextSecondary,
                                     fontSize = 11.sp,
                                     fontWeight = FontWeight.Medium
                                 )

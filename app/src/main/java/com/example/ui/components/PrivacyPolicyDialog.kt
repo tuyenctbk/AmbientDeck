@@ -108,7 +108,10 @@ fun PrivacyPolicyDialog(
                             )
                         }
 
-                        IconButton(onClick = onClose) {
+                        IconButton(
+                            onClick = onClose,
+                            modifier = Modifier.tvFocusHighlight(shape = RoundedCornerShape(8.dp), focusedScale = 1.15f)
+                        ) {
                             Icon(Icons.Default.Close, contentDescription = stringResource(R.string.close), tint = TextSecondary)
                         }
                     }
@@ -147,6 +150,7 @@ fun PrivacyPolicyDialog(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(46.dp)
+                            .tvFocusHighlight(shape = RoundedCornerShape(12.dp), focusedBorderColor = androidx.compose.ui.graphics.Color.White, focusedScale = 1.02f)
                             .testTag("privacy_ok_button")
                     ) {
                         Text(stringResource(R.string.privacy_policy_ok), fontWeight = FontWeight.Bold, fontSize = 14.sp)

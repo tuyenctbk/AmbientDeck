@@ -46,6 +46,14 @@ class MainActivity : ComponentActivity() {
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         return when (keyCode) {
+            KeyEvent.KEYCODE_BACK -> {
+                if (viewModel.uiState.value.isScreensaverActive) {
+                    viewModel.onToggleScreensaver(false)
+                    true
+                } else {
+                    super.onKeyDown(keyCode, event)
+                }
+            }
             KeyEvent.KEYCODE_MENU -> {
                 viewModel.onToggleSettings(true)
                 true

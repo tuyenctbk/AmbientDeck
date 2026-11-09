@@ -79,6 +79,7 @@ import com.example.ui.components.SplashScreen
 import com.example.ui.components.VoiceCommandOverlay
 import com.example.ui.components.WeatherAqiWidget
 import com.example.ui.components.WidgetDetailDialog
+import com.example.ui.components.tvFocusHighlight
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import com.example.ui.theme.CyanAccent
@@ -177,8 +178,9 @@ fun AmbientDeckScreen(
                             overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
                             modifier = Modifier
                                 .weight(1f, fill = false)
-                                .clip(RoundedCornerShape(6.dp))
+                                .tvFocusHighlight(shape = RoundedCornerShape(6.dp), focusedBorderColor = CyanAccent, focusedScale = 1.02f)
                                 .clickable { viewModel.onToggleArtGallery(true) }
+                                .padding(horizontal = 4.dp, vertical = 2.dp)
                                 .testTag("wallpaper_metadata_tag")
                         )
                     } else {
@@ -758,8 +760,6 @@ private fun FloatingControlBar(
     onRefresh: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var isBarFocused by remember { mutableStateOf(false) }
-
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(if (isCompact) 4.dp else 8.dp),
@@ -767,51 +767,64 @@ private fun FloatingControlBar(
             .clip(RoundedCornerShape(16.dp))
             .background(GlassOverlay)
             .border(
-                width = if (isBarFocused) 2.dp else 1.dp,
-                color = if (isBarFocused) CyanAccent else GlassBorder,
+                width = 1.dp,
+                color = GlassBorder,
                 shape = RoundedCornerShape(16.dp)
             )
-            .focusable()
-            .onFocusChanged { isBarFocused = it.isFocused }
             .padding(horizontal = if (isCompact) 8.dp else 12.dp, vertical = if (isCompact) 4.dp else 6.dp)
             .testTag("floating_control_bar")
     ) {
         // Art Gallery & Collections
         IconButton(
             onClick = onOpenArtGallery,
-            modifier = Modifier.size(if (isCompact) 30.dp else 36.dp).testTag("action_art_gallery")
+            modifier = Modifier
+                .size(if (isCompact) 32.dp else 38.dp)
+                .tvFocusHighlight(shape = RoundedCornerShape(10.dp), focusedBorderColor = CyanAccent, focusedScale = 1.15f)
+                .testTag("action_art_gallery")
         ) {
-            Icon(Icons.Default.PhotoLibrary, contentDescription = stringResource(R.string.action_art_gallery), tint = CyanAccent, modifier = Modifier.size(if (isCompact) 15.dp else 18.dp))
+            Icon(Icons.Default.PhotoLibrary, contentDescription = stringResource(R.string.action_art_gallery), tint = CyanAccent, modifier = Modifier.size(if (isCompact) 16.dp else 18.dp))
         }
 
         // Next Wallpaper
         IconButton(
             onClick = onCycleWallpaper,
-            modifier = Modifier.size(if (isCompact) 30.dp else 36.dp).testTag("action_next_wallpaper")
+            modifier = Modifier
+                .size(if (isCompact) 32.dp else 38.dp)
+                .tvFocusHighlight(shape = RoundedCornerShape(10.dp), focusedBorderColor = CyanAccent, focusedScale = 1.15f)
+                .testTag("action_next_wallpaper")
         ) {
-            Icon(Icons.Default.Image, contentDescription = stringResource(R.string.next_wallpaper), tint = TextSecondary, modifier = Modifier.size(if (isCompact) 15.dp else 18.dp))
+            Icon(Icons.Default.Image, contentDescription = stringResource(R.string.next_wallpaper), tint = TextSecondary, modifier = Modifier.size(if (isCompact) 16.dp else 18.dp))
         }
 
         // Layout Preset
         IconButton(
             onClick = onCycleLayout,
-            modifier = Modifier.size(if (isCompact) 30.dp else 36.dp).testTag("action_cycle_layout")
+            modifier = Modifier
+                .size(if (isCompact) 32.dp else 38.dp)
+                .tvFocusHighlight(shape = RoundedCornerShape(10.dp), focusedBorderColor = SunsetAmber, focusedScale = 1.15f)
+                .testTag("action_cycle_layout")
         ) {
-            Icon(Icons.Default.Dashboard, contentDescription = stringResource(R.string.switch_layout), tint = SunsetAmber, modifier = Modifier.size(if (isCompact) 15.dp else 18.dp))
+            Icon(Icons.Default.Dashboard, contentDescription = stringResource(R.string.switch_layout), tint = SunsetAmber, modifier = Modifier.size(if (isCompact) 16.dp else 18.dp))
         }
 
         // Voice Commands Interface
         IconButton(
             onClick = onOpenVoiceCommand,
-            modifier = Modifier.size(if (isCompact) 30.dp else 36.dp).testTag("action_voice_command")
+            modifier = Modifier
+                .size(if (isCompact) 32.dp else 38.dp)
+                .tvFocusHighlight(shape = RoundedCornerShape(10.dp), focusedBorderColor = CyanAccent, focusedScale = 1.15f)
+                .testTag("action_voice_command")
         ) {
-            Icon(Icons.Default.Mic, contentDescription = stringResource(R.string.action_voice_command), tint = CyanAccent, modifier = Modifier.size(if (isCompact) 15.dp else 18.dp))
+            Icon(Icons.Default.Mic, contentDescription = stringResource(R.string.action_voice_command), tint = CyanAccent, modifier = Modifier.size(if (isCompact) 16.dp else 18.dp))
         }
 
         // Refresh Data
         IconButton(
             onClick = onRefresh,
-            modifier = Modifier.size(if (isCompact) 30.dp else 36.dp).testTag("action_refresh")
+            modifier = Modifier
+                .size(if (isCompact) 32.dp else 38.dp)
+                .tvFocusHighlight(shape = RoundedCornerShape(10.dp), focusedBorderColor = EmeraldGreen, focusedScale = 1.15f)
+                .testTag("action_refresh")
         ) {
             if (isRefreshing) {
                 CircularProgressIndicator(
@@ -820,16 +833,19 @@ private fun FloatingControlBar(
                     color = CyanAccent
                 )
             } else {
-                Icon(Icons.Default.Refresh, contentDescription = stringResource(R.string.refresh_data), tint = EmeraldGreen, modifier = Modifier.size(if (isCompact) 15.dp else 18.dp))
+                Icon(Icons.Default.Refresh, contentDescription = stringResource(R.string.refresh_data), tint = EmeraldGreen, modifier = Modifier.size(if (isCompact) 16.dp else 18.dp))
             }
         }
 
         // Deck Settings
         IconButton(
             onClick = onOpenSettings,
-            modifier = Modifier.size(if (isCompact) 30.dp else 36.dp).testTag("action_open_settings")
+            modifier = Modifier
+                .size(if (isCompact) 32.dp else 38.dp)
+                .tvFocusHighlight(shape = RoundedCornerShape(10.dp), focusedBorderColor = CyanAccent, focusedScale = 1.15f)
+                .testTag("action_open_settings")
         ) {
-            Icon(Icons.Default.Tune, contentDescription = stringResource(R.string.deck_settings), tint = CyanAccent, modifier = Modifier.size(if (isCompact) 15.dp else 18.dp))
+            Icon(Icons.Default.Tune, contentDescription = stringResource(R.string.deck_settings), tint = CyanAccent, modifier = Modifier.size(if (isCompact) 16.dp else 18.dp))
         }
     }
 }

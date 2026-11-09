@@ -126,7 +126,9 @@ fun WidgetDetailDialog(
 
                         IconButton(
                             onClick = onClose,
-                            modifier = Modifier.testTag("detail_dialog_close")
+                            modifier = Modifier
+                                .tvFocusHighlight(shape = RoundedCornerShape(8.dp), focusedScale = 1.15f)
+                                .testTag("detail_dialog_close")
                         ) {
                             Icon(Icons.Default.Close, contentDescription = stringResource(R.string.close), tint = TextSecondary)
                         }
