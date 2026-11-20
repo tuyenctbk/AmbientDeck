@@ -581,6 +581,15 @@ class AmbientDeckViewModel(
         _uiState.update { it.copy(pendingPrompt = null) }
     }
 
+    fun dismissPrompt() {
+        when (_uiState.value.pendingPrompt) {
+            PromptType.RATE -> onRateLater()
+            PromptType.SHARE -> onDismissShare()
+            PromptType.UPDATE -> onDismissUpdate()
+            null -> {}
+        }
+    }
+
     fun onTogglePrivacyPolicy(show: Boolean) {
         if (show) engagementManager?.recordInteraction()
         _uiState.update { it.copy(showPrivacyPolicy = show) }

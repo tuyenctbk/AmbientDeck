@@ -1,6 +1,9 @@
 package com.example.ui.components
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.ui.draw.shadow
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -123,12 +126,21 @@ fun Modifier.tvFocusHighlight(
     var isFocused by remember { mutableStateOf(false) }
     val scale by animateFloatAsState(
         targetValue = if (isFocused) focusedScale else 1.0f,
-        animationSpec = tween(150),
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessLow
+        ),
         label = "tv_focus_scale"
     )
 
     return this
         .scale(scale)
+        .shadow(
+            elevation = if (isFocused) 12.dp else 0.dp,
+            shape = shape,
+            spotColor = focusedBorderColor,
+            ambientColor = focusedBorderColor
+        )
         .clip(shape)
         .then(
             if (isFocused) {

@@ -45,13 +45,40 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        viewModel.onUserActivity()
         return when (keyCode) {
             KeyEvent.KEYCODE_BACK -> {
-                if (viewModel.uiState.value.isScreensaverActive) {
-                    viewModel.onToggleScreensaver(false)
-                    true
-                } else {
-                    super.onKeyDown(keyCode, event)
+                val state = viewModel.uiState.value
+                when {
+                    state.isScreensaverActive -> {
+                        viewModel.onToggleScreensaver(false)
+                        true
+                    }
+                    state.isVoiceOverlayOpen -> {
+                        viewModel.onToggleVoiceOverlay(false)
+                        true
+                    }
+                    state.showPrivacyPolicy -> {
+                        viewModel.onTogglePrivacyPolicy(false)
+                        true
+                    }
+                    state.pendingPrompt != null -> {
+                        viewModel.dismissPrompt()
+                        true
+                    }
+                    state.isArtGalleryOpen -> {
+                        viewModel.onToggleArtGallery(false)
+                        true
+                    }
+                    state.inspectedWidget != null -> {
+                        viewModel.onInspectWidget(null)
+                        true
+                    }
+                    state.isSettingsOpen -> {
+                        viewModel.onToggleSettings(false)
+                        true
+                    }
+                    else -> super.onKeyDown(keyCode, event)
                 }
             }
             KeyEvent.KEYCODE_MENU -> {

@@ -206,12 +206,45 @@ private fun CryptoMiniCard(
     val priceFormatter = DecimalFormat("#,##0.00")
     val displayPrice = if (ticker.priceUsd < 1.0) "%.4f".format(ticker.priceUsd) else priceFormatter.format(ticker.priceUsd)
 
+    var isCardFocused by remember { mutableStateOf(false) }
+    val cardScale by animateFloatAsState(
+        targetValue = if (isCardFocused) 1.05f else 1.0f,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioMediumBouncy,
+            stiffness = Spring.StiffnessLow
+        ),
+        label = "crypto_card_scale"
+    )
+
     Box(
         modifier = Modifier
+            .scale(cardScale)
+            .shadow(
+                elevation = if (isCardFocused) 10.dp else 0.dp,
+                shape = RoundedCornerShape(14.dp),
+                spotColor = SunsetAmber,
+                ambientColor = SunsetAmber
+            )
             .clip(RoundedCornerShape(14.dp))
-            .background(Color(0x22182234))
-            .border(1.dp, DarkBorder.copy(alpha = 0.6f), RoundedCornerShape(14.dp))
+            .background(if (isCardFocused) Color(0x44243654) else Color(0x22182234))
+            .border(
+                width = if (isCardFocused) 2.dp else 1.dp,
+                color = if (isCardFocused) SunsetAmber else DarkBorder.copy(alpha = 0.6f),
+                shape = RoundedCornerShape(14.dp)
+            )
+            .focusable()
+            .onFocusChanged { isCardFocused = it.isFocused }
             .clickable { onClick() }
+            .onKeyEvent { event ->
+                if (event.type == KeyEventType.KeyUp &&
+                    (event.key == Key.DirectionCenter ||
+                     event.key == Key.Enter ||
+                     event.key == Key.NumPadEnter)
+                ) {
+                    onClick()
+                    true
+                } else false
+            }
             .padding(horizontal = if (isShort || isCompact) 8.dp else 10.dp, vertical = if (isShort || isCompact) 5.dp else 8.dp)
             .width(if (isShort) 130.dp else if (isCompact) 146.dp else 138.dp)
             .testTag("crypto_card_${ticker.symbol.lowercase()}")

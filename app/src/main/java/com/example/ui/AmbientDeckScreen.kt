@@ -1,5 +1,6 @@
 package com.example.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
@@ -98,6 +99,26 @@ fun AmbientDeckScreen(
     modifier: Modifier = Modifier
 ) {
     val uiState by viewModel.uiState.collectAsState()
+
+    val anyOverlayOpen = uiState.isScreensaverActive ||
+            uiState.isVoiceOverlayOpen ||
+            uiState.showPrivacyPolicy ||
+            uiState.pendingPrompt != null ||
+            uiState.isArtGalleryOpen ||
+            uiState.inspectedWidget != null ||
+            uiState.isSettingsOpen
+
+    BackHandler(enabled = anyOverlayOpen) {
+        when {
+            uiState.isScreensaverActive -> viewModel.onToggleScreensaver(false)
+            uiState.isVoiceOverlayOpen -> viewModel.onToggleVoiceOverlay(false)
+            uiState.showPrivacyPolicy -> viewModel.onTogglePrivacyPolicy(false)
+            uiState.pendingPrompt != null -> viewModel.dismissPrompt()
+            uiState.isArtGalleryOpen -> viewModel.onToggleArtGallery(false)
+            uiState.inspectedWidget != null -> viewModel.onInspectWidget(null)
+            uiState.isSettingsOpen -> viewModel.onToggleSettings(false)
+        }
+    }
 
     Box(
         modifier = modifier

@@ -137,4 +137,14 @@ class ExampleRobolectricTest {
         assertNotNull(feedbackWeather)
         assertTrue(feedbackWeather.isNotBlank())
     }
+
+    @Test
+    fun `verify dismissPrompt cleanly resets active prompt`() {
+        val vm = com.example.ui.AmbientDeckViewModel()
+        vm.onOpenPrompt(com.example.data.manager.PromptType.RATE)
+        assertEquals(com.example.data.manager.PromptType.RATE, vm.uiState.value.pendingPrompt)
+
+        vm.dismissPrompt()
+        assertNull(vm.uiState.value.pendingPrompt)
+    }
 }
